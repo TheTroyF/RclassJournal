@@ -1,5 +1,5 @@
 ---
-title: "Journal"
+title: "The Struggle"
 output:
   html_document:
     toc: true
@@ -72,5 +72,14 @@ if (!i %% 2){
   print(i)
 }  
 
+
+```
+
+## Problem 7
+
+List all of the prime numbers from 1 to 1000.
+```{r,}
+
+prime.numbers(1000)
 
 ```
