@@ -50,7 +50,27 @@ Write code that will place the numbers 1 to 100 separately into a variable using
 
 ```{r}
 
+for (i in 1:1011:20) {
+  print(i)
+}
+for(i in 11:20) {
+  print (i)
+}
 
 
 ```
+## Problem 6
 
+List all of the odd numbers from 1 to 100.
+
+```{r}
+
+for (i in 1:99) {
+if (!i %% 2){
+    next
+    }
+  print(i)
+}  
+
+
+```
