@@ -156,3 +156,15 @@ t[[1]]
 t[[1]][2]#use to access second item in string
 t[[1]][6]#use to access sixth item in string
 ```
+
+
+## Problem 12
+
+Count the number of words in a string variable
+```{r}
+
+a <- "counting words in a string"
+strsplit(a,split=" ") #Error in strsplit(a, split = " ") : object 'a' not found but still allows to knit and send through gateway to website
+
+
+```
