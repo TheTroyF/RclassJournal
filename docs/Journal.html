@@ -652,10 +652,10 @@ table(a) </code></pre>
 <div id="problem-15" class="section level2">
 <h2>Problem 15 ????</h2>
 <p>Do a logical test to see if one word is found within the text of another string variable.</p>
-<pre class="r"><code>a &lt;- c(&quot;hi my name is troy&quot;) #are words not allowed?
-b &lt;- (&quot;hi&quot;)
+<pre class="r"><code>test_word &lt;- &quot;hi&quot;  
+test_sentence &lt;- &quot;hi my name is troy&quot;
 
-b%in%a #this should be true</code></pre>
+test_word%in%test_sentence #should be true...</code></pre>
 <pre><code>## [1] FALSE</code></pre>
 <pre class="r"><code>c &lt;- c(1,2,3,4,5,6)
 d &lt;- 2
@@ -669,6 +669,8 @@ d%in%c</code></pre>
 <div id="problem-16" class="section level2">
 <h2>Problem 16</h2>
 <p>Put the current computer time in milliseconds into a variable</p>
+<pre class="r"><code>print(as.numeric(Sys.time())*1000, digits=15)</code></pre>
+<pre><code>## [1] 1548962003942.2</code></pre>
 </div>
 
 

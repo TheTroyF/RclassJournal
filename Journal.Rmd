@@ -201,10 +201,10 @@ Do a logical test to see if one word is found within the text of another string 
 
 ```{r}
 
-a <- c("hi my name is troy") #are words not allowed?
-b <- ("hi")
+test_word <- "hi"  
+test_sentence <- "hi my name is troy"
 
-b%in%a #this should be true
+test_word%in%test_sentence #should be true...
 
 c <- c(1,2,3,4,5,6)
 d <- 2
@@ -219,6 +219,8 @@ e%in%c
 Put the current computer time in milliseconds into a variable
 
 ```{r}
+
+print(as.numeric(Sys.time())*1000, digits=15)
 
 
 
