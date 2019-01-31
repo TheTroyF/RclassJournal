@@ -59,6 +59,26 @@ for(i in 11:20) {
 
 
 ```
+## Problem 4
+
+Find the sum of all the integer numbers from 1 to 100.
+
+```{r}
+
+sum(1:100)
+
+
+
+```
+
+## Problem 5
+Write a function to find the sum of all integers between any two values.
+
+```{r}
+
+
+
+```
 ## Problem 6
 
 List all of the odd numbers from 1 to 100.
@@ -78,8 +98,58 @@ if (!i %% 2){
 ## Problem 7
 
 List all of the prime numbers from 1 to 1000.
-```{r,}
+```{r}
 
-prime.numbers(1000)
+
+
+```
+
+
+## Problem 8
+
+Generate 100 random numbers
+
+```{r}
+
+the_numbers <- runif (100, min=1, max=200)
+the_numbers
+
+```
+
+## Problem 9
+
+Generate 100 random numbers within a specific range
+
+```{r}
+the_numbers <- runif (100, min=1, max=100)
+the_numbers 
+
+```
+
+## Problem 10
+
+Write your own functions to give descriptive statistics for a vector variable storing multiple numbers. Write functions for the following without using R intrinsics: mean, mode, median, range, standard deviation
+
+```{r}
+some_numbers <- c(2,3,4,5,5,6,8) #c()=dataset
+mean(some_numbers) #finding mean
+median(some_numbers) #median
+range(some_numbers) #range
+sd(some_numbers) #standarddeviation
+y <- table(some_numbers)#finding mode
+y
+names(y)[which(y==max(y))]
+
+```
+
+## Problem 11
+
+Count the number of characters in a string variable
+
+```{r}
+
+q <- "dogs" #
+strsplit(q,split="")
+t <-strsplit(q,split ="")
 
 ```

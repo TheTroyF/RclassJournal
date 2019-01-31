@@ -11,7 +11,7 @@
 
 
 
-<title>Journal</title>
+<title>The Struggle</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -397,7 +397,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Journal</h1>
+<h1 class="title toc-ignore">The Struggle</h1>
 
 </div>
 
@@ -467,6 +467,16 @@ a+c</code></pre>
 ## [1] 19
 ## [1] 20</code></pre>
 </div>
+<div id="problem-4" class="section level2">
+<h2>Problem 4</h2>
+<p>Find the sum of all the integer numbers from 1 to 100.</p>
+<pre class="r"><code>sum(1:100)</code></pre>
+<pre><code>## [1] 5050</code></pre>
+</div>
+<div id="problem-5" class="section level2">
+<h2>Problem 5</h2>
+<p>Write a function to find the sum of all integers between any two values.</p>
+</div>
 <div id="problem-6" class="section level2">
 <h2>Problem 6</h2>
 <p>List all of the odd numbers from 1 to 100.</p>
@@ -530,18 +540,79 @@ if (!i %% 2){
 <div id="problem-7" class="section level2">
 <h2>Problem 7</h2>
 <p>List all of the prime numbers from 1 to 1000.</p>
-<pre class="r"><code>prime.numbers &lt;- function(limit){
-  n &lt;- 2:limit
-  i &lt;- 1
-  while(i &lt; length(n)){
-    p &lt;- n[i]
-    not.prime &lt;- n[which(n %% p==0)]
-    not.prime &lt;- not.prime[! not.prime %in% p]
-    n &lt;- n[! n %in% not.prime]
-    i &lt;- i + 1
-  }
-  n
-}</code></pre>
+</div>
+<div id="problem-8" class="section level2">
+<h2>Problem 8</h2>
+<p>Generate 100 random numbers</p>
+<pre class="r"><code>the_numbers &lt;- runif (100, min=1, max=200)
+the_numbers</code></pre>
+<pre><code>##   [1]  89.942647 199.390308  53.967557   1.451385 178.958993 177.452695
+##   [7] 113.265871 150.063307  86.554065  61.844202 159.075317 121.957683
+##  [13]  33.164236  60.506805  23.442637  77.862876  17.426506 154.102430
+##  [19] 160.899462 132.599602  56.785605 128.043376  33.454165  87.658474
+##  [25]  76.932423 160.793820 128.078097 168.907722  19.816673  32.427324
+##  [31]  98.621602 129.773049  34.993395   7.737990  74.214095  90.731651
+##  [37]  19.064302 102.483590 197.131713 169.262131  82.260183 197.078212
+##  [43]  80.679131 155.695925  40.799360  86.558645  26.463353 190.698951
+##  [49] 144.860817  90.824568  30.330018 115.242139  29.634231 187.437565
+##  [55]  41.038116  77.574694  99.665135 199.313923 173.149509  48.714121
+##  [61] 164.520298  22.428313 130.737641  77.685421 186.609457   5.787387
+##  [67]  89.541924 106.185856 180.900820  78.607570 132.296532  11.767321
+##  [73] 116.569321 143.752129  83.306211  42.177647 175.367487  71.156078
+##  [79]  74.044257 147.324780 179.914578  97.407815 154.568232 103.636985
+##  [85]  87.053060  34.656832  33.257937 148.455047 173.793594  26.161030
+##  [91]  80.467044   9.946928 130.763452 137.020204 156.368959 196.939160
+##  [97] 111.126802 130.305817  87.010084 132.696347</code></pre>
+</div>
+<div id="problem-9" class="section level2">
+<h2>Problem 9</h2>
+<p>Generate 100 random numbers within a specific range</p>
+<pre class="r"><code>the_numbers &lt;- runif (100, min=1, max=100)
+the_numbers </code></pre>
+<pre><code>##   [1] 82.966301 62.174165 22.433187 61.899506  7.534012 72.269163 67.423590
+##   [8] 41.537226 68.706900 63.514904 22.913653 45.471115 94.368256 14.822896
+##  [15] 88.225795 64.370208 64.515862 85.028040 44.745499  6.912605 28.278500
+##  [22] 84.932799 79.456542 78.031340 53.284954 94.622019 87.481260 91.739406
+##  [29] 21.813995 94.573611 26.626655 12.574362 31.299925 60.398338 47.308639
+##  [36] 77.981330 98.456212 35.616535 64.502140 65.994188 71.209755 38.384012
+##  [43] 53.440051 53.722822 98.027016  9.346916  6.262689 79.712674 66.588583
+##  [50] 74.838863 73.493009 24.913160 60.821742 99.658644 26.351740 92.817144
+##  [57] 87.036934 67.826946 94.537494 41.741802 91.250378  7.209296 76.618115
+##  [64] 68.161966 25.831907 81.179786 49.959581 39.842602  4.168031 37.826023
+##  [71] 31.825946 73.618741 51.277282 10.835601 40.821921 31.748300 49.645495
+##  [78] 96.706046 77.701687 31.689581 58.928212 22.092358 59.168081 51.321773
+##  [85] 94.740897 23.894550 80.257956 31.440774 61.226386 30.130551 25.350180
+##  [92] 75.941940 33.382908  1.878777 59.347616 33.772843 39.307895 11.645943
+##  [99] 86.293230 32.172332</code></pre>
+</div>
+<div id="problem-10" class="section level2">
+<h2>Problem 10</h2>
+<p>Write your own functions to give descriptive statistics for a vector variable storing multiple numbers. Write functions for the following without using R intrinsics: mean, mode, median, range, standard deviation</p>
+<pre class="r"><code>some_numbers &lt;- c(2,3,4,5,5,6,8) #c()=dataset
+mean(some_numbers) #finding mean</code></pre>
+<pre><code>## [1] 4.714286</code></pre>
+<pre class="r"><code>median(some_numbers) #median</code></pre>
+<pre><code>## [1] 5</code></pre>
+<pre class="r"><code>range(some_numbers) #range</code></pre>
+<pre><code>## [1] 2 8</code></pre>
+<pre class="r"><code>sd(some_numbers) #standarddeviation</code></pre>
+<pre><code>## [1] 1.976047</code></pre>
+<pre class="r"><code>y &lt;- table(some_numbers)#finding mode
+y</code></pre>
+<pre><code>## some_numbers
+## 2 3 4 5 6 8 
+## 1 1 1 2 1 1</code></pre>
+<pre class="r"><code>names(y)[which(y==max(y))]</code></pre>
+<pre><code>## [1] &quot;5&quot;</code></pre>
+</div>
+<div id="problem-11" class="section level2">
+<h2>Problem 11</h2>
+<p>Count the number of characters in a string variable</p>
+<pre class="r"><code>q &lt;- &quot;dogs&quot; #
+strsplit(q,split=&quot;&quot;)</code></pre>
+<pre><code>## [[1]]
+## [1] &quot;d&quot; &quot;o&quot; &quot;g&quot; &quot;s&quot;</code></pre>
+<pre class="r"><code>t &lt;-strsplit(q,split =&quot;&quot;)</code></pre>
 </div>
 
 
