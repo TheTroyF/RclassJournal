@@ -176,7 +176,7 @@ Count the number of sentences in a string variable
 ```{r}
 
 a <- "coding is hard. but i like the challenge"
-  strsplit(a,split=".")
+  strsplit(a,split="")
 
 
 ```
