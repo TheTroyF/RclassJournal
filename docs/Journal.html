@@ -608,11 +608,18 @@ y</code></pre>
 <div id="problem-11" class="section level2">
 <h2>Problem 11</h2>
 <p>Count the number of characters in a string variable</p>
-<pre class="r"><code>q &lt;- &quot;dogs&quot; #
+<pre class="r"><code>q &lt;- &quot;dogs cats&quot; #strsplit helps find letters in string
 strsplit(q,split=&quot;&quot;)</code></pre>
 <pre><code>## [[1]]
-## [1] &quot;d&quot; &quot;o&quot; &quot;g&quot; &quot;s&quot;</code></pre>
-<pre class="r"><code>t &lt;-strsplit(q,split =&quot;&quot;)</code></pre>
+## [1] &quot;d&quot; &quot;o&quot; &quot;g&quot; &quot;s&quot; &quot; &quot; &quot;c&quot; &quot;a&quot; &quot;t&quot; &quot;s&quot;</code></pre>
+<pre class="r"><code>t &lt;-strsplit(q,split =&quot;&quot;)
+
+t[[1]]</code></pre>
+<pre><code>## [1] &quot;d&quot; &quot;o&quot; &quot;g&quot; &quot;s&quot; &quot; &quot; &quot;c&quot; &quot;a&quot; &quot;t&quot; &quot;s&quot;</code></pre>
+<pre class="r"><code>t[[1]][2]#use to access second item in string</code></pre>
+<pre><code>## [1] &quot;o&quot;</code></pre>
+<pre class="r"><code>t[[1]][6]#use to access sixth item in string</code></pre>
+<pre><code>## [1] &quot;c&quot;</code></pre>
 </div>
 
 

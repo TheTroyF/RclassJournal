@@ -148,8 +148,11 @@ Count the number of characters in a string variable
 
 ```{r}
 
-q <- "dogs" #
+q <- "dogs cats" #strsplit helps find letters in string
 strsplit(q,split="")
 t <-strsplit(q,split ="")
 
+t[[1]]
+t[[1]][2]#use to access second item in string
+t[[1]][6]#use to access sixth item in string
 ```
