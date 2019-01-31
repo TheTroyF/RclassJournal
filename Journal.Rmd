@@ -164,7 +164,7 @@ Count the number of words in a string variable
 ```{r}
 
 a <- "counting words in a string"
-strsplit(a,split=" ") #Error in strsplit(a, split = " ") : object 'a' not found but still allows to knit and send through gateway to website
+strsplit(a,split=" ") #Error in strsplit(a, split = " ")
 
 
 ```
@@ -190,9 +190,23 @@ a <- "coding is hard. but i like the challenge"
 
 
 a <- c(2,5,3,4,5,7,5,4,3,3,5,6,8,9,0,7,4,3,2,3,5,8,6,4)
+table(a) 
 
-table(a) #Error in table(a) : object 'a' not found, regardless of error it still knits????
 
-#without table function you would use the mode option
+```
+
+## Problem 15
+
+Do a logical test to see if one word is found within the text of another string variable.
+
+```{r}
+
+a<- "hi"
+b<- "hi my name is troy"
+
+a%in%b
+
+
+
 
 ```

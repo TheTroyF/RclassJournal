@@ -625,7 +625,7 @@ t[[1]]</code></pre>
 <h2>Problem 12</h2>
 <p>Count the number of words in a string variable</p>
 <pre class="r"><code>a &lt;- &quot;counting words in a string&quot;
-strsplit(a,split=&quot; &quot;) #Error in strsplit(a, split = &quot; &quot;) : object &#39;a&#39; not found but still allows to knit and send through gateway to website</code></pre>
+strsplit(a,split=&quot; &quot;) #Error in strsplit(a, split = &quot; &quot;)</code></pre>
 <pre><code>## [[1]]
 ## [1] &quot;counting&quot; &quot;words&quot;    &quot;in&quot;       &quot;a&quot;        &quot;string&quot;</code></pre>
 </div>
@@ -644,12 +644,19 @@ strsplit(a,split=&quot; &quot;) #Error in strsplit(a, split = &quot; &quot;) : o
 <li>Count the number of times a specific character occurs in a string variable</li>
 </ol>
 <pre class="r"><code>a &lt;- c(2,5,3,4,5,7,5,4,3,3,5,6,8,9,0,7,4,3,2,3,5,8,6,4)
-
-table(a) #Error in table(a) : object &#39;a&#39; not found, regardless of error it still knits????</code></pre>
+table(a) </code></pre>
 <pre><code>## a
 ## 0 2 3 4 5 6 7 8 9 
 ## 1 2 5 4 5 2 2 2 1</code></pre>
-<pre class="r"><code>#without table function you would use the mode option</code></pre>
+</div>
+<div id="problem-15" class="section level2">
+<h2>Problem 15</h2>
+<p>Do a logical test to see if one word is found within the text of another string variable.</p>
+<pre class="r"><code>a&lt;- &quot;hi&quot;
+b&lt;- &quot;hi my name is troy&quot;
+
+a%in%b</code></pre>
+<pre><code>## [1] FALSE</code></pre>
 </div>
 
 
