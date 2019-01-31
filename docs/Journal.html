@@ -650,13 +650,25 @@ table(a) </code></pre>
 ## 1 2 5 4 5 2 2 2 1</code></pre>
 </div>
 <div id="problem-15" class="section level2">
-<h2>Problem 15</h2>
+<h2>Problem 15 ????</h2>
 <p>Do a logical test to see if one word is found within the text of another string variable.</p>
-<pre class="r"><code>a&lt;- &quot;hi&quot;
-b&lt;- &quot;hi my name is troy&quot;
+<pre class="r"><code>a &lt;- c(&quot;hi my name is troy&quot;) #are words not allowed?
+b &lt;- (&quot;hi&quot;)
 
-a%in%b</code></pre>
+b%in%a #this should be true</code></pre>
 <pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>c &lt;- c(1,2,3,4,5,6)
+d &lt;- 2
+e &lt;- 7
+
+d%in%c</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>e%in%c</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+</div>
+<div id="problem-16" class="section level2">
+<h2>Problem 16</h2>
+<p>Put the current computer time in milliseconds into a variable</p>
 </div>
 
 
