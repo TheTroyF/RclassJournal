@@ -629,6 +629,28 @@ strsplit(a,split=&quot; &quot;) #Error in strsplit(a, split = &quot; &quot;) : o
 <pre><code>## [[1]]
 ## [1] &quot;counting&quot; &quot;words&quot;    &quot;in&quot;       &quot;a&quot;        &quot;string&quot;</code></pre>
 </div>
+<div id="problem-13" class="section level2">
+<h2>Problem 13 ????</h2>
+<p>Count the number of sentences in a string variable</p>
+<pre class="r"><code>a &lt;- &quot;coding is hard. but i like the challenge&quot;
+  strsplit(a,split=&quot;.&quot;)</code></pre>
+<pre><code>## [[1]]
+##  [1] &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot;
+## [24] &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot;</code></pre>
+</div>
+<div id="problem-14" class="section level2">
+<h2>Problem 14</h2>
+<ol start="14" style="list-style-type: decimal">
+<li>Count the number of times a specific character occurs in a string variable</li>
+</ol>
+<pre class="r"><code>a &lt;- c(2,5,3,4,5,7,5,4,3,3,5,6,8,9,0,7,4,3,2,3,5,8,6,4)
+
+table(a) #Error in table(a) : object &#39;a&#39; not found, regardless of error it still knits????</code></pre>
+<pre><code>## a
+## 0 2 3 4 5 6 7 8 9 
+## 1 2 5 4 5 2 2 2 1</code></pre>
+<pre class="r"><code>#without table function you would use the mode option</code></pre>
+</div>
 
 
 
