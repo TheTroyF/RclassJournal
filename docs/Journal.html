@@ -11,7 +11,7 @@
 
 
 
-<title>The Struggle</title>
+<title>Journa</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -397,7 +397,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">The Struggle</h1>
+<h1 class="title toc-ignore">Journa</h1>
 
 </div>
 
@@ -430,7 +430,9 @@ a+c</code></pre>
 <div id="problem-3" class="section level2">
 <h2>Problem 3</h2>
 <p>Write code that will place the numbers 1 to 100 separately into a variable using for loop. Then, again using the seq function.</p>
-<pre class="r"><code>for (i in 1:1011:20) {
+<pre class="r"><code># i want it to do rows but i am getting stuck with one long column
+
+for (i in 1:100) {
   print(i)
 }</code></pre>
 <pre><code>## [1] 1
@@ -452,20 +454,87 @@ a+c</code></pre>
 ## [1] 17
 ## [1] 18
 ## [1] 19
-## [1] 20</code></pre>
-<pre class="r"><code>for(i in 11:20) {
-  print (i)
-}</code></pre>
-<pre><code>## [1] 11
-## [1] 12
-## [1] 13
-## [1] 14
-## [1] 15
-## [1] 16
-## [1] 17
-## [1] 18
-## [1] 19
-## [1] 20</code></pre>
+## [1] 20
+## [1] 21
+## [1] 22
+## [1] 23
+## [1] 24
+## [1] 25
+## [1] 26
+## [1] 27
+## [1] 28
+## [1] 29
+## [1] 30
+## [1] 31
+## [1] 32
+## [1] 33
+## [1] 34
+## [1] 35
+## [1] 36
+## [1] 37
+## [1] 38
+## [1] 39
+## [1] 40
+## [1] 41
+## [1] 42
+## [1] 43
+## [1] 44
+## [1] 45
+## [1] 46
+## [1] 47
+## [1] 48
+## [1] 49
+## [1] 50
+## [1] 51
+## [1] 52
+## [1] 53
+## [1] 54
+## [1] 55
+## [1] 56
+## [1] 57
+## [1] 58
+## [1] 59
+## [1] 60
+## [1] 61
+## [1] 62
+## [1] 63
+## [1] 64
+## [1] 65
+## [1] 66
+## [1] 67
+## [1] 68
+## [1] 69
+## [1] 70
+## [1] 71
+## [1] 72
+## [1] 73
+## [1] 74
+## [1] 75
+## [1] 76
+## [1] 77
+## [1] 78
+## [1] 79
+## [1] 80
+## [1] 81
+## [1] 82
+## [1] 83
+## [1] 84
+## [1] 85
+## [1] 86
+## [1] 87
+## [1] 88
+## [1] 89
+## [1] 90
+## [1] 91
+## [1] 92
+## [1] 93
+## [1] 94
+## [1] 95
+## [1] 96
+## [1] 97
+## [1] 98
+## [1] 99
+## [1] 100</code></pre>
 </div>
 <div id="problem-4" class="section level2">
 <h2>Problem 4</h2>
@@ -476,6 +545,11 @@ a+c</code></pre>
 <div id="problem-5" class="section level2">
 <h2>Problem 5</h2>
 <p>Write a function to find the sum of all integers between any two values.</p>
+<pre class="r"><code>a &lt;- 5
+b &lt;- 10
+
+sum(a:b)</code></pre>
+<pre><code>## [1] 45</code></pre>
 </div>
 <div id="problem-6" class="section level2">
 <h2>Problem 6</h2>
@@ -625,7 +699,7 @@ t[[1]]</code></pre>
 <h2>Problem 12</h2>
 <p>Count the number of words in a string variable</p>
 <pre class="r"><code>a &lt;- &quot;counting words in a string&quot;
-strsplit(a,split=&quot; &quot;) #Error in strsplit(a, split = &quot; &quot;)</code></pre>
+strsplit(a,split=&quot; &quot;) </code></pre>
 <pre><code>## [[1]]
 ## [1] &quot;counting&quot; &quot;words&quot;    &quot;in&quot;       &quot;a&quot;        &quot;string&quot;</code></pre>
 </div>
@@ -633,7 +707,7 @@ strsplit(a,split=&quot; &quot;) #Error in strsplit(a, split = &quot; &quot;)</co
 <h2>Problem 13 ????</h2>
 <p>Count the number of sentences in a string variable</p>
 <pre class="r"><code>a &lt;- &quot;coding is hard. but i like the challenge&quot;
-  strsplit(a,split=&quot;&quot;)</code></pre>
+  strsplit(a,split=&quot;&quot;) #not sure how to count sentences</code></pre>
 <pre><code>## [[1]]
 ##  [1] &quot;c&quot; &quot;o&quot; &quot;d&quot; &quot;i&quot; &quot;n&quot; &quot;g&quot; &quot; &quot; &quot;i&quot; &quot;s&quot; &quot; &quot; &quot;h&quot; &quot;a&quot; &quot;r&quot; &quot;d&quot; &quot;.&quot; &quot; &quot; &quot;b&quot;
 ## [18] &quot;u&quot; &quot;t&quot; &quot; &quot; &quot;i&quot; &quot; &quot; &quot;l&quot; &quot;i&quot; &quot;k&quot; &quot;e&quot; &quot; &quot; &quot;t&quot; &quot;h&quot; &quot;e&quot; &quot; &quot; &quot;c&quot; &quot;h&quot; &quot;a&quot;
@@ -672,6 +746,10 @@ d%in%c</code></pre>
 <p>Put the current computer time in milliseconds into a variable</p>
 <pre class="r"><code>print(as.numeric(Sys.time())*1000, digits=15)</code></pre>
 <pre><code>## [1] 1548962003942.2</code></pre>
+</div>
+<div id="problem-17" class="section level2">
+<h2>Problem 17</h2>
+<p>Measure how long a piece of code takes to run by measuring the time before the code is run, and after the code is run, and taking the difference to find the total time</p>
 </div>
 
 

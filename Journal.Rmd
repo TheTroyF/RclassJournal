@@ -1,5 +1,5 @@
 ---
-title: "The Struggle"
+title: "Journa"
 output:
   html_document:
     toc: true
@@ -48,15 +48,13 @@ b-troy+c
 
 Write code that will place the numbers 1 to 100 separately into a variable using for loop. Then, again using the seq function.
 
-```{r}
+```{r} 
 
-for (i in 1:1011:20) {
+# i want it to do rows but i am getting stuck with one long column
+
+for (i in 1:100) {
   print(i)
 }
-for(i in 11:20) {
-  print (i)
-}
-
 
 ```
 ## Problem 4
@@ -75,8 +73,10 @@ sum(1:100)
 Write a function to find the sum of all integers between any two values.
 
 ```{r}
+a <- 5
+b <- 10
 
-
+sum(a:b)
 
 ```
 ## Problem 6
@@ -164,7 +164,7 @@ Count the number of words in a string variable
 ```{r}
 
 a <- "counting words in a string"
-strsplit(a,split=" ") #Error in strsplit(a, split = " ")
+strsplit(a,split=" ") 
 
 
 ```
@@ -176,7 +176,7 @@ Count the number of sentences in a string variable
 ```{r}
 
 a <- "coding is hard. but i like the challenge"
-  strsplit(a,split="")
+  strsplit(a,split="") #not sure how to count sentences
 
 
 ```
@@ -227,3 +227,12 @@ print(as.numeric(Sys.time())*1000, digits=15)
 
 ```
 
+## Problem 17
+
+Measure how long a piece of code takes to run by measuring the time before the code is run, and after the code is run, and taking the difference to find the total time
+
+```{r}
+
+
+
+```
