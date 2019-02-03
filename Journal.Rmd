@@ -148,7 +148,7 @@ Count the number of characters in a string variable
 ```{r}
 
 q <- "dogs cats" #strsplit helps find letters in string
-strsplit(q,split="")
+strsplit(q,split="") #to split a character vector
 t <-strsplit(q,split ="")
 
 t[[1]]
@@ -235,3 +235,64 @@ Measure how long a piece of code takes to run by measuring the time before the c
 
 
 ```
+
+## Problem 18
+
+Read a .txt file or .csv file into a variable
+```{r}
+
+a <- "dogs and cats""
+scan(a) #is a general purpose text input function
+read.csv(a) #will read .csv files
+
+print(a)
+#not sure how to do this
+
+```
+
+
+## Problem 19
+
+Output the contents of a variable to a .txt file
+```{r}
+
+write.csv()
+
+
+```
+
+## Problem 20
+
+Create a variable that stores a 20x20 matrix of random numbers
+
+```{r}
+
+a <- matrix(0, ncol=20,nrow=20) 
+  print(a)
+  
+
+```
+
+## Problem 21
+
+Output any matrix to a txt file using commas or tabs to separate column values, and new lines to separate row values
+
+```{r}
+
+write.csv()
+
+```
+
+#HARDER PROBLEMS
+
+## Problem 1
+
+The FizzBuzz Problem. List the numbers from 1 to 100 with the following constraints. If the number can be divided by three evenly, then print Fizz instead of the number. If the number can be divided by five evenly, then print Buzz instead of the number. Finally, if the number can be divided by three and five evenly, then print FizzBuzz instead of the number. The answer could look something like this:
+
+```{r}
+
+
+
+```
+
+
