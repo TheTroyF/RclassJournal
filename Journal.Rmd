@@ -50,12 +50,11 @@ Write code that will place the numbers 1 to 100 separately into a variable using
 
 ```{r} 
 
-# i want it to do rows but i am getting stuck with one long column
-
+a <- length(100)
 for (i in 1:100) {
-  print(i)
+  a[i] <-i
 }
-
+print (a)
 ```
 ## Problem 4
 
@@ -84,12 +83,12 @@ sum(a:b)
 List all of the odd numbers from 1 to 100.
 
 ```{r}
-
+a <- length (1:99)
 for (i in 1:99) {
 if (!i %% 2){
     next
     }
-  print(i)
+  print(i)#id liek to print in rows
 }  
 
 
