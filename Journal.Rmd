@@ -51,7 +51,7 @@ Write code that will place the numbers 1 to 100 separately into a variable using
 ```{r} 
 
 a <- length(100)
-for (i in 1:100) {
+for (i in 1:100) { #: makes a sequence between numbers
   a[i] <-i
 }
 print (a)
@@ -88,56 +88,21 @@ for (i in 1:99) {
 if (!i %% 2){
     next
     }
-  print(i)#id liek to print in rows
+  print(i)#id like to print in rows
 }  
 
 
 ```
 
-## Problem 7
 
-List all of the prime numbers from 1 to 1000.
-```{r}
-
-
-
-```
-
-
-## Problem 8
-
-Generate 100 random numbers
+### Classroom Practice/definitions
+VECTOR
+LOGIC
+LOOP
 
 ```{r}
 
-the_numbers <- runif (100, min=1, max=200)
-the_numbers
 
-```
-
-## Problem 9
-
-Generate 100 random numbers within a specific range
-
-```{r}
-the_numbers <- runif (100, min=1, max=100)
-the_numbers 
-
-```
-
-## Problem 10
-
-Write your own functions to give descriptive statistics for a vector variable storing multiple numbers. Write functions for the following without using R intrinsics: mean, mode, median, range, standard deviation
-
-```{r}
-some_numbers <- c(2,3,4,5,5,6,8) #c()=dataset
-mean(some_numbers) #finding mean
-median(some_numbers) #median
-range(some_numbers) #range
-sd(some_numbers) #standarddeviation
-y <- table(some_numbers)#finding mode
-y
-names(y)[which(y==max(y))]
 
 ```
 
@@ -175,7 +140,7 @@ Count the number of sentences in a string variable
 ```{r}
 
 a <- "coding is hard. but i like the challenge"
-  strsplit(a,split="") #not sure how to count sentences
+  strsplit(a,split="[.]") #[.] sperates the sentences
 
 
 ```
@@ -205,12 +170,12 @@ test_sentence <- "hi my name is troy"
 
 test_word%in%test_sentence #should be true...
 
-c <- c(1,2,3,4,5,6)
+f <- c(1,2,3,4,5,6)
 d <- 2
 e <- 7
 
-d%in%c
-e%in%c
+d%in%f
+e%in%f
 ```
 
 ##Problem 16
@@ -295,4 +260,31 @@ The FizzBuzz Problem. List the numbers from 1 to 100 with the following constrai
 
 ```
 
+## Problem 2
+
+Take text as input, and be able to produce a table that shows the counts for each character in the text. This problem is related to the earlier easy problem asking you to count the number of times that a single letter appears in a text. The slightly harder problem is the more general version: count the frequencies of all unique characters in a text
+
+```{r}
+
+a<-"couting the letters in cats and dogs"
+table(unlist(strsplit(a,split="")))
+
+#without using table
+
+numbers <- c(1,2,3,4,5)
+letters <- c("a","b","c","d","e")
+
+new_df <- data.frame(numbers,letters)#storing variables into data frame 
+print(new_df)
+
+new_df$numbers #access individual columns of dataframe
+
+new_df$letters #access individual columns of dataframe
+
+names(new_df) #get names of data.frame
+
+
+
+
+```
 

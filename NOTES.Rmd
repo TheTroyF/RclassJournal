@@ -1,0 +1,106 @@
+---
+title: "Notes"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+## NOTES
+
+
+```{r}
+
+a <- 1
+b <- "hello world" 
+d <- "3" #using "" makes it a character instead of number
+
+class(a) #class tells me what kind of variable im working with
+ 
+class(d)
+
+vector <- c(1,2,3,4,5,6,7,4,6,7,8,5,3,3,2,8) #vector is what we store 
+
+#process of indentifying whats in a certain spot is indexing. #vector[7] shows us what is in the position 8
+
+vector[2:8] #finds the 2-8 positions
+
+vector [c(10,10,10,10,10,10)] #printing out things in position 10 six times
+
+vector[c(1,2,3,3,2,1)]
+
+vector <- c(1,2,3,4,5,6,7,4,6,7,8,5,3,3,2,8,1000) #note the large inaccuarate number
+vector[vector > 7]#only shows numbers that are greater than 7, to elimnate the 1000 insert vector[vector < 7]
+vector[vector < 7] #adding >= means greater than or equal to? 
+vector[vector == 5] #[==] in a row asks is it equal to?
+vector[vector != 5] #[!=] means 
+
+vector [8] <- 2000 #adds a number to the vector position at a later date
+vector [1:2] <- 10 #changes first two characters to 10
+class(vector) #what is within the vector?
+
+vector[7] <- "j" 
+
+a <- c("1","2","3") # a is a character vectro with 3 characters in it
+class(a) #asks what is in a?
+b <- a
+class(b)
+
+as.numeric(b) #will try to change the charcters into numbers if they are actually numbers
+
+a <- "iurbgiuqrebguqrvniowenfoimxqwio"
+strsplit(a,split="") #use this to split apart character strings
+b <- strsplit(a,split="") #
+b[[1]][5] #b is a list, access the first list [[1]], turns out the first list is a character vector, [5] access this 5th thing which is a character vector 
+class(b)
+
+ #when you have a bunch of strings/variables, write a loop that goes through each string and pulls what you want. vectorized operations does this. if you had paragrahs and you want to see what was in each, strsplit will give you results by each paragraph.
+
+b <- unlist(strsplit(a,split=""))
+b[5]
+
+example_list <- list(a=1, b=4, d=c(1,2,3,4))
+example_list[[1]] #[[1]]return whats in list one, used to pull whats from different lists
+
+g <- matrix(0,nrow=5, ncol=3)
+View(g)
+
+
+data.frame() #essentially an excel spreadsheet, if i can get my data into this format all of r will run. 
+
+
+first_names <- c("asdasas", "fwefef", "sfweg")
+ages <- c(2,7,9)
+grades <- c(89, 56, 99)
+
+#put into the data frame each variable
+everybody <- data.frame(first_names, 
+                        ages, 
+                        grades)
+View(everybody)
+everybody$ages[2] #gets the second thing in the column
+
+```
+
