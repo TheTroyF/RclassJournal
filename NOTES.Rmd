@@ -1,32 +1,18 @@
 ---
 title: "Notes"
-output: html_document
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    collapsed: false
+    number_sections: false
+    toc_depth: 1
+    #code_folding: hide
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
-
 
 ## NOTES
 
@@ -38,8 +24,11 @@ b <- "hello world"
 d <- "3" #using "" makes it a character instead of number
 
 class(a) #class tells me what kind of variable im working with
- 
+
 class(d)
+```
+
+```{r}
 
 vector <- c(1,2,3,4,5,6,7,4,6,7,8,5,3,3,2,8) #vector is what we store 
 
@@ -62,6 +51,9 @@ vector [1:2] <- 10 #changes first two characters to 10
 class(vector) #what is within the vector?
 
 vector[7] <- "j" 
+```
+
+```{r}
 
 a <- c("1","2","3") # a is a character vectro with 3 characters in it
 class(a) #asks what is in a?
@@ -80,6 +72,10 @@ class(b)
 
 b <- unlist(strsplit(a,split=""))
 b[5]
+
+```
+
+```{r}
 
 example_list <- list(a=1, b=4, d=c(1,2,3,4))
 example_list[[1]] #[[1]]return whats in list one, used to pull whats from different lists
@@ -103,4 +99,26 @@ View(everybody)
 everybody$ages[2] #gets the second thing in the column
 
 ```
+```{r}
 
+a<-"couting the letters in cats and dogs"
+table(unlist(strsplit(a,split="")))
+
+#without using table
+
+numbers <- c(1,2,3,4,5)
+letters <- c("a","b","c","d","e")
+
+new_df <- data.frame(numbers,letters)#storing variables into data frame 
+print(new_df)
+
+new_df$numbers #access individual columns of dataframe
+
+new_df$letters #access individual columns of dataframe
+
+names(new_df) #get names of data.frame
+
+
+
+
+```

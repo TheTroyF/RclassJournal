@@ -1,0 +1,182 @@
+---
+title: "Intrinsics"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    collapsed: false
+    number_sections: false
+    toc_depth: 1
+    #code_folding: hide
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## List of Functions
+
+
+
+###help(topic) - documentation on topic
+```{r}
+
+help(runif)
+
+```
+
+###?topic - id
+```{r}
+
+
+
+
+```
+
+is() - show objects in the search path; specify pat="pat" to search on a pattern
+```{r}
+a <- "troy"
+is(a)? #not sure if this is right
+
+
+```
+
+dir() - show files in the current directory
+
+```{r}
+
+
+getwd() #what working directory i am using
+
+dir() 
+```
+
+###list.files() - shows files in the directory
+
+```{r}
+
+list.files()
+
+```
+## INPUT AND OUTPUT
+
+###save() - saves the specified objects (...) in the XDR platform independent binary format
+
+```{r}
+
+save() #i picked files form list but it is saying they arent found 
+
+```
+
+
+###load() - load the datasets written with save
+
+```{r}
+
+load(index.rmd) #says not found
+
+```
+
+###data() - loads specified data sets
+```{r}
+
+
+```
+
+###library() - load add on packages from library
+```{r}
+
+library(bitops) #loading according, box became checked in system library
+
+```
+
+###read.table() - reads a file in table format and creates a data
+frame from it; the default separator sep="" is any whitespace; use header=TRUE to read the first line as a header of column names; use as.is=TRUE to prevent character vectors from being converted to factors; use comment.char="" to prevent "#" from being interpreted as a comment; use skip=n to skip n lines before reading data; see the help for options on row naming, NA treatment, and others
+```{r}
+
+#???
+
+```
+
+###read.csv() - ("filename",header=TRUE) id. but with defaults set for reading comma-delimited files
+```{r}
+
+myfile <- "troysdata.csv" #the data file i want to read
+thedata <- read.csv(myfile, row.names=5)#only read row 5
+
+print(thedata)
+
+```
+
+###scan() - function read data from screen or file. Large data can be scanned in by just copy and paste, for example paste from EXCEL. Then use "ctrl+v" to paste the data, the data type will be automatically determined.
+```{r}
+dir()
+scan(docs) #i dont see how this isnt found its clearly in the directory
+
+```
+
+###print() - prints its arguments; generic, meaning it can have different methods for different objects
+```{r}
+
+a <- "hello"
+print(a)
+
+```
+
+###cat() - (..., file="", sep=" ") prints the arguments after coercing to character; sep is the character separator between arguments
+```{r}
+
+cat(b) #simply shows me whats in variabke (b)
+
+```
+
+###write.table() - prints x after converting to a data frame; if quote is TRUE,character or factor columns are surrounded by quotes ("); sep is the field separator; eol is the end-of-line separator; na is the string for missing values; use col.names=NA to add a blank column header to get the column headers aligned correctly for spreadsheet input
+```{r}
+
+
+write.table(example_list) #example list was saved in the notes document but i recently added it to the envirnment as a saved variable
+
+```
+
+##DATA CREATION 
+
+###c() - combine arguements by forming a vector, if recursive=TRUE is used it will descend through lists combining all elements in one vector
+```{r}
+
+first_names <- c("asdasas", "fwefef", "sfweg")
+
+write.table(first_names)
+
+```
+
+###from:to (where from and to are replaced with numbers, e.g. 1:10)
+```{r}
+
+a <- (1:5)
+a
+```
+
+###seq() - generates a sequence by= specifies increment, length= specifies how long
+```{r}
+
+seq(2:10, by = 2) # i esentially want to show only even numbers the by= isnt doing what i think it should 
+
+seq(2:10, by = (1))
+```
+
+
+###rep() - used to replicate. replicate x times; use each= to repeat “each” element of x each times; rep(c(1,2,3),2) is 1 2 3 1 2 3; rep(c(1,2,3),each=2) is 1 1 2 2 3 3
+```{r}
+
+rep(c(1,2,3),each=2)
+
+```
+
+
+###data.frame - create a data frame of the named or unnamed arguments; data.frame(v=1:4,ch=c("a","B","c","d"),n=10);shorter vectors are recycled to the length of the longest
+```{r}
+
+
+
+```

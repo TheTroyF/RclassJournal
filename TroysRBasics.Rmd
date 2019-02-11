@@ -1,0 +1,328 @@
+---
+title: "Troy's R Basics"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    collapsed: false
+    number_sections: false
+    toc_depth: 1
+    #code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
+```
+
+## Problem 1
+
+Do simple math with numbers, addition, subtraction, multiplication, division
+
+```{r}
+1+1
+3-2
+4*6
+5/7
+
+
+```
+
+## Problem 2
+
+Put numbers into variables, do simple math on the variables
+```{r}
+
+troy <- 1
+abc <- 389
+a <- 1
+b <- 2
+c <- 3
+a+c
+
+b-troy+c
+
+
+```
+
+## Problem 3
+
+Write code that will place the numbers 1 to 100 separately into a variable using for loop. Then, again using the seq function.
+
+```{r} 
+
+a <- length(100)
+for (i in 1:100) { #: makes a sequence between numbers
+  a[i] <-i
+}
+print (a)
+```
+## Problem 4
+
+Find the sum of all the integer numbers from 1 to 100.
+
+```{r}
+
+sum(1:100)
+
+
+
+```
+
+## Problem 5
+Write a function to find the sum of all integers between any two values.
+
+```{r}
+a <- 5
+b <- 10
+
+sum(a:b)
+
+```
+## Problem 6
+
+List all of the odd numbers from 1 to 100.
+
+```{r}
+a <- length (1:99)
+for (i in 1:99) {
+if (!i %% 2){  
+    next
+    }
+  print(i) #id like to print in rows
+}  #!=not equal to i, %%=divided by
+
+
+```
+
+## Problem 7
+List all of the prime numbers from 1 to 1000.
+
+```{r}
+
+a <- length (1:1000)
+for (i in 1:1000) {
+if (!i %% 1){  
+    next
+    }
+  print(i) #id like to print in rows
+}  #!=not equal to i, %%=divided by
+
+```
+
+## Problem 8
+
+Generate 100 random numbers
+
+```{r}
+a <- (1:200)
+
+round(a, digits = 0) # not sure how to limit to 100 numbers
+
+```
+
+
+## Problem 9 
+
+Generate 100 random numbers within a specific range
+
+```{r}
+
+a <- c(1:100)
+runif(a, min = 100, max = 500)
+
+
+```
+
+## Problem 10
+
+Write your own functions to give descriptive statistics for a vector variable storing multiple numbers. Write functions for the following without using R intrinsics: mean, mode, median, range, standard deviation
+```{r}
+
+some_numbers <- c(2,3,4,5,5,6,8) #c()=dataset
+mean(some_numbers) #finding mean
+median(some_numbers) #median
+range(some_numbers) #range
+sd(some_numbers) #standarddeviation
+y <- table(some_numbers)#finding mode
+y
+names(y)[which(y==max(y))]
+```
+
+
+## Problem 11
+
+Count the number of characters in a string variable
+
+```{r}
+
+q <- "dogs cats" #strsplit helps find letters in string
+strsplit(q,split="") #to split a character vector
+t <-strsplit(q,split ="")
+
+
+
+t[[1]]
+t[[1]][2]#use to access second item in string
+t[[1]][6]#use to access sixth item in string
+table(t)
+```
+
+
+## Problem 12
+
+Count the number of words in a string variable
+```{r}
+
+a <- "counting words in a string"
+strsplit(a,split=" ") 
+t <-strsplit(a,split ="") #not sure how to count the words instead of individual characters
+
+table(t)
+
+```
+
+## Problem 13  ????
+
+Count the number of sentences in a string variable
+
+```{r}
+
+a <- "coding is hard. but i like the challenge. cats. dogs"
+b <- strsplit(a,split="[.]") #[.] sperates the sentences
+
+length(b)
+length(b[[1]]) #the amount of sentences in the vector 
+
+length(a[[1]])
+
+```
+
+
+## Problem 14
+
+14.	Count the number of times a specific character occurs in a string variable
+
+```{r}
+
+
+a <- c(2,5,3,4,5,7,5,4,3,3,5,6,8,9,0,7,4,3,2,3,5,8,6,4)
+table(a) 
+
+
+```
+
+## Problem 15  ????
+
+Do a logical test to see if one word is found within the text of another string variable.
+
+```{r}
+
+test_word <- "hi"  #"" is one thing
+test_sentence <- "hi my name is troy"
+unlist(strsplit(test_sentence, split = " ")) #flattens into a vector
+f <- test_word #put string into variable
+g <- test_sentence
+a <- strsplit(test_sentence, split = " ")
+b <- unlist(strsplit(test_sentence, split = " ")) #what does this mean
+b[1]
+a[[1]][1]#the first thing in the fist thing
+
+test_word%in%f #because test word became variable instead of string we can now see if it is in f
+
+f%in%a
+
+f <- c(1,2,3,4,5,6)
+d <- 2
+e <- 7
+
+d%in%f
+e%in%f
+```
+
+##Problem 16
+
+Put the current computer time in milliseconds into a variable
+
+```{r, eval=FALSE}
+
+
+
+print(as.numeric(Sys.time())*1000, digits=15)
+
+
+
+
+```
+
+## Problem 17
+
+Measure how long a piece of code takes to run by measuring the time before the code is run, and after the code is run, and taking the difference to find the total time
+
+```{r}
+print(as.numeric(Sys.time())*10, digits=15)
+
+
+```
+
+## Problem 18
+
+Read a .txt file or .csv file into a variable
+```{r}
+
+
+
+
+```
+
+
+## Problem 19
+
+Output the contents of a variable to a .txt file
+```{r}
+
+write.csv()
+
+
+```
+
+## Problem 20
+
+Create a variable that stores a 20x20 matrix of random numbers
+
+```{r}
+
+a <- matrix(1:500, ncol=20,nrow=20) 
+
+  View(a)
+
+
+```
+
+## Problem 21
+
+Output any matrix to a txt file using commas or tabs to separate column values, and new lines to separate row values
+
+```{r}
+
+
+
+```
+
+#HARDER PROBLEMS
+
+## Problem 1
+
+The FizzBuzz Problem. List the numbers from 1 to 100 with the following constraints. If the number can be divided by three evenly, then print Fizz instead of the number. If the number can be divided by five evenly, then print Buzz instead of the number. Finally, if the number can be divided by three and five evenly, then print FizzBuzz instead of the number. The answer could look something like this:
+
+```{r}
+
+
+
+```
+
+## Problem 2
+
+Take text as input, and be able to produce a table that shows the counts for each character in the text. This problem is related to the earlier easy problem asking you to count the number of times that a single letter appears in a text. The slightly harder problem is the more general version: count the frequencies of all unique characters in a text
+
+
+
