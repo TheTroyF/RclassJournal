@@ -122,3 +122,76 @@ names(new_df) #get names of data.frame
 
 
 ```
+
+
+##writing function
+
+```{r}
+
+my_function <- function(x){ 
+  return(x+1)
+} #create fnx to return something #(x)is the input
+my_function(2)#(output)
+
+```
+
+```{r}
+
+add_one <- function(x){
+  save_result <- x+1
+  return(save_result)
+}
+
+
+```
+
+```{r}
+
+add_one <- function(x) return(x+1)
+add_one
+```
+
+##roll dice function
+```{r}
+sample(1:6,1) #use to get a single random number between 1:6 and 1 number increments
+
+roll_dice <- function(){
+  return(sample(1:6,1))
+}
+
+roll_dice()#run the fxn with no input
+
+```
+
+
+###write function to find sum of numbers
+```{r, eval=f}
+#decalre a fxn
+my_numbers <- c(1,4,3,4,5,6) #input will become x variable
+
+my_sum <- function(x){
+get_sum <- sum(x) #the sum of x is inside the variable get_sum for storage
+return(get_sum) #return will show you what is inside the variable get_sum
+}
+#print->prints to the console for debugging #return->shows output of fxn
+my_sum(1) #my_sum is the fxn #my_numbers is what needs to be done
+
+
+b <- my_numbers
+
+```
+
+
+
+```{r}
+some_numbers <- c(3,4,3,2)
+ranged_mean2 <- function(x, min_val, max_val){
+  restricted_values <- x[x > min_val & x< max_val]
+  outputs <- list(original_values = x,
+                  restricted_values = restricted_values, #names=data(contents)
+                  restricted_mean = mean(restricted_values))#creating restricted values, then placing the mean of those values into it
+  return(outputs)
+}
+
+
+```

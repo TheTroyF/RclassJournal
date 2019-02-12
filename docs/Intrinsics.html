@@ -380,7 +380,13 @@ div.tocify {
   <a href="index.html">Home</a>
 </li>
 <li>
+  <a href="TroysRBasics.html">Troy's R Basics</a>
+</li>
+<li>
   <a href="Notes.html">Notes</a>
+</li>
+<li>
+  <a href="Intrinsics.html">Intrinsics</a>
 </li>
 <li>
   <a href="Links.html">Links</a>
@@ -404,9 +410,198 @@ div.tocify {
 
 <div id="list-of-functions" class="section level2">
 <h2>List of Functions</h2>
-<p>help - accesses the help window for a description of the r intrinsic</p>
+<div id="helptopic---documentation-on-topic" class="section level3">
+<h3>help(topic) - documentation on topic</h3>
 <pre class="r"><code>help(runif)</code></pre>
-<p>?topic</p>
+</div>
+<div id="topic---id" class="section level3">
+<h3>?topic - id</h3>
+<p>is() - show objects in the search path; specify pat=“pat” to search on a pattern</p>
+<pre class="r"><code>a &lt;- &quot;troy&quot;
+is(a)? #not sure if this is right</code></pre>
+<p>dir() - show files in the current directory</p>
+<pre class="r"><code>getwd() #what working directory i am using
+
+dir() </code></pre>
+</div>
+<div id="list.files---shows-files-in-the-directory" class="section level3">
+<h3>list.files() - shows files in the directory</h3>
+<pre class="r"><code>list.files()</code></pre>
+</div>
+</div>
+<div id="input-and-output" class="section level2">
+<h2>INPUT AND OUTPUT</h2>
+<div id="save---saves-the-specified-objects-in-the-xdr-platform-independent-binary-format" class="section level3">
+<h3>save() - saves the specified objects (…) in the XDR platform independent binary format</h3>
+<pre class="r"><code>save() #i picked files form list but it is saying they arent found </code></pre>
+</div>
+<div id="load---load-the-datasets-written-with-save" class="section level3">
+<h3>load() - load the datasets written with save</h3>
+<pre class="r"><code>load(index.rmd) #says not found</code></pre>
+</div>
+<div id="data---loads-specified-data-sets" class="section level3">
+<h3>data() - loads specified data sets</h3>
+</div>
+<div id="library---load-add-on-packages-from-library" class="section level3">
+<h3>library() - load add on packages from library</h3>
+<pre class="r"><code>library(bitops) #loading according, box became checked in system library</code></pre>
+</div>
+<div id="read.table---reads-a-file-in-table-format-and-creates-a-data" class="section level3">
+<h3>read.table() - reads a file in table format and creates a data</h3>
+<p>frame from it; the default separator sep=“” is any whitespace; use header=TRUE to read the first line as a header of column names; use as.is=TRUE to prevent character vectors from being converted to factors; use comment.char=“” to prevent “#” from being interpreted as a comment; use skip=n to skip n lines before reading data; see the help for options on row naming, NA treatment, and others</p>
+<pre class="r"><code>#???</code></pre>
+</div>
+<div id="read.csv---filenameheadertrue-id.-but-with-defaults-set-for-reading-comma-delimited-files" class="section level3">
+<h3>read.csv() - (“filename”,header=TRUE) id. but with defaults set for reading comma-delimited files</h3>
+<pre class="r"><code>myfile &lt;- &quot;troysdata.csv&quot; #the data file i want to read
+thedata &lt;- read.csv(myfile, row.names=5)#only read row 5
+
+print(thedata)</code></pre>
+</div>
+<div id="scan---function-read-data-from-screen-or-file.-large-data-can-be-scanned-in-by-just-copy-and-paste-for-example-paste-from-excel.-then-use-ctrlv-to-paste-the-data-the-data-type-will-be-automatically-determined." class="section level3">
+<h3>scan() - function read data from screen or file. Large data can be scanned in by just copy and paste, for example paste from EXCEL. Then use “ctrl+v” to paste the data, the data type will be automatically determined.</h3>
+<pre class="r"><code>dir()
+scan(docs) #i dont see how this isnt found its clearly in the directory</code></pre>
+</div>
+<div id="print---prints-its-arguments-generic-meaning-it-can-have-different-methods-for-different-objects" class="section level3">
+<h3>print() - prints its arguments; generic, meaning it can have different methods for different objects</h3>
+<pre class="r"><code>a &lt;- &quot;hello&quot;
+print(a)</code></pre>
+</div>
+<div id="cat---file-sep-prints-the-arguments-after-coercing-to-character-sep-is-the-character-separator-between-arguments" class="section level3">
+<h3>cat() - (…, file=“”, sep=&quot; “) prints the arguments after coercing to character; sep is the character separator between arguments</h3>
+<pre class="r"><code>cat(b) #simply shows me whats in variabke (b)</code></pre>
+</div>
+<div id="write.table---prints-x-after-converting-to-a-data-frame-if-quote-is-truecharacter-or-factor-columns-are-surrounded-by-quotes-sep-is-the-field-separator-eol-is-the-end-of-line-separator-na-is-the-string-for-missing-values-use-col.namesna-to-add-a-blank-column-header-to-get-the-column-headers-aligned-correctly-for-spreadsheet-input" class="section level3">
+<h3>write.table() - prints x after converting to a data frame; if quote is TRUE,character or factor columns are surrounded by quotes (“); sep is the field separator; eol is the end-of-line separator; na is the string for missing values; use col.names=NA to add a blank column header to get the column headers aligned correctly for spreadsheet input</h3>
+<pre class="r"><code>write.table(example_list) #example list was saved in the notes document but i recently added it to the envirnment as a saved variable</code></pre>
+</div>
+</div>
+<div id="data-creation" class="section level2">
+<h2>DATA CREATION</h2>
+<div id="c---combine-arguements-by-forming-a-vector-if-recursivetrue-is-used-it-will-descend-through-lists-combining-all-elements-in-one-vector" class="section level3">
+<h3>c() - combine arguements by forming a vector, if recursive=TRUE is used it will descend through lists combining all elements in one vector</h3>
+<pre class="r"><code>first_names &lt;- c(&quot;asdasas&quot;, &quot;fwefef&quot;, &quot;sfweg&quot;)
+
+write.table(first_names)</code></pre>
+</div>
+<div id="fromto-where-from-and-to-are-replaced-with-numbers-e.g.110" class="section level3">
+<h3>from:to (where from and to are replaced with numbers, e.g. 1:10)</h3>
+<pre class="r"><code>a &lt;- (1:5)
+a</code></pre>
+</div>
+<div id="seq---generates-a-sequence-by-specifies-increment-length-specifies-how-long" class="section level3">
+<h3>seq() - generates a sequence by= specifies increment, length= specifies how long</h3>
+<pre class="r"><code>seq(2:10, by = 2) # i esentially want to show only even numbers the by= isnt doing what i think it should 
+
+seq(2:10, by = (1))</code></pre>
+</div>
+<div id="rep---used-to-replicate.-replicate-x-times-use-each-to-repeat-each-element-of-x-each-times-repc1232-is-1-2-3-1-2-3-repc123each2-is-1-1-2-2-3-3" class="section level3">
+<h3>rep() - used to replicate. replicate x times; use each= to repeat “each” element of x each times; rep(c(1,2,3),2) is 1 2 3 1 2 3; rep(c(1,2,3),each=2) is 1 1 2 2 3 3</h3>
+<pre class="r"><code>rep(c(1,2,3),each=2)</code></pre>
+</div>
+<div id="data.frame---create-a-data-frame-of-the-named-or-unnamed-arguments-data.framev14chcabcdn10shorter-vectors-are-recycled-to-the-length-of-the-longest" class="section level3">
+<h3>data.frame - create a data frame of the named or unnamed arguments; data.frame(v=1:4,ch=c(“a”,“B”,“c”,“d”),n=10);shorter vectors are recycled to the length of the longest</h3>
+</div>
+<div id="list---create-a-list-of-the-named-or-unnamed-arguments" class="section level3">
+<h3>list() - create a list of the named or unnamed arguments</h3>
+<pre class="r"><code>a &lt;- list(a=1,2,3,b=&quot;hello&quot;,d=2,3,4)
+b &lt;- list(a=2, b=&quot;hi&quot;, d=3)
+print(a)
+print(b)</code></pre>
+</div>
+<div id="matrix---build-a-matrix" class="section level3">
+<h3>matrix() - build a matrix</h3>
+<pre class="r"><code>h &lt;- matrix(1:20, nrow=5, ncol=5)
+
+View(h)</code></pre>
+</div>
+<div id="factor---encodes-a-vector-x-as-a-factor" class="section level3">
+<h3>factor() - encodes a vector x as a factor</h3>
+<pre class="r"><code>sodium &lt;- factor(c(&quot;low&quot;, &quot;med&quot;, &quot;high&quot;))
+levels(sodium)
+
+sodium &lt;- factor(sodium, levels=c(&quot;low&quot;, &quot;med&quot;, &quot;high&quot;), ordered=TRUE)
+levels(sodium)
+
+min(sodium)</code></pre>
+</div>
+<div id="rbind---combine-datainfo-by-rows-for-matrices-data-frames-etc.-must-have-equivalent-amount-of-rows-if-not-equate-them-by-adding-na-to-either-until-same-qty-is-reached" class="section level3">
+<h3>rbind() - combine data/info by rows for matrices, data frames, etc. must have equivalent amount of rows, if not equate them by adding NA to either until same qty is reached</h3>
+</div>
+<div id="cbind---combine-data-by-columns-same-rules-apply-as-rbind" class="section level3">
+<h3>cbind() - combine data by columns same rules apply as rbind</h3>
+</div>
+</div>
+<div id="slicing-and-extracting-data---indexing-vectors" class="section level2">
+<h2>Slicing and Extracting Data - indexing Vectors</h2>
+<div id="xn---whatremove-is-in-this-position-in-the-matrix" class="section level3">
+<h3>x[n] - what/remove is in this position in the matrix</h3>
+<pre class="r"><code>a = matrix( 
+  c(2, 4, 3, 1, 5, 7), # the data elements 
+   nrow=2,              # number of rows 
+   ncol=3,              # number of columns 
+   byrow = TRUE)        # fill matrix by rows 
+ 
+a                      # print the matrix 
+
+a[2] # first thing in second row</code></pre>
+</div>
+<div id="x-n---everything-but-what-is-in-the-position" class="section level3">
+<h3>x[-n] - everything but what is in the [] position</h3>
+<pre class="r"><code>a = matrix( 
+  c(2, 4, 3, 1, 5, 7), # the data elements 
+   nrow=2,              # number of rows 
+   ncol=3,              # number of columns 
+   byrow = TRUE)        # fill matrix by rows 
+ 
+a                      # print the matrix 
+
+a[-2,2] # everything but the first thing in the second row</code></pre>
+</div>
+<div id="x1n-what-is-in-positions-1-n" class="section level3">
+<h3>x[1:n] what is in positions 1-n</h3>
+<pre class="r"><code>a = matrix( 
+  c(2, 4, 3, 1, 5, 7), # the data elements 
+   nrow=2,              # number of rows 
+   ncol=3,              # number of columns 
+   byrow = TRUE)        # fill matrix by rows 
+ 
+a                      # print the matrix 
+
+a[1:3] # everything but the first thing in the second row</code></pre>
+</div>
+<div id="x-1n---elements-from-n1-to-the-end" class="section level3">
+<h3>x[-(1:n)] - elements from n+1 to the end</h3>
+<pre class="r"><code>a = matrix( 
+  c(2, 4, 3, 1, 5, 7),  # the data elements 
+   nrow=2,              # number of rows 
+   ncol=3,              # number of columns 
+   byrow = TRUE)        # fill matrix by rows 
+ 
+a [-(1:3)]              # print the matrix </code></pre>
+</div>
+<div id="xc142---specific-elements" class="section level3">
+<h3>x[c(1,4,2)] - specific elements</h3>
+<pre class="r"><code>a = matrix( 
+  c(2, 4, 3, 1, 5, 7),  # the data elements 
+   nrow=2,              # number of rows 
+   ncol=3,              # number of columns 
+   byrow = TRUE)        # fill matrix by rows 
+
+a[c(1,3,5)] #what is in postion 1,3,5</code></pre>
+</div>
+<div id="xname" class="section level3">
+<h3>x[“name”]</h3>
+<pre class="r"><code>dimnames(A) = list( 
+c(&quot;row1&quot;, &quot;row2&quot;),         # row names 
+c(&quot;col1&quot;, &quot;col2&quot;, &quot;col3&quot;)) # column names 
+ 
+a      #print A 
+
+ 
+a [&quot;row2&quot;, &quot;col3&quot;] # element at 2nd row, 3rd column </code></pre>
+</div>
 </div>
 
 
