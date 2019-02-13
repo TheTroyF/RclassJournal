@@ -302,7 +302,7 @@ a[c(1,3,5)] #what is in postion 1,3,5
 ```
 
 ### x["name"]
-```{r, eval=f}
+```{r, eval=F}
 
 dimnames(A) = list( 
 c("row1", "row2"),         # row names 
