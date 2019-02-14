@@ -424,23 +424,21 @@ is(a)? #not sure if this is right</code></pre>
 <pre><code>## [1] &quot;/Users/troy/Desktop/RclassJournal&quot;</code></pre>
 <pre class="r"><code>dir() </code></pre>
 <pre><code>##  [1] &quot;_site.yml&quot;               &quot;docs&quot;                   
-##  [3] &quot;images&quot;                  &quot;index.html&quot;             
-##  [5] &quot;index.Rmd&quot;               &quot;Intrinsics.Rmd&quot;         
-##  [7] &quot;LabJournalWebsite.Rproj&quot; &quot;Links.Rmd&quot;              
-##  [9] &quot;mytable.txt&quot;             &quot;NOTES.Rmd&quot;              
-## [11] &quot;README.md&quot;               &quot;site_libs&quot;              
-## [13] &quot;TroysRBasics_cache&quot;      &quot;TroysRBasics.Rmd&quot;</code></pre>
+##  [3] &quot;images&quot;                  &quot;index.Rmd&quot;              
+##  [5] &quot;Intrinsics.Rmd&quot;          &quot;LabJournalWebsite.Rproj&quot;
+##  [7] &quot;Links.Rmd&quot;               &quot;mytable.txt&quot;            
+##  [9] &quot;NOTES.Rmd&quot;               &quot;README.md&quot;              
+## [11] &quot;TroysRBasics_cache&quot;      &quot;TroysRBasics.Rmd&quot;</code></pre>
 </div>
 <div id="list.files---shows-files-in-the-directory" class="section level3">
 <h3>list.files() - shows files in the directory</h3>
 <pre class="r"><code>list.files()</code></pre>
 <pre><code>##  [1] &quot;_site.yml&quot;               &quot;docs&quot;                   
-##  [3] &quot;images&quot;                  &quot;index.html&quot;             
-##  [5] &quot;index.Rmd&quot;               &quot;Intrinsics.Rmd&quot;         
-##  [7] &quot;LabJournalWebsite.Rproj&quot; &quot;Links.Rmd&quot;              
-##  [9] &quot;mytable.txt&quot;             &quot;NOTES.Rmd&quot;              
-## [11] &quot;README.md&quot;               &quot;site_libs&quot;              
-## [13] &quot;TroysRBasics_cache&quot;      &quot;TroysRBasics.Rmd&quot;</code></pre>
+##  [3] &quot;images&quot;                  &quot;index.Rmd&quot;              
+##  [5] &quot;Intrinsics.Rmd&quot;          &quot;LabJournalWebsite.Rproj&quot;
+##  [7] &quot;Links.Rmd&quot;               &quot;mytable.txt&quot;            
+##  [9] &quot;NOTES.Rmd&quot;               &quot;README.md&quot;              
+## [11] &quot;TroysRBasics_cache&quot;      &quot;TroysRBasics.Rmd&quot;</code></pre>
 </div>
 </div>
 <div id="input-and-output" class="section level2">
@@ -476,12 +474,11 @@ print(thedata)</code></pre>
 <h3>scan() - function read data from screen or file. Large data can be scanned in by just copy and paste, for example paste from EXCEL. Then use “ctrl+v” to paste the data, the data type will be automatically determined.</h3>
 <pre class="r"><code>dir()</code></pre>
 <pre><code>##  [1] &quot;_site.yml&quot;               &quot;docs&quot;                   
-##  [3] &quot;images&quot;                  &quot;index.html&quot;             
-##  [5] &quot;index.Rmd&quot;               &quot;Intrinsics.Rmd&quot;         
-##  [7] &quot;LabJournalWebsite.Rproj&quot; &quot;Links.Rmd&quot;              
-##  [9] &quot;mytable.txt&quot;             &quot;NOTES.Rmd&quot;              
-## [11] &quot;README.md&quot;               &quot;site_libs&quot;              
-## [13] &quot;TroysRBasics_cache&quot;      &quot;TroysRBasics.Rmd&quot;</code></pre>
+##  [3] &quot;images&quot;                  &quot;index.Rmd&quot;              
+##  [5] &quot;Intrinsics.Rmd&quot;          &quot;LabJournalWebsite.Rproj&quot;
+##  [7] &quot;Links.Rmd&quot;               &quot;mytable.txt&quot;            
+##  [9] &quot;NOTES.Rmd&quot;               &quot;README.md&quot;              
+## [11] &quot;TroysRBasics_cache&quot;      &quot;TroysRBasics.Rmd&quot;</code></pre>
 <pre class="r"><code>scan() #i dont see how this isnt found its clearly in the directory</code></pre>
 <pre><code>## numeric(0)</code></pre>
 </div>
@@ -783,6 +780,14 @@ x</code></pre>
 <pre class="r"><code>x[&quot;Y&quot;,]</code></pre>
 <pre><code>## A B C 
 ## 2 5 8</code></pre>
+</div>
+</div>
+<div id="indexing-data-frames-matrix-indexing-plus-the-following" class="section level2">
+<h2>Indexing data frames (matrix indexing plus the following)</h2>
+<div id="xname-column-named-name" class="section level3">
+<h3>x[[“name”]] column named “name”</h3>
+<pre class="r"><code>x &lt;- matrix(1:9, nrow = 3, dimnames = list(c(&quot;X&quot;,&quot;Y&quot;,&quot;Z&quot;), c(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;)))
+x[[&quot;B&quot;]]</code></pre>
 </div>
 </div>
 

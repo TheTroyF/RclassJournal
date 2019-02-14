@@ -424,3 +424,24 @@ x[,c("A","C")]
 x["Y",]
 
 ```
+
+##Indexing data frames (matrix indexing plus the following)
+
+###x[[“name”]] column named “name”
+```{r, eval=F}
+
+x <- matrix(1:9, nrow = 3, dimnames = list(c("X","Y","Z"), c("A","B","C")))
+x[["B"]]
+
+```
+
+```{r}
+
+library(knitr)
+library(markdown)
+f <- system.file("examples", "knitr-minimal.Rmd", package = "knitr")
+knit(f)
+markdownToHTML('knitr-minimal.md',output='knitr-minimal.html')
+rstudio::viewer('knitr-minimal.html')
+
+```
