@@ -372,7 +372,7 @@ div.tocify {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Notes</a>
+      <a class="navbar-brand" href="index.html">Troy's R journal</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -420,13 +420,25 @@ div.tocify {
 <pre class="r"><code>a &lt;- &quot;troy&quot;
 is(a)? #not sure if this is right</code></pre>
 <p>dir() - show files in the current directory</p>
-<pre class="r"><code>getwd() #what working directory i am using
-
-dir() </code></pre>
+<pre class="r"><code>getwd() #what working directory i am using</code></pre>
+<pre><code>## [1] &quot;/Users/troy/Desktop/RclassJournal&quot;</code></pre>
+<pre class="r"><code>dir() </code></pre>
+<pre><code>##  [1] &quot;_site.yml&quot;               &quot;docs&quot;                   
+##  [3] &quot;images&quot;                  &quot;index.Rmd&quot;              
+##  [5] &quot;Intrinsics.Rmd&quot;          &quot;LabJournalWebsite.Rproj&quot;
+##  [7] &quot;Links.Rmd&quot;               &quot;NOTES.Rmd&quot;              
+##  [9] &quot;README.md&quot;               &quot;TroysRBasics_cache&quot;     
+## [11] &quot;TroysRBasics.Rmd&quot;</code></pre>
 </div>
 <div id="list.files---shows-files-in-the-directory" class="section level3">
 <h3>list.files() - shows files in the directory</h3>
 <pre class="r"><code>list.files()</code></pre>
+<pre><code>##  [1] &quot;_site.yml&quot;               &quot;docs&quot;                   
+##  [3] &quot;images&quot;                  &quot;index.Rmd&quot;              
+##  [5] &quot;Intrinsics.Rmd&quot;          &quot;LabJournalWebsite.Rproj&quot;
+##  [7] &quot;Links.Rmd&quot;               &quot;NOTES.Rmd&quot;              
+##  [9] &quot;README.md&quot;               &quot;TroysRBasics_cache&quot;     
+## [11] &quot;TroysRBasics.Rmd&quot;</code></pre>
 </div>
 </div>
 <div id="input-and-output" class="section level2">
@@ -460,21 +472,32 @@ print(thedata)</code></pre>
 </div>
 <div id="scan---function-read-data-from-screen-or-file.-large-data-can-be-scanned-in-by-just-copy-and-paste-for-example-paste-from-excel.-then-use-ctrlv-to-paste-the-data-the-data-type-will-be-automatically-determined." class="section level3">
 <h3>scan() - function read data from screen or file. Large data can be scanned in by just copy and paste, for example paste from EXCEL. Then use “ctrl+v” to paste the data, the data type will be automatically determined.</h3>
-<pre class="r"><code>dir()
-scan(docs) #i dont see how this isnt found its clearly in the directory</code></pre>
+<pre class="r"><code>dir()</code></pre>
+<pre><code>##  [1] &quot;_site.yml&quot;               &quot;docs&quot;                   
+##  [3] &quot;images&quot;                  &quot;index.Rmd&quot;              
+##  [5] &quot;Intrinsics.Rmd&quot;          &quot;LabJournalWebsite.Rproj&quot;
+##  [7] &quot;Links.Rmd&quot;               &quot;NOTES.Rmd&quot;              
+##  [9] &quot;README.md&quot;               &quot;TroysRBasics_cache&quot;     
+## [11] &quot;TroysRBasics.Rmd&quot;</code></pre>
+<pre class="r"><code>scan() #i dont see how this isnt found its clearly in the directory</code></pre>
+<pre><code>## numeric(0)</code></pre>
 </div>
 <div id="print---prints-its-arguments-generic-meaning-it-can-have-different-methods-for-different-objects" class="section level3">
 <h3>print() - prints its arguments; generic, meaning it can have different methods for different objects</h3>
 <pre class="r"><code>a &lt;- &quot;hello&quot;
 print(a)</code></pre>
+<pre><code>## [1] &quot;hello&quot;</code></pre>
 </div>
 <div id="cat---file-sep-prints-the-arguments-after-coercing-to-character-sep-is-the-character-separator-between-arguments" class="section level3">
 <h3>cat() - (…, file=“”, sep=&quot; “) prints the arguments after coercing to character; sep is the character separator between arguments</h3>
-<pre class="r"><code>cat(b) #simply shows me whats in variabke (b)</code></pre>
+<pre class="r"><code>b &lt;- c(1,2,3)
+cat(b) #simply shows me whats in variabke (b)</code></pre>
+<pre><code>## 1 2 3</code></pre>
 </div>
 <div id="write.table---prints-x-after-converting-to-a-data-frame-if-quote-is-truecharacter-or-factor-columns-are-surrounded-by-quotes-sep-is-the-field-separator-eol-is-the-end-of-line-separator-na-is-the-string-for-missing-values-use-col.namesna-to-add-a-blank-column-header-to-get-the-column-headers-aligned-correctly-for-spreadsheet-input" class="section level3">
 <h3>write.table() - prints x after converting to a data frame; if quote is TRUE,character or factor columns are surrounded by quotes (“); sep is the field separator; eol is the end-of-line separator; na is the string for missing values; use col.names=NA to add a blank column header to get the column headers aligned correctly for spreadsheet input</h3>
 <pre class="r"><code>write.table(example_list) #example list was saved in the notes document but i recently added it to the envirnment as a saved variable</code></pre>
+<pre><code>## Error in is.data.frame(x): object &#39;example_list&#39; not found</code></pre>
 </div>
 </div>
 <div id="data-creation" class="section level2">
@@ -484,11 +507,16 @@ print(a)</code></pre>
 <pre class="r"><code>first_names &lt;- c(&quot;asdasas&quot;, &quot;fwefef&quot;, &quot;sfweg&quot;)
 
 write.table(first_names)</code></pre>
+<pre><code>## &quot;x&quot;
+## &quot;1&quot; &quot;asdasas&quot;
+## &quot;2&quot; &quot;fwefef&quot;
+## &quot;3&quot; &quot;sfweg&quot;</code></pre>
 </div>
 <div id="fromto-where-from-and-to-are-replaced-with-numbers-e.g.110" class="section level3">
 <h3>from:to (where from and to are replaced with numbers, e.g. 1:10)</h3>
 <pre class="r"><code>a &lt;- (1:5)
 a</code></pre>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
 </div>
 <div id="seq---generates-a-sequence-by-specifies-increment-length-specifies-how-long" class="section level3">
 <h3>seq() - generates a sequence by= specifies increment, length= specifies how long</h3>
@@ -499,6 +527,7 @@ seq(2:10, by = (1))</code></pre>
 <div id="rep---used-to-replicate.-replicate-x-times-use-each-to-repeat-each-element-of-x-each-times-repc1232-is-1-2-3-1-2-3-repc123each2-is-1-1-2-2-3-3" class="section level3">
 <h3>rep() - used to replicate. replicate x times; use each= to repeat “each” element of x each times; rep(c(1,2,3),2) is 1 2 3 1 2 3; rep(c(1,2,3),each=2) is 1 1 2 2 3 3</h3>
 <pre class="r"><code>rep(c(1,2,3),each=2)</code></pre>
+<pre><code>## [1] 1 1 2 2 3 3</code></pre>
 </div>
 <div id="data.frame---create-a-data-frame-of-the-named-or-unnamed-arguments-data.framev14chcabcdn10shorter-vectors-are-recycled-to-the-length-of-the-longest" class="section level3">
 <h3>data.frame - create a data frame of the named or unnamed arguments; data.frame(v=1:4,ch=c(“a”,“B”,“c”,“d”),n=10);shorter vectors are recycled to the length of the longest</h3>
@@ -507,24 +536,56 @@ seq(2:10, by = (1))</code></pre>
 <h3>list() - create a list of the named or unnamed arguments</h3>
 <pre class="r"><code>a &lt;- list(a=1,2,3,b=&quot;hello&quot;,d=2,3,4)
 b &lt;- list(a=2, b=&quot;hi&quot;, d=3)
-print(a)
-print(b)</code></pre>
+print(a)</code></pre>
+<pre><code>## $a
+## [1] 1
+## 
+## [[2]]
+## [1] 2
+## 
+## [[3]]
+## [1] 3
+## 
+## $b
+## [1] &quot;hello&quot;
+## 
+## $d
+## [1] 2
+## 
+## [[6]]
+## [1] 3
+## 
+## [[7]]
+## [1] 4</code></pre>
+<pre class="r"><code>print(b)</code></pre>
+<pre><code>## $a
+## [1] 2
+## 
+## $b
+## [1] &quot;hi&quot;
+## 
+## $d
+## [1] 3</code></pre>
 </div>
 <div id="matrix---build-a-matrix" class="section level3">
 <h3>matrix() - build a matrix</h3>
 <pre class="r"><code>h &lt;- matrix(1:20, nrow=5, ncol=5)
 
 View(h)</code></pre>
+<pre><code>## Warning in View(h): unable to open display</code></pre>
+<pre><code>## Error in .External2(C_dataviewer, x, title): unable to start data viewer</code></pre>
 </div>
 <div id="factor---encodes-a-vector-x-as-a-factor" class="section level3">
 <h3>factor() - encodes a vector x as a factor</h3>
 <pre class="r"><code>sodium &lt;- factor(c(&quot;low&quot;, &quot;med&quot;, &quot;high&quot;))
-levels(sodium)
-
-sodium &lt;- factor(sodium, levels=c(&quot;low&quot;, &quot;med&quot;, &quot;high&quot;), ordered=TRUE)
-levels(sodium)
-
-min(sodium)</code></pre>
+levels(sodium)</code></pre>
+<pre><code>## [1] &quot;high&quot; &quot;low&quot;  &quot;med&quot;</code></pre>
+<pre class="r"><code>sodium &lt;- factor(sodium, levels=c(&quot;low&quot;, &quot;med&quot;, &quot;high&quot;), ordered=TRUE)
+levels(sodium)</code></pre>
+<pre><code>## [1] &quot;low&quot;  &quot;med&quot;  &quot;high&quot;</code></pre>
+<pre class="r"><code>min(sodium)</code></pre>
+<pre><code>## [1] low
+## Levels: low &lt; med &lt; high</code></pre>
 </div>
 <div id="rbind---combine-datainfo-by-rows-for-matrices-data-frames-etc.-must-have-equivalent-amount-of-rows-if-not-equate-them-by-adding-na-to-either-until-same-qty-is-reached" class="section level3">
 <h3>rbind() - combine data/info by rows for matrices, data frames, etc. must have equivalent amount of rows, if not equate them by adding NA to either until same qty is reached</h3>
@@ -543,9 +604,12 @@ min(sodium)</code></pre>
    ncol=3,              # number of columns 
    byrow = TRUE)        # fill matrix by rows 
  
-a                      # print the matrix 
-
-a[2] # first thing in second row</code></pre>
+a                      # print the matrix </code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    2    4    3
+## [2,]    1    5    7</code></pre>
+<pre class="r"><code>a[2] # first thing in second row</code></pre>
+<pre><code>## [1] 1</code></pre>
 </div>
 <div id="x-n---everything-but-what-is-in-the-position" class="section level3">
 <h3>x[-n] - everything but what is in the [] position</h3>
@@ -555,9 +619,12 @@ a[2] # first thing in second row</code></pre>
    ncol=3,              # number of columns 
    byrow = TRUE)        # fill matrix by rows 
  
-a                      # print the matrix 
-
-a[-2,2] # everything but the first thing in the second row</code></pre>
+a                      # print the matrix </code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    2    4    3
+## [2,]    1    5    7</code></pre>
+<pre class="r"><code>a[-2,2] # everything but the first thing in the second row</code></pre>
+<pre><code>## [1] 4</code></pre>
 </div>
 <div id="x1n-what-is-in-positions-1-n" class="section level3">
 <h3>x[1:n] what is in positions 1-n</h3>
@@ -567,9 +634,12 @@ a[-2,2] # everything but the first thing in the second row</code></pre>
    ncol=3,              # number of columns 
    byrow = TRUE)        # fill matrix by rows 
  
-a                      # print the matrix 
-
-a[1:3] # everything but the first thing in the second row</code></pre>
+a                      # print the matrix </code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    2    4    3
+## [2,]    1    5    7</code></pre>
+<pre class="r"><code>a[1:3] # everything but the first thing in the second row</code></pre>
+<pre><code>## [1] 2 1 4</code></pre>
 </div>
 <div id="x-1n---elements-from-n1-to-the-end" class="section level3">
 <h3>x[-(1:n)] - elements from n+1 to the end</h3>
@@ -580,6 +650,7 @@ a[1:3] # everything but the first thing in the second row</code></pre>
    byrow = TRUE)        # fill matrix by rows 
  
 a [-(1:3)]              # print the matrix </code></pre>
+<pre><code>## [1] 5 3 7</code></pre>
 </div>
 <div id="xc142---specific-elements" class="section level3">
 <h3>x[c(1,4,2)] - specific elements</h3>
@@ -590,6 +661,7 @@ a [-(1:3)]              # print the matrix </code></pre>
    byrow = TRUE)        # fill matrix by rows 
 
 a[c(1,3,5)] #what is in postion 1,3,5</code></pre>
+<pre><code>## [1] 2 4 3</code></pre>
 </div>
 <div id="xname" class="section level3">
 <h3>x[“name”]</h3>

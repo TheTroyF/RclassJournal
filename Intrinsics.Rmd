@@ -12,7 +12,7 @@ output:
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, messages=TRUE, error=TRUE)
 ```
 
 ## List of Functions
@@ -100,7 +100,7 @@ frame from it; the default separator sep="" is any whitespace; use header=TRUE t
 ```
 
 ###read.csv() - ("filename",header=TRUE) id. but with defaults set for reading comma-delimited files
-```{r, eval=f}
+```{r, eval=F}
 
 myfile <- "troysdata.csv" #the data file i want to read
 thedata <- read.csv(myfile, row.names=5)#only read row 5
@@ -126,16 +126,18 @@ print(a)
 
 ###cat() - (..., file="", sep=" ") prints the arguments after coercing to character; sep is the character separator between arguments
 ```{r}
-
+b <- c(1,2,3)
 cat(b) #simply shows me whats in variabke (b)
 
 ```
 
 ###write.table() - prints x after converting to a data frame; if quote is TRUE,character or factor columns are surrounded by quotes ("); sep is the field separator; eol is the end-of-line separator; na is the string for missing values; use col.names=NA to add a blank column header to get the column headers aligned correctly for spreadsheet input
-```{r}
+```{r, eval=F}
+a <- data.frame(a=c(1,2,3),b=c(3,4,5)) #created a table
 
+write.table(a,file="mytable.txt") #gave the file a name
 
-write.table(example_list) #example list was saved in the notes document but i recently added it to the envirnment as a saved variable
+#example list was saved in the notes document but i recently added it to the envirnment as a saved variable
 
 ```
 
@@ -158,7 +160,7 @@ a
 ```
 
 ###seq() - generates a sequence by= specifies increment, length= specifies how long
-```{r}
+```{r, eval=F}
 
 seq(2:10, by = 2) # i esentially want to show only even numbers the by= isnt doing what i think it should 
 
@@ -240,7 +242,7 @@ a = matrix(
  
 a                      # print the matrix 
 
-a[2] # first thing in second row
+a[2 , 1]   # first thing in second row
 
 ```
 
@@ -255,7 +257,7 @@ a = matrix(
  
 a                      # print the matrix 
 
-a[-2,2] # everything but the first thing in the second row
+a[-2, ] # everything but the first thing in the second row
 
 ```
 
@@ -270,7 +272,7 @@ a = matrix(
  
 a                      # print the matrix 
 
-a[1:3] # everything but the first thing in the second row
+a[1:2, c(1,1,1,1,1)] # everything but the first thing in the second row
 
 ```
 

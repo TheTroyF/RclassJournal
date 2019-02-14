@@ -1,6 +1,6 @@
 name: "Troy's R Journal"
 navbar:
-  title: "Notes"
+  title: "Troy's R journal"
   left:
     - text: "Home"
       href: index.html

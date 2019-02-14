@@ -91,6 +91,8 @@ if (!i %% 2){
   print(i) #id like to print in rows
 }  #!=not equal to i, %%=divided by
 
+a <- 1:100
+a[ a%%2 != 0]
 
 ```
 
@@ -118,6 +120,8 @@ a <- (1:200)
 
 round(a, digits = 0) # not sure how to limit to 100 numbers
 
+sample(1:200,200)
+1:200
 ```
 
 
@@ -127,8 +131,7 @@ Generate 100 random numbers within a specific range
 
 ```{r}
 
-a <- c(1:100)
-runif(a, min = 100, max = 500)
+round(runif(50, min = 100, max = 500))
 
 
 ```
