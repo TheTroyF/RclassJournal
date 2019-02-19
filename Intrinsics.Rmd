@@ -435,13 +435,135 @@ x[["B"]]
 
 ```
 
+###x$named
 ```{r}
 
-library(knitr)
-library(markdown)
-f <- system.file("examples", "knitr-minimal.Rmd", package = "knitr")
-knit(f)
-markdownToHTML('knitr-minimal.md',output='knitr-minimal.html')
-rstudio::viewer('knitr-minimal.html')
+
 
 ```
+
+##Variable conversion
+###as.data.frame(x) - 
+```{r, eval=F}
+
+as.data.frame(x, row.names=NULL, optional=FALSE, xy=FALSE, 
+              na.rm=FALSE, long=FALSE, ...)#not sure exactly what i am attempting to do here
+
+```
+
+###as.numeric(x) - 
+```{r}
+
+x <- c(1,2,4,5,53,2)
+as.numeric(x)# i believe this is should be coding responses as numeric, which i dont quite undetstand in this context.for instance a likert scale 
+
+```
+
+###as.logical(x)
+```{r}
+
+
+```
+
+###as.character(x)
+```{r}
+
+
+```
+
+##Variable information
+
+###is.na(x)
+```{r}
+
+
+```
+
+###is.null(x)
+```{r}
+
+
+```
+
+###is.data.frame(x)
+```{r}
+
+
+```
+
+###is.numeric(x)
+```{r}
+
+
+```
+
+###is.character(x)
+```{r}
+
+
+```
+
+###length(x)
+```{r}
+
+x <- c(1,2,5,6,3,6,64,4,3,7,8,9)
+length(x)
+
+```
+
+###dim(x)
+```{r}
+x <- c(1,2,5,6,3,6,64,4,3,7,8,9)
+dim(x)#? not sure here
+```
+
+###dimnames(x)
+```{r}
+
+
+```
+
+###nrow(x)ncol(x) - amount of col/rows, also to use name 
+```{r}
+matrix(a, nrow = 2, ncol = 3)
+
+```
+
+###class()
+```{r}
+
+
+```
+
+###attributes()
+```{r}
+
+
+```
+
+##Data selection and manipulation
+
+###which.max() - returns the largest number
+```{r}
+
+x <- c(1,4,57,54754,6576,3456346,4)
+
+which.max(x) #not sure why its not diagnosing thr enetire number and just the last digit, 
+
+```
+
+###which.min() - smallest element of 
+```{r}
+
+x <- c(1211,124,57,54754,6576,3456346,4)
+which.min(x) #why is this not 4?
+
+```
+
+###which()
+```{r}
+
+
+```
+
+

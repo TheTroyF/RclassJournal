@@ -318,6 +318,12 @@ Output any matrix to a txt file using commas or tabs to separate column values, 
 The FizzBuzz Problem. List the numbers from 1 to 100 with the following constraints. If the number can be divided by three evenly, then print Fizz instead of the number. If the number can be divided by five evenly, then print Buzz instead of the number. Finally, if the number can be divided by three and five evenly, then print FizzBuzz instead of the number. The answer could look something like this:
 
 ```{r}
+for (i in 1:100) {
+ if (i %% 3 == 0 & i %% 5 == 0) {print("FizzBuzz")}
+ else if (i %% 3 == 0) {print("Fizz")}
+ else if (i %% 5 == 0) {print("Buzz")}
+ else print(i)
+}
 
 
 
@@ -327,5 +333,49 @@ The FizzBuzz Problem. List the numbers from 1 to 100 with the following constrai
 
 Take text as input, and be able to produce a table that shows the counts for each character in the text. This problem is related to the earlier easy problem asking you to count the number of times that a single letter appears in a text. The slightly harder problem is the more general version: count the frequencies of all unique characters in a text
 
+```{r}
 
 
+k<-"the follow is text is written to count the individual  letters"
+table(unlist(strsplit(k,split="")))
+
+
+```
+
+```{r}
+numbers <- c(1,6,4,2,3,4,5,5)
+letters <- c("e","a","b","e","a","b","a","b")
+
+new_df <- data.frame(numbers,letters)
+print(new_df)
+```
+
+## Problem 3
+###Test the random number generator for a flat distribution. Generate a few million random numbers between 0 and 100. Count the number of 0s, 1s, 2s, 3s, etc. all the way up to 100. Look at the counts for each of the numbers and determine if they are relatively equal. For example, you could plot the counts in Excel to make a histogram. If all of the bars are close to being flat, then each number had an equal chance of being selected, and the random number generator is working without bias.
+```{r}
+
+a<-runif(10000,0,10000)
+hist(a)
+
+
+```
+
+## Problem 4
+###Generate a matrix for a multiplication table. For example, the labels for the columns could be the numbers 1 to 10, and the labels for the rows could be the numbers 1 to 10. The contents of each of the cells in the matrix should be correct answer for multiplying the column value by the row value.
+```{r}
+
+a = matrix( 
+  c(1:10),  # the data elements 
+   nrow=10,              # number of rows 
+   ncol=10,              # number of columns 
+   byrow = TRUE)        
+for(i in 1:10){
+  for(j in 1:10){
+    print(i*j)
+  }
+}
+a
+
+
+
+```

@@ -424,21 +424,25 @@ is(a)? #not sure if this is right</code></pre>
 <pre><code>## [1] &quot;/Users/troy/Desktop/RclassJournal&quot;</code></pre>
 <pre class="r"><code>dir() </code></pre>
 <pre><code>##  [1] &quot;_site.yml&quot;               &quot;docs&quot;                   
-##  [3] &quot;images&quot;                  &quot;index.Rmd&quot;              
-##  [5] &quot;Intrinsics.Rmd&quot;          &quot;LabJournalWebsite.Rproj&quot;
-##  [7] &quot;Links.Rmd&quot;               &quot;mytable.txt&quot;            
-##  [9] &quot;NOTES.Rmd&quot;               &quot;README.md&quot;              
-## [11] &quot;TroysRBasics_cache&quot;      &quot;TroysRBasics.Rmd&quot;</code></pre>
+##  [3] &quot;figure&quot;                  &quot;images&quot;                 
+##  [5] &quot;index.Rmd&quot;               &quot;Intrinsics.Rmd&quot;         
+##  [7] &quot;knitr-minimal.html&quot;      &quot;knitr-minimal.md&quot;       
+##  [9] &quot;LabJournalWebsite.Rproj&quot; &quot;Links.Rmd&quot;              
+## [11] &quot;mytable.txt&quot;             &quot;NOTES.Rmd&quot;              
+## [13] &quot;README.md&quot;               &quot;TroysRBasics_cache&quot;     
+## [15] &quot;TroysRBasics.Rmd&quot;</code></pre>
 </div>
 <div id="list.files---shows-files-in-the-directory" class="section level3">
 <h3>list.files() - shows files in the directory</h3>
 <pre class="r"><code>list.files()</code></pre>
 <pre><code>##  [1] &quot;_site.yml&quot;               &quot;docs&quot;                   
-##  [3] &quot;images&quot;                  &quot;index.Rmd&quot;              
-##  [5] &quot;Intrinsics.Rmd&quot;          &quot;LabJournalWebsite.Rproj&quot;
-##  [7] &quot;Links.Rmd&quot;               &quot;mytable.txt&quot;            
-##  [9] &quot;NOTES.Rmd&quot;               &quot;README.md&quot;              
-## [11] &quot;TroysRBasics_cache&quot;      &quot;TroysRBasics.Rmd&quot;</code></pre>
+##  [3] &quot;figure&quot;                  &quot;images&quot;                 
+##  [5] &quot;index.Rmd&quot;               &quot;Intrinsics.Rmd&quot;         
+##  [7] &quot;knitr-minimal.html&quot;      &quot;knitr-minimal.md&quot;       
+##  [9] &quot;LabJournalWebsite.Rproj&quot; &quot;Links.Rmd&quot;              
+## [11] &quot;mytable.txt&quot;             &quot;NOTES.Rmd&quot;              
+## [13] &quot;README.md&quot;               &quot;TroysRBasics_cache&quot;     
+## [15] &quot;TroysRBasics.Rmd&quot;</code></pre>
 </div>
 </div>
 <div id="input-and-output" class="section level2">
@@ -474,11 +478,13 @@ print(thedata)</code></pre>
 <h3>scan() - function read data from screen or file. Large data can be scanned in by just copy and paste, for example paste from EXCEL. Then use “ctrl+v” to paste the data, the data type will be automatically determined.</h3>
 <pre class="r"><code>dir()</code></pre>
 <pre><code>##  [1] &quot;_site.yml&quot;               &quot;docs&quot;                   
-##  [3] &quot;images&quot;                  &quot;index.Rmd&quot;              
-##  [5] &quot;Intrinsics.Rmd&quot;          &quot;LabJournalWebsite.Rproj&quot;
-##  [7] &quot;Links.Rmd&quot;               &quot;mytable.txt&quot;            
-##  [9] &quot;NOTES.Rmd&quot;               &quot;README.md&quot;              
-## [11] &quot;TroysRBasics_cache&quot;      &quot;TroysRBasics.Rmd&quot;</code></pre>
+##  [3] &quot;figure&quot;                  &quot;images&quot;                 
+##  [5] &quot;index.Rmd&quot;               &quot;Intrinsics.Rmd&quot;         
+##  [7] &quot;knitr-minimal.html&quot;      &quot;knitr-minimal.md&quot;       
+##  [9] &quot;LabJournalWebsite.Rproj&quot; &quot;Links.Rmd&quot;              
+## [11] &quot;mytable.txt&quot;             &quot;NOTES.Rmd&quot;              
+## [13] &quot;README.md&quot;               &quot;TroysRBasics_cache&quot;     
+## [15] &quot;TroysRBasics.Rmd&quot;</code></pre>
 <pre class="r"><code>scan() #i dont see how this isnt found its clearly in the directory</code></pre>
 <pre><code>## numeric(0)</code></pre>
 </div>
@@ -788,6 +794,94 @@ x</code></pre>
 <h3>x[[“name”]] column named “name”</h3>
 <pre class="r"><code>x &lt;- matrix(1:9, nrow = 3, dimnames = list(c(&quot;X&quot;,&quot;Y&quot;,&quot;Z&quot;), c(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;)))
 x[[&quot;B&quot;]]</code></pre>
+</div>
+<div id="xnamed" class="section level3">
+<h3>x$named</h3>
+</div>
+</div>
+<div id="variable-conversion" class="section level2">
+<h2>Variable conversion</h2>
+<div id="as.data.framex--" class="section level3">
+<h3>as.data.frame(x) -</h3>
+<pre class="r"><code>as.data.frame(x, row.names=NULL, optional=FALSE, xy=FALSE, 
+              na.rm=FALSE, long=FALSE, ...)#not sure exactly what i am attempting to do here</code></pre>
+</div>
+<div id="as.numericx--" class="section level3">
+<h3>as.numeric(x) -</h3>
+<pre class="r"><code>x &lt;- c(1,2,4,5,53,2)
+as.numeric(x)# i believe this is should be coding responses as numeric, which i dont quite undetstand in this context.for instance a likert scale </code></pre>
+<pre><code>## [1]  1  2  4  5 53  2</code></pre>
+</div>
+<div id="as.logicalx" class="section level3">
+<h3>as.logical(x)</h3>
+</div>
+<div id="as.characterx" class="section level3">
+<h3>as.character(x)</h3>
+</div>
+</div>
+<div id="variable-information" class="section level2">
+<h2>Variable information</h2>
+<div id="is.nax" class="section level3">
+<h3>is.na(x)</h3>
+</div>
+<div id="is.nullx" class="section level3">
+<h3>is.null(x)</h3>
+</div>
+<div id="is.data.framex" class="section level3">
+<h3>is.data.frame(x)</h3>
+</div>
+<div id="is.numericx" class="section level3">
+<h3>is.numeric(x)</h3>
+</div>
+<div id="is.characterx" class="section level3">
+<h3>is.character(x)</h3>
+</div>
+<div id="lengthx" class="section level3">
+<h3>length(x)</h3>
+<pre class="r"><code>x &lt;- c(1,2,5,6,3,6,64,4,3,7,8,9)
+length(x)</code></pre>
+<pre><code>## [1] 12</code></pre>
+</div>
+<div id="dimx" class="section level3">
+<h3>dim(x)</h3>
+<pre class="r"><code>x &lt;- c(1,2,5,6,3,6,64,4,3,7,8,9)
+dim(x)#? not sure here</code></pre>
+<pre><code>## NULL</code></pre>
+</div>
+<div id="dimnamesx" class="section level3">
+<h3>dimnames(x)</h3>
+</div>
+<div id="nrowxncolx---amount-of-colrows-also-to-use-name" class="section level3">
+<h3>nrow(x)ncol(x) - amount of col/rows, also to use name</h3>
+<pre class="r"><code>matrix(a, nrow = 2, ncol = 3)</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    2    4    3
+## [2,]    1    5    7</code></pre>
+</div>
+<div id="class" class="section level3">
+<h3>class()</h3>
+</div>
+<div id="attributes" class="section level3">
+<h3>attributes()</h3>
+</div>
+</div>
+<div id="data-selection-and-manipulation" class="section level2">
+<h2>Data selection and manipulation</h2>
+<div id="which.max---returns-the-largest-number" class="section level3">
+<h3>which.max() - returns the largest number</h3>
+<pre class="r"><code>x &lt;- c(1,4,57,54754,6576,3456346,4)
+
+which.max(x) #not sure why its not diagnosing thr enetire number and just the last digit, </code></pre>
+<pre><code>## [1] 6</code></pre>
+</div>
+<div id="which.min---smallest-element-of" class="section level3">
+<h3>which.min() - smallest element of</h3>
+<pre class="r"><code>x &lt;- c(1211,124,57,54754,6576,3456346,4)
+which.min(x) #why is this not 4?</code></pre>
+<pre><code>## [1] 7</code></pre>
+</div>
+<div id="which" class="section level3">
+<h3>which()</h3>
 </div>
 </div>
 

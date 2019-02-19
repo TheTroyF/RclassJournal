@@ -559,18 +559,18 @@ round(a, digits = 0) # not sure how to limit to 100 numbers</code></pre>
 ## [171] 171 172 173 174 175 176 177 178 179 180 181 182 183 184 185 186 187
 ## [188] 188 189 190 191 192 193 194 195 196 197 198 199 200</code></pre>
 <pre class="r"><code>sample(1:200,200)</code></pre>
-<pre><code>##   [1]  97 173  63 182   1  92 104 113  88 105   4 156 186  62 100  99  78
-##  [18] 195 102 150 188 127  31  98 136 123 109  37  51 101 132  68   3 131
-##  [35]  30 199 168 112 178 158  91  45  34  81 129 159 133  82  38   2 120
-##  [52]  26  36 119 137  39 160  61  17 140  79  59 151 149 198 191  22  77
-##  [69] 139  86 114 145 116   8 172 175  57  50  40 144 110 126 117 128 107
-##  [86] 174  83 130 134 193 143  94  25  64 167  71  74  20 180 177 185  54
-## [103]  73 111 200  42  89 183 153  69  72  44 138  53 142  33 118 171  32
-## [120] 187   7  85 125  84  35  55  29  13  49 147  70  27 176  80  19  75
-## [137]  43  41 121  15 163 165  47 184 103 148  56  60 179 190  28 135 124
-## [154] 152  14  52  16  93 155 141  58  11 154  90 146  10  87  96  66   6
-## [171] 166 122 157 170 162 196  18 115   9  24  76  65 108 164 161  95 181
-## [188]  23 169  67   5 194  21  48  12 192 189  46 106 197</code></pre>
+<pre><code>##   [1]  66 107 131 169  15  44 103 154 109 134 198 121 102 148  42  24 141
+##  [18]  48 156  81 127  52 188 126 197  30  19  43  12  85  23  59   7 174
+##  [35] 145 120  51 190 195 139 113  70 119 142   1 161 153  26 128 172 150
+##  [52]  14  37  28  77 111  61  35  63 192  25   4 176  65  92 186  95  86
+##  [69] 181  80  54 162  46 135  56  39  91  49 171  67  84  31 105  76 114
+##  [86] 124 108  71 200  53  21  99 182  45 196  90 136  33 100 183 165  72
+## [103] 187  64 116 160 177 140 184  75 199  96  88  82  55  93  60 129 194
+## [120]  79 185  29 112  40  27  97 175  34 179  18  38 173 151  50  94 152
+## [137]   5 149   8  69  78 189  22 138  32 170 132 130 193 144 143 155   2
+## [154]  74  62   3 164  58 167 101 147  57  13  16 117  83  68  36  89  87
+## [171]  17 123 115  98 137 191   9 110 125 122 104   6  41  20 118  11 133
+## [188]  10 178  47 166 157 146 180 158 106 159  73 168 163</code></pre>
 <pre class="r"><code>1:200</code></pre>
 <pre><code>##   [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17
 ##  [18]  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34
@@ -589,9 +589,9 @@ round(a, digits = 0) # not sure how to limit to 100 numbers</code></pre>
 <h2>Problem 9</h2>
 <p>Generate 100 random numbers within a specific range</p>
 <pre class="r"><code>round(runif(50, min = 100, max = 500))</code></pre>
-<pre><code>##  [1] 489 138 179 379 458 159 437 482 324 416 217 346 432 476 304 118 295
-## [18] 471 233 348 476 156 463 425 404 365 317 378 169 466 391 311 307 142
-## [35] 493 302 310 378 461 472 362 260 132 420 333 456 318 234 231 435</code></pre>
+<pre><code>##  [1] 429 491 153 350 264 185 217 482 140 187 231 158 380 323 435 122 289
+## [18] 108 235 309 355 353 191 241 126 337 295 113 125 205 481 262 142 430
+## [35] 408 295 431 494 489 266 195 104 254 223 297 372 188 367 414 175</code></pre>
 </div>
 <div id="problem-10" class="section level2">
 <h2>Problem 10</h2>
@@ -710,7 +710,7 @@ d%in%f</code></pre>
 <h2>Problem 17</h2>
 <p>Measure how long a piece of code takes to run by measuring the time before the code is run, and after the code is run, and taking the difference to find the total time</p>
 <pre class="r"><code>print(as.numeric(Sys.time())*10, digits=15)</code></pre>
-<pre><code>## [1] 15501705174.1656</code></pre>
+<pre><code>## [1] 15506165790.8456</code></pre>
 </div>
 <div id="problem-18" class="section level2">
 <h2>Problem 18</h2>
@@ -738,10 +738,272 @@ d%in%f</code></pre>
 <div id="problem-1-1" class="section level2">
 <h2>Problem 1</h2>
 <p>The FizzBuzz Problem. List the numbers from 1 to 100 with the following constraints. If the number can be divided by three evenly, then print Fizz instead of the number. If the number can be divided by five evenly, then print Buzz instead of the number. Finally, if the number can be divided by three and five evenly, then print FizzBuzz instead of the number. The answer could look something like this:</p>
+<pre class="r"><code>for (i in 1:100) {
+ if (i %% 3 == 0 &amp; i %% 5 == 0) {print(&quot;FizzBuzz&quot;)}
+ else if (i %% 3 == 0) {print(&quot;Fizz&quot;)}
+ else if (i %% 5 == 0) {print(&quot;Buzz&quot;)}
+ else print(i)
+}</code></pre>
+<pre><code>## [1] 1
+## [1] 2
+## [1] &quot;Fizz&quot;
+## [1] 4
+## [1] &quot;Buzz&quot;
+## [1] &quot;Fizz&quot;
+## [1] 7
+## [1] 8
+## [1] &quot;Fizz&quot;
+## [1] &quot;Buzz&quot;
+## [1] 11
+## [1] &quot;Fizz&quot;
+## [1] 13
+## [1] 14
+## [1] &quot;FizzBuzz&quot;
+## [1] 16
+## [1] 17
+## [1] &quot;Fizz&quot;
+## [1] 19
+## [1] &quot;Buzz&quot;
+## [1] &quot;Fizz&quot;
+## [1] 22
+## [1] 23
+## [1] &quot;Fizz&quot;
+## [1] &quot;Buzz&quot;
+## [1] 26
+## [1] &quot;Fizz&quot;
+## [1] 28
+## [1] 29
+## [1] &quot;FizzBuzz&quot;
+## [1] 31
+## [1] 32
+## [1] &quot;Fizz&quot;
+## [1] 34
+## [1] &quot;Buzz&quot;
+## [1] &quot;Fizz&quot;
+## [1] 37
+## [1] 38
+## [1] &quot;Fizz&quot;
+## [1] &quot;Buzz&quot;
+## [1] 41
+## [1] &quot;Fizz&quot;
+## [1] 43
+## [1] 44
+## [1] &quot;FizzBuzz&quot;
+## [1] 46
+## [1] 47
+## [1] &quot;Fizz&quot;
+## [1] 49
+## [1] &quot;Buzz&quot;
+## [1] &quot;Fizz&quot;
+## [1] 52
+## [1] 53
+## [1] &quot;Fizz&quot;
+## [1] &quot;Buzz&quot;
+## [1] 56
+## [1] &quot;Fizz&quot;
+## [1] 58
+## [1] 59
+## [1] &quot;FizzBuzz&quot;
+## [1] 61
+## [1] 62
+## [1] &quot;Fizz&quot;
+## [1] 64
+## [1] &quot;Buzz&quot;
+## [1] &quot;Fizz&quot;
+## [1] 67
+## [1] 68
+## [1] &quot;Fizz&quot;
+## [1] &quot;Buzz&quot;
+## [1] 71
+## [1] &quot;Fizz&quot;
+## [1] 73
+## [1] 74
+## [1] &quot;FizzBuzz&quot;
+## [1] 76
+## [1] 77
+## [1] &quot;Fizz&quot;
+## [1] 79
+## [1] &quot;Buzz&quot;
+## [1] &quot;Fizz&quot;
+## [1] 82
+## [1] 83
+## [1] &quot;Fizz&quot;
+## [1] &quot;Buzz&quot;
+## [1] 86
+## [1] &quot;Fizz&quot;
+## [1] 88
+## [1] 89
+## [1] &quot;FizzBuzz&quot;
+## [1] 91
+## [1] 92
+## [1] &quot;Fizz&quot;
+## [1] 94
+## [1] &quot;Buzz&quot;
+## [1] &quot;Fizz&quot;
+## [1] 97
+## [1] 98
+## [1] &quot;Fizz&quot;
+## [1] &quot;Buzz&quot;</code></pre>
 </div>
 <div id="problem-2-1" class="section level2">
 <h2>Problem 2</h2>
 <p>Take text as input, and be able to produce a table that shows the counts for each character in the text. This problem is related to the earlier easy problem asking you to count the number of times that a single letter appears in a text. The slightly harder problem is the more general version: count the frequencies of all unique characters in a text</p>
+<pre class="r"><code>k&lt;-&quot;the follow is text is written to count the individual  letters&quot;
+table(unlist(strsplit(k,split=&quot;&quot;)))</code></pre>
+<pre><code>## 
+##     a  c  d  e  f  h  i  l  n  o  r  s  t  u  v  w  x 
+## 11  1  1  2  6  1  2  6  4  3  4  2  3 10  2  1  2  1</code></pre>
+<pre class="r"><code>numbers &lt;- c(1,6,4,2,3,4,5,5)
+letters &lt;- c(&quot;e&quot;,&quot;a&quot;,&quot;b&quot;,&quot;e&quot;,&quot;a&quot;,&quot;b&quot;,&quot;a&quot;,&quot;b&quot;)
+
+new_df &lt;- data.frame(numbers,letters)
+print(new_df)</code></pre>
+<pre><code>##   numbers letters
+## 1       1       e
+## 2       6       a
+## 3       4       b
+## 4       2       e
+## 5       3       a
+## 6       4       b
+## 7       5       a
+## 8       5       b</code></pre>
+</div>
+<div id="problem-3-1" class="section level2">
+<h2>Problem 3</h2>
+<div id="test-the-random-number-generator-for-a-flat-distribution.-generate-a-few-million-random-numbers-between-0-and-100.-count-the-number-of-0s-1s-2s-3s-etc.-all-the-way-up-to-100.-look-at-the-counts-for-each-of-the-numbers-and-determine-if-they-are-relatively-equal.-for-example-you-could-plot-the-counts-in-excel-to-make-a-histogram.-if-all-of-the-bars-are-close-to-being-flat-then-each-number-had-an-equal-chance-of-being-selected-and-the-random-number-generator-is-working-without-bias." class="section level3">
+<h3>Test the random number generator for a flat distribution. Generate a few million random numbers between 0 and 100. Count the number of 0s, 1s, 2s, 3s, etc. all the way up to 100. Look at the counts for each of the numbers and determine if they are relatively equal. For example, you could plot the counts in Excel to make a histogram. If all of the bars are close to being flat, then each number had an equal chance of being selected, and the random number generator is working without bias.</h3>
+<pre class="r"><code>a&lt;-runif(10000,0,10000)
+hist(a)</code></pre>
+<p><img src="TroysRBasics_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+</div>
+</div>
+<div id="problem-4-1" class="section level2">
+<h2>Problem 4</h2>
+<div id="generate-a-matrix-for-a-multiplication-table.-for-example-the-labels-for-the-columns-could-be-the-numbers-1-to-10-and-the-labels-for-the-rows-could-be-the-numbers-1-to-10.-the-contents-of-each-of-the-cells-in-the-matrix-should-be-correct-answer-for-multiplying-the-column-value-by-the-row-value." class="section level3">
+<h3>Generate a matrix for a multiplication table. For example, the labels for the columns could be the numbers 1 to 10, and the labels for the rows could be the numbers 1 to 10. The contents of each of the cells in the matrix should be correct answer for multiplying the column value by the row value.</h3>
+<pre class="r"><code>a = matrix( 
+  c(1:10),  # the data elements 
+   nrow=10,              # number of rows 
+   ncol=10,              # number of columns 
+   byrow = TRUE)        
+for(i in 1:10){
+  for(j in 1:10){
+    print(i*j)
+  }
+}</code></pre>
+<pre><code>## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5
+## [1] 6
+## [1] 7
+## [1] 8
+## [1] 9
+## [1] 10
+## [1] 2
+## [1] 4
+## [1] 6
+## [1] 8
+## [1] 10
+## [1] 12
+## [1] 14
+## [1] 16
+## [1] 18
+## [1] 20
+## [1] 3
+## [1] 6
+## [1] 9
+## [1] 12
+## [1] 15
+## [1] 18
+## [1] 21
+## [1] 24
+## [1] 27
+## [1] 30
+## [1] 4
+## [1] 8
+## [1] 12
+## [1] 16
+## [1] 20
+## [1] 24
+## [1] 28
+## [1] 32
+## [1] 36
+## [1] 40
+## [1] 5
+## [1] 10
+## [1] 15
+## [1] 20
+## [1] 25
+## [1] 30
+## [1] 35
+## [1] 40
+## [1] 45
+## [1] 50
+## [1] 6
+## [1] 12
+## [1] 18
+## [1] 24
+## [1] 30
+## [1] 36
+## [1] 42
+## [1] 48
+## [1] 54
+## [1] 60
+## [1] 7
+## [1] 14
+## [1] 21
+## [1] 28
+## [1] 35
+## [1] 42
+## [1] 49
+## [1] 56
+## [1] 63
+## [1] 70
+## [1] 8
+## [1] 16
+## [1] 24
+## [1] 32
+## [1] 40
+## [1] 48
+## [1] 56
+## [1] 64
+## [1] 72
+## [1] 80
+## [1] 9
+## [1] 18
+## [1] 27
+## [1] 36
+## [1] 45
+## [1] 54
+## [1] 63
+## [1] 72
+## [1] 81
+## [1] 90
+## [1] 10
+## [1] 20
+## [1] 30
+## [1] 40
+## [1] 50
+## [1] 60
+## [1] 70
+## [1] 80
+## [1] 90
+## [1] 100</code></pre>
+<pre class="r"><code>a</code></pre>
+<pre><code>##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+##  [1,]    1    2    3    4    5    6    7    8    9    10
+##  [2,]    1    2    3    4    5    6    7    8    9    10
+##  [3,]    1    2    3    4    5    6    7    8    9    10
+##  [4,]    1    2    3    4    5    6    7    8    9    10
+##  [5,]    1    2    3    4    5    6    7    8    9    10
+##  [6,]    1    2    3    4    5    6    7    8    9    10
+##  [7,]    1    2    3    4    5    6    7    8    9    10
+##  [8,]    1    2    3    4    5    6    7    8    9    10
+##  [9,]    1    2    3    4    5    6    7    8    9    10
+## [10,]    1    2    3    4    5    6    7    8    9    10</code></pre>
+</div>
 </div>
 </div>
 
