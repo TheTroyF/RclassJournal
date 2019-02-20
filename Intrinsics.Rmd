@@ -560,10 +560,99 @@ which.min(x) #why is this not 4?
 
 ```
 
-###which()
+###which() - what postion something is in
+```{r}
+y <- c(3,5,7,8,4,3,3,2)
+which(y == 4)
+
+```
+
+###sort() - puts things in order
+```{r}
+
+m <- c(5,2,6,7,8,3,3,3,3)
+sort(m)
+
+```
+
+###unique()
 ```{r}
 
 
 ```
 
+###table() - can be used for frequency tables
+```{r}
+d <- c(2,4,5,8,5,3,6,5,8,6,5,3,3,4,6,6,8,8,5,4,3,2,3)
+table(d)#, or categorization, assuming i can use strsplit but im not positive
 
+
+```
+###sample - simply put to sample numbers, but you can modify to sample greater or less then and incorporate sort to clean it up
+```{r}
+
+d <- 1:20
+sort(sample(d[d > 7]))#sorted all numbers greater than 7 from variable d
+
+```
+
+##MATH
+
+###max() - largest number in variable
+```{r}
+
+max(d)
+
+```
+
+###min() - smallest number in variable
+```{r}
+min(d)
+```
+
+###range() - from smallest to largest number
+```{r}
+range(d)
+
+```
+
+###sum - sum of all integers of a given variable
+```{r}
+
+sum(d)
+```
+###mean 
+```{r}
+mean(d)
+```
+
+###median
+```{r}
+median(d)
+```
+
+###var - The average of the squared differences from the Mean
+```{r}
+
+var(d)
+
+```
+
+###sd - Standard Deviation is just the square root of Variance
+```{r}
+sd(d)
+
+```
+
+###cor - 
+```{r, eval=F}
+n <- c(2,2,4,4,6,6,6,3,3,3,3)
+cor(d,n)#just not sure here abount what to do
+
+```
+
+###round() - specify whole or decimal numbers in a sequence or within a variable
+```{r}
+round(.5 + -2:4)
+( x1 <- seq(-2, 4, by = .5) )#sequence of numbers by the .5 in each sequence 
+```

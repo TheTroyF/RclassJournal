@@ -141,7 +141,7 @@ round(runif(50, min = 100, max = 500))
 Write your own functions to give descriptive statistics for a vector variable storing multiple numbers. Write functions for the following without using R intrinsics: mean, mode, median, range, standard deviation
 ```{r}
 
-some_numbers <- c(2,3,4,5,5,6,8) #c()=dataset
+some_numbers <- c(3, 4, 7, 6, 5, 1, 4, 3, 4, 4, 5, 4, 0, 3, 5, 4, 4, 4) #c()=dataset
 mean(some_numbers) #finding mean
 median(some_numbers) #median
 range(some_numbers) #range
@@ -354,16 +354,15 @@ print(new_df)
 ###Test the random number generator for a flat distribution. Generate a few million random numbers between 0 and 100. Count the number of 0s, 1s, 2s, 3s, etc. all the way up to 100. Look at the counts for each of the numbers and determine if they are relatively equal. For example, you could plot the counts in Excel to make a histogram. If all of the bars are close to being flat, then each number had an equal chance of being selected, and the random number generator is working without bias.
 ```{r}
 
-a<-runif(10000,0,10000)
+a<-runif(1000000,0,10000000)
 hist(a)
-
 
 ```
 
 ## Problem 4
 ###Generate a matrix for a multiplication table. For example, the labels for the columns could be the numbers 1 to 10, and the labels for the rows could be the numbers 1 to 10. The contents of each of the cells in the matrix should be correct answer for multiplying the column value by the row value.
 ```{r}
-
+#i cant for the life of me figure this problem out.....:(
 a = matrix( 
   c(1:10),  # the data elements 
    nrow=10,              # number of rows 
