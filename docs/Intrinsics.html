@@ -967,6 +967,146 @@ cor(d,n)#just not sure here abount what to do</code></pre>
 <pre class="r"><code>( x1 &lt;- seq(-2, 4, by = .5) )#sequence of numbers by the .5 in each sequence </code></pre>
 <pre><code>##  [1] -2.0 -1.5 -1.0 -0.5  0.0  0.5  1.0  1.5  2.0  2.5  3.0  3.5  4.0</code></pre>
 </div>
+<div id="abs--" class="section level3">
+<h3>abs() -</h3>
+<pre class="r"><code>abs(d)</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20</code></pre>
+<pre class="r"><code>x &lt;- matrix(c(-3,5,-7,1,-9,4),nrow=3,ncol=2,byrow=TRUE)
+abs(x[1,])#absolute value of row one</code></pre>
+<pre><code>## [1] 3 5</code></pre>
+</div>
+</div>
+<div id="matrices" class="section level2">
+<h2>Matrices</h2>
+<div id="t" class="section level3">
+<h3>t()</h3>
+<pre class="r"><code>h &lt;- matrix(1:20, nrow=5, ncol=4)
+t(h)</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    1    2    3    4    5
+## [2,]    6    7    8    9   10
+## [3,]   11   12   13   14   15
+## [4,]   16   17   18   19   20</code></pre>
+</div>
+<div id="diag---not-sure-what-this-is" class="section level3">
+<h3>diag() - not sure what this is</h3>
+<pre class="r"><code># NOT RUN {
+dim(diag(3))</code></pre>
+<pre><code>## [1] 3 3</code></pre>
+<pre class="r"><code>diag(10, 3, 4) # guess what?</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]   10    0    0    0
+## [2,]    0   10    0    0
+## [3,]    0    0   10    0</code></pre>
+<pre class="r"><code>all(diag(1:3) == {m &lt;- matrix(0,3,3); diag(m) &lt;- 1:3; m})</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="rowsums-colsums---sum-of-rows-and-columns.-rowmeans-colmeans" class="section level3">
+<h3>rowsums() / colsums() - sum of rows and columns. rowmeans() / Colmeans()</h3>
+<pre class="r"><code>h &lt;- matrix(1:20, nrow=5, ncol=4)
+rowSums(h)</code></pre>
+<pre><code>## [1] 34 38 42 46 50</code></pre>
+<pre class="r"><code>colSums(h)</code></pre>
+<pre><code>## [1] 15 40 65 90</code></pre>
+<pre class="r"><code>rowMeans(h)</code></pre>
+<pre><code>## [1]  8.5  9.5 10.5 11.5 12.5</code></pre>
+<pre class="r"><code>colMeans(h)</code></pre>
+<pre><code>## [1]  3  8 13 18</code></pre>
+</div>
+</div>
+<div id="advanced-data-processing" class="section level2">
+<h2>Advanced data processing</h2>
+<pre class="r"><code>apply</code></pre>
+<pre><code>## function (X, MARGIN, FUN, ...) 
+## {
+##     FUN &lt;- match.fun(FUN)
+##     dl &lt;- length(dim(X))
+##     if (!dl) 
+##         stop(&quot;dim(X) must have a positive length&quot;)
+##     if (is.object(X)) 
+##         X &lt;- if (dl == 2L) 
+##             as.matrix(X)
+##         else as.array(X)
+##     d &lt;- dim(X)
+##     dn &lt;- dimnames(X)
+##     ds &lt;- seq_len(dl)
+##     if (is.character(MARGIN)) {
+##         if (is.null(dnn &lt;- names(dn))) 
+##             stop(&quot;&#39;X&#39; must have named dimnames&quot;)
+##         MARGIN &lt;- match(MARGIN, dnn)
+##         if (anyNA(MARGIN)) 
+##             stop(&quot;not all elements of &#39;MARGIN&#39; are names of dimensions&quot;)
+##     }
+##     s.call &lt;- ds[-MARGIN]
+##     s.ans &lt;- ds[MARGIN]
+##     d.call &lt;- d[-MARGIN]
+##     d.ans &lt;- d[MARGIN]
+##     dn.call &lt;- dn[-MARGIN]
+##     dn.ans &lt;- dn[MARGIN]
+##     d2 &lt;- prod(d.ans)
+##     if (d2 == 0L) {
+##         newX &lt;- array(vector(typeof(X), 1L), dim = c(prod(d.call), 
+##             1L))
+##         ans &lt;- forceAndCall(1, FUN, if (length(d.call) &lt; 2L) newX[, 
+##             1] else array(newX[, 1L], d.call, dn.call), ...)
+##         return(if (is.null(ans)) ans else if (length(d.ans) &lt; 
+##             2L) ans[1L][-1L] else array(ans, d.ans, dn.ans))
+##     }
+##     newX &lt;- aperm(X, c(s.call, s.ans))
+##     dim(newX) &lt;- c(prod(d.call), d2)
+##     ans &lt;- vector(&quot;list&quot;, d2)
+##     if (length(d.call) &lt; 2L) {
+##         if (length(dn.call)) 
+##             dimnames(newX) &lt;- c(dn.call, list(NULL))
+##         for (i in 1L:d2) {
+##             tmp &lt;- forceAndCall(1, FUN, newX[, i], ...)
+##             if (!is.null(tmp)) 
+##                 ans[[i]] &lt;- tmp
+##         }
+##     }
+##     else for (i in 1L:d2) {
+##         tmp &lt;- forceAndCall(1, FUN, array(newX[, i], d.call, 
+##             dn.call), ...)
+##         if (!is.null(tmp)) 
+##             ans[[i]] &lt;- tmp
+##     }
+##     ans.list &lt;- is.recursive(ans[[1L]])
+##     l.ans &lt;- length(ans[[1L]])
+##     ans.names &lt;- names(ans[[1L]])
+##     if (!ans.list) 
+##         ans.list &lt;- any(lengths(ans) != l.ans)
+##     if (!ans.list &amp;&amp; length(ans.names)) {
+##         all.same &lt;- vapply(ans, function(x) identical(names(x), 
+##             ans.names), NA)
+##         if (!all(all.same)) 
+##             ans.names &lt;- NULL
+##     }
+##     len.a &lt;- if (ans.list) 
+##         d2
+##     else length(ans &lt;- unlist(ans, recursive = FALSE))
+##     if (length(MARGIN) == 1L &amp;&amp; len.a == d2) {
+##         names(ans) &lt;- if (length(dn.ans[[1L]])) 
+##             dn.ans[[1L]]
+##         ans
+##     }
+##     else if (len.a == d2) 
+##         array(ans, d.ans, dn.ans)
+##     else if (len.a &amp;&amp; len.a%%d2 == 0L) {
+##         if (is.null(dn.ans)) 
+##             dn.ans &lt;- vector(mode = &quot;list&quot;, length(d.ans))
+##         dn1 &lt;- list(ans.names)
+##         if (length(dn.call) &amp;&amp; !is.null(n1 &lt;- names(dn &lt;- dn.call[1])) &amp;&amp; 
+##             nzchar(n1) &amp;&amp; length(ans.names) == length(dn[[1]])) 
+##             names(dn1) &lt;- n1
+##         dn.ans &lt;- c(dn1, dn.ans)
+##         array(ans, c(len.a%/%d2, d.ans), if (!is.null(names(dn.ans)) || 
+##             !all(vapply(dn.ans, is.null, NA))) 
+##             dn.ans)
+##     }
+##     else ans
+## }
+## &lt;bytecode: 0x7f8dfb035e78&gt;
+## &lt;environment: namespace:base&gt;</code></pre>
 </div>
 
 
