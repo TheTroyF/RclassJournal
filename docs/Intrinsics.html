@@ -425,28 +425,26 @@ is(a)? #not sure if this is right</code></pre>
 <pre class="r"><code>dir() </code></pre>
 <pre><code>##  [1] &quot;_site.yml&quot;                &quot;docs&quot;                    
 ##  [3] &quot;figure&quot;                   &quot;histogram_lim_breaks.png&quot;
-##  [5] &quot;images&quot;                   &quot;index.html&quot;              
-##  [7] &quot;index.Rmd&quot;                &quot;Intrinsics.Rmd&quot;          
-##  [9] &quot;knitr-minimal.html&quot;       &quot;knitr-minimal.md&quot;        
-## [11] &quot;LabJournalWebsite.Rproj&quot;  &quot;Links.Rmd&quot;               
-## [13] &quot;mytable.txt&quot;              &quot;NOTES.Rmd&quot;               
-## [15] &quot;quanthistogram.png&quot;       &quot;README.md&quot;               
-## [17] &quot;site_libs&quot;                &quot;TroysRBasics_cache&quot;      
-## [19] &quot;TroysRBasics_files&quot;       &quot;TroysRBasics.Rmd&quot;</code></pre>
+##  [5] &quot;images&quot;                   &quot;index.Rmd&quot;               
+##  [7] &quot;Intrinsics.Rmd&quot;           &quot;knitr-minimal.md&quot;        
+##  [9] &quot;LabJournalWebsite.Rproj&quot;  &quot;Links.Rmd&quot;               
+## [11] &quot;mytable.txt&quot;              &quot;NOTES.Rmd&quot;               
+## [13] &quot;quanthistogram.png&quot;       &quot;README.md&quot;               
+## [15] &quot;TroysRBasics_cache&quot;       &quot;TroysRBasics_files&quot;      
+## [17] &quot;TroysRBasics.Rmd&quot;</code></pre>
 </div>
 <div id="list.files---shows-files-in-the-directory" class="section level3">
 <h3>list.files() - shows files in the directory</h3>
 <pre class="r"><code>list.files()</code></pre>
 <pre><code>##  [1] &quot;_site.yml&quot;                &quot;docs&quot;                    
 ##  [3] &quot;figure&quot;                   &quot;histogram_lim_breaks.png&quot;
-##  [5] &quot;images&quot;                   &quot;index.html&quot;              
-##  [7] &quot;index.Rmd&quot;                &quot;Intrinsics.Rmd&quot;          
-##  [9] &quot;knitr-minimal.html&quot;       &quot;knitr-minimal.md&quot;        
-## [11] &quot;LabJournalWebsite.Rproj&quot;  &quot;Links.Rmd&quot;               
-## [13] &quot;mytable.txt&quot;              &quot;NOTES.Rmd&quot;               
-## [15] &quot;quanthistogram.png&quot;       &quot;README.md&quot;               
-## [17] &quot;site_libs&quot;                &quot;TroysRBasics_cache&quot;      
-## [19] &quot;TroysRBasics_files&quot;       &quot;TroysRBasics.Rmd&quot;</code></pre>
+##  [5] &quot;images&quot;                   &quot;index.Rmd&quot;               
+##  [7] &quot;Intrinsics.Rmd&quot;           &quot;knitr-minimal.md&quot;        
+##  [9] &quot;LabJournalWebsite.Rproj&quot;  &quot;Links.Rmd&quot;               
+## [11] &quot;mytable.txt&quot;              &quot;NOTES.Rmd&quot;               
+## [13] &quot;quanthistogram.png&quot;       &quot;README.md&quot;               
+## [15] &quot;TroysRBasics_cache&quot;       &quot;TroysRBasics_files&quot;      
+## [17] &quot;TroysRBasics.Rmd&quot;</code></pre>
 </div>
 </div>
 <div id="input-and-output" class="section level2">
@@ -483,14 +481,13 @@ print(thedata)</code></pre>
 <pre class="r"><code>dir()</code></pre>
 <pre><code>##  [1] &quot;_site.yml&quot;                &quot;docs&quot;                    
 ##  [3] &quot;figure&quot;                   &quot;histogram_lim_breaks.png&quot;
-##  [5] &quot;images&quot;                   &quot;index.html&quot;              
-##  [7] &quot;index.Rmd&quot;                &quot;Intrinsics.Rmd&quot;          
-##  [9] &quot;knitr-minimal.html&quot;       &quot;knitr-minimal.md&quot;        
-## [11] &quot;LabJournalWebsite.Rproj&quot;  &quot;Links.Rmd&quot;               
-## [13] &quot;mytable.txt&quot;              &quot;NOTES.Rmd&quot;               
-## [15] &quot;quanthistogram.png&quot;       &quot;README.md&quot;               
-## [17] &quot;site_libs&quot;                &quot;TroysRBasics_cache&quot;      
-## [19] &quot;TroysRBasics_files&quot;       &quot;TroysRBasics.Rmd&quot;</code></pre>
+##  [5] &quot;images&quot;                   &quot;index.Rmd&quot;               
+##  [7] &quot;Intrinsics.Rmd&quot;           &quot;knitr-minimal.md&quot;        
+##  [9] &quot;LabJournalWebsite.Rproj&quot;  &quot;Links.Rmd&quot;               
+## [11] &quot;mytable.txt&quot;              &quot;NOTES.Rmd&quot;               
+## [13] &quot;quanthistogram.png&quot;       &quot;README.md&quot;               
+## [15] &quot;TroysRBasics_cache&quot;       &quot;TroysRBasics_files&quot;      
+## [17] &quot;TroysRBasics.Rmd&quot;</code></pre>
 <pre class="r"><code>scan() #i dont see how this isnt found its clearly in the directory</code></pre>
 <pre><code>## numeric(0)</code></pre>
 </div>
@@ -1032,6 +1029,98 @@ rowSums(h)</code></pre>
 <h2>Strings</h2>
 <div id="paste" class="section level3">
 <h3>paste()</h3>
+<pre class="r"><code>paste0(1:12) #need an elementary explanation</code></pre>
+<pre><code>##  [1] &quot;1&quot;  &quot;2&quot;  &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;6&quot;  &quot;7&quot;  &quot;8&quot;  &quot;9&quot;  &quot;10&quot; &quot;11&quot; &quot;12&quot;</code></pre>
+<pre class="r"><code>paste(1:12)      </code></pre>
+<pre><code>##  [1] &quot;1&quot;  &quot;2&quot;  &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;6&quot;  &quot;7&quot;  &quot;8&quot;  &quot;9&quot;  &quot;10&quot; &quot;11&quot; &quot;12&quot;</code></pre>
+<pre class="r"><code>as.character(1:12)</code></pre>
+<pre><code>##  [1] &quot;1&quot;  &quot;2&quot;  &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;6&quot;  &quot;7&quot;  &quot;8&quot;  &quot;9&quot;  &quot;10&quot; &quot;11&quot; &quot;12&quot;</code></pre>
+</div>
+<div id="strsplit---strsplit-helps-find-letters-in-string" class="section level3">
+<h3>strsplit - strsplit helps find letters in string</h3>
+<pre class="r"><code>q &lt;- &quot;dogs cats&quot; #strsplit helps find letters in string
+strsplit(q,split=&quot;&quot;) #to split a character vector</code></pre>
+<pre><code>## [[1]]
+## [1] &quot;d&quot; &quot;o&quot; &quot;g&quot; &quot;s&quot; &quot; &quot; &quot;c&quot; &quot;a&quot; &quot;t&quot; &quot;s&quot;</code></pre>
+<pre class="r"><code>t &lt;-strsplit(q,split =&quot;&quot;)
+
+
+
+t[[1]]</code></pre>
+<pre><code>## [1] &quot;d&quot; &quot;o&quot; &quot;g&quot; &quot;s&quot; &quot; &quot; &quot;c&quot; &quot;a&quot; &quot;t&quot; &quot;s&quot;</code></pre>
+<pre class="r"><code>t[[1]][2]#use to access second item in string</code></pre>
+<pre><code>## [1] &quot;o&quot;</code></pre>
+<pre class="r"><code>t[[1]][6]#use to access sixth item in string</code></pre>
+<pre><code>## [1] &quot;c&quot;</code></pre>
+<pre class="r"><code>table(t)</code></pre>
+<pre><code>## t
+##   a c d g o s t 
+## 1 1 1 1 1 1 2 1</code></pre>
+</div>
+<div id="tolower--" class="section level3">
+<h3>tolower() -</h3>
+<pre class="r"><code>test1 &lt;- c(text1 = &quot;England and France are members of NATO and UNESCO&quot;, 
+text2 = &quot;NASA sent a rocket into space.&quot;)
+tolower(test1)</code></pre>
+<pre><code>##                                               text1 
+## &quot;england and france are members of nato and unesco&quot; 
+##                                               text2 
+##                    &quot;nasa sent a rocket into space.&quot;</code></pre>
+</div>
+<div id="toupper--" class="section level3">
+<h3>toupper() -</h3>
+<pre class="r"><code>test1 &lt;- c(text1 = &quot;England and France are members of NATO and UNESCO&quot;, 
+text2 = &quot;NASA sent a rocket into space.&quot;)
+toupper(test1)</code></pre>
+<pre><code>##                                               text1 
+## &quot;ENGLAND AND FRANCE ARE MEMBERS OF NATO AND UNESCO&quot; 
+##                                               text2 
+##                    &quot;NASA SENT A ROCKET INTO SPACE.&quot;</code></pre>
+</div>
+</div>
+<div id="plotting" class="section level2">
+<h2>Plotting</h2>
+<div id="hist" class="section level3">
+<h3>hist()</h3>
+<pre class="r"><code>v &lt;- c(3, 4, 7, 6, 5, 1, 4, 3, 4, 4, 5, 4, 0, 3, 5, 4, 4, 4)
+
+# Give the chart file a name.
+png(file = &quot;histogram_lim_breaks.png&quot;)
+
+# Create the histogram.
+hist(v,xlab = &quot;Weight&quot;,col = &quot;green&quot;,border = &quot;red&quot;, xlim = c(0,8), ylim = c(0,10),
+   breaks = 5)</code></pre>
+</div>
+<div id="plot" class="section level3">
+<h3>plot()</h3>
+<pre class="r"><code>v &lt;- c(3, 4, 7, 6, 5, 1, 4, 3, 4, 4, 5, 4, 0, 3, 5, 4, 4, 4)
+
+# Give the chart file a name.
+png(file = &quot;histogram_lim_breaks.png&quot;)
+
+# Create the histogram.
+plot(v,xlab = &quot;Weight&quot;,col = &quot;green&quot;, xlim = c(0,8), ylim = c(0,10))</code></pre>
+</div>
+</div>
+<div id="distributions" class="section level2">
+<h2>Distributions</h2>
+<div id="rnorm---generates-random-deviates." class="section level3">
+<h3>rnorm - generates random deviates.</h3>
+<pre class="r"><code>rnorm(n, mean = 10, sd = 1.5)</code></pre>
+<pre><code>## [1]  7.378310 10.078692  9.797103</code></pre>
+</div>
+<div id="runif---random-numbers" class="section level3">
+<h3>runif - random numbers</h3>
+<pre class="r"><code>n &lt;- c(1,2,5,7,8,4,3,2,5,6,8,8,5)
+runif(n, min = 0, max = 10)</code></pre>
+<pre><code>##  [1] 6.0519331 1.3778040 5.0139405 5.5140633 0.8213120 6.2512829 4.0719676
+##  [8] 1.1818647 5.9410044 1.4903568 0.9833615 9.9470874 4.9604059</code></pre>
+</div>
+</div>
+<div id="programming" class="section level2">
+<h2>Programming</h2>
+<div id="show-that-you-can-define-a-function" class="section level3">
+<h3>show that you can define a function</h3>
 </div>
 </div>
 
