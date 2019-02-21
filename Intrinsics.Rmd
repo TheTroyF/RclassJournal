@@ -697,7 +697,23 @@ colMeans(h)
 ```
 
 ##Advanced data processing
-```{r}
+###apply
+```{r, eval=F}
 apply
+
+```
+
+###aggregate()
+```{r}
+
+#not sure why or what this is going to do for me 
+```
+
+##Strings
+
+###paste()
+```{r}
+
+
 
 ```

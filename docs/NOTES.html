@@ -538,7 +538,7 @@ add_one</code></pre>
 }
 
 roll_dice()#run the fxn with no input</code></pre>
-<pre><code>## [1] 1</code></pre>
+<pre><code>## [1] 3</code></pre>
 <div id="write-function-to-find-sum-of-numbers" class="section level3">
 <h3>write function to find sum of numbers</h3>
 <pre class="r"><code>#decalre a fxn
@@ -561,6 +561,23 @@ ranged_mean2 &lt;- function(x, min_val, max_val){
                   restricted_mean = mean(restricted_values))#creating restricted values, then placing the mean of those values into it
   return(outputs)
 }</code></pre>
+<pre class="r"><code>g&lt;-c(-.55,.07,1.95,1.32,.7,1.8,.07,-.55,.07,.07,.7,.07,-2.42,-.55,.7,.07,.07,.07)
+hist(g)</code></pre>
+<p><img src="NOTES_files/figure-html/unnamed-chunk-12-1.png" width="672" /> ##histogram with colors and ranges…</p>
+<pre class="r"><code># Create data for the graph.
+v &lt;- c(3, 4, 7, 6, 5, 1, 4, 3, 4, 4, 5, 4, 0, 3, 5, 4, 4, 4)
+
+# Give the chart file a name.
+png(file = &quot;histogram_lim_breaks.png&quot;)
+
+# Create the histogram.
+hist(v,xlab = &quot;Weight&quot;,col = &quot;green&quot;,border = &quot;red&quot;, xlim = c(0,8), ylim = c(0,10),
+   breaks = 5)
+
+# Save the file.
+dev.off()</code></pre>
+<pre><code>## quartz_off_screen 
+##                 2</code></pre>
 </div>
 </div>
 
