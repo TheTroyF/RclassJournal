@@ -103,12 +103,11 @@ List all of the prime numbers from 1 to 1000.
 
 a <- length (1:1000)
 for (i in 1:1000) {
-if (!i %% 1){  
+if (!i %% 1)  
     next
-    }
-i #id like to print in rows
+     #id like to print in rows
 }  #!=not equal to i, %%=divided by
-
+print(i)
 ```
 
 ## Problem 8

@@ -810,6 +810,12 @@ addtwo <- function(x) {
   return(b)
 }
 addtwo(2) 
+
+sumsq <- function(x,y) {
+  x^2 + y^2
+}
+sumsq(2,3)#i think i need to insert a table to truly make this work 
+
 ```
 
 ###show that you can write a for loop
@@ -820,6 +826,17 @@ addtwo(2)
 ```
 
 ###show that you can write a while loop
+```{r}
+
+x <- 4
+while(x < 100) {
+  x <- x + 8
+
+print(x)
+}
+```
+
+###show that you can write an if else statement
 ```{r}
 
 
