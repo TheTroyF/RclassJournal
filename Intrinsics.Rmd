@@ -805,6 +805,23 @@ runif(n, min = 0, max = 10)
 ###show that you can define a function
 ```{r}
 
+addtwo <- function(x) {
+  b <- x + 2
+  return(b)
+}
+addtwo(2) 
+```
+
+###show that you can write a for loop
+```{r}
+
+
+
+```
+
+###show that you can write a while loop
+```{r}
+
 
 
 ```

@@ -207,8 +207,6 @@ hist(g)
 ##histogram with colors and ranges...
 ```{r}
 
-
-
 # Create data for the graph.
 v <- c(3, 4, 7, 6, 5, 1, 4, 3, 4, 4, 5, 4, 0, 3, 5, 4, 4, 4)
 

@@ -1107,20 +1107,32 @@ plot(v,xlab = &quot;Weight&quot;,col = &quot;green&quot;, xlim = c(0,8), ylim = 
 <div id="rnorm---generates-random-deviates." class="section level3">
 <h3>rnorm - generates random deviates.</h3>
 <pre class="r"><code>rnorm(n, mean = 10, sd = 1.5)</code></pre>
-<pre><code>## [1]  7.378310 10.078692  9.797103</code></pre>
+<pre><code>## [1] 8.809727 9.694711 8.587040</code></pre>
 </div>
 <div id="runif---random-numbers" class="section level3">
 <h3>runif - random numbers</h3>
 <pre class="r"><code>n &lt;- c(1,2,5,7,8,4,3,2,5,6,8,8,5)
 runif(n, min = 0, max = 10)</code></pre>
-<pre><code>##  [1] 6.0519331 1.3778040 5.0139405 5.5140633 0.8213120 6.2512829 4.0719676
-##  [8] 1.1818647 5.9410044 1.4903568 0.9833615 9.9470874 4.9604059</code></pre>
+<pre><code>##  [1] 8.0403030 3.5793584 2.7154265 9.7305786 9.6244296 7.7886057 8.2915965
+##  [8] 0.3494556 2.1262656 7.0661213 3.5358200 6.7862386 4.0849160</code></pre>
 </div>
 </div>
 <div id="programming" class="section level2">
 <h2>Programming</h2>
 <div id="show-that-you-can-define-a-function" class="section level3">
 <h3>show that you can define a function</h3>
+<pre class="r"><code>addtwo &lt;- function(x) {
+  b &lt;- x + 2
+  return(b)
+}
+addtwo(2) </code></pre>
+<pre><code>## [1] 4</code></pre>
+</div>
+<div id="show-that-you-can-write-a-for-loop" class="section level3">
+<h3>show that you can write a for loop</h3>
+</div>
+<div id="show-that-you-can-write-a-while-loop" class="section level3">
+<h3>show that you can write a while loop</h3>
 </div>
 </div>
 
