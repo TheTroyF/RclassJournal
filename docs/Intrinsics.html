@@ -1171,6 +1171,24 @@ ifelse(j %% 3 == 0, &quot;three&quot;, &quot;not&quot;)</code></pre>
 </div>
 <div id="explain-what-return-does-inside-a-function-show-you-can-use-it" class="section level3">
 <h3>Explain what return() does inside a function, show you can use it</h3>
+<pre class="r"><code>check &lt;- function(x) {
+if (x &gt; 0) {
+result &lt;- &quot;Positive&quot;
+}
+else if (x &lt; 0) {
+result &lt;- &quot;Negative&quot;
+}
+else {
+result &lt;- &quot;Zero&quot;
+}
+return(result)
+}
+check(1)</code></pre>
+<pre><code>## [1] &quot;Positive&quot;</code></pre>
+<pre class="r"><code>check(-3)</code></pre>
+<pre><code>## [1] &quot;Negative&quot;</code></pre>
+<pre class="r"><code>check(0)</code></pre>
+<pre><code>## [1] &quot;Zero&quot;</code></pre>
 </div>
 <div id="explain-what-break-does-show-you-can-use-it" class="section level3">
 <h3>Explain what break() does, show you can use it</h3>
