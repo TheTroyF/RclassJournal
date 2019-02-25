@@ -222,3 +222,15 @@ dev.off()
 
 
 ```
+
+###loop examlpe
+```{r, eval=F}
+
+for(this_word in words) {
+  n_letters <- nchar(this_word)
+  block_word <- toupper(this_word)
+  cat(block_word, "has", n_letters, "letters\n")
+}
+
+
+```
