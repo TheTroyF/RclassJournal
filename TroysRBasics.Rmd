@@ -380,6 +380,7 @@ a
 ###Encrypt and Decrypt the Alphabet Turn any normal english text into an encrypted version of the text, and be able to turn any decrypted text back into normal english text. A simple encryption would be to scramble the alphabet such that each letter corresponds to a new randomly chosen (but unique) letter.
 ```{r}
 
+paste("1_", letters, sep = "")
 
 
 
