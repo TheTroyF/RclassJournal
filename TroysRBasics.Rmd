@@ -335,7 +335,7 @@ Take text as input, and be able to produce a table that shows the counts for eac
 ```{r}
 
 
-k<-"the follow is text is written to count the individual  letters"
+k<-"the follow is text is written to count the individual letters"
 table(unlist(strsplit(k,split="")))
 
 
