@@ -711,7 +711,7 @@ d%in%f</code></pre>
 <h2>Problem 17</h2>
 <p>Measure how long a piece of code takes to run by measuring the time before the code is run, and after the code is run, and taking the difference to find the total time</p>
 <pre class="r"><code>print(as.numeric(Sys.time())*10, digits=15)</code></pre>
-<pre><code>## [1] 15511045999.286</code></pre>
+<pre><code>## [1] 15511164562.0004</code></pre>
 </div>
 <div id="problem-18" class="section level2">
 <h2>Problem 18</h2>
@@ -849,11 +849,11 @@ d%in%f</code></pre>
 <div id="problem-2-1" class="section level2">
 <h2>Problem 2</h2>
 <p>Take text as input, and be able to produce a table that shows the counts for each character in the text. This problem is related to the earlier easy problem asking you to count the number of times that a single letter appears in a text. The slightly harder problem is the more general version: count the frequencies of all unique characters in a text</p>
-<pre class="r"><code>k&lt;-&quot;the follow is text is written to count the individual  letters&quot;
+<pre class="r"><code>k&lt;-&quot;the follow is text is written to count the individual letters&quot;
 table(unlist(strsplit(k,split=&quot;&quot;)))</code></pre>
 <pre><code>## 
 ##     a  c  d  e  f  h  i  l  n  o  r  s  t  u  v  w  x 
-## 11  1  1  2  6  1  2  6  4  3  4  2  3 10  2  1  2  1</code></pre>
+## 10  1  1  2  6  1  2  6  4  3  4  2  3 10  2  1  2  1</code></pre>
 <pre class="r"><code>numbers &lt;- c(1,6,4,2,3,4,5,5)
 letters &lt;- c(&quot;e&quot;,&quot;a&quot;,&quot;b&quot;,&quot;e&quot;,&quot;a&quot;,&quot;b&quot;,&quot;a&quot;,&quot;b&quot;)
 
