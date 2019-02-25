@@ -840,6 +840,8 @@ print(x)
 ```{r}
 
 
+j = c(1:30)
+ifelse(j %% 3 == 0, "three", "not")
 
 ```
 
