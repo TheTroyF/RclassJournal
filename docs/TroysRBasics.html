@@ -534,11 +534,12 @@ a[ a%%2 != 0]</code></pre>
 <p>List all of the prime numbers from 1 to 1000.</p>
 <pre class="r"><code>a &lt;- length (1:1000)
 for (i in 1:1000) {
-if (!i %% 1){  
+if (!i %% 1)  
     next
-    }
-i #id like to print in rows
-}  #!=not equal to i, %%=divided by</code></pre>
+     #id like to print in rows
+}  #!=not equal to i, %%=divided by
+print(i)</code></pre>
+<pre><code>## [1] 1000</code></pre>
 </div>
 <div id="problem-8" class="section level2">
 <h2>Problem 8</h2>
@@ -710,7 +711,7 @@ d%in%f</code></pre>
 <h2>Problem 17</h2>
 <p>Measure how long a piece of code takes to run by measuring the time before the code is run, and after the code is run, and taking the difference to find the total time</p>
 <pre class="r"><code>print(as.numeric(Sys.time())*10, digits=15)</code></pre>
-<pre><code>## [1] 15507960516.185</code></pre>
+<pre><code>## [1] 15511045999.286</code></pre>
 </div>
 <div id="problem-18" class="section level2">
 <h2>Problem 18</h2>
@@ -1004,6 +1005,18 @@ for(i in 1:10){
 ##  [8,]    1    2    3    4    5    6    7    8    9    10
 ##  [9,]    1    2    3    4    5    6    7    8    9    10
 ## [10,]    1    2    3    4    5    6    7    8    9    10</code></pre>
+</div>
+</div>
+<div id="problem-5-1" class="section level2">
+<h2>Problem 5</h2>
+<div id="encrypt-and-decrypt-the-alphabet-turn-any-normal-english-text-into-an-encrypted-version-of-the-text-and-be-able-to-turn-any-decrypted-text-back-into-normal-english-text.-a-simple-encryption-would-be-to-scramble-the-alphabet-such-that-each-letter-corresponds-to-a-new-randomly-chosen-but-unique-letter." class="section level3">
+<h3>Encrypt and Decrypt the Alphabet Turn any normal english text into an encrypted version of the text, and be able to turn any decrypted text back into normal english text. A simple encryption would be to scramble the alphabet such that each letter corresponds to a new randomly chosen (but unique) letter.</h3>
+</div>
+</div>
+<div id="problem-6-1" class="section level2">
+<h2>Problem 6</h2>
+<div id="your-task-here-is-to-write-an-algorithm-that-can-simulate-playing-the-above-depicted-snakes-and-ladders-board.-you-should-assume-that-each-roll-of-the-dice-produces-a-random-number-between-1-and-6.-after-you-are-able-to-simulate-one-played-game-you-will-then-write-a-loop-to-simulate-1000-games-and-estimate-the-average-number-of-dice-rolls-needed-to-successfully-complete-the-game." class="section level3">
+<h3>Your task here is to write an algorithm that can simulate playing the above depicted Snakes and Ladders board. You should assume that each roll of the dice produces a random number between 1 and 6. After you are able to simulate one played game, you will then write a loop to simulate 1000 games, and estimate the average number of dice rolls needed to successfully complete the game.</h3>
 </div>
 </div>
 </div>

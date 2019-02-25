@@ -425,26 +425,28 @@ is(a)? #not sure if this is right</code></pre>
 <pre class="r"><code>dir() </code></pre>
 <pre><code>##  [1] &quot;_site.yml&quot;                &quot;docs&quot;                    
 ##  [3] &quot;figure&quot;                   &quot;histogram_lim_breaks.png&quot;
-##  [5] &quot;images&quot;                   &quot;index.Rmd&quot;               
-##  [7] &quot;Intrinsics.Rmd&quot;           &quot;knitr-minimal.md&quot;        
-##  [9] &quot;LabJournalWebsite.Rproj&quot;  &quot;Links.Rmd&quot;               
-## [11] &quot;mytable.txt&quot;              &quot;NOTES.Rmd&quot;               
-## [13] &quot;quanthistogram.png&quot;       &quot;README.md&quot;               
-## [15] &quot;TroysRBasics_cache&quot;       &quot;TroysRBasics_files&quot;      
-## [17] &quot;TroysRBasics.Rmd&quot;</code></pre>
+##  [5] &quot;images&quot;                   &quot;index.html&quot;              
+##  [7] &quot;index.Rmd&quot;                &quot;Intrinsics.Rmd&quot;          
+##  [9] &quot;knitr-minimal.md&quot;         &quot;LabJournalWebsite.Rproj&quot; 
+## [11] &quot;Links.Rmd&quot;                &quot;mytable.txt&quot;             
+## [13] &quot;NOTES.Rmd&quot;                &quot;quanthistogram.png&quot;      
+## [15] &quot;README.md&quot;                &quot;site_libs&quot;               
+## [17] &quot;TroysRBasics_cache&quot;       &quot;TroysRBasics_files&quot;      
+## [19] &quot;TroysRBasics.Rmd&quot;</code></pre>
 </div>
 <div id="list.files---shows-files-in-the-directory" class="section level3">
 <h3>list.files() - shows files in the directory</h3>
 <pre class="r"><code>list.files()</code></pre>
 <pre><code>##  [1] &quot;_site.yml&quot;                &quot;docs&quot;                    
 ##  [3] &quot;figure&quot;                   &quot;histogram_lim_breaks.png&quot;
-##  [5] &quot;images&quot;                   &quot;index.Rmd&quot;               
-##  [7] &quot;Intrinsics.Rmd&quot;           &quot;knitr-minimal.md&quot;        
-##  [9] &quot;LabJournalWebsite.Rproj&quot;  &quot;Links.Rmd&quot;               
-## [11] &quot;mytable.txt&quot;              &quot;NOTES.Rmd&quot;               
-## [13] &quot;quanthistogram.png&quot;       &quot;README.md&quot;               
-## [15] &quot;TroysRBasics_cache&quot;       &quot;TroysRBasics_files&quot;      
-## [17] &quot;TroysRBasics.Rmd&quot;</code></pre>
+##  [5] &quot;images&quot;                   &quot;index.html&quot;              
+##  [7] &quot;index.Rmd&quot;                &quot;Intrinsics.Rmd&quot;          
+##  [9] &quot;knitr-minimal.md&quot;         &quot;LabJournalWebsite.Rproj&quot; 
+## [11] &quot;Links.Rmd&quot;                &quot;mytable.txt&quot;             
+## [13] &quot;NOTES.Rmd&quot;                &quot;quanthistogram.png&quot;      
+## [15] &quot;README.md&quot;                &quot;site_libs&quot;               
+## [17] &quot;TroysRBasics_cache&quot;       &quot;TroysRBasics_files&quot;      
+## [19] &quot;TroysRBasics.Rmd&quot;</code></pre>
 </div>
 </div>
 <div id="input-and-output" class="section level2">
@@ -481,13 +483,14 @@ print(thedata)</code></pre>
 <pre class="r"><code>dir()</code></pre>
 <pre><code>##  [1] &quot;_site.yml&quot;                &quot;docs&quot;                    
 ##  [3] &quot;figure&quot;                   &quot;histogram_lim_breaks.png&quot;
-##  [5] &quot;images&quot;                   &quot;index.Rmd&quot;               
-##  [7] &quot;Intrinsics.Rmd&quot;           &quot;knitr-minimal.md&quot;        
-##  [9] &quot;LabJournalWebsite.Rproj&quot;  &quot;Links.Rmd&quot;               
-## [11] &quot;mytable.txt&quot;              &quot;NOTES.Rmd&quot;               
-## [13] &quot;quanthistogram.png&quot;       &quot;README.md&quot;               
-## [15] &quot;TroysRBasics_cache&quot;       &quot;TroysRBasics_files&quot;      
-## [17] &quot;TroysRBasics.Rmd&quot;</code></pre>
+##  [5] &quot;images&quot;                   &quot;index.html&quot;              
+##  [7] &quot;index.Rmd&quot;                &quot;Intrinsics.Rmd&quot;          
+##  [9] &quot;knitr-minimal.md&quot;         &quot;LabJournalWebsite.Rproj&quot; 
+## [11] &quot;Links.Rmd&quot;                &quot;mytable.txt&quot;             
+## [13] &quot;NOTES.Rmd&quot;                &quot;quanthistogram.png&quot;      
+## [15] &quot;README.md&quot;                &quot;site_libs&quot;               
+## [17] &quot;TroysRBasics_cache&quot;       &quot;TroysRBasics_files&quot;      
+## [19] &quot;TroysRBasics.Rmd&quot;</code></pre>
 <pre class="r"><code>scan() #i dont see how this isnt found its clearly in the directory</code></pre>
 <pre><code>## numeric(0)</code></pre>
 </div>
@@ -1107,14 +1110,14 @@ plot(v,xlab = &quot;Weight&quot;,col = &quot;green&quot;, xlim = c(0,8), ylim = 
 <div id="rnorm---generates-random-deviates." class="section level3">
 <h3>rnorm - generates random deviates.</h3>
 <pre class="r"><code>rnorm(n, mean = 10, sd = 1.5)</code></pre>
-<pre><code>## [1] 8.809727 9.694711 8.587040</code></pre>
+<pre><code>## [1] 10.74339 11.15598 11.79820</code></pre>
 </div>
 <div id="runif---random-numbers" class="section level3">
 <h3>runif - random numbers</h3>
 <pre class="r"><code>n &lt;- c(1,2,5,7,8,4,3,2,5,6,8,8,5)
 runif(n, min = 0, max = 10)</code></pre>
-<pre><code>##  [1] 8.0403030 3.5793584 2.7154265 9.7305786 9.6244296 7.7886057 8.2915965
-##  [8] 0.3494556 2.1262656 7.0661213 3.5358200 6.7862386 4.0849160</code></pre>
+<pre><code>##  [1] 6.802258 4.554168 5.611465 9.260159 8.778343 4.360343 9.234484
+##  [8] 8.925908 5.324716 5.115403 6.502907 5.897664 3.780980</code></pre>
 </div>
 </div>
 <div id="programming" class="section level2">
@@ -1127,12 +1130,44 @@ runif(n, min = 0, max = 10)</code></pre>
 }
 addtwo(2) </code></pre>
 <pre><code>## [1] 4</code></pre>
+<pre class="r"><code>sumsq &lt;- function(x,y) {
+  x^2 + y^2
+}
+sumsq(2,3)#i think i need to insert a table to truly make this work </code></pre>
+<pre><code>## [1] 13</code></pre>
 </div>
 <div id="show-that-you-can-write-a-for-loop" class="section level3">
 <h3>show that you can write a for loop</h3>
 </div>
 <div id="show-that-you-can-write-a-while-loop" class="section level3">
 <h3>show that you can write a while loop</h3>
+<pre class="r"><code>x &lt;- 4
+while(x &lt; 100) {
+  x &lt;- x + 8
+
+print(x)
+}</code></pre>
+<pre><code>## [1] 12
+## [1] 20
+## [1] 28
+## [1] 36
+## [1] 44
+## [1] 52
+## [1] 60
+## [1] 68
+## [1] 76
+## [1] 84
+## [1] 92
+## [1] 100</code></pre>
+</div>
+<div id="show-that-you-can-write-an-if-else-statement" class="section level3">
+<h3>show that you can write an if else statement</h3>
+</div>
+<div id="explain-what-return-does-inside-a-function-show-you-can-use-it" class="section level3">
+<h3>Explain what return() does inside a function, show you can use it</h3>
+</div>
+<div id="explain-what-break-does-show-you-can-use-it" class="section level3">
+<h3>Explain what break() does, show you can use it</h3>
 </div>
 </div>
 
