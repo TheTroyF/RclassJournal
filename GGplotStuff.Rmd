@@ -1,0 +1,248 @@
+---
+title: "ggplot stuff"
+author: "Troy"
+date: "2/25/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, messages=TRUE, error=TRUE)
+```
+
+#### GGPlot Stuff
+##data frame 
+```{r}
+#long data format table, has a row per variable/measurement
+#columns code different IV for the study
+
+a <- data.frame()
+names <- c("peter", "paul", "mary")
+age <- c(1000,1200,100)
+sex <- c("M","M","F")
+
+
+my_df <- data.frame(names,
+                    age,
+                    sex)
+
+View(my_df)#makes a table 
+my_df$names #tells you column names 
+my_df$names <- as.character(my_df$names)#converst to charactor 
+```
+
+###some more data frame/plot stuff
+```{r}
+
+# Create dataframe
+t <- c(1,2,3,2,3,4,5,4)
+u <- c(4,3,4,3,2,1,2,3)
+plot_df <- data.frame(t,u)
+
+# basic scatterplot
+ggplot(plot_df, aes(x=t,y=u))+ #identify what x/y axis are, groups, etc connect data to different prts of graph
+  geom_point() #adds a layer of dots...
+
+
+```
+##more descriptive plots
+```{r}
+
+ggplot(plot_df, aes(x=t,y=u))+
+  geom_point(size=2)+ #change size of dots
+  geom_smooth(method=lm)+
+  coord_cartesian(xlim=c(0,7),ylim=c(0,7))+ #range/limits of axis
+  xlab("breaths")+
+  ylab("ounces of saliva")+
+  ggtitle("I made a scatterplot")+
+  theme_classic(base_size=12)+ #change background look of plot/font size, auto keeps font size i select when resized
+  theme(plot.title = element_text(hjust = 0.5)) #centers title by using .5
+
+```
+
+
+##bar graph
+```{r}
+
+#Create a dataframe
+factor_one <- as.factor(c("A","B","C"))
+dv_means <- c(20,30,40)
+dv_SEs   <- c(4,3.4,4)
+plot_df <- data.frame(factor_one,
+                      dv_means,
+                      dv_SEs)
+
+# basic bar graph
+
+ggplot(plot_df, aes(x=factor_one,y=dv_means))+
+  geom_bar(stat="identity")#adds bars #identity means just plot numbers dont analyze
+  geom_point()#when after bar it shows up on top of bar
+  
+```
+
+##bar graph with error bar
+```{r}
+ggplot(plot_df, aes(x=factor_one,y=dv_means))+
+  geom_bar(stat="identity")+
+  geom_errorbar(aes(ymin=dv_means-dv_SEs, 
+                    ymax=dv_means+dv_SEs),
+                width=.2)+ #add error bar, width is how wide it is on the bar
+  coord_cartesian(ylim=c(0,50))+
+  xlab("x-axis label")+
+  ylab("y-axis label")+
+  ggtitle("I made a bar graph")+
+  theme_classic(base_size=12)+
+  theme(plot.title = element_text(hjust = 0.5))
+
+
+
+```
+
+##2 factor bar graph
+```{r}
+#this is data with 2 level in each condition
+factor_one <- rep(as.factor(c("A","B","C")),2)#by putting 2 at the end it repeats the factor 
+factor_two <- rep(as.factor(c("IIA","IIB")),3)#by putting 3 at the end it repeats the factor 3 times
+dv_means <- c(20,30,40,20,40,40)
+dv_SEs   <- c(4,3.4,4,3,2,4)
+plot_df <- data.frame(factor_one,
+                      factor_two,
+                      dv_means,
+                      dv_SEs)
+
+# basic bar graph
+
+ggplot(plot_df, aes(x=factor_one,y=dv_means,
+                    group=factor_two,
+                    color=factor_two,
+                    fill=factor_two))+#fills inside the bar
+  geom_bar(stat="identity", 
+           position="dodge")#dodge means side by side bars
+
+
+```
+
+##adding error bars, customizing 2x3 factor bar graph
+```{r}
+ggplot(plot_df, aes(x=factor_one,y=dv_means,
+                    group=factor_two,
+                    color=factor_two,
+                    fill=factor_two))+
+  geom_bar(stat="identity", position="dodge")+
+  geom_errorbar(aes(ymin=dv_means-dv_SEs,
+                    ymax=dv_means+dv_SEs),
+                position=position_dodge(width=0.9), #centers error bars
+                width=.2,
+                color="black")+
+  coord_cartesian(ylim=c(0,50))+
+  xlab("x-axis label")+
+  ylab("y-axis label")+
+  ggtitle("Bar graph 2 factors")+
+  theme_classic(base_size=12)+
+  theme(plot.title = element_text(hjust = 0.5))
+
+
+```
+
+##bar graph faceted
+
+```{r}
+
+
+factor_one <- rep(rep(as.factor(c("A","B","C")),2),2)
+factor_two <- rep(rep(as.factor(c("IIA","IIB")),3),2)
+factor_three <- rep(as.factor(c("IIIA","IIIB")),each=6)
+dv_means <- c(20,30,40,20,40,40,
+              10,20,50,50,10,10)
+dv_SEs   <- c(4,3.4,4,3,2,4,
+              1,2,1,2,3,2)
+plot_df <- data.frame(factor_one,
+                      factor_two,
+                      factor_three,
+                      dv_means,
+                      dv_SEs)
+
+# basic bar graph
+
+ggplot(plot_df, aes(x=factor_one,y=dv_means,
+                    group=factor_two,
+                    color=factor_two))+
+  geom_bar(stat="identity", position="dodge")+
+  facet_wrap(~factor_three)#creates two graphs
+```
+
+```{r}
+
+names <- rep(c("dara",
+           "rita",
+           "liza",
+           "azalea",
+           "barbi",
+           "rowena",
+           "fiona",
+           "katie"),each=2)#repeat whats in rep(c()each=2)twice
+MnFreq <- rnorm(16, 45, 20)
+
+condition <- rep(c("social","nonsocial"),8)
+aversity <- rep(c("A","NonA"), times=c(8,8))
+plot_df<- data.frame(names, MnFreq, condition, aversity)
+
+ggplot(plot_df, aes(x=condition, 
+                    y=MnFreq, 
+                    group=names,
+                    linetype=aversity))+
+  geom_line()+
+  geom_text(label=names)+
+  theme_classic()
+
+
+```
+###woman equal man more likely
+```{r}
+
+ggplot(plot_df, aes(x=factor_one,y=dv_means))+
+  geom_bar(stat="identity")+
+  geom_errorbar(aes(ymin=dv_means-dv_SEs, 
+                    ymax=dv_means+dv_SEs),
+                width=.2)+ #add error bar, width is how wide it is on the bar
+  coord_cartesian(ylim=c(0,50))+
+  xlab("x-axis label")+
+  ylab("y-axis label")+
+  ggtitle("I made a bar graph")+
+  theme_classic(base_size=12)+
+  theme(plot.title = element_text(hjust = 0.5))
+
+
+
+```
+
+##2 factor bar graph
+```{r}
+#this is data with 2 level in each condition
+
+factor_one <- rep(as.factor(c("doctor",
+                              "Butcher",
+                              "firefighter", 
+                              "construction")),3)#by putting 3 at the end it repeats the factor 
+
+levels(factor_one) <- levels(factor_one)[c(3,1,4,2)]#reorder items within the vector
+
+factor_two <- as.factor(c("women","equal","man"))
+
+dv_means <- c(10,30,40,40,90,60,58,50,0,10,2,10)
+
+plot_df <- data.frame(factor_one,
+                      factor_two,
+                      dv_means)
+
+# basic bar graph
+
+ggplot(plot_df, aes(x=factor_one,y=dv_means,
+                    group=factor_two,
+                    color=factor_two,
+                    fill=factor_two))+#fills inside the bar
+  geom_bar(stat="identity")#dodge means side by side bars
+
+
+
+```
+

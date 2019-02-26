@@ -489,6 +489,7 @@ as.numeric(x)# i believe this is should be coding responses as numeric, which i 
 ```{r}
 
 
+
 ```
 
 ###is.numeric(x)
