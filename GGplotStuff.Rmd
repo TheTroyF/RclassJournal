@@ -228,7 +228,7 @@ levels(factor_one) <- levels(factor_one)[c(3,1,4,2)]#reorder items within the ve
 
 factor_two <- as.factor(c("women","equal","man"))
 
-dv_means <- c(10,30,40,40,90,60,58,50,0,10,2,10)
+dv_means <- c(10,30,40,40,90,60,58,50,0,10,2,10)# four sets of grouped means 
 
 plot_df <- data.frame(factor_one,
                       factor_two,
@@ -246,3 +246,58 @@ ggplot(plot_df, aes(x=factor_one,y=dv_means,
 
 ```
 
+##figure three - men and women perform surgery
+
+```{r}
+
+men_perform <- rep(as.factor(c("prior",
+                              "model posterior",
+                              "reported posterior")))
+women_perform <- rep(as.factor(c("prior",
+                              "model posterior",
+                              "reported posterior")))
+
+
+
+dv_means <- c(68,88,86,30,72,78)# four sets of grouped means 
+
+condition <- rep(c("men perf","women perf"))
+
+plot_df <- data.frame(men_perform,
+                      women_perform,
+                      condition,
+                      dv_means)
+
+
+
+ggplot(plot_df, aes(x=condition, y=dv_means,
+                    group=men_perform,
+                    color=men_perform,
+                    fill=men_perform))+
+ #fills inside the bar
+geom_bar(stat="identity", position="dodge")#dodge means side by side bars
+
+
+
+```
+
+
+```{r}
+
+# Create dataframe
+social <- c(-2.3,-2.2,-2.0,-1.9,-1.8,-1.7,-1.6,-1.2,-1.1,-1,-.89,-.79,-.68,-.59,-.56,-.54,.5,.75,.82,.93,1.2,1.3,1.4,1.5,1.9,2.2,2.4,2.5,2.7,2.9,3.0,3.1)
+
+autism <- c(-8,-2,13,3,5,-2,-4,6,7,-6,-6,-5,7,-8,4,6,-1,-2,-3,-5,3,4,-7,-8,-4,-4,4,-3,-7,-6,4,-2)
+
+plot_df <- data.frame(social,autism)
+
+# basic scatterplot
+ggplot(plot_df, aes(x=social,y=autism))+ #identify what x/y axis are, groups, etc connect data to different prts of graph
+  geom_point() #adds a layer of dots...
+
+
+
+
+
+
+```

@@ -513,7 +513,7 @@ levels(factor_one) &lt;- levels(factor_one)[c(3,1,4,2)]#reorder items within the
 
 factor_two &lt;- as.factor(c(&quot;women&quot;,&quot;equal&quot;,&quot;man&quot;))
 
-dv_means &lt;- c(10,30,40,40,90,60,58,50,0,10,2,10)
+dv_means &lt;- c(10,30,40,40,90,60,58,50,0,10,2,10)# four sets of grouped means 
 
 plot_df &lt;- data.frame(factor_one,
                       factor_two,
@@ -527,6 +527,38 @@ ggplot(plot_df, aes(x=factor_one,y=dv_means,
                     fill=factor_two))+#fills inside the bar
   geom_bar(stat=&quot;identity&quot;)#dodge means side by side bars</code></pre>
 <pre><code>## Error in ggplot(plot_df, aes(x = factor_one, y = dv_means, group = factor_two, : could not find function &quot;ggplot&quot;</code></pre>
+</div>
+<div id="fig-three" class="section level2">
+<h2>fig three</h2>
+<pre class="r"><code>#this is data with 2 level in each condition
+
+men_perform &lt;- rep(as.factor(c(&quot;prior&quot;,
+                              &quot;model posterior&quot;,
+                              &quot;reported posterior&quot;)))
+women_perform &lt;- rep(as.factor(c(&quot;prior&quot;,
+                              &quot;model posterior&quot;,
+                              &quot;reported posterior&quot;)))
+
+
+
+dv_means &lt;- c(68,88,86,30,72,78)# four sets of grouped means 
+
+condition &lt;- rep(c(&quot;men perf&quot;,&quot;women perf&quot;))
+
+plot_df &lt;- data.frame(men_perform,
+                      women_perform,
+                      condition,
+                      dv_means)
+
+# basic bar grap
+
+ggplot(plot_df, aes(x=condition, y=dv_means,
+                    group=men_perform,
+                    color=men_perform,
+                    fill=men_perform))+#fills inside the bar
+  geom_bar(stat=&quot;identity&quot;)#dodge means side by side bars</code></pre>
+<pre><code>## Error in ggplot(plot_df, aes(x = condition, y = dv_means, group = men_perform, : could not find function &quot;ggplot&quot;</code></pre>
+<p>```</p>
 </div>
 
 

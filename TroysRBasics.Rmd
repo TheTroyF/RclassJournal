@@ -362,18 +362,19 @@ hist(a)
 ###Generate a matrix for a multiplication table. For example, the labels for the columns could be the numbers 1 to 10, and the labels for the rows could be the numbers 1 to 10. The contents of each of the cells in the matrix should be correct answer for multiplying the column value by the row value.
 ```{r}
 #i cant for the life of me figure this problem out.....:(
-a = matrix( 
-  c(1:10),  # the data elements 
-   nrow=10,              # number of rows 
-   ncol=10,              # number of columns 
-   byrow = TRUE)        
-for(i in 1:10){
-  for(j in 1:10){
-    print(i*j)
-  }
-}
-a
 
+times_table <- matrix(0, ncol=10,nrow=10)      
+  for(i in 1:10){
+  for(j in 1:10){
+    times_table[i,j] <- i*j
+  } 
+}
+
+times_table
+
+
+
+#two loops, one for rows and one for  columns
 ```
 
 ##Problem 5
