@@ -711,7 +711,7 @@ d%in%f</code></pre>
 <h2>Problem 17</h2>
 <p>Measure how long a piece of code takes to run by measuring the time before the code is run, and after the code is run, and taking the difference to find the total time</p>
 <pre class="r"><code>print(as.numeric(Sys.time())*10, digits=15)</code></pre>
-<pre><code>## [1] 15512020641.5275</code></pre>
+<pre><code>## [1] 15515697326.3972</code></pre>
 </div>
 <div id="problem-18" class="section level2">
 <h2>Problem 18</h2>
@@ -883,128 +883,27 @@ hist(a)</code></pre>
 <div id="generate-a-matrix-for-a-multiplication-table.-for-example-the-labels-for-the-columns-could-be-the-numbers-1-to-10-and-the-labels-for-the-rows-could-be-the-numbers-1-to-10.-the-contents-of-each-of-the-cells-in-the-matrix-should-be-correct-answer-for-multiplying-the-column-value-by-the-row-value." class="section level3">
 <h3>Generate a matrix for a multiplication table. For example, the labels for the columns could be the numbers 1 to 10, and the labels for the rows could be the numbers 1 to 10. The contents of each of the cells in the matrix should be correct answer for multiplying the column value by the row value.</h3>
 <pre class="r"><code>#i cant for the life of me figure this problem out.....:(
-a = matrix( 
-  c(1:10),  # the data elements 
-   nrow=10,              # number of rows 
-   ncol=10,              # number of columns 
-   byrow = TRUE)        
-for(i in 1:10){
+
+times_table &lt;- matrix(0, ncol=10,nrow=10)      
+  for(i in 1:10){
   for(j in 1:10){
-    print(i*j)
-  }
-}</code></pre>
-<pre><code>## [1] 1
-## [1] 2
-## [1] 3
-## [1] 4
-## [1] 5
-## [1] 6
-## [1] 7
-## [1] 8
-## [1] 9
-## [1] 10
-## [1] 2
-## [1] 4
-## [1] 6
-## [1] 8
-## [1] 10
-## [1] 12
-## [1] 14
-## [1] 16
-## [1] 18
-## [1] 20
-## [1] 3
-## [1] 6
-## [1] 9
-## [1] 12
-## [1] 15
-## [1] 18
-## [1] 21
-## [1] 24
-## [1] 27
-## [1] 30
-## [1] 4
-## [1] 8
-## [1] 12
-## [1] 16
-## [1] 20
-## [1] 24
-## [1] 28
-## [1] 32
-## [1] 36
-## [1] 40
-## [1] 5
-## [1] 10
-## [1] 15
-## [1] 20
-## [1] 25
-## [1] 30
-## [1] 35
-## [1] 40
-## [1] 45
-## [1] 50
-## [1] 6
-## [1] 12
-## [1] 18
-## [1] 24
-## [1] 30
-## [1] 36
-## [1] 42
-## [1] 48
-## [1] 54
-## [1] 60
-## [1] 7
-## [1] 14
-## [1] 21
-## [1] 28
-## [1] 35
-## [1] 42
-## [1] 49
-## [1] 56
-## [1] 63
-## [1] 70
-## [1] 8
-## [1] 16
-## [1] 24
-## [1] 32
-## [1] 40
-## [1] 48
-## [1] 56
-## [1] 64
-## [1] 72
-## [1] 80
-## [1] 9
-## [1] 18
-## [1] 27
-## [1] 36
-## [1] 45
-## [1] 54
-## [1] 63
-## [1] 72
-## [1] 81
-## [1] 90
-## [1] 10
-## [1] 20
-## [1] 30
-## [1] 40
-## [1] 50
-## [1] 60
-## [1] 70
-## [1] 80
-## [1] 90
-## [1] 100</code></pre>
-<pre class="r"><code>a</code></pre>
+    times_table[i,j] &lt;- i*j
+  } 
+}
+
+times_table</code></pre>
 <pre><code>##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
 ##  [1,]    1    2    3    4    5    6    7    8    9    10
-##  [2,]    1    2    3    4    5    6    7    8    9    10
-##  [3,]    1    2    3    4    5    6    7    8    9    10
-##  [4,]    1    2    3    4    5    6    7    8    9    10
-##  [5,]    1    2    3    4    5    6    7    8    9    10
-##  [6,]    1    2    3    4    5    6    7    8    9    10
-##  [7,]    1    2    3    4    5    6    7    8    9    10
-##  [8,]    1    2    3    4    5    6    7    8    9    10
-##  [9,]    1    2    3    4    5    6    7    8    9    10
-## [10,]    1    2    3    4    5    6    7    8    9    10</code></pre>
+##  [2,]    2    4    6    8   10   12   14   16   18    20
+##  [3,]    3    6    9   12   15   18   21   24   27    30
+##  [4,]    4    8   12   16   20   24   28   32   36    40
+##  [5,]    5   10   15   20   25   30   35   40   45    50
+##  [6,]    6   12   18   24   30   36   42   48   54    60
+##  [7,]    7   14   21   28   35   42   49   56   63    70
+##  [8,]    8   16   24   32   40   48   56   64   72    80
+##  [9,]    9   18   27   36   45   54   63   72   81    90
+## [10,]   10   20   30   40   50   60   70   80   90   100</code></pre>
+<pre class="r"><code>#two loops, one for rows and one for  columns</code></pre>
 </div>
 </div>
 <div id="problem-5-1" class="section level2">
