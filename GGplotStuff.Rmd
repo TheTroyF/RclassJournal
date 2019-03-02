@@ -301,3 +301,39 @@ ggplot(plot_df, aes(x=social,y=autism))+ #identify what x/y axis are, groups, et
 
 
 ```
+
+
+##visual group
+
+```{r}
+
+transornot <- rep(as.factor(c("non_transient",
+                              "transient")),2)
+
+insideout <- rep(as.factor(c("outside",
+                              "inside")),2)
+
+
+
+Mean_Median_RT <- c(303,301,291,278)# mean for each condition 
+
+
+
+plot_df <- data.frame(transornot,
+                      insideout,
+                      Mean_Median_RT)
+
+
+
+ggplot(plot_df, aes(x=transornot, y=Mean_Median_RT,
+                    group=insideout,
+                    color=insideout,
+                    fill=insideout))+
+ #fills inside the bar
+geom_bar(stat="identity", 
+         position="dodge")#dodge means side by side bars
+
+
+
+
+```

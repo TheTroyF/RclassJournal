@@ -528,11 +528,9 @@ ggplot(plot_df, aes(x=factor_one,y=dv_means,
   geom_bar(stat=&quot;identity&quot;)#dodge means side by side bars</code></pre>
 <pre><code>## Error in ggplot(plot_df, aes(x = factor_one, y = dv_means, group = factor_two, : could not find function &quot;ggplot&quot;</code></pre>
 </div>
-<div id="fig-three" class="section level2">
-<h2>fig three</h2>
-<pre class="r"><code>#this is data with 2 level in each condition
-
-men_perform &lt;- rep(as.factor(c(&quot;prior&quot;,
+<div id="figure-three---men-and-women-perform-surgery" class="section level2">
+<h2>figure three - men and women perform surgery</h2>
+<pre class="r"><code>men_perform &lt;- rep(as.factor(c(&quot;prior&quot;,
                               &quot;model posterior&quot;,
                               &quot;reported posterior&quot;)))
 women_perform &lt;- rep(as.factor(c(&quot;prior&quot;,
@@ -550,15 +548,55 @@ plot_df &lt;- data.frame(men_perform,
                       condition,
                       dv_means)
 
-# basic bar grap
+
 
 ggplot(plot_df, aes(x=condition, y=dv_means,
                     group=men_perform,
                     color=men_perform,
-                    fill=men_perform))+#fills inside the bar
-  geom_bar(stat=&quot;identity&quot;)#dodge means side by side bars</code></pre>
+                    fill=men_perform))+
+ #fills inside the bar
+geom_bar(stat=&quot;identity&quot;, position=&quot;dodge&quot;)#dodge means side by side bars</code></pre>
 <pre><code>## Error in ggplot(plot_df, aes(x = condition, y = dv_means, group = men_perform, : could not find function &quot;ggplot&quot;</code></pre>
-<p>```</p>
+<pre class="r"><code># Create dataframe
+social &lt;- c(-2.3,-2.2,-2.0,-1.9,-1.8,-1.7,-1.6,-1.2,-1.1,-1,-.89,-.79,-.68,-.59,-.56,-.54,.5,.75,.82,.93,1.2,1.3,1.4,1.5,1.9,2.2,2.4,2.5,2.7,2.9,3.0,3.1)
+
+autism &lt;- c(-8,-2,13,3,5,-2,-4,6,7,-6,-6,-5,7,-8,4,6,-1,-2,-3,-5,3,4,-7,-8,-4,-4,4,-3,-7,-6,4,-2)
+
+plot_df &lt;- data.frame(social,autism)
+
+# basic scatterplot
+ggplot(plot_df, aes(x=social,y=autism))+ #identify what x/y axis are, groups, etc connect data to different prts of graph
+  geom_point()#adds a layer of dots...</code></pre>
+<pre><code>## Error in ggplot(plot_df, aes(x = social, y = autism)): could not find function &quot;ggplot&quot;</code></pre>
+</div>
+<div id="visual-group" class="section level2">
+<h2>visual group</h2>
+<pre class="r"><code>transornot &lt;- rep(as.factor(c(&quot;non_transient&quot;,
+                              &quot;transient&quot;)),2)
+
+insideout &lt;- rep(as.factor(c(&quot;outside&quot;,
+                              &quot;inside&quot;)),2)
+
+
+
+Mean_Median_RT &lt;- c(303,301,291,278)# mean for each condition 
+
+
+
+plot_df &lt;- data.frame(transornot,
+                      insideout,
+                      Mean_Median_RT)
+
+
+
+ggplot(plot_df, aes(x=transornot, y=Mean_Median_RT,
+                    group=insideout,
+                    color=insideout,
+                    fill=insideout))+
+ #fills inside the bar
+geom_bar(stat=&quot;identity&quot;, 
+         position=&quot;dodge&quot;)#dodge means side by side bars</code></pre>
+<pre><code>## Error in ggplot(plot_df, aes(x = transornot, y = Mean_Median_RT, group = insideout, : could not find function &quot;ggplot&quot;</code></pre>
 </div>
 
 
