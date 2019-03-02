@@ -293,7 +293,7 @@ plot_df <- data.frame(social,autism)
 
 # basic scatterplot
 ggplot(plot_df, aes(x=social,y=autism))+ #identify what x/y axis are, groups, etc connect data to different prts of graph
-  geom_point() #adds a layer of dots...
+  geom_point()#adds a layer of dots...
 
 
 
