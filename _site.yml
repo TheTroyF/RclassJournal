@@ -11,7 +11,9 @@ navbar:
     - text: "Intrinsics"
       href: Intrinsics.html    
     - text: "ggplotstuff"
-      href: ggplotstuff.html
+      href: ggplotstuff.html    
+    - text: "Data Wrangling"
+      href: data wrangling.html
     - text: "Links"
       href: Links.html
 output_dir: "docs"
