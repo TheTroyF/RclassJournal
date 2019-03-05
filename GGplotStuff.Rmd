@@ -1,9 +1,15 @@
 ---
-title: "ggplot"
-author: "Troy"
-date: "2/25/2019"
-output: html_document
+title: "ggplotstuff"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    collapsed: false
+    number_sections: false
+    toc_depth: 1
+    #code_folding: hide
 ---
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, messages=TRUE, error=TRUE)
