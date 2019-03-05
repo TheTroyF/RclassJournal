@@ -10,10 +10,10 @@ navbar:
       href: Notes.html
     - text: "Intrinsics"
       href: Intrinsics.html    
-    - text: "ggplotstuff"
-      href: ggplotstuff.html    
+    - text: "GGPlot"
+      href: GGPlot.html    
     - text: "Data Wrangling"
-      href: data wrangling.html
+      href: Data Wrangling.html
     - text: "Links"
       href: Links.html
 output_dir: "docs"
