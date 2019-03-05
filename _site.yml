@@ -9,7 +9,9 @@ navbar:
     - text: "Notes"
       href: Notes.html
     - text: "Intrinsics"
-      href: Intrinsics.html
+      href: Intrinsics.html    
+    - text: "ggplotstuff"
+      href: ggplotstuff.html
     - text: "Links"
       href: Links.html
 output_dir: "docs"

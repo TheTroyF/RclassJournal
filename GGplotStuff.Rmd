@@ -1,5 +1,5 @@
 ---
-title: "ggplot stuff"
+title: "ggplot"
 author: "Troy"
 date: "2/25/2019"
 output: html_document
