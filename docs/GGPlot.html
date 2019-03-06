@@ -713,6 +713,17 @@ ggplot(plot_df, aes(x=transornot, y=Mean_Median_RT,
 geom_bar(stat=&quot;identity&quot;, 
          position=&quot;dodge&quot;)#dodge means side by side bars</code></pre>
 <pre><code>## Error in ggplot(plot_df, aes(x = transornot, y = Mean_Median_RT, group = insideout, : could not find function &quot;ggplot&quot;</code></pre>
+<div id="men-and-women-perform-sugery-histogram" class="section level3">
+<h3>men and women perform sugery histogram</h3>
+<pre class="r"><code># Create data for the graph.
+Men_performed &lt;-c(-2,-2,-1,-1,-1,-.5,-.5,0,0,0,0,0,0,0,05,.05,.05,.05,.05,.05,.75,.75,.75,.75,.75,.75,1,1,1,1,1,1.5,1.5,1.5,1.75,1.75,1.75,2,2,2,2,2.25,2.25,2.25,2.5,2.5,2.75,2.75)
+
+
+# Create the histogram.
+hist(Men_performed,xlab = &quot;Log Likelihood Ratio&quot;,col = &quot;green&quot;,border = &quot;black&quot;, xlim = c(-2,4), ylim = c(0,40),
+   breaks = 5)</code></pre>
+<p><img src="GGPlot_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+</div>
 </div>
 
 

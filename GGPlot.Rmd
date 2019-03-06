@@ -364,3 +364,21 @@ geom_bar(stat="identity",
 
 
 ```
+
+
+###men and women perform sugery histogram
+```{r}
+
+# Create data for the graph.
+Men_performed <-c(-2,-2,-1,-1,-1,-.5,-.5,0,0,0,0,0,0,0,05,.05,.05,.05,.05,.05,.75,.75,.75,.75,.75,.75,1,1,1,1,1,1.5,1.5,1.5,1.75,1.75,1.75,2,2,2,2,2.25,2.25,2.25,2.5,2.5,2.75,2.75)
+
+
+# Create the histogram.
+hist(Men_performed,xlab = "Log Likelihood Ratio",col = "green",border = "black", xlim = c(-2,4), ylim = c(0,40),
+   breaks = 5)
+
+
+
+
+
+```
