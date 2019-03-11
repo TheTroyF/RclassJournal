@@ -520,6 +520,52 @@ ggplot(plot_df, aes(x=factor_one,y=dv_means,
            position=&quot;dodge&quot;)#dodge means side by side bars</code></pre>
 <pre><code>## Error in ggplot(plot_df, aes(x = factor_one, y = dv_means, group = factor_two, : could not find function &quot;ggplot&quot;</code></pre>
 </div>
+<div id="top-to-base-ratio-figure-5" class="section level2">
+<h2>2 top to base ratio figure 5</h2>
+<pre class="r"><code>#this is data with 2 level in each condition
+
+top_base_ratio &lt;- rep(as.factor(c(&quot;4:6&quot;,&quot;6:9&quot;,&quot;4:9&quot;)),2)#by putting 2 at the end it repeats the factor 
+base_top &lt;- rep(as.factor(c(&quot;Wide Base&quot;,&quot;Wide Top&quot;)),3)#by putting 3 at the end it repeats the factor 3 times
+dv_means &lt;- c(15.2,15.5,16.5,16.3,17.6,16.6)
+
+plot_df &lt;- data.frame(top_base_ratio,
+                      base_top,
+                      dv_means)
+
+# basic bar graph
+
+ggplot(plot_df, aes(x=top_base_ratio,y=dv_means,
+                    group=base_top,
+                    color=base_top,
+                    fill=base_top))+#fills inside the bar
+   coord_cartesian(ylim=c(14,18))+
+  geom_bar(stat=&quot;identity&quot;, 
+           position=&quot;dodge&quot;)#dodge means side by side bars</code></pre>
+<pre><code>## Error in ggplot(plot_df, aes(x = top_base_ratio, y = dv_means, group = base_top, : could not find function &quot;ggplot&quot;</code></pre>
+</div>
+<div id="top-to-base-ratio-figure-5-1" class="section level2">
+<h2>2 top to base ratio figure 5</h2>
+<pre class="r"><code>#this is data with 2 level in each condition
+
+fill_empty &lt;- rep(as.factor(c(&quot;fill&quot;,&quot;empty&quot;)),2)#by putting 2 at the end it repeats the factor 
+estimate &lt;- rep(as.factor(c(&quot;Wide Base&quot;,&quot;Wide Top&quot;)),2)#by putting 2 at the end it repeats the factor 2 times
+dv_means &lt;- c(19.5,17.7,18.5,17.8)
+
+plot_df &lt;- data.frame(fill_empty,
+                      estimate,
+                      dv_means)
+
+# basic bar graph but im only gettign two bars istead of 2 groups of two
+
+ggplot(plot_df, aes(x=fill_empty,y=dv_means,
+                    group=estimate,
+                    color=estimate,
+                    fill=estimate))+#fills inside the bar
+   coord_cartesian(ylim=c(17,20))+#need plus sign to add each row to the plot
+  geom_bar(stat=&quot;identity&quot;, 
+           position=&quot;dodge&quot;)#dodge means side by side bars</code></pre>
+<pre><code>## Error in ggplot(plot_df, aes(x = fill_empty, y = dv_means, group = estimate, : could not find function &quot;ggplot&quot;</code></pre>
+</div>
 <div id="adding-error-bars-customizing-2x3-factor-bar-graph" class="section level2">
 <h2>adding error bars, customizing 2x3 factor bar graph</h2>
 <pre class="r"><code>ggplot(plot_df, aes(x=factor_one,y=dv_means,
@@ -538,7 +584,6 @@ ggplot(plot_df, aes(x=factor_one,y=dv_means,
   ggtitle(&quot;Bar graph 2 factors&quot;)+
   theme_classic(base_size=12)+
   theme(plot.title = element_text(hjust = 0.5))</code></pre>
-<pre><code>## Error in ggplot(plot_df, aes(x = factor_one, y = dv_means, group = factor_two, : could not find function &quot;ggplot&quot;</code></pre>
 </div>
 <div id="bar-graph-faceted" class="section level2">
 <h2>bar graph faceted</h2>
@@ -601,8 +646,8 @@ ggplot(plot_df, aes(x=condition,
 <pre><code>## Error in ggplot(plot_df, aes(x = factor_one, y = dv_means)): could not find function &quot;ggplot&quot;</code></pre>
 </div>
 </div>
-<div id="factor-bar-graph-1" class="section level2">
-<h2>2 factor bar graph</h2>
+<div id="factor-bar-graph---i-tried-to-adjust-my-bars-within-the-bars-and-now-it-wont-work" class="section level2">
+<h2>2 factor bar graph - i tried to adjust my bars within the bars, and now it wont work</h2>
 <pre class="r"><code>#this is data with 2 level in each condition
 
 factor_one &lt;- rep(as.factor(c(&quot;doctor&quot;,
@@ -626,8 +671,7 @@ ggplot(plot_df, aes(x=factor_one,y=dv_means,
                     group=factor_two,
                     color=factor_two,
                     fill=factor_two))+#fills inside the bar
-  geom_bar(stat=&quot;identity&quot;)#dodge means side by side bars</code></pre>
-<pre><code>## Error in ggplot(plot_df, aes(x = factor_one, y = dv_means, group = factor_two, : could not find function &quot;ggplot&quot;</code></pre>
+  geom_bar(stat = &quot;dodge&quot;)#dodge means side by side bars</code></pre>
 </div>
 <div id="figure-three---men-and-women-perform-surgery" class="section level2">
 <h2>figure three - men and women perform surgery</h2>
@@ -716,13 +760,13 @@ geom_bar(stat=&quot;identity&quot;,
 <div id="men-and-women-perform-sugery-histogram" class="section level3">
 <h3>men and women perform sugery histogram</h3>
 <pre class="r"><code># Create data for the graph.
-Men_performed &lt;-c(-2,-2,-1,-1,-1,-.5,-.5,0,0,0,0,0,0,0,05,.05,.05,.05,.05,.05,.75,.75,.75,.75,.75,.75,1,1,1,1,1,1.5,1.5,1.5,1.75,1.75,1.75,2,2,2,2,2.25,2.25,2.25,2.5,2.5,2.75,2.75)
+Men_performed &lt;-c(-2,-2,-1,-1,-1,-.5,-1,-1,-1,-.5,-.5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,05,.05,.05,.05,.05,.05,.05,.05,.05,.05,.75,.75,.75,.75,.75,.75,1,1,1,1,1,1.5,1.5,1.5,1.75,1.75,1.75,2,2,2,2,2.25,2.25,2.25,2.5,2.5,2.75,2.75)
 
 
 # Create the histogram.
 hist(Men_performed,xlab = &quot;Log Likelihood Ratio&quot;,col = &quot;green&quot;,border = &quot;black&quot;, xlim = c(-2,4), ylim = c(0,40),
    breaks = 5)</code></pre>
-<p><img src="GGPlot_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><img src="GGPlot_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 </div>
 </div>
 

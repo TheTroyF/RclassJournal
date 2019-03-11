@@ -127,8 +127,60 @@ ggplot(plot_df, aes(x=factor_one,y=dv_means,
 
 ```
 
-##adding error bars, customizing 2x3 factor bar graph
+
+
+##2 top to base ratio figure 5
 ```{r}
+#this is data with 2 level in each condition
+
+top_base_ratio <- rep(as.factor(c("4:6","6:9","4:9")),2)#by putting 2 at the end it repeats the factor 
+base_top <- rep(as.factor(c("Wide Base","Wide Top")),3)#by putting 3 at the end it repeats the factor 3 times
+dv_means <- c(15.2,15.5,16.5,16.3,17.6,16.6)
+
+plot_df <- data.frame(top_base_ratio,
+                      base_top,
+                      dv_means)
+
+# basic bar graph
+
+ggplot(plot_df, aes(x=top_base_ratio,y=dv_means,
+                    group=base_top,
+                    color=base_top,
+                    fill=base_top))+#fills inside the bar
+   coord_cartesian(ylim=c(14,18))+
+  geom_bar(stat="identity", 
+           position="dodge")#dodge means side by side bars
+
+
+```
+
+##2 top to base ratio figure 5
+```{r}
+#this is data with 2 level in each condition
+
+fill_empty <- rep(as.factor(c("fill","empty")),2)#by putting 2 at the end it repeats the factor 
+estimate <- rep(as.factor(c("Wide Base","Wide Top")),2)#by putting 2 at the end it repeats the factor 2 times
+dv_means <- c(19.5,17.7,18.5,17.8)
+
+plot_df <- data.frame(fill_empty,
+                      estimate,
+                      dv_means)
+
+# basic bar graph but im only gettign two bars istead of 2 groups of two
+
+ggplot(plot_df, aes(x=fill_empty,y=dv_means,
+                    group=estimate,
+                    color=estimate,
+                    fill=estimate))+#fills inside the bar
+   coord_cartesian(ylim=c(17,20))+#need plus sign to add each row to the plot
+  geom_bar(stat="identity", 
+           position="dodge")#dodge means side by side bars
+
+
+```
+
+##adding error bars, customizing 2x3 factor bar graph
+```{r, eval=F}
 ggplot(plot_df, aes(x=factor_one,y=dv_means,
                     group=factor_two,
                     color=factor_two,
@@ -221,8 +273,8 @@ ggplot(plot_df, aes(x=factor_one,y=dv_means))+
 
 ```
 
-##2 factor bar graph
-```{r}
+##2 factor bar graph - i tried to adjust my bars within the bars, and now it wont work
+```{r, eval=F}
 #this is data with 2 level in each condition
 
 factor_one <- rep(as.factor(c("doctor",
@@ -246,7 +298,7 @@ ggplot(plot_df, aes(x=factor_one,y=dv_means,
                     group=factor_two,
                     color=factor_two,
                     fill=factor_two))+#fills inside the bar
-  geom_bar(stat="identity")#dodge means side by side bars
+  geom_bar(stat = "dodge")#dodge means side by side bars
 
 
 
@@ -315,12 +367,13 @@ ggplot(plot_df, aes(x=social,y=autism))+ #identify what x/y axis are, groups, et
 
 person_x_answer <- c("equally likely","man more likely")
 #hand entered all the data points, the general shapes replicate the ones from the homework
-moneytransferred <- c(.02,.02,.02,.02,.02,.02,.02,NA,.03,.02,.03,NA,.03,.02,.03,.02,.04,.03,NA,.03,.04,.03,NA,.04,.05,.04,.06,.05,.06,.05,.08,.06,.08,.09,.07,NA,.10,NA,.11,.09,.11,.09,.11,.10,.12,.10,.12,.10,.13,.11,.13,.11,.13,.11,.13,.12,.13,.12,.13,.12,.14,.13,.14,.13,.14,.13,.14,.13,.14,NA,.14,.14,.14,NA,.14,.14,.15,.15,.15,NA,.15,.15,.15,.16,.15,.16,.15,.16,.16,.17,.16,.17,.16,.17,.17,.18,.17,.18,.17,.18,.19,.19,.19,.19,.19,.19,.19,.20,.19,.20,.19,.20,.20,.21,.20,.21,.20,.21,.20,.22,.20,.22,.20,.23,.22,NA,.22,NA,.23,.24,.25,.25,.26,.26,.27,NA,.27,NA,.28,.28,.28,NA,.28,NA,.29,.29,.30,NA,.30,NA)#need to represent dots to follow equal then men, equal then men, to have an even number
+moneytransferred <- c(.02,.02,.02,.02,.02,.02,.02,NA,.02,NA,.02,NA,.02,NA,.02,.02,.02,NA,.03,.02,.03,NA,.03,.02,.03,.02,.04,.03,NA,.03,.04,.03,NA,.04,.05,.04,.06,.05,.06,.05,.08,.06,.08,.09,.07,NA,.10,NA,.11,.09,.11,.09,.11,.10,.12,.10,.12,.10,.13,.11,.13,.11,.13,.11,.13,.12,.13,.12,.13,.12,NA,.13,.14,.13,.14,.13,NA,.13,.14,NA,.14,NA,.14,NA,.14,.14,.15,NA,.15,NA,.15,.15,.15,.16,.15,.16,.15,.16,.16,.17,.16,.17,.16,.17,.17,.18,.17,.18,.17,.18,.19,.19,.19,.19,.19,.19,.19,.20,.19,.20,.19,.20,.20,.21,.20,.21,.20,.21,.20,.22,.20,.22,.20,.23,.22,NA,.22,NA,.23,.24,.25,.25,.26,.26,.27,NA,.27,NA,.28,.28,.28,NA,.28,NA,.29,.29,.30,NA,.30,NA)#need to represent dots to follow equal then men, equal then men, to have an even number
 
 plot_df <- data.frame(person_x_answer,moneytransferred)
 
 # basic scatterplot
-ggplot(plot_df, aes(x=person_x_answer,y=moneytransferred))+ #identify what x/y axis are, groups, etc connect data to different prts of graph
+ggplot(plot_df, aes(x=person_x_answer,y=moneytransferred))+
+   coord_cartesian(ylim=c(.00,.30))+#identify what x/y axis are, groups, etc connect data to different prts of graph
   geom_violin()#adds violin as representation of dots
 
 
@@ -370,7 +423,7 @@ geom_bar(stat="identity",
 ```{r}
 
 # Create data for the graph.
-Men_performed <-c(-2,-2,-1,-1,-1,-.5,-.5,0,0,0,0,0,0,0,05,.05,.05,.05,.05,.05,.75,.75,.75,.75,.75,.75,1,1,1,1,1,1.5,1.5,1.5,1.75,1.75,1.75,2,2,2,2,2.25,2.25,2.25,2.5,2.5,2.75,2.75)
+Men_performed <-c(-2,-2,-1,-1,-1,-.5,-1,-1,-1,-.5,-.5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,05,.05,.05,.05,.05,.05,.05,.05,.05,.05,.75,.75,.75,.75,.75,.75,1,1,1,1,1,1.5,1.5,1.5,1.75,1.75,1.75,2,2,2,2,2.25,2.25,2.25,2.5,2.5,2.75,2.75)
 
 
 # Create the histogram.
@@ -382,3 +435,6 @@ hist(Men_performed,xlab = "Log Likelihood Ratio",col = "green",border = "black",
 
 
 ```
+
+
+
