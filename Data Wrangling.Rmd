@@ -14,4 +14,275 @@ output:
 knitr::opts_chunk$set(echo=TRUE, messages=TRUE, error=TRUE)
 ```
 
-test page
+##Data Wrangling
+
+###notes: df is the name of the data we are analyzing
+df[1,] #row 1 (leaving blank means everything in the column)
+df[,1] # column 1
+df[1:4,] #rows 1 through 4 and all columns
+df[,4:5] #columns 4 to 5 and all the rows
+df[1:3,6:7] #rows 1 to 3 and columns 6 to 7
+
+df[df$name=="luke skywalker",] #return all columns with row equl to luke sky
+df[df$height > 180,] #find all the rows with height greater than 180
+df[1,2] <- 173 #goes to that particular cell and edit what is in it
+dim(df) #returns rows and columns
+df <- cbind(df,random_number=runif(dim(df)[1],0,1)) #dim df gives me the first thing and generates 87numbers between 0:1
+
+new_df <- rbind(df[1:2,],df[5:6,]) #takes the first two rows and adds row 5-6 combing the four rows 
+
+df$species <- as.factor(df$species)
+levels(df$species) # treat the column species as a factor and put it back into itself so it becomes that
+
+levels(df$species)[3] <- "hello" #renames the third level, which gets applied to all listings in the df
+
+1. names of all chracters that are taller than 80, shorter than 140, and are female.
+
+df[df$height > 80 &
+      df$height < 140 &
+      df$gender == "female", ]$name
+      
+      
+2. tatooine for their home world
+
+df[df$homeworld=="tatooine",]
+dim(df[df$homeworld=="tatooine",])[1] #counts the NA
+
+tatooine <- df [df$homeworld=="tatooine",]
+tatooine[is.na(tatooine$name)==FALSE,]
+dim(tatooine[is.na(tatooine$name)==FALSE,])[1]
+
+
+3. selecint different variables within the data frame 
+
+library(dplyr)
+
+new_df <- df %>%
+            filter(height > 100) %>%
+            group_by(homeworld) %>%
+            summarise(mean_birth_year = mean(birth_year,na.rm=TRUE)) #create a new column called mean birth year, and then compute the mean of those numbers in the column
+
+new_df <- df %>%
+    filter(height > 120, # filters out any columns with height greater than 120
+            height < 180) # filters out any columns with height less than 180
+
+new_df < df%>%
+    filter (gender != "male") #not equal to male 
+
+
+new_df <- df %>%
+      group_by(hair_color,eye_color) %>%
+      summarise(counts=length(name)) #how many of each eye and hair color
+
+###mutate
+
+use mutate to change or add a column
+
+new_df <- <df %>%
+          mutate(hm_ratio = height/mass) #gives a new column of height divided by mass
+ new_df <- df %>% 
+            select(name,height,mass) #a new df that only has name height mass
+            
+            
+new_def < df %>% 
+          select(name,films) %>%
+          group_by (name) %>%
+          
+          
+## DATA INPUT ASSIGMENT
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message = FALSE)
+```
+
+## Flanker task
+
+In a flanker task, participants identify a central stimulus (as quickly and accurately) as possible, while ignoring distracting stimuli presented on the left or right of the central stimulus (the flankers). 
+
+For example, the stimulus could be "HHH", and the correct response would be H. This is called a compatible (or congruent) stimulus because the flanking Hs are the same as the central stimulus. Alternatively, the stimulus could be "HSH", and the correct resposne would be S. This is called an incompatible (or incongruent) stimulus because the flanking Hs are different from the central stimulus. 
+
+The data for this assignment come from a flanker task where participants responded to many flanker stimuli over several trials. 
+
+## Load the data and libraries you will use
+
+I will help you with some sample code that compiles all of the text files in a single long format data frame.
+
+The data is contained in this .zip file: [FlankerData.zip](https://crumplab.github.io/psyc7709/Presentations/FlankerData.zip)
+
+The code chunk below assumes that you have placed the folder FlankerData into your R project folder. 
+
+```{r}
+library(data.table)
+library(dplyr)
+library(ggplot2)
+
+
+# get the file names
+file_names <- list.files(path="data_wrangle_assignment")
+
+# create headers for each column
+the_headers <- c("stimulus","congruency","proportion",
+                 "block","condition","dualtask","unknown",
+                 "stimulus_onset","response_time","response","subject")
+# Load data
+# create empty dataframe
+all_data<-data.frame()
+
+# loop to add each file to the dataframe
+for(i in file_names){
+  one_subject <- fread(paste("data_wrangle_assignment/",i, sep=""))#fread looks for file name all files are in data_wrangle_assignment"/" then nothing adds all he files not any one individual. the i represents all the files
+  names(one_subject) <- the_headers
+  one_subject$subject <- rep(i,dim(one_subject)[1])
+  one_subject <- cbind(one_subject, trial= 1:dim(one_subject)[1])
+  all_data <- rbind(all_data,one_subject)
+}
+
+```
+
+
+
+
+## Pre-processing
+
+### get accuracy for each trial
+
+A correct response occurs when the letter in the response column is the same as the letter in the middle position of item in the stimulus column. Create an accuracy column that codes whether the response was correct or incorrect on each trial (coding can be TRUE/FALSE, 0/1, or some other coding scheme that identifies correct vs incorrect)
+
+```{r}
+
+center_letter <- unlist(lapply(strsplit(all_data$stimulus,""),
+                               FUN=function(x)unlist(x)[2]))
+                #lapply allows me to apply any function over any row in a list,unlist the function and then take the [2] thing in the item
+
+all_data <- cbind(all_data,center_letter)
+
+all_data <- all_data %>% 
+              mutate(response = tolower(response),
+                     center_letter = tolower(center_letter),
+                     accuracy = response==center_letter)
+
+#loop version
+
+stimulus <- all_data$stimulus
+center_letter <- c()
+
+for (i in stimulus){
+  answer <-unlist(strsplit(i,split = ""))[2]
+  center_letter <- c(center_letter,i)
+}
+ center_letter <- tolower(center_letter)
+ 
+```
+
+### Get Reaction time on each trial
+
+The stimulus_onset column gives a computer timestamp in milliseconds indicating when the stimulus was presented. The response_time column is a timestamp in milliseconds for the response. The difference between the two (response_time  - stimulus_onset) is the reaction time in milliseconds. Add a column that calculates the reaction time on each trial.
+
+**tip:** notice that the numbers in response_time and stimulus_onset have the class integer64. Unfortunately, ggplot does not play nice with integers in this format. you will need to make sure your RT column is in the class integer or numeric.
+
+```{r}
+
+all_data <- all_data %>% 
+  mutate(RT = as.integer(response_time - stimulus_onset))
+
+all_data <- all_data %>%
+  mutate(RT = response_time - stimulus_onset)
+
+
+```
+
+
+## Checks
+
+Check how many trials each subject completed in the congruent and incongruent conditions, the mean accuracy for each subject in each congruency condition, and the mean RT for each subject in each congruency condition.
+
+```{r}
+
+check_subjects <- all_data %>%
+                  sumarise(num_trials - length(RT),
+                  )
+
+```
+
+
+
+### Exclusion
+
+It is common to exclude Reaction times that are very slow. There are many methods and procedures for excluding outlying reaction times. To keep it simple, exclude all RTs that are longer than 2000 ms
+
+```{r}
+
+restricted <- all_data %>%
+              filter(RT < 2000)
+
+
+```
+
+## Analysis
+
+### Reaction Time analysis
+
+1. Get the individual subject mean reaction times for **correct** congruent and incongruent trials.
+
+```{r}
+subject_meanRTs <- restricted %>%
+                    filter(accuracy == TRUE) %>%
+                    group_by(subject,congruency) %>%
+                    summarise(mean_RT = mean(RT)),
+sd(mean_RT)/sqrt(length(mean_RT))
+ 
+
+```
+
+2. Get the overall mean RTs and SEMs (standard errors of the mean) for the congruent and incongruent condition. Make a table and graph.
+
+```{r}
+
+  
+  
+```
+
+3. Compute the flanker effect for each subject, taking the difference between their mean incongruent and congruent RT. Then plot the mean flanker effect, along with the SEM of the mean flanker effect
+
+**tip:** Not all problems have an easy solution in dplyr, this is one them. You may have an easier time using logical indexing of the dataframe to solve this part.
+
+```{r}
+
+  
+```
+
+
+### Exploratory analysis
+
+Multiple questions may often be asked of data, especially questions that may not have been of original interest to the researchers. 
+
+In flanker experiments, like this one, it is well known that the flanker effect is modulated by the nature of the previous trial. Specifically, the flanker effect on trial n (the current trial), is larger when the previous trial (trial n-1) involved a congruent item, compared to an incongruent item. 
+
+Transform the data to conduct a sequence analysis. The dataframe should already include a factor (column) for the congruency level of trial n. Make another column that codes for the congruency level of trial n-1 (the previous trial). This creates a 2x2 design with trial n congruency x trial n-1 congruency. 
+
+First get teh subject means for each condition, then create a table and plot for teh overall means and SEMs in each condition. This should include:
+
+1. trial n congruent : trial n-1 congruent
+2. trial n incongruent : trial n-1 congruent
+3. trial n congruent : trial n-1 incongruent
+4. trial n incongruent : trial n-1 incongruent
+
+**tip:** be careful, note that the first trial in each experiment can not be included, because it had no preceding trial
+
+```{r}
+
+
+```
+
+
+
+
+
+
+
+
+          
+          
+          
+          
+          

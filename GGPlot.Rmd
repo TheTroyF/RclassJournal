@@ -12,7 +12,7 @@ output:
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, messages=TRUE, error=TRUE)
+knitr::opts_chunk$set(echo = TRUE, message=TRUE, error=TRUE)
 ```
 
 #### GGPlot Stuff
@@ -180,7 +180,7 @@ ggplot(plot_df, aes(x=fill_empty,y=dv_means,
 ```
 
 ##adding error bars, customizing 2x3 factor bar graph
-```{r, eval=F}
+```{r}
 ggplot(plot_df, aes(x=factor_one,y=dv_means,
                     group=factor_two,
                     color=factor_two,
@@ -298,7 +298,7 @@ ggplot(plot_df, aes(x=factor_one,y=dv_means,
                     group=factor_two,
                     color=factor_two,
                     fill=factor_two))+#fills inside the bar
-  geom_bar(stat = "dodge")#dodge means side by side bars
+  geom_bar(stat = "identity",position =  "dodge")#dodge means side by side bars
 
 
 
