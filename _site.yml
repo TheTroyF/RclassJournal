@@ -13,7 +13,7 @@ navbar:
     - text: "GGPlot"
       href: GGPlot.html    
     - text: "Data Wrangling"
-      href: Data Wrangling.html
+      href: Data_Wrangling.html
     - text: "Links"
       href: Links.html
 output_dir: "docs"

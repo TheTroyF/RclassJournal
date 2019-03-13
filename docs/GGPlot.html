@@ -392,7 +392,7 @@ div.tocify {
   <a href="GGPlot.html">GGPlot</a>
 </li>
 <li>
-  <a href="Data Wrangling.html">Data Wrangling</a>
+  <a href="Data_Wrangling.html">Data Wrangling</a>
 </li>
 <li>
   <a href="Links.html">Links</a>
@@ -449,11 +449,7 @@ plot_df &lt;- data.frame(t,u)
 # basic scatterplot
 ggplot(plot_df, aes(x=t,y=u))+ #identify what x/y axis are, groups, etc connect data to different prts of graph
   geom_point() #adds a layer of dots...</code></pre>
-<pre><code>## Error in ggplot(plot_df, aes(x = t, y = u)): could not find function &quot;ggplot&quot;</code></pre>
-</div>
-</div>
-<div id="more-descriptive-plots" class="section level2">
-<h2>more descriptive plots</h2>
+<p><img src="GGPlot_files/figure-html/unnamed-chunk-2-1.png" width="672" /> ##more descriptive plots</p>
 <pre class="r"><code>ggplot(plot_df, aes(x=t,y=u))+
   geom_point(size=2)+ #change size of dots
   geom_smooth(method=lm)+
@@ -463,7 +459,8 @@ ggplot(plot_df, aes(x=t,y=u))+ #identify what x/y axis are, groups, etc connect 
   ggtitle(&quot;I made a scatterplot&quot;)+
   theme_classic(base_size=12)+ #change background look of plot/font size, auto keeps font size i select when resized
   theme(plot.title = element_text(hjust = 0.5)) #centers title by using .5</code></pre>
-<pre><code>## Error in ggplot(plot_df, aes(x = t, y = u)): could not find function &quot;ggplot&quot;</code></pre>
+<p><img src="GGPlot_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+</div>
 </div>
 <div id="bar-graph" class="section level2">
 <h2>bar graph</h2>
@@ -479,9 +476,11 @@ plot_df &lt;- data.frame(factor_one,
 
 ggplot(plot_df, aes(x=factor_one,y=dv_means))+
   geom_bar(stat=&quot;identity&quot;)#adds bars #identity means just plot numbers dont analyze</code></pre>
-<pre><code>## Error in ggplot(plot_df, aes(x = factor_one, y = dv_means)): could not find function &quot;ggplot&quot;</code></pre>
+<p><img src="GGPlot_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <pre class="r"><code>  geom_point()#when after bar it shows up on top of bar</code></pre>
-<pre><code>## Error in geom_point(): could not find function &quot;geom_point&quot;</code></pre>
+<pre><code>## geom_point: na.rm = FALSE
+## stat_identity: na.rm = FALSE
+## position_identity</code></pre>
 </div>
 <div id="bar-graph-with-error-bar" class="section level2">
 <h2>bar graph with error bar</h2>
@@ -496,7 +495,7 @@ ggplot(plot_df, aes(x=factor_one,y=dv_means))+
   ggtitle(&quot;I made a bar graph&quot;)+
   theme_classic(base_size=12)+
   theme(plot.title = element_text(hjust = 0.5))</code></pre>
-<pre><code>## Error in ggplot(plot_df, aes(x = factor_one, y = dv_means)): could not find function &quot;ggplot&quot;</code></pre>
+<p><img src="GGPlot_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 </div>
 <div id="factor-bar-graph" class="section level2">
 <h2>2 factor bar graph</h2>
@@ -518,7 +517,7 @@ ggplot(plot_df, aes(x=factor_one,y=dv_means,
                     fill=factor_two))+#fills inside the bar
   geom_bar(stat=&quot;identity&quot;, 
            position=&quot;dodge&quot;)#dodge means side by side bars</code></pre>
-<pre><code>## Error in ggplot(plot_df, aes(x = factor_one, y = dv_means, group = factor_two, : could not find function &quot;ggplot&quot;</code></pre>
+<p><img src="GGPlot_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 </div>
 <div id="top-to-base-ratio-figure-5" class="section level2">
 <h2>2 top to base ratio figure 5</h2>
@@ -541,30 +540,29 @@ ggplot(plot_df, aes(x=top_base_ratio,y=dv_means,
    coord_cartesian(ylim=c(14,18))+
   geom_bar(stat=&quot;identity&quot;, 
            position=&quot;dodge&quot;)#dodge means side by side bars</code></pre>
-<pre><code>## Error in ggplot(plot_df, aes(x = top_base_ratio, y = dv_means, group = base_top, : could not find function &quot;ggplot&quot;</code></pre>
+<p><img src="GGPlot_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 </div>
 <div id="top-to-base-ratio-figure-5-1" class="section level2">
 <h2>2 top to base ratio figure 5</h2>
 <pre class="r"><code>#this is data with 2 level in each condition
 
-fill_empty &lt;- rep(as.factor(c(&quot;fill&quot;,&quot;empty&quot;)),2)#by putting 2 at the end it repeats the factor 
-estimate &lt;- rep(as.factor(c(&quot;Wide Base&quot;,&quot;Wide Top&quot;)),2)#by putting 2 at the end it repeats the factor 2 times
+fill_empty &lt;- as.factor(rep(c(&quot;fill&quot;,&quot;empty&quot;),each=2))#by putting 2 at the end it repeats the factor 
+my_estimate &lt;- as.factor(rep(c(&quot;Wide Base&quot;,&quot;Wide Top&quot;),2))#by putting 2 at the end it repeats the factor 2 times
 dv_means &lt;- c(19.5,17.7,18.5,17.8)
 
 plot_df &lt;- data.frame(fill_empty,
-                      estimate,
+                      my_estimate,
                       dv_means)
 
 # basic bar graph but im only gettign two bars istead of 2 groups of two
 
 ggplot(plot_df, aes(x=fill_empty,y=dv_means,
-                    group=estimate,
-                    color=estimate,
-                    fill=estimate))+#fills inside the bar
-   coord_cartesian(ylim=c(17,20))+#need plus sign to add each row to the plot
-  geom_bar(stat=&quot;identity&quot;, 
-           position=&quot;dodge&quot;)#dodge means side by side bars</code></pre>
-<pre><code>## Error in ggplot(plot_df, aes(x = fill_empty, y = dv_means, group = estimate, : could not find function &quot;ggplot&quot;</code></pre>
+                    group=my_estimate,
+                    color=my_estimate,
+                    fill=my_estimate))+   #fills inside the bar
+  coord_cartesian(ylim=c(17,20))+  #need plus sign to add each row to the plot
+  geom_bar(stat=&quot;identity&quot;, position=&quot;dodge&quot;) #dodge means side by side bars</code></pre>
+<p><img src="GGPlot_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 </div>
 <div id="adding-error-bars-customizing-2x3-factor-bar-graph" class="section level2">
 <h2>adding error bars, customizing 2x3 factor bar graph</h2>
@@ -584,6 +582,8 @@ ggplot(plot_df, aes(x=fill_empty,y=dv_means,
   ggtitle(&quot;Bar graph 2 factors&quot;)+
   theme_classic(base_size=12)+
   theme(plot.title = element_text(hjust = 0.5))</code></pre>
+<pre><code>## Error: Aesthetics must be either length 1 or the same as the data (4): x, group, colour, fill</code></pre>
+<p><img src="GGPlot_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 </div>
 <div id="bar-graph-faceted" class="section level2">
 <h2>bar graph faceted</h2>
@@ -607,7 +607,7 @@ ggplot(plot_df, aes(x=factor_one,y=dv_means,
                     color=factor_two))+
   geom_bar(stat=&quot;identity&quot;, position=&quot;dodge&quot;)+
   facet_wrap(~factor_three)#creates two graphs</code></pre>
-<pre><code>## Error in ggplot(plot_df, aes(x = factor_one, y = dv_means, group = factor_two, : could not find function &quot;ggplot&quot;</code></pre>
+<p><img src="GGPlot_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <pre class="r"><code>names &lt;- rep(c(&quot;dara&quot;,
            &quot;rita&quot;,
            &quot;liza&quot;,
@@ -629,9 +629,7 @@ ggplot(plot_df, aes(x=condition,
   geom_line()+
   geom_text(label=names)+
   theme_classic()</code></pre>
-<pre><code>## Error in ggplot(plot_df, aes(x = condition, y = MnFreq, group = names, : could not find function &quot;ggplot&quot;</code></pre>
-<div id="woman-equal-man-more-likely" class="section level3">
-<h3>woman equal man more likely</h3>
+<p><img src="GGPlot_files/figure-html/unnamed-chunk-11-1.png" width="672" /> ###woman equal man more likely</p>
 <pre class="r"><code>ggplot(plot_df, aes(x=factor_one,y=dv_means))+
   geom_bar(stat=&quot;identity&quot;)+
   geom_errorbar(aes(ymin=dv_means-dv_SEs, 
@@ -643,8 +641,8 @@ ggplot(plot_df, aes(x=condition,
   ggtitle(&quot;I made a bar graph&quot;)+
   theme_classic(base_size=12)+
   theme(plot.title = element_text(hjust = 0.5))</code></pre>
-<pre><code>## Error in ggplot(plot_df, aes(x = factor_one, y = dv_means)): could not find function &quot;ggplot&quot;</code></pre>
-</div>
+<pre><code>## Error: Aesthetics must be either length 1 or the same as the data (16): x, y</code></pre>
+<p><img src="GGPlot_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 </div>
 <div id="factor-bar-graph---i-tried-to-adjust-my-bars-within-the-bars-and-now-it-wont-work" class="section level2">
 <h2>2 factor bar graph - i tried to adjust my bars within the bars, and now it wont work</h2>
@@ -671,7 +669,7 @@ ggplot(plot_df, aes(x=factor_one,y=dv_means,
                     group=factor_two,
                     color=factor_two,
                     fill=factor_two))+#fills inside the bar
-  geom_bar(stat = &quot;dodge&quot;)#dodge means side by side bars</code></pre>
+  geom_bar(stat = &quot;identity&quot;,position =  &quot;dodge&quot;)#dodge means side by side bars</code></pre>
 </div>
 <div id="figure-three---men-and-women-perform-surgery" class="section level2">
 <h2>figure three - men and women perform surgery</h2>
@@ -701,7 +699,7 @@ ggplot(plot_df, aes(x=condition, y=dv_means,
                     fill=men_perform))+
  #fills inside the bar
 geom_bar(stat=&quot;identity&quot;, position=&quot;dodge&quot;)#dodge means side by side bars</code></pre>
-<pre><code>## Error in ggplot(plot_df, aes(x = condition, y = dv_means, group = men_perform, : could not find function &quot;ggplot&quot;</code></pre>
+<p><img src="GGPlot_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <pre class="r"><code># Create dataframe
 social &lt;- c(-2.3,-2.2,-2.0,-1.9,-1.8,-1.7,-1.6,-1.2,-1.1,-1,-.89,-.79,-.68,-.59,-.56,-.54,.5,.75,.82,.93,1.2,1.3,1.4,1.5,1.9,2.2,2.4,2.5,2.7,2.9,3.0,3.1)
 
@@ -712,7 +710,7 @@ plot_df &lt;- data.frame(social,autism)
 # basic scatterplot
 ggplot(plot_df, aes(x=social,y=autism))+ #identify what x/y axis are, groups, etc connect data to different prts of graph
   geom_point()#adds a layer of dots...</code></pre>
-<pre><code>## Error in ggplot(plot_df, aes(x = social, y = autism)): could not find function &quot;ggplot&quot;</code></pre>
+<p><img src="GGPlot_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <div id="violin-plot---money-transferred-to-peron" class="section level3">
 <h3>violin plot - “money transferred to peron”</h3>
 <pre class="r"><code># Create dataframe
@@ -727,7 +725,19 @@ plot_df &lt;- data.frame(person_x_answer,moneytransferred)
 ggplot(plot_df, aes(x=person_x_answer,y=moneytransferred))+
    coord_cartesian(ylim=c(.00,.30))+#identify what x/y axis are, groups, etc connect data to different prts of graph
   geom_violin()#adds violin as representation of dots</code></pre>
-<pre><code>## Error in ggplot(plot_df, aes(x = person_x_answer, y = moneytransferred)): could not find function &quot;ggplot&quot;</code></pre>
+<pre><code>## Warning: Removed 25 rows containing non-finite values (stat_ydensity).</code></pre>
+<p><img src="GGPlot_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<pre class="r"><code>person_x_answer &lt;- rep(c(&quot;equally likely&quot;,&quot;man more likely&quot;),each=50)
+#hand entered all the data points, the general shapes replicate the ones from the homework
+moneytransferred &lt;- c(rnorm(50,50,25),rnorm(50,60,10))#need to represent dots to follow equal then men, equal then men, to have an even number
+
+plot_df &lt;- data.frame(person_x_answer,moneytransferred)
+
+# basic scatterplot
+ggplot(plot_df, aes(x=person_x_answer,y=moneytransferred))+
+   coord_cartesian()+#identify what x/y axis are, groups, etc connect data to different prts of graph
+  geom_violin()#adds violin as representation of dots</code></pre>
+<p><img src="GGPlot_files/figure-html/unnamed-chunk-16-2.png" width="672" /></p>
 </div>
 </div>
 <div id="visual-group" class="section level2">
@@ -757,7 +767,7 @@ ggplot(plot_df, aes(x=transornot, y=Mean_Median_RT,
  #fills inside the bar
 geom_bar(stat=&quot;identity&quot;, 
          position=&quot;dodge&quot;)#dodge means side by side bars</code></pre>
-<pre><code>## Error in ggplot(plot_df, aes(x = transornot, y = Mean_Median_RT, group = insideout, : could not find function &quot;ggplot&quot;</code></pre>
+<p><img src="GGPlot_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <div id="men-and-women-perform-sugery-histogram" class="section level3">
 <h3>men and women perform sugery histogram</h3>
 <pre class="r"><code># Create data for the graph.

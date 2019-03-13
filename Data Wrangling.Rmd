@@ -6,7 +6,7 @@ output:
     toc_float: true
     collapsed: false
     number_sections: false
-    toc_depth: 1
+    toc_depth: 5
     #code_folding: hide
 ---
 
@@ -91,9 +91,6 @@ new_def < df %>%
           
 ## DATA INPUT ASSIGMENT
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message = FALSE)
-```
 
 ## Flanker task
 
@@ -185,10 +182,6 @@ The stimulus_onset column gives a computer timestamp in milliseconds indicating 
 all_data <- all_data %>% 
   mutate(RT = as.integer(response_time - stimulus_onset))
 
-all_data <- all_data %>%
-  mutate(RT = response_time - stimulus_onset)
-
-
 ```
 
 
@@ -198,9 +191,11 @@ Check how many trials each subject completed in the congruent and incongruent co
 
 ```{r}
 
-check_subjects <- all_data %>%
-                  sumarise(num_trials - length(RT),
-                  )
+check_subjects <- all_data %>% #adds on a process
+                  group_by(subject,congruency) %>%
+                  summarise(num_trials = length(RT),
+                            meanRT = mean(RT),
+                            acc = mean(accuracy))
 
 ```
 

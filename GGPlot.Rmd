@@ -158,24 +158,23 @@ ggplot(plot_df, aes(x=top_base_ratio,y=dv_means,
 ```{r}
 #this is data with 2 level in each condition
 
-fill_empty <- rep(as.factor(c("fill","empty")),2)#by putting 2 at the end it repeats the factor 
-estimate <- rep(as.factor(c("Wide Base","Wide Top")),2)#by putting 2 at the end it repeats the factor 2 times
+fill_empty <- as.factor(rep(c("fill","empty"),each=2))#by putting 2 at the end it repeats the factor 
+my_estimate <- as.factor(rep(c("Wide Base","Wide Top"),2))#by putting 2 at the end it repeats the factor 2 times
 dv_means <- c(19.5,17.7,18.5,17.8)
 
 plot_df <- data.frame(fill_empty,
-                      estimate,
+                      my_estimate,
                       dv_means)
 
 # basic bar graph but im only gettign two bars istead of 2 groups of two
 
 ggplot(plot_df, aes(x=fill_empty,y=dv_means,
-                    group=estimate,
-                    color=estimate,
-                    fill=estimate))+#fills inside the bar
-   coord_cartesian(ylim=c(17,20))+#need plus sign to add each row to the plot
-  geom_bar(stat="identity", 
-           position="dodge")#dodge means side by side bars
-
+                    group=my_estimate,
+                    color=my_estimate,
+                    fill=my_estimate))+   #fills inside the bar
+  coord_cartesian(ylim=c(17,20))+  #need plus sign to add each row to the plot
+  geom_bar(stat="identity", position="dodge") #dodge means side by side bars
+  
 
 ```
 
@@ -378,6 +377,17 @@ ggplot(plot_df, aes(x=person_x_answer,y=moneytransferred))+
 
 
 
+
+person_x_answer <- rep(c("equally likely","man more likely"),each=50)
+#hand entered all the data points, the general shapes replicate the ones from the homework
+moneytransferred <- c(rnorm(50,50,25),rnorm(50,60,10))#need to represent dots to follow equal then men, equal then men, to have an even number
+
+plot_df <- data.frame(person_x_answer,moneytransferred)
+
+# basic scatterplot
+ggplot(plot_df, aes(x=person_x_answer,y=moneytransferred))+
+   coord_cartesian()+#identify what x/y axis are, groups, etc connect data to different prts of graph
+  geom_violin()#adds violin as representation of dots
 
 
 

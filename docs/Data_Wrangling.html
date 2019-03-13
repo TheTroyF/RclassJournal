@@ -277,7 +277,7 @@ $(document).ready(function ()  {
 
     // establish options
     var options = {
-      selectors: "h1",
+      selectors: "h1,h2,h3,h4,h5",
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
@@ -392,7 +392,7 @@ div.tocify {
   <a href="GGPlot.html">GGPlot</a>
 </li>
 <li>
-  <a href="Data Wrangling.html">Data Wrangling</a>
+  <a href="Data_Wrangling.html">Data Wrangling</a>
 </li>
 <li>
   <a href="Links.html">Links</a>
@@ -416,6 +416,263 @@ div.tocify {
 
 <div id="data-wrangling" class="section level2">
 <h2>Data Wrangling</h2>
+<div id="notes-df-is-the-name-of-the-data-we-are-analyzing" class="section level3">
+<h3>notes: df is the name of the data we are analyzing</h3>
+<p>df[1,] #row 1 (leaving blank means everything in the column) df[,1] # column 1 df[1:4,] #rows 1 through 4 and all columns df[,4:5] #columns 4 to 5 and all the rows df[1:3,6:7] #rows 1 to 3 and columns 6 to 7</p>
+<p>df[df$name==“luke skywalker”,] #return all columns with row equl to luke sky df[df$height &gt; 180,] #find all the rows with height greater than 180 df[1,2] &lt;- 173 #goes to that particular cell and edit what is in it dim(df) #returns rows and columns df &lt;- cbind(df,random_number=runif(dim(df)[1],0,1)) #dim df gives me the first thing and generates 87numbers between 0:1</p>
+<p>new_df &lt;- rbind(df[1:2,],df[5:6,]) #takes the first two rows and adds row 5-6 combing the four rows</p>
+<p>df<span class="math inline">\(species &lt;- as.factor(df\)</span>species) levels(df$species) # treat the column species as a factor and put it back into itself so it becomes that</p>
+<p>levels(df$species)[3] &lt;- “hello” #renames the third level, which gets applied to all listings in the df</p>
+<ol style="list-style-type: decimal">
+<li>names of all chracters that are taller than 80, shorter than 140, and are female.</li>
+</ol>
+<p>df[df<span class="math inline">\(height &gt; 80 &amp;  df\)</span>height &lt; 140 &amp; df$gender == “female”, ]$name</p>
+<ol start="2" style="list-style-type: decimal">
+<li>tatooine for their home world</li>
+</ol>
+<p>df[df$homeworld==“tatooine”,] dim(df[df$homeworld==“tatooine”,])[1] #counts the NA</p>
+<p>tatooine &lt;- df [df$homeworld==“tatooine”,] tatooine[is.na(tatooine$name)==FALSE,] dim(tatooine[is.na(tatooine$name)==FALSE,])[1]</p>
+<ol start="3" style="list-style-type: decimal">
+<li>selecint different variables within the data frame</li>
+</ol>
+<p>library(dplyr)</p>
+<p>new_df &lt;- df %&gt;% filter(height &gt; 100) %&gt;% group_by(homeworld) %&gt;% summarise(mean_birth_year = mean(birth_year,na.rm=TRUE)) #create a new column called mean birth year, and then compute the mean of those numbers in the column</p>
+<p>new_df &lt;- df %&gt;% filter(height &gt; 120, # filters out any columns with height greater than 120 height &lt; 180) # filters out any columns with height less than 180</p>
+<p>new_df &lt; df%&gt;% filter (gender != “male”) #not equal to male</p>
+<p>new_df &lt;- df %&gt;% group_by(hair_color,eye_color) %&gt;% summarise(counts=length(name)) #how many of each eye and hair color</p>
+</div>
+<div id="mutate" class="section level3">
+<h3>mutate</h3>
+<p>use mutate to change or add a column</p>
+<p>new_df &lt;- <df %>% mutate(hm_ratio = height/mass) #gives a new column of height divided by mass new_df &lt;- df %&gt;% select(name,height,mass) #a new df that only has name height mass</p>
+<p>new_def &lt; df %&gt;% select(name,films) %&gt;% group_by (name) %&gt;%</p>
+</div>
+</div>
+<div id="data-input-assigment" class="section level2">
+<h2>DATA INPUT ASSIGMENT</h2>
+</div>
+<div id="flanker-task" class="section level2">
+<h2>Flanker task</h2>
+<p>In a flanker task, participants identify a central stimulus (as quickly and accurately) as possible, while ignoring distracting stimuli presented on the left or right of the central stimulus (the flankers).</p>
+<p>For example, the stimulus could be “HHH”, and the correct response would be H. This is called a compatible (or congruent) stimulus because the flanking Hs are the same as the central stimulus. Alternatively, the stimulus could be “HSH”, and the correct resposne would be S. This is called an incompatible (or incongruent) stimulus because the flanking Hs are different from the central stimulus.</p>
+<p>The data for this assignment come from a flanker task where participants responded to many flanker stimuli over several trials.</p>
+</div>
+<div id="load-the-data-and-libraries-you-will-use" class="section level2">
+<h2>Load the data and libraries you will use</h2>
+<p>I will help you with some sample code that compiles all of the text files in a single long format data frame.</p>
+<p>The data is contained in this .zip file: <a href="https://crumplab.github.io/psyc7709/Presentations/FlankerData.zip">FlankerData.zip</a></p>
+<p>The code chunk below assumes that you have placed the folder FlankerData into your R project folder.</p>
+<pre class="r"><code>library(data.table)
+library(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:data.table&#39;:
+## 
+##     between, first, last</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>library(ggplot2)
+
+
+# get the file names
+file_names &lt;- list.files(path=&quot;data_wrangle_assignment&quot;)
+
+# create headers for each column
+the_headers &lt;- c(&quot;stimulus&quot;,&quot;congruency&quot;,&quot;proportion&quot;,
+                 &quot;block&quot;,&quot;condition&quot;,&quot;dualtask&quot;,&quot;unknown&quot;,
+                 &quot;stimulus_onset&quot;,&quot;response_time&quot;,&quot;response&quot;,&quot;subject&quot;)
+# Load data
+# create empty dataframe
+all_data&lt;-data.frame()
+
+# loop to add each file to the dataframe
+for(i in file_names){
+  one_subject &lt;- fread(paste(&quot;data_wrangle_assignment/&quot;,i, sep=&quot;&quot;))#fread looks for file name all files are in data_wrangle_assignment&quot;/&quot; then nothing adds all he files not any one individual. the i represents all the files
+  names(one_subject) &lt;- the_headers
+  one_subject$subject &lt;- rep(i,dim(one_subject)[1])
+  one_subject &lt;- cbind(one_subject, trial= 1:dim(one_subject)[1])
+  all_data &lt;- rbind(all_data,one_subject)
+}</code></pre>
+<pre><code>## Warning in fread(paste(&quot;data_wrangle_assignment/&quot;, i, sep = &quot;&quot;)): Stopped
+## early on line 193. Expected 11 fields but found 14. Consider fill=TRUE
+## and comment.char=. First discarded non-empty line: &lt;&lt;SSS C HPC B3 C1 DA 1
+## 1429545653881 1429545654464 s 1429545654485 1429545655705 s &gt;&gt;</code></pre>
+<pre><code>## Warning in fread(paste(&quot;data_wrangle_assignment/&quot;, i, sep = &quot;&quot;)): Stopped
+## early on line 193. Expected 11 fields but found 14. Consider fill=TRUE
+## and comment.char=. First discarded non-empty line: &lt;&lt;SDS I LPC B3 C1 DA 1
+## 1429721027215 1429721034673 d 1429721034693 1429721037336 d &gt;&gt;</code></pre>
+<pre><code>## Warning in fread(paste(&quot;data_wrangle_assignment/&quot;, i, sep = &quot;&quot;)): Stopped
+## early on line 193. Expected 11 fields but found 14. Consider fill=TRUE
+## and comment.char=. First discarded non-empty line: &lt;&lt;HJH I LPC B3 C1 DA 2
+## 1429720989538 1429720993779 j 1429720993785 1429720995236 h &gt;&gt;</code></pre>
+<pre><code>## Warning in fread(paste(&quot;data_wrangle_assignment/&quot;, i, sep = &quot;&quot;)): Stopped
+## early on line 193. Expected 11 fields but found 14. Consider fill=TRUE
+## and comment.char=. First discarded non-empty line: &lt;&lt;DSD I LPC B3 C1 DA 1
+## 1429806083269 1429806083950 s 1429806083972 1429806085767 s &gt;&gt;</code></pre>
+<pre><code>## Warning in fread(paste(&quot;data_wrangle_assignment/&quot;, i, sep = &quot;&quot;)): Stopped
+## early on line 193. Expected 11 fields but found 14. Consider fill=TRUE
+## and comment.char=. First discarded non-empty line: &lt;&lt;SDS I HPC B3 C1 DA 1
+## 1429806313480 1429806314183 d 1429806314205 1429806316071 d &gt;&gt;</code></pre>
+<pre><code>## Warning in fread(paste(&quot;data_wrangle_assignment/&quot;, i, sep = &quot;&quot;)): Stopped
+## early on line 193. Expected 11 fields but found 14. Consider fill=TRUE
+## and comment.char=. First discarded non-empty line: &lt;&lt;JHJ I HPC B3 C1 DA 2
+## 1429806117326 1429806118655 h 1429806118674 1429806119735 j &gt;&gt;</code></pre>
+<pre><code>## Warning in fread(paste(&quot;data_wrangle_assignment/&quot;, i, sep = &quot;&quot;)): Stopped
+## early on line 193. Expected 11 fields but found 14. Consider fill=TRUE
+## and comment.char=. First discarded non-empty line: &lt;&lt;DDD C HPC B3 C1 DA 2
+## 1430150133059 1430150133679 d 1430150133696 1430150135632 d &gt;&gt;</code></pre>
+<pre><code>## Warning in fread(paste(&quot;data_wrangle_assignment/&quot;, i, sep = &quot;&quot;)): Stopped
+## early on line 193. Expected 11 fields but found 14. Consider fill=TRUE
+## and comment.char=. First discarded non-empty line: &lt;&lt;HJH I HPC B3 C1 DA 1
+## 1430150314437 1430150315598 j 1430150315619 1430150317838 h &gt;&gt;</code></pre>
+<pre><code>## Warning in fread(paste(&quot;data_wrangle_assignment/&quot;, i, sep = &quot;&quot;)): Stopped
+## early on line 193. Expected 11 fields but found 14. Consider fill=TRUE
+## and comment.char=. First discarded non-empty line: &lt;&lt;DDD C HPC B3 C1 DA 1
+## 1430150145985 1430150146826 d 1430150146834 1430150147850 d &gt;&gt;</code></pre>
+<pre><code>## Warning in fread(paste(&quot;data_wrangle_assignment/&quot;, i, sep = &quot;&quot;)): Stopped
+## early on line 193. Expected 11 fields but found 14. Consider fill=TRUE
+## and comment.char=. First discarded non-empty line: &lt;&lt;SSS C LPC B3 C1 DA 2
+## 1430150564606 1430150566266 s 1430150566279 1430150568347 s &gt;&gt;</code></pre>
+<pre><code>## Warning in fread(paste(&quot;data_wrangle_assignment/&quot;, i, sep = &quot;&quot;)): Stopped
+## early on line 193. Expected 11 fields but found 14. Consider fill=TRUE
+## and comment.char=. First discarded non-empty line: &lt;&lt;JHJ I LPC B3 C1 DA 2
+## 1430241499262 1430241500273 h 1430241500282 1430241501330 j &gt;&gt;</code></pre>
+<pre><code>## Warning in fread(paste(&quot;data_wrangle_assignment/&quot;, i, sep = &quot;&quot;)): Stopped
+## early on line 193. Expected 11 fields but found 14. Consider fill=TRUE
+## and comment.char=. First discarded non-empty line: &lt;&lt;HHH C HPC B3 C1 DA 2
+## 1429636904389 1429636905985 h 1429636905998 1429636906777 h &gt;&gt;</code></pre>
+<pre><code>## Warning in fread(paste(&quot;data_wrangle_assignment/&quot;, i, sep = &quot;&quot;)): Stopped
+## early on line 193. Expected 11 fields but found 14. Consider fill=TRUE
+## and comment.char=. First discarded non-empty line: &lt;&lt;JHJ I HPC B3 C1 DA 1
+## 1430241629273 1430241630523 h 1430241630539 1430241632971 h &gt;&gt;</code></pre>
+<pre><code>## Warning in fread(paste(&quot;data_wrangle_assignment/&quot;, i, sep = &quot;&quot;)): Stopped
+## early on line 193. Expected 11 fields but found 14. Consider fill=TRUE
+## and comment.char=. First discarded non-empty line: &lt;&lt;SSS C HPC B3 C1 DA 2
+## 1430241437362 1430241438250 s 1430241438269 1430241440674 j &gt;&gt;</code></pre>
+<pre><code>## Warning in fread(paste(&quot;data_wrangle_assignment/&quot;, i, sep = &quot;&quot;)): Stopped
+## early on line 193. Expected 11 fields but found 14. Consider fill=TRUE
+## and comment.char=. First discarded non-empty line: &lt;&lt;HHH C HPC B3 C1 DA 2
+## 1430241452455 1430241453338 h 1430241453358 1430241455091 h &gt;&gt;</code></pre>
+<pre><code>## Warning in fread(paste(&quot;data_wrangle_assignment/&quot;, i, sep = &quot;&quot;)): Stopped
+## early on line 193. Expected 11 fields but found 14. Consider fill=TRUE
+## and comment.char=. First discarded non-empty line: &lt;&lt;SSS C HPC B3 C1 DA 2
+## 1429636722104 1429636723280 s 1429636723285 1429636725896 s &gt;&gt;</code></pre>
+<pre><code>## Warning in fread(paste(&quot;data_wrangle_assignment/&quot;, i, sep = &quot;&quot;)): Stopped
+## early on line 193. Expected 11 fields but found 14. Consider fill=TRUE
+## and comment.char=. First discarded non-empty line: &lt;&lt;HJH I HPC B3 C1 DA 2
+## 1429636735659 1429636737614 j 1429636737632 1429636739711 h &gt;&gt;</code></pre>
+<pre><code>## Warning in fread(paste(&quot;data_wrangle_assignment/&quot;, i, sep = &quot;&quot;)): Stopped
+## early on line 193. Expected 11 fields but found 14. Consider fill=TRUE
+## and comment.char=. First discarded non-empty line: &lt;&lt;SSS C HPC B3 C1 DA 2
+## 1429636772535 1429636774150 s 1429636774156 1429636774959 s &gt;&gt;</code></pre>
+<pre><code>## Warning in fread(paste(&quot;data_wrangle_assignment/&quot;, i, sep = &quot;&quot;)): Stopped
+## early on line 193. Expected 11 fields but found 14. Consider fill=TRUE
+## and comment.char=. First discarded non-empty line: &lt;&lt;DSD I LPC B3 C1 DA 1
+## 1429640807139 1429640808174 s 1429640808193 1429640810247 s &gt;&gt;</code></pre>
+<pre><code>## Warning in fread(paste(&quot;data_wrangle_assignment/&quot;, i, sep = &quot;&quot;)): Stopped
+## early on line 193. Expected 11 fields but found 14. Consider fill=TRUE
+## and comment.char=. First discarded non-empty line: &lt;&lt;JHJ I LPC B3 C1 DA 2
+## 1429641048574 1429641052721 h 1429641052737 1429641054609 j &gt;&gt;</code></pre>
+<pre><code>## Warning in fread(paste(&quot;data_wrangle_assignment/&quot;, i, sep = &quot;&quot;)): Stopped
+## early on line 193. Expected 11 fields but found 14. Consider fill=TRUE
+## and comment.char=. First discarded non-empty line: &lt;&lt;HHH C HPC B3 C1 DA 1
+## 1429720958417 1429720960347 h 1429720960357 1429720966822 h &gt;&gt;</code></pre>
+<pre><code>## Warning in fread(paste(&quot;data_wrangle_assignment/&quot;, i, sep = &quot;&quot;)): Stopped
+## early on line 193. Expected 11 fields but found 14. Consider fill=TRUE
+## and comment.char=. First discarded non-empty line: &lt;&lt;DDD C HPC B3 C1 DA 1
+## 1429721150782 1429721151699 d 1429721151714 1429721152547 d &gt;&gt;</code></pre>
+</div>
+<div id="pre-processing" class="section level2">
+<h2>Pre-processing</h2>
+<div id="get-accuracy-for-each-trial" class="section level3">
+<h3>get accuracy for each trial</h3>
+<p>A correct response occurs when the letter in the response column is the same as the letter in the middle position of item in the stimulus column. Create an accuracy column that codes whether the response was correct or incorrect on each trial (coding can be TRUE/FALSE, 0/1, or some other coding scheme that identifies correct vs incorrect)</p>
+<pre class="r"><code>center_letter &lt;- unlist(lapply(strsplit(all_data$stimulus,&quot;&quot;),
+                               FUN=function(x)unlist(x)[2]))
+                #lapply allows me to apply any function over any row in a list,unlist the function and then take the [2] thing in the item
+
+all_data &lt;- cbind(all_data,center_letter)
+
+all_data &lt;- all_data %&gt;% 
+              mutate(response = tolower(response),
+                     center_letter = tolower(center_letter),
+                     accuracy = response==center_letter)
+
+#loop version
+
+stimulus &lt;- all_data$stimulus
+center_letter &lt;- c()
+
+for (i in stimulus){
+  answer &lt;-unlist(strsplit(i,split = &quot;&quot;))[2]
+  center_letter &lt;- c(center_letter,i)
+}
+ center_letter &lt;- tolower(center_letter)</code></pre>
+</div>
+<div id="get-reaction-time-on-each-trial" class="section level3">
+<h3>Get Reaction time on each trial</h3>
+<p>The stimulus_onset column gives a computer timestamp in milliseconds indicating when the stimulus was presented. The response_time column is a timestamp in milliseconds for the response. The difference between the two (response_time - stimulus_onset) is the reaction time in milliseconds. Add a column that calculates the reaction time on each trial.</p>
+<p>**<a href="tip:**" class="uri">tip:**</a> notice that the numbers in response_time and stimulus_onset have the class integer64. Unfortunately, ggplot does not play nice with integers in this format. you will need to make sure your RT column is in the class integer or numeric.</p>
+<pre class="r"><code>all_data &lt;- all_data %&gt;% 
+  mutate(RT = as.integer(response_time - stimulus_onset))</code></pre>
+</div>
+</div>
+<div id="checks" class="section level2">
+<h2>Checks</h2>
+<p>Check how many trials each subject completed in the congruent and incongruent conditions, the mean accuracy for each subject in each congruency condition, and the mean RT for each subject in each congruency condition.</p>
+<pre class="r"><code>check_subjects &lt;- all_data %&gt;% #adds on a process
+                  group_by(subject,congruency) %&gt;%
+                  summarise(num_trials = length(RT),
+                            meanRT = mean(RT),
+                            acc = mean(accuracy))</code></pre>
+<div id="exclusion" class="section level3">
+<h3>Exclusion</h3>
+<p>It is common to exclude Reaction times that are very slow. There are many methods and procedures for excluding outlying reaction times. To keep it simple, exclude all RTs that are longer than 2000 ms</p>
+<pre class="r"><code>restricted &lt;- all_data %&gt;%
+              filter(RT &lt; 2000)</code></pre>
+</div>
+</div>
+<div id="analysis" class="section level2">
+<h2>Analysis</h2>
+<div id="reaction-time-analysis" class="section level3">
+<h3>Reaction Time analysis</h3>
+<ol style="list-style-type: decimal">
+<li>Get the individual subject mean reaction times for <strong>correct</strong> congruent and incongruent trials.</li>
+</ol>
+<pre class="r"><code>subject_meanRTs &lt;- restricted %&gt;%
+                    filter(accuracy == TRUE) %&gt;%
+                    group_by(subject,congruency) %&gt;%
+                    summarise(mean_RT = mean(RT)),
+sd(mean_RT)/sqrt(length(mean_RT))
+ </code></pre>
+<pre><code>## Error: &lt;text&gt;:4:50: unexpected &#39;,&#39;
+## 3:                     group_by(subject,congruency) %&gt;%
+## 4:                     summarise(mean_RT = mean(RT)),
+##                                                     ^</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Get the overall mean RTs and SEMs (standard errors of the mean) for the congruent and incongruent condition. Make a table and graph.</p></li>
+<li><p>Compute the flanker effect for each subject, taking the difference between their mean incongruent and congruent RT. Then plot the mean flanker effect, along with the SEM of the mean flanker effect</p></li>
+</ol>
+<p>**<a href="tip:**" class="uri">tip:**</a> Not all problems have an easy solution in dplyr, this is one them. You may have an easier time using logical indexing of the dataframe to solve this part.</p>
+</div>
+<div id="exploratory-analysis" class="section level3">
+<h3>Exploratory analysis</h3>
+<p>Multiple questions may often be asked of data, especially questions that may not have been of original interest to the researchers.</p>
+<p>In flanker experiments, like this one, it is well known that the flanker effect is modulated by the nature of the previous trial. Specifically, the flanker effect on trial n (the current trial), is larger when the previous trial (trial n-1) involved a congruent item, compared to an incongruent item.</p>
+<p>Transform the data to conduct a sequence analysis. The dataframe should already include a factor (column) for the congruency level of trial n. Make another column that codes for the congruency level of trial n-1 (the previous trial). This creates a 2x2 design with trial n congruency x trial n-1 congruency.</p>
+<p>First get teh subject means for each condition, then create a table and plot for teh overall means and SEMs in each condition. This should include:</p>
+<ol style="list-style-type: decimal">
+<li>trial n congruent : trial n-1 congruent</li>
+<li>trial n incongruent : trial n-1 congruent</li>
+<li>trial n congruent : trial n-1 incongruent</li>
+<li>trial n incongruent : trial n-1 incongruent</li>
+</ol>
+<p>**<a href="tip:**" class="uri">tip:**</a> be careful, note that the first trial in each experiment can not be included, because it had no preceding trial</p>
+</div>
 </div>
 
 
