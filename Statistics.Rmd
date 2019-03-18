@@ -14,3 +14,152 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message=TRUE, error=TRUE)
 ```
+
+
+##Samples
+###one direction t test
+```{r}
+
+x <- c(1,4,3,2,3,4,3,2,3,2,3,4)
+
+#non-directional
+t.test(x, mu = 2)
+
+
+```
+###paired sample t test
+```{r}
+
+x <- c(1,4,3,2,3,4,3,2,3,2,3,4)
+y <- c(3,2,5,4,3,2,3,2,1,2,2,3)
+
+#non-directional
+t.test(x, y, paired=TRUE)
+
+
+```
+
+### independent samples t test
+```{r}
+x <- c(1,4,3,2,3,4,3,2,3,2,3,4)
+y <- c(3,2,5,4,3,2,3,2,1,2,2,3)
+
+#non-directional
+my_ttest <- t.test(x, y, var.equal=TRUE)
+
+my_ttest$p.value #using $ sign gets specific values
+
+#
+
+```
+
+### fake paired t test
+```{r, eval=F}
+
+a <- replicate(10000,t.test(rnorm(10,0,1),rnorm(10,0,1))statistic)
+
+
+
+```
+
+###printing a clean table 
+```{r}
+
+library(broom)
+
+t_results <- t.test(x, y, var.equal=TRUE)
+knitr::kable(tidy(t_results))
+
+
+```
+
+
+
+##ANOVA
+### anova template for 2x2
+```{r}
+Subjects <- rep(1:10,each=4)
+Factor1 <- rep(rep(c("A","B"), each = 2), 10)
+Factor2 <- rep(rep(c("1","2"), 2), 10)
+DV <- rnorm(40,0,1)
+
+all_data <- data.frame(Subjects = as.factor(Subjects),
+                       DV,
+                       Factor1,
+                       Factor2)
+
+
+
+```
+
+###between-subjects 1 factor template
+```{r}
+
+factor1 <- rep(c("A","B","C"),each = 5) #does each factor 5 times
+DV <- rnorm(n=15,mean=0,sd=1)
+
+all_data <- data.frame(DV,factor1)
+
+#run the anova
+aov_out <- aov(DV~Factor1, all_data) #dv "~" name of factor
+
+#all the details of the anova in a summary table
+summary(aov_out) 
+
+
+
+```
+
+###between-subjects 2 factor template
+```{r}
+# run anova
+aov_out <- aov(DV~Factor1*Factor2, all_data)
+
+# summary
+summary(aov_out)
+
+
+
+```
+
+###repeated-measures 1 factor template - when the subject does each factor 
+```{r}
+
+# run anova - error is the name of the variable that we must divide by the factor
+aov_out <- aov(DV~Factor1 + Error(Subjects/Factor1), all_data)
+
+# summary
+summary(aov_out)
+
+```
+
+
+###repeated-measures 2 factor
+```{r}
+
+# run anova
+aov_out <- aov(DV~Factor1*Factor2 + Error(Subjects/(Factor1*Factor2)), all_data)
+
+# summary
+summary(aov_out)
+
+
+# kable xtable printing
+library(xtable)#library "()" means what package
+knitr::kable(xtable(summary(aov_out)))#allows me to load a function within a package without loading a package
+
+sum_out[[1]]$'F value'
+```
+
+##Linear Regression
+```{r}
+#lm is linear regression
+lm(DV~Factor1, all_data)
+
+
+
+```
+
+
+
+

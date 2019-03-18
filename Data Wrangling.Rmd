@@ -231,10 +231,11 @@ sd(mean_RT)/sqrt(length(mean_RT))
 
 2. Get the overall mean RTs and SEMs (standard errors of the mean) for the congruent and incongruent condition. Make a table and graph.
 
-```{r}
-
-overall_meanRT <-   
-  
+```{r, EVAL=F}
+overall_RT <- all_data %>%
+        group_by(congruency) %>%
+        summarise(mean_RT = mean(RT)) %>%
+      
 ```
 
 3. Compute the flanker effect for each subject, taking the difference between their mean incongruent and congruent RT. Then plot the mean flanker effect, along with the SEM of the mean flanker effect
