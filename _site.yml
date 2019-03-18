@@ -14,6 +14,8 @@ navbar:
       href: GGPlot.html    
     - text: "Data Wrangling"
       href: Data_Wrangling.html
+    - text: "Statistics"
+      href: Statisics.html
     - text: "Links"
       href: Links.html
 output_dir: "docs"

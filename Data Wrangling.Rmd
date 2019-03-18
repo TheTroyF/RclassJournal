@@ -219,11 +219,11 @@ restricted <- all_data %>%
 
 1. Get the individual subject mean reaction times for **correct** congruent and incongruent trials.
 
-```{r}
+```{r, EVAl=F}
 subject_meanRTs <- restricted %>%
                     filter(accuracy == TRUE) %>%
                     group_by(subject,congruency) %>%
-                    summarise(mean_RT = mean(RT)),
+                    summarise(mean_RT = mean(RT))
 sd(mean_RT)/sqrt(length(mean_RT))
  
 
@@ -233,7 +233,7 @@ sd(mean_RT)/sqrt(length(mean_RT))
 
 ```{r}
 
-  
+overall_meanRT <-   
   
 ```
 

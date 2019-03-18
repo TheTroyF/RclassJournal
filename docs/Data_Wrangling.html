@@ -395,6 +395,9 @@ div.tocify {
   <a href="Data_Wrangling.html">Data Wrangling</a>
 </li>
 <li>
+  <a href="Statisics.html">Statistics</a>
+</li>
+<li>
   <a href="Links.html">Links</a>
 </li>
       </ul>
@@ -646,16 +649,21 @@ for (i in stimulus){
 <pre class="r"><code>subject_meanRTs &lt;- restricted %&gt;%
                     filter(accuracy == TRUE) %&gt;%
                     group_by(subject,congruency) %&gt;%
-                    summarise(mean_RT = mean(RT)),
-sd(mean_RT)/sqrt(length(mean_RT))
- </code></pre>
-<pre><code>## Error: &lt;text&gt;:4:50: unexpected &#39;,&#39;
-## 3:                     group_by(subject,congruency) %&gt;%
-## 4:                     summarise(mean_RT = mean(RT)),
-##                                                     ^</code></pre>
+                    summarise(mean_RT = mean(RT))
+sd(mean_RT)/sqrt(length(mean_RT))</code></pre>
+<pre><code>## Error in is.data.frame(x): object &#39;mean_RT&#39; not found</code></pre>
 <ol start="2" style="list-style-type: decimal">
-<li><p>Get the overall mean RTs and SEMs (standard errors of the mean) for the congruent and incongruent condition. Make a table and graph.</p></li>
-<li><p>Compute the flanker effect for each subject, taking the difference between their mean incongruent and congruent RT. Then plot the mean flanker effect, along with the SEM of the mean flanker effect</p></li>
+<li>Get the overall mean RTs and SEMs (standard errors of the mean) for the congruent and incongruent condition. Make a table and graph.</li>
+</ol>
+<pre class="r"><code>
+overall_meanRT &lt;-   
+  </code></pre>
+<pre><code>## Error: &lt;text&gt;:4:0: unexpected end of input
+## 2: overall_meanRT &lt;-   
+## 3:   
+##   ^</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Compute the flanker effect for each subject, taking the difference between their mean incongruent and congruent RT. Then plot the mean flanker effect, along with the SEM of the mean flanker effect</li>
 </ol>
 <p>**<a href="tip:**" class="uri">tip:**</a> Not all problems have an easy solution in dplyr, this is one them. You may have an easier time using logical indexing of the dataframe to solve this part.</p>
 </div>
