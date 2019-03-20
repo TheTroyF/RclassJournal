@@ -417,7 +417,165 @@ div.tocify {
 </div>
 
 
+<div id="samples" class="section level2">
+<h2>Samples</h2>
+<div id="one-direction-t-test" class="section level3">
+<h3>one direction t test</h3>
+<pre class="r"><code>x &lt;- c(1,4,3,2,3,4,3,2,3,2,3,4)
 
+#non-directional
+t.test(x, mu = 2)</code></pre>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  x
+## t = 3.0794, df = 11, p-value = 0.01048
+## alternative hypothesis: true mean is not equal to 2
+## 95 percent confidence interval:
+##  2.237714 3.428952
+## sample estimates:
+## mean of x 
+##  2.833333</code></pre>
+</div>
+<div id="paired-sample-t-test" class="section level3">
+<h3>paired sample t test</h3>
+<pre class="r"><code>x &lt;- c(1,4,3,2,3,4,3,2,3,2,3,4)
+y &lt;- c(3,2,5,4,3,2,3,2,1,2,2,3)
+
+#non-directional
+t.test(x, y, paired=TRUE)</code></pre>
+<pre><code>## 
+##  Paired t-test
+## 
+## data:  x and y
+## t = 0.37796, df = 11, p-value = 0.7126
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.8038766  1.1372099
+## sample estimates:
+## mean of the differences 
+##               0.1666667</code></pre>
+</div>
+<div id="independent-samples-t-test" class="section level3">
+<h3>independent samples t test</h3>
+<pre class="r"><code>x &lt;- c(1,4,3,2,3,4,3,2,3,2,3,4)
+y &lt;- c(3,2,5,4,3,2,3,2,1,2,2,3)
+
+#non-directional
+my_ttest &lt;- t.test(x, y, var.equal=TRUE)
+
+my_ttest$p.value #using $ sign gets specific values</code></pre>
+<pre><code>## [1] 0.6892509</code></pre>
+<pre class="r"><code>#</code></pre>
+</div>
+<div id="fake-paired-t-test" class="section level3">
+<h3>fake paired t test</h3>
+<pre class="r"><code>a &lt;- replicate(10000,t.test(rnorm(10,0,1),rnorm(10,0,1))statistic)</code></pre>
+</div>
+<div id="printing-a-clean-table" class="section level3">
+<h3>printing a clean table</h3>
+<pre class="r"><code>library(broom)
+
+t_results &lt;- t.test(x, y, var.equal=TRUE)
+knitr::kable(tidy(t_results))</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="right">estimate1</th>
+<th align="right">estimate2</th>
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+<th align="right">parameter</th>
+<th align="right">conf.low</th>
+<th align="right">conf.high</th>
+<th align="left">method</th>
+<th align="left">alternative</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">2.833333</td>
+<td align="right">2.666667</td>
+<td align="right">0.4051902</td>
+<td align="right">0.6892509</td>
+<td align="right">22</td>
+<td align="right">-0.6863784</td>
+<td align="right">1.019712</td>
+<td align="left">Two Sample t-test</td>
+<td align="left">two.sided</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="anova" class="section level2">
+<h2>ANOVA</h2>
+<div id="anova-template-for-2x2" class="section level3">
+<h3>anova template for 2x2</h3>
+<pre class="r"><code>Subjects &lt;- rep(1:10,each=4)
+Factor1 &lt;- rep(rep(c(&quot;A&quot;,&quot;B&quot;), each = 2), 10)
+Factor2 &lt;- rep(rep(c(&quot;1&quot;,&quot;2&quot;), 2), 10)
+DV &lt;- rnorm(40,0,1)
+
+all_data &lt;- data.frame(Subjects = as.factor(Subjects),
+                       DV,
+                       Factor1,
+                       Factor2)</code></pre>
+</div>
+<div id="between-subjects-1-factor-template" class="section level3">
+<h3>between-subjects 1 factor template</h3>
+<pre class="r"><code>factor1 &lt;- rep(c(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;),each = 5) #does each factor 5 times
+DV &lt;- rnorm(n=15,mean=0,sd=1)
+
+all_data &lt;- data.frame(DV,factor1)
+
+#run the anova
+aov_out &lt;- aov(DV~Factor1, all_data) #dv &quot;~&quot; name of factor</code></pre>
+<pre><code>## Error in model.frame.default(formula = DV ~ Factor1, data = all_data, : variable lengths differ (found for &#39;Factor1&#39;)</code></pre>
+<pre class="r"><code>#all the details of the anova in a summary table
+summary(aov_out) </code></pre>
+<pre><code>## Error in summary(aov_out): object &#39;aov_out&#39; not found</code></pre>
+</div>
+<div id="between-subjects-2-factor-template" class="section level3">
+<h3>between-subjects 2 factor template</h3>
+<pre class="r"><code># run anova
+aov_out &lt;- aov(DV~Factor1*Factor2, all_data)</code></pre>
+<pre><code>## Error in model.frame.default(formula = DV ~ Factor1 * Factor2, data = all_data, : variable lengths differ (found for &#39;Factor1&#39;)</code></pre>
+<pre class="r"><code># summary
+summary(aov_out)</code></pre>
+<pre><code>## Error in summary(aov_out): object &#39;aov_out&#39; not found</code></pre>
+</div>
+<div id="repeated-measures-1-factor-template---when-the-subject-does-each-factor" class="section level3">
+<h3>repeated-measures 1 factor template - when the subject does each factor</h3>
+<pre class="r"><code># run anova - error is the name of the variable that we must divide by the factor
+aov_out &lt;- aov(DV~Factor1 + Error(Subjects/Factor1), all_data)</code></pre>
+<pre><code>## Error in model.frame.default(formula = DV ~ Subjects/Factor1, data = all_data, : variable lengths differ (found for &#39;Subjects&#39;)</code></pre>
+<pre class="r"><code># summary
+summary(aov_out)</code></pre>
+<pre><code>## Error in summary(aov_out): object &#39;aov_out&#39; not found</code></pre>
+</div>
+<div id="repeated-measures-2-factor" class="section level3">
+<h3>repeated-measures 2 factor</h3>
+<pre class="r"><code># run anova
+aov_out &lt;- aov(DV~Factor1*Factor2 + Error(Subjects/(Factor1*Factor2)), all_data)</code></pre>
+<pre><code>## Error in model.frame.default(formula = DV ~ Subjects/(Factor1 * Factor2), : variable lengths differ (found for &#39;Subjects&#39;)</code></pre>
+<pre class="r"><code># summary
+summary(aov_out)</code></pre>
+<pre><code>## Error in summary(aov_out): object &#39;aov_out&#39; not found</code></pre>
+<pre class="r"><code># kable xtable printing
+library(xtable)#library &quot;()&quot; means what package
+knitr::kable(xtable(summary(aov_out)))#allows me to load a function within a package without loading a package</code></pre>
+<pre><code>## Error in summary(aov_out): object &#39;aov_out&#39; not found</code></pre>
+<pre class="r"><code>sum_out[[1]]$&#39;F value&#39;</code></pre>
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;sum_out&#39; not found</code></pre>
+</div>
+</div>
+<div id="linear-regression" class="section level2">
+<h2>Linear Regression</h2>
+<pre class="r"><code>#lm is linear regression
+lm(DV~Factor1, all_data)</code></pre>
+<pre><code>## Error in model.frame.default(formula = DV ~ Factor1, data = all_data, : variable lengths differ (found for &#39;Factor1&#39;)</code></pre>
+</div>
 
 
 

@@ -194,7 +194,7 @@ Check how many trials each subject completed in the congruent and incongruent co
 check_subjects <- all_data %>% #adds on a process
                   group_by(subject,congruency) %>%
                   summarise(num_trials = length(RT),
-                            meanRT = mean(RT),
+                            mean_RT = mean(RT),
                             acc = mean(accuracy))
 
 ```
@@ -219,7 +219,10 @@ restricted <- all_data %>%
 
 1. Get the individual subject mean reaction times for **correct** congruent and incongruent trials.
 
-```{r, EVAl=F}
+```{r}
+mean_RT <- all_data %>%
+          summarise(mean(RT))
+
 subject_meanRTs <- restricted %>%
                     filter(accuracy == TRUE) %>%
                     group_by(subject,congruency) %>%
@@ -231,19 +234,49 @@ sd(mean_RT)/sqrt(length(mean_RT))
 
 2. Get the overall mean RTs and SEMs (standard errors of the mean) for the congruent and incongruent condition. Make a table and graph.
 
-```{r, EVAL=F}
+```{r}
+
 overall_RT <- all_data %>%
         group_by(congruency) %>%
         summarise(mean_RT = mean(RT)) %>%
+        summarise(sd(mean_RT))
+
+
       
+
 ```
 
 3. Compute the flanker effect for each subject, taking the difference between their mean incongruent and congruent RT. Then plot the mean flanker effect, along with the SEM of the mean flanker effect
 
 **tip:** Not all problems have an easy solution in dplyr, this is one them. You may have an easier time using logical indexing of the dataframe to solve this part.
 
-```{r}
+ -index means to take 
+```{r, eval=F}
 
+
+        
+C <- subject_meanRTs[ subject_meanRTs$congruency == "C", ]$mean_RT 
+I <- subject_meanRTs[ subject_meanRTs$congruency == "I", ]$mean_RT 
+
+congruent_mean <- mean(I-C)
+
+   
+
+
+
+flanker_df <- data.frame(dv = "flanker_effect",
+                      congruent_mean,
+                  SEM = sd(flanker_means)sqrt(length(flanker_means)))
+
+             
+                 
+ggplot(x=flanker_effect, y=congruent_mean,
+       group=congruent_mean,
+       color=congruent_mean,
+       fill=congruent_mean))+#fills inside the bar
+   coord_cartesian(ylim=c(30,50))+
+  geom_bar(stat="identity", 
+           position="dodge"))
   
 ```
 

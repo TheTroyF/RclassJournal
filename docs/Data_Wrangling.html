@@ -630,7 +630,7 @@ for (i in stimulus){
 <pre class="r"><code>check_subjects &lt;- all_data %&gt;% #adds on a process
                   group_by(subject,congruency) %&gt;%
                   summarise(num_trials = length(RT),
-                            meanRT = mean(RT),
+                            mean_RT = mean(RT),
                             acc = mean(accuracy))</code></pre>
 <div id="exclusion" class="section level3">
 <h3>Exclusion</h3>
@@ -646,26 +646,49 @@ for (i in stimulus){
 <ol style="list-style-type: decimal">
 <li>Get the individual subject mean reaction times for <strong>correct</strong> congruent and incongruent trials.</li>
 </ol>
-<pre class="r"><code>subject_meanRTs &lt;- restricted %&gt;%
+<pre class="r"><code>mean_RT &lt;- all_data %&gt;%
+          summarise(mean(RT))
+
+subject_meanRTs &lt;- restricted %&gt;%
                     filter(accuracy == TRUE) %&gt;%
                     group_by(subject,congruency) %&gt;%
                     summarise(mean_RT = mean(RT))
 sd(mean_RT)/sqrt(length(mean_RT))</code></pre>
-<pre><code>## Error in is.data.frame(x): object &#39;mean_RT&#39; not found</code></pre>
+<pre><code>## [1] NA</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Get the overall mean RTs and SEMs (standard errors of the mean) for the congruent and incongruent condition. Make a table and graph.</li>
 </ol>
-<pre class="r"><code>
-overall_meanRT &lt;-   
-  </code></pre>
-<pre><code>## Error: &lt;text&gt;:4:0: unexpected end of input
-## 2: overall_meanRT &lt;-   
-## 3:   
-##   ^</code></pre>
+<pre class="r"><code>overall_RT &lt;- all_data %&gt;%
+        group_by(congruency) %&gt;%
+        summarise(mean_RT = mean(RT)) %&gt;%
+        summarise(sd(mean_RT))</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Compute the flanker effect for each subject, taking the difference between their mean incongruent and congruent RT. Then plot the mean flanker effect, along with the SEM of the mean flanker effect</li>
 </ol>
 <p>**<a href="tip:**" class="uri">tip:**</a> Not all problems have an easy solution in dplyr, this is one them. You may have an easier time using logical indexing of the dataframe to solve this part.</p>
+<p>-index means to take</p>
+<pre class="r"><code>C &lt;- subject_meanRTs[ subject_meanRTs$congruency == &quot;C&quot;, ]$mean_RT 
+I &lt;- subject_meanRTs[ subject_meanRTs$congruency == &quot;I&quot;, ]$mean_RT 
+
+congruent_mean &lt;- mean(I-C)
+
+   
+
+
+
+flanker_df &lt;- data.frame(dv = &quot;flanker_effect&quot;,
+                      congruent_mean,
+                  SEM = sd(flanker_means)sqrt(length(flanker_means)))
+
+             
+                 
+ggplot(x=flanker_effect, y=congruent_mean,
+       group=congruent_mean,
+       color=congruent_mean,
+       fill=congruent_mean))+#fills inside the bar
+   coord_cartesian(ylim=c(30,50))+
+  geom_bar(stat=&quot;identity&quot;, 
+           position=&quot;dodge&quot;))</code></pre>
 </div>
 <div id="exploratory-analysis" class="section level3">
 <h3>Exploratory analysis</h3>
