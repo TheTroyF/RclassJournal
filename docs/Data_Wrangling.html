@@ -72,9 +72,7 @@ h6 {
 </style>
 
 
-</head>
 
-<body>
 
 <style type = "text/css">
 .main-container {
@@ -192,8 +190,6 @@ $(document).ready(function () {
   menuAnchor.closest('li.dropdown').addClass('active');
 });
 </script>
-
-<div class="container-fluid main-container">
 
 <!-- tabsets -->
 
@@ -351,6 +347,16 @@ div.tocify {
 
 
 </style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
 <div class="row-fluid">
@@ -678,17 +684,17 @@ congruent_mean &lt;- mean(I-C)
 
 flanker_df &lt;- data.frame(dv = &quot;flanker_effect&quot;,
                       congruent_mean,
-                  SEM = sd(flanker_means)sqrt(length(flanker_means)))
+                  SEM = sd(congruent_mean)sqrt(length(flanker_means)))
 
              
                  
 ggplot(x=flanker_effect, y=congruent_mean,
        group=congruent_mean,
        color=congruent_mean,
-       fill=congruent_mean))+#fills inside the bar
+       fill=congruent_mean)+#fills inside the bar
    coord_cartesian(ylim=c(30,50))+
   geom_bar(stat=&quot;identity&quot;, 
-           position=&quot;dodge&quot;))</code></pre>
+           position=&quot;dodge&quot;)</code></pre>
 </div>
 <div id="exploratory-analysis" class="section level3">
 <h3>Exploratory analysis</h3>
