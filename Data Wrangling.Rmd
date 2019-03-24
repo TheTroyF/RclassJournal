@@ -1,18 +1,3 @@
----
-title: "Data Wrangling"
-output:
-  html_document:
-    toc: true
-    toc_float: true
-    collapsed: false
-    number_sections: false
-    toc_depth: 5
-    #code_folding: hide
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo=TRUE, messages=TRUE, error=TRUE)
-```
 
 ##Data Wrangling
 
