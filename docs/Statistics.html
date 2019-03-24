@@ -423,8 +423,8 @@ div.tocify {
 </div>
 
 
-<div id="samples" class="section level2">
-<h2>Samples</h2>
+<div id="samples" class="section level1">
+<h1>Samples</h1>
 <div id="one-direction-t-test" class="section level3">
 <h3>one direction t test</h3>
 <pre class="r"><code>x &lt;- c(1,4,3,2,3,4,3,2,3,2,3,4)
@@ -476,7 +476,14 @@ my_ttest$p.value #using $ sign gets specific values</code></pre>
 </div>
 <div id="fake-paired-t-test" class="section level3">
 <h3>fake paired t test</h3>
-<pre class="r"><code>a &lt;- replicate(10000,t.test(rnorm(10,0,1),rnorm(10,0,1))statistic)</code></pre>
+<pre class="r"><code> 
+a &lt;- replicate(10000,t.test(rnorm(10,0,1),rnorm(10,0,1)))statistic
+
+a</code></pre>
+<pre><code>## Error: &lt;text&gt;:2:58: unexpected symbol
+## 1:  
+## 2: a &lt;- replicate(10000,t.test(rnorm(10,0,1),rnorm(10,0,1)))statistic
+##                                                             ^</code></pre>
 </div>
 <div id="printing-a-clean-table" class="section level3">
 <h3>printing a clean table</h3>
@@ -512,7 +519,6 @@ knitr::kable(tidy(t_results))</code></pre>
 </tr>
 </tbody>
 </table>
-</div>
 </div>
 <div id="anova" class="section level2">
 <h2>ANOVA</h2>
@@ -581,6 +587,32 @@ knitr::kable(xtable(summary(aov_out)))#allows me to load a function within a pac
 <pre class="r"><code>#lm is linear regression
 lm(DV~Factor1, all_data)</code></pre>
 <pre><code>## Error in model.frame.default(formula = DV ~ Factor1, data = all_data, : variable lengths differ (found for &#39;Factor1&#39;)</code></pre>
+</div>
+</div>
+<div id="troys-stat-homework" class="section level1">
+<h1>Troy’s Stat Homework</h1>
+<div id="null-distribution-of-mean-differences" class="section level2">
+<h2>Null distribution of mean differences</h2>
+<pre class="r"><code>
+k &lt;- replicate(10000,t.test(rnorm(10,0,1))
+</code></pre>
+<pre><code>## Error: &lt;text&gt;:7:0: unexpected end of input
+## 5: 
+## 6: 
+##   ^</code></pre>
+</div>
+<div id="t-distribution" class="section level2">
+<h2>t-distribution</h2>
+</div>
+<div id="correlation" class="section level2">
+<h2>Correlation</h2>
+</div>
+<div id="f-values" class="section level2">
+<h2>F-values</h2>
+</div>
+<div id="f-simulation" class="section level2">
+<h2>F simulation</h2>
+</div>
 </div>
 
 

@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE, message=TRUE, error=TRUE)
 ```
 
 
-##Samples
+#Samples
 ###one direction t test
 ```{r}
 
@@ -54,11 +54,11 @@ my_ttest$p.value #using $ sign gets specific values
 ```
 
 ### fake paired t test
-```{r, eval=F}
+```{r}
+ 
+a <- replicate(10000,t.test(rnorm(10,0,1),rnorm(10,0,1)))statistic
 
-a <- replicate(10000,t.test(rnorm(10,0,1),rnorm(10,0,1))statistic)
-
-
+a
 
 ```
 
@@ -160,6 +160,44 @@ lm(DV~Factor1, all_data)
 
 ```
 
+#Troy's Stat Homework
+
+##Null distribution of mean differences
+
+```{r}
+
+k <- replicate(10000,t.test(rnorm(10,0,1))
 
 
 
+
+```
+
+
+##t-distribution
+```{r}
+
+
+
+
+
+
+```
+
+##Correlation
+```{r}
+
+
+
+
+```
+
+##F-values
+```{r}
+
+
+
+
+```
+
+##F simulation
