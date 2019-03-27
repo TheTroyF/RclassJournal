@@ -6,7 +6,7 @@ output:
     toc_float: true
     collapsed: false
     number_sections: false
-    toc_depth: 1
+    toc_depth: 5
     #code_folding: hide
 ---
 
@@ -166,7 +166,11 @@ lm(DV~Factor1, all_data)
 
 ```{r}
 
-k <- replicate(10000,t.test(rnorm(10,0,1))
+k <- replicate(10000,t.test(rnorm(10,0,1)))
+
+data.frame(k)
+
+ggplot(aes(x = k)) + geom_histogram() + theme_bw()
 
 
 
@@ -187,17 +191,28 @@ k <- replicate(10000,t.test(rnorm(10,0,1))
 ##Correlation
 ```{r}
 
+e <- rnorm(10,0,1)
+f <- rnorm(10,0,1)
 
 
+cor(e,f)
 
 ```
 
 ##F-values
 ```{r}
 
-
+A <- c(1,2,3,4)
+B <- c(3,4,5,6)
+C <- c(5,6,7,8)
 
 
 ```
 
 ##F simulation
+```{r}
+
+L <- replicate(10000(rnorm(10,0,1)))
+
+
+```
