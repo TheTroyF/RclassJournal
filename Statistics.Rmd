@@ -166,7 +166,9 @@ lm(DV~Factor1, all_data)
 
 ```{r}
 
-k <- replicate(10000,t.test(rnorm(10,0,1)))
+
+
+k <- replicate(10000,mean(rnorm(10,0,1)))-mean(rnorm(10,0,1))
 
 data.frame(k)
 
@@ -184,8 +186,9 @@ ggplot(aes(x = k)) + geom_histogram() + theme_bw()
 
 
 
+k <- replicate(10000,t.test(rnorm(10,0,1),mu=0)$statistic)
 
-
+length(k[k < .5])/10000
 ```
 
 ##Correlation
