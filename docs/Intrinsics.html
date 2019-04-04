@@ -401,7 +401,11 @@ div.tocify {
   <a href="Data_Wrangling.html">Data Wrangling</a>
 </li>
 <li>
-  <a href="Statistics.html">Statistics</a>
+  <a href="Power_analysis.html">Power Analysis</a>
+</li>
+<li class="dropdown-header">Statistics</li>
+<li>
+  <a href="Statisics.html"></a>
 </li>
 <li>
   <a href="Links.html">Links</a>
@@ -447,9 +451,10 @@ is(a)? #not sure if this is right</code></pre>
 ## [13] &quot;index.Rmd&quot;                &quot;Intrinsics.Rmd&quot;          
 ## [15] &quot;knitr-minimal.md&quot;         &quot;LabJournalWebsite.Rproj&quot; 
 ## [17] &quot;Links.Rmd&quot;                &quot;NOTES.Rmd&quot;               
-## [19] &quot;README.md&quot;                &quot;site_libs&quot;               
-## [21] &quot;Statistics.Rmd&quot;           &quot;TroysRBasics_cache&quot;      
-## [23] &quot;TroysRBasics_files&quot;       &quot;TroysRBasics.Rmd&quot;</code></pre>
+## [19] &quot;Power Analysis.Rmd&quot;       &quot;README.md&quot;               
+## [21] &quot;site_libs&quot;                &quot;Statistics.Rmd&quot;          
+## [23] &quot;TroysRBasics_cache&quot;       &quot;TroysRBasics_files&quot;      
+## [25] &quot;TroysRBasics.Rmd&quot;</code></pre>
 </div>
 <div id="list.files---shows-files-in-the-directory" class="section level3">
 <h3>list.files() - shows files in the directory</h3>
@@ -463,9 +468,10 @@ is(a)? #not sure if this is right</code></pre>
 ## [13] &quot;index.Rmd&quot;                &quot;Intrinsics.Rmd&quot;          
 ## [15] &quot;knitr-minimal.md&quot;         &quot;LabJournalWebsite.Rproj&quot; 
 ## [17] &quot;Links.Rmd&quot;                &quot;NOTES.Rmd&quot;               
-## [19] &quot;README.md&quot;                &quot;site_libs&quot;               
-## [21] &quot;Statistics.Rmd&quot;           &quot;TroysRBasics_cache&quot;      
-## [23] &quot;TroysRBasics_files&quot;       &quot;TroysRBasics.Rmd&quot;</code></pre>
+## [19] &quot;Power Analysis.Rmd&quot;       &quot;README.md&quot;               
+## [21] &quot;site_libs&quot;                &quot;Statistics.Rmd&quot;          
+## [23] &quot;TroysRBasics_cache&quot;       &quot;TroysRBasics_files&quot;      
+## [25] &quot;TroysRBasics.Rmd&quot;</code></pre>
 </div>
 </div>
 <div id="input-and-output" class="section level2">
@@ -509,9 +515,10 @@ print(thedata)</code></pre>
 ## [13] &quot;index.Rmd&quot;                &quot;Intrinsics.Rmd&quot;          
 ## [15] &quot;knitr-minimal.md&quot;         &quot;LabJournalWebsite.Rproj&quot; 
 ## [17] &quot;Links.Rmd&quot;                &quot;NOTES.Rmd&quot;               
-## [19] &quot;README.md&quot;                &quot;site_libs&quot;               
-## [21] &quot;Statistics.Rmd&quot;           &quot;TroysRBasics_cache&quot;      
-## [23] &quot;TroysRBasics_files&quot;       &quot;TroysRBasics.Rmd&quot;</code></pre>
+## [19] &quot;Power Analysis.Rmd&quot;       &quot;README.md&quot;               
+## [21] &quot;site_libs&quot;                &quot;Statistics.Rmd&quot;          
+## [23] &quot;TroysRBasics_cache&quot;       &quot;TroysRBasics_files&quot;      
+## [25] &quot;TroysRBasics.Rmd&quot;</code></pre>
 <pre class="r"><code>scan() #i dont see how this isnt found its clearly in the directory</code></pre>
 <pre><code>## numeric(0)</code></pre>
 </div>
@@ -1131,14 +1138,14 @@ plot(v,xlab = &quot;Weight&quot;,col = &quot;green&quot;, xlim = c(0,8), ylim = 
 <div id="rnorm---generates-random-deviates." class="section level3">
 <h3>rnorm - generates random deviates.</h3>
 <pre class="r"><code>rnorm(n, mean = 10, sd = 1.5)</code></pre>
-<pre><code>## [1]  9.137820 10.851342  9.298498</code></pre>
+<pre><code>## [1] 10.902776 11.569761  8.933782</code></pre>
 </div>
 <div id="runif---random-numbers" class="section level3">
 <h3>runif - random numbers</h3>
 <pre class="r"><code>n &lt;- c(1,2,5,7,8,4,3,2,5,6,8,8,5)
 runif(n, min = 0, max = 10)</code></pre>
-<pre><code>##  [1] 4.4212779 9.8287951 1.9350892 7.3764324 3.9014413 0.5008707 2.6763615
-##  [8] 1.7326176 3.1156533 1.9538325 7.1239792 5.4979828 8.7453378</code></pre>
+<pre><code>##  [1] 5.702450 0.109416 6.768922 7.550286 7.610454 2.271743 2.073697
+##  [8] 2.832460 2.459229 0.542406 1.606209 6.508304 2.566756</code></pre>
 </div>
 </div>
 <div id="programming" class="section level2">

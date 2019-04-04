@@ -14,8 +14,10 @@ navbar:
       href: GGPlot.html    
     - text: "Data Wrangling"
       href: Data_Wrangling.html
+    - text: "Power Analysis"
+      href: Power_analysis.html
     - text: "Statistics"
-      href: Statistics.html
+    - href: Statisics.html
     - text: "Links"
       href: Links.html
 output_dir: "docs"

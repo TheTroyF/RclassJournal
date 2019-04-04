@@ -1,0 +1,19 @@
+---
+title: "Power Analysis"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    collapsed: false
+    number_sections: false
+    toc_depth: 5
+    #code_folding: hide
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message=TRUE, error=TRUE)
+```
+
+
+
