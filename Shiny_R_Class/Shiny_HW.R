@@ -20,28 +20,30 @@ library(dplyr)
 #output$distPlot finds the thing and adresses it by putting a plot into it
 #input$bins allows you to adjust the slider object
 
-ui <- fluidpage(
-  sidebarLayout(),
-  sidebarPanel()
-) 
-mainPanel(
-  tableOutput("sw")
-)
 
 ui <- fluidPage(
   sidebarLayout(
     sidebarPanel(
+      selectInput("select_species",
+                  label = h3("select box"),
+                  choices = unique(starwars$species),
+                  multiple= TRUE,
+                  selected = 1), 
+      
+      
       sliderInput("height_range",
                   label = h3("pick height range"),
-                  min = min(starwars$height),
+                  min = min(starwars$height,
+                      na.rm=TRUE),
                   max = max(starwars$height,
-                            na.rm = TRUE),
-                        
-                            )
+                       na.rm = TRUE),
+                        value = c(100, 150))
+    ),
+    mainPanel(
+    dataTableOutput("sw")
     )
-  )
 )
-
+)
 
 
 # server
@@ -56,15 +58,17 @@ server <- function(input, output) {
   
 }
 
-library(shiny)
-
-ui <- fluidPage(
+server <- function(input, output) {
   
-)
-
-server <- function(input, output, session) {
   
+  output$sw <- renderDataTable({
+    starwars[,1:10] %>%
+      filter(height >= input$height_range[1],
+             height <= input$height_range[2],
+             species %in% input$select_species == TRUE)
+  })
 }
 
 shinyApp(ui = ui, server = server)
+
 
