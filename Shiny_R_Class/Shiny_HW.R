@@ -18,7 +18,7 @@ library(dplyr)
 
 # Define server logic required to draw a histogram
 #output$distPlot finds the thing and adresses it by putting a plot into it
-#input$bins allows you to adjust the slider object
+#input$bins allows you to adjust the slider objectg
 
 
 ui <- fluidPage(
