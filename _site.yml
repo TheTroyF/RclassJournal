@@ -17,7 +17,9 @@ navbar:
     - text: "Power Analysis"
       href: Power_analysis.html
     - text: "Statistics"
-    - href: Statisics.html
+      href: Statisics.html
+    - text: "CodeOP"
+      href: CodeOP.html 
     - text: "Links"
       href: Links.html
 output_dir: "docs"

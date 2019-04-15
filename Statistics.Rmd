@@ -219,3 +219,63 @@ L <- replicate(10000(rnorm(10,0,1)))
 
 
 ```
+
+HW
+
+#Correlataion
+
+```{r}
+#create a sampling distribution for correlations we can get in a specific situation
+
+cor(rnorm(100,0,1),rnorm(100,0,1))#use cor function to correlate two sets
+
+replicate(10000,cor(rnorm(100,0,1),rnorm(100,0,1)))
+
+hist(replicate(1e+05,cor(rnorm(100,0,1),rnorm(100,0,1))))
+
+sim_rs <- replicate(10000,cor(rnorm(100,0,1),rnorm(100,0,1)))
+
+sort(abs(sim_rs))[95000]
+```
+
+#F simulation
+
+```{r}
+A <- c(1,2,3,4)
+B <- c(3,4,5,6)
+C <- c(5,6,7,8)
+
+conds<- rep(c("A","B","C"), each=4)
+DV <- c(A,B,C)
+df <- data.frame(conds, DV)
+summary (aov(DV~conds,df))
+```
+
+```{r}
+run_anova <- function(){
+
+A <- rnorm(4,0,1)
+B <- rnorm(4,0,1)
+C <- rnorm(4,0,1)
+
+conds<- rep(c("A","B","C"), each=4)?
+DV <- c(A,B,C)
+df <- data.frame(conds, DV)
+summary (aov(DV~conds,df))
+
+sum_out <- summary(aov(DV~conds,df))
+sum_out[[1]]$`F value`[1]
+
+return(sum_out[[1]]$`F value`[1])
+}
+
+
+save_fs <- replicate(10000,run_anova())
+
+
+hist(save_fs)
+
+sort(save_fs)[9500]
+
+qf(.95,2,9)
+```

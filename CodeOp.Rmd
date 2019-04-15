@@ -1,0 +1,84 @@
+---
+title: "Code Op"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    collapsed: false
+    number_sections: false
+    toc_depth: 5
+    #code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, messages=TRUE, error=TRUE)
+```
+
+## optimization 
+
+```{r}
+
+a <- rep(0,1000)
+class(a)
+object.size(a)
+
+a <- as.character(rep(0,1000))
+
+b <- matrix(0,ncol=10,nrow=100)
+b <- as.data.frame(matrix(0,ncol=10,nrow=100))
+
+
+```
+
+
+##Rprofvis
+We can use the Rprofvis function to find out how long parts of our code take:
+
+In this example, we create a matrix with two rows and 1000 columns. Then, we use rbind to add rows to the bottom one at a time. We add 1,000 new rows.
+
+put rprof at beginning and you can see what the slowest fnx's are
+```{r}
+
+Rprof(tmp <- tempfile())
+
+a <- matrix (0,nrow=2,ncol=1000)
+for(i in 1:1000){
+  a <- rbind(a,rnorm(1000,0,1)) #row bind, each step of i in 1:1000 a rew row will be added each time in the loop of 1000, a,rnorm shows us 100 numbers with a mean of zero and a std dev of 1
+}
+
+Rprof()
+summaryRprof(tmp)
+
+```
+
+
+###pre-alocation from the rbind fnx
+```{r}
+
+Rprof(tmp <- tempfile())
+
+a <- matrix(0,nrow=1002,ncol=1000)
+for(i in 3:1002){
+  a[i,] <- rnorm(1000,0,1)
+}#starting with two rows and adding 1000 
+
+Rprof()
+summaryRprof(tmp)
+
+
+
+```
+
+###microbenchmark
+```{r}
+library(microbenchmark)
+
+a<-rnorm(1000,500,25)
+
+microbenchmark(mean(a),
+               sum(a)/length(a),
+                times=5)
+
+
+
+```
