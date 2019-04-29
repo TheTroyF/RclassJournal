@@ -20,6 +20,8 @@ navbar:
       href: Statisics.html
     - text: "CodeOP"
       href: CodeOP.html 
+    - text: "xaringan"
+      href: xaringan.html
     - text: "Links"
       href: Links.html
 output_dir: "docs"
