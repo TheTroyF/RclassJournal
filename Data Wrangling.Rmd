@@ -285,10 +285,33 @@ First get teh subject means for each condition, then create a table and plot for
 
 ```{r}
 
+prev_congruency <- 0
 
+for (i in 2:length(included_data$subject)) {
+  if (included_data$subject[i]==included_data$subject[i-1]) {
+    prev_congruency[i] <- included_data$congruency[i-1]
+  }
+  else {
+    prev_congruency[i] <- 0
+  }
+}
+
+prev_analysis <- included_data %>%
+  mutate(prev_congruency = prev_congruency) %>%
+  filter(prev_congruency != 0, accuracy == TRUE) %>%
+  group_by(subject,congruency,prev_congruency) %>%
+  dplyr::summarise(mean_reaction = mean(reaction_time))
+
+prev_analysis <- prev_analysis %>%
+  group_by(congruency,prev_congruency) %>%
+  dplyr::summarise(mean_react = mean(mean_reaction),
+                   standard_error = sd(mean_reaction)/(sqrt(length(mean_reaction))))
+
+knitr::kable(prev_analysis)
 
 
 ```
+
 
 
 
