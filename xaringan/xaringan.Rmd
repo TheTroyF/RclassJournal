@@ -1,0 +1,146 @@
+---
+title: "GGplot2"
+subtitle: Visuals With GGplot2
+author: "Troy Funderburk"
+date: "2019/13/05 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    css: [default, metropolis, metropolis-fonts]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+class: inverse, middle, center
+
+# Different Options in GGplot2
+
+- Violin Plot
+- Surface Plots
+- Bar Graph 
+- Scatter Plots
+- Box Plots
+
+---
+
+class: center, inverse
+
+# How to Design and Alter a Violin Plot
+
+- geom_violin()
+
+```{r, echo=FALSE}
+ggplot(mpg, aes(drv, hwy)) + geom_violin()
+```
+
+---
+
+class: center, inverse
+
+# How to make a 2D Image Look 3D With Surface Plots
+
+-
+```{r, echo=FALSE}
+
+ggplot(faithfuld, aes(eruptions, waiting)) +
+ geom_contour(aes(z = density, colour = ..level..))
+
+
+```
+-
+```{r, echo=FALSE}
+
+ggplot(faithfuld, aes(eruptions, waiting)) +
+  geom_raster(aes(fill = density))
+
+```
+
+---
+
+class: center, inverse
+# Position Adjustments on Bar Graphs
+
+- position_stack() stacks overlapping bars on top of eachother
+- position_fill() stack bars so that the top is always number 1
+- position_dodge() place bars/boxes side by side
+
+-
+```{r, echo=FALSE}
+
+dplot <- ggplot(diamonds, aes(color, fill = cut)) +
+  xlab(NULL) + ylab(NULL) + theme(legend.position = "none")
+
+dplot + geom_bar()
+
+
+```
+
+---
+
+class: center, inverse
+# Position Fill Example
+
+```{r, echo=FALSE}
+
+dplot <- ggplot(diamonds, aes(color, fill = cut)) +
+  xlab(NULL) + ylab(NULL) + theme(legend.position = "none")
+
+dplot + geom_bar(position = "fill")
+
+
+```
+
+---
+
+class: center, inverse
+# Position Dodge Example
+
+```{r, echo=FALSE}
+
+dplot <- ggplot(diamonds, aes(color, fill = cut)) +
+  xlab(NULL) + ylab(NULL) + theme(legend.position = "none")
+
+dplot + geom_bar(position = "dodge")
+
+
+```
+
+---
+class: center, inverse
+
+# Box Plot Examples
+
+## The box and whisker plots shows five summary statistics along with the individual outliers. Althought showing less than a histogram, it takes up far less space. 
+
+```{r, echo=FALSE}
+
+ggplot(diamonds, aes(carat, depth)) +
+  geom_boxplot(aes(group = cut_width(carat, 0.1))) +
+  xlim(NA, 2.05)
+
+```
+
+---
+
+class: center, inverse
+
+# Scatter Plot Examples
+
+## In this example we can see how ggplot auto picks colors based on the different factors. 
+
+```{r, echo=FALSE}
+
+ggplot(mpg, aes(displ, hwy, colour = factor(cyl))) +
+  geom_point()
+
+```
+---
+
+

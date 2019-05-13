@@ -283,7 +283,7 @@ First get teh subject means for each condition, then create a table and plot for
 
 **tip:** be careful, note that the first trial in each experiment can not be included, because it had no preceding trial
 
-```{r}
+```{}
 
 prev_congruency <- 0
 
