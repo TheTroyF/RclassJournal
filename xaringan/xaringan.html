@@ -23,8 +23,22 @@ class: center, middle, inverse, title-slide
 
 
 
-class: inverse, middle, center
+class: inverse, center
 
+#Why Use GGplot2?
+
+### Display Data - As each and every layer is added we must consider overall structure, local structure, and outliers. 
+
+--
+
+### Create a Statistical Summary - model predictions surrounding the data. The data visualization helps improve our scientific model, the visual model provides subtle inferences that may be missed in ordinry literature. 
+--
+
+### Metadata - This provides context tot he data itself through references and background nuance. This background data is meant to simply enahnce the data in the foreground, merely providing further context to the visualization. 
+
+---
+
+class: inverse, middle, center
 # Different Options in GGplot2
 
 #####Violin Plot
@@ -81,9 +95,9 @@ ggplot(faithfuld, aes(eruptions, waiting)) +
 class: center, inverse
 # Position Adjustments on Bar Graphs
 
-- position_stack() stacks overlapping bars on top of eachother
-- position_fill() stack bars so that the top is always number 1
-- position_dodge() place bars/boxes side by side
+#####position_stack() stacks overlapping bars on top of eachother
+#####position_fill() stack bars so that the top is always number 1
+#####position_dodge() place bars/boxes side by side
 
 -
 
