@@ -3,7 +3,7 @@ title: "GGplot2"
 subtitle: Visuals With GGplot2
 author: "Troy Funderburk"
 date: "2019/13/05 (updated: `r Sys.Date()`)"
-output:
+output: 
   xaringan::moon_reader:
     css: [default, metropolis, metropolis-fonts]
     lib_dir: libs
