@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
   <head>
-    <title>GGplot 2</title>
+    <title>GGplot2</title>
     <meta charset="utf-8" />
     <meta name="author" content="Troy Funderburk" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
@@ -12,10 +12,10 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# GGplot 2
-## Something in GG
+# GGplot2
+## Visuals With GGplot2
 ### Troy Funderburk
-### 2019/4/29 (updated: 2019-05-06)
+### 2019/13/05 (updated: 2019-05-13)
 
 ---
 
@@ -25,25 +25,157 @@ class: center, middle, inverse, title-slide
 
 class: inverse, middle, center
 
-# opening slide
+# Different Options in GGplot2
+
+#####Violin Plot
+#####Surface Plots
+#####Bar Graph 
+#####Scatter Plots
+#####Box Plots
 
 ---
 
-class: middle 
+class: center, inverse
 
-#basic slide with header
+# How to Design and Alter a Violin Plot
 
-any text you put here will go on the slide
+#####geom_violin()
 
+
+```r
+library(ggplot2)
+ggplot(mpg, aes(drv, hwy)) + geom_violin()
+```
+
+![](xaringan_files/figure-html/unnamed-chunk-1-1.png)&lt;!-- --&gt;
+
+---
+
+class: center, inverse
+
+# How to make a 2D Image Look 3D With Surface Plots
+
+-
+
+```r
+ggplot(faithfuld, aes(eruptions, waiting)) +
+ geom_contour(aes(z = density, colour = ..level..))
+```
+
+![](xaringan_files/figure-html/unnamed-chunk-2-1.png)&lt;!-- --&gt;
+---
+
+class: center, inverse
+
+# How to make a 2D Image Look 3D With Surface Plots cont..
+
+```r
+ggplot(faithfuld, aes(eruptions, waiting)) +
+  geom_raster(aes(fill = density))
+```
+
+![](xaringan_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
+
+---
+
+class: center, inverse
+# Position Adjustments on Bar Graphs
+
+- position_stack() stacks overlapping bars on top of eachother
+- position_fill() stack bars so that the top is always number 1
+- position_dodge() place bars/boxes side by side
+
+-
+
+```r
+dplot &lt;- ggplot(diamonds, aes(color, fill = cut)) +
+  xlab(NULL) + ylab(NULL) + theme(legend.position = "none")
+
+dplot + geom_bar()
+```
+
+![](xaringan_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+
+---
+
+class: center, inverse
+# Position Fill Example
+
+
+```r
+dplot &lt;- ggplot(diamonds, aes(color, fill = cut)) +
+  xlab(NULL) + ylab(NULL) + theme(legend.position = "none")
+
+dplot + geom_bar(position = "fill")
+```
+
+![](xaringan_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+
+---
+
+class: center, inverse
+# Position Dodge Example
+
+
+```r
+dplot &lt;- ggplot(diamonds, aes(color, fill = cut)) +
+  xlab(NULL) + ylab(NULL) + theme(legend.position = "none")
+
+dplot + geom_bar(position = "dodge")
+```
+
+![](xaringan_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
+
+---
+class: center, inverse
+
+# Box Plot Examples
+##### The box and whisker plots shows five summary statistics along with the individual outliers. Althought showing less than a histogram, it takes up far less space. 
+
+
+```r
+ggplot(diamonds, aes(carat, depth)) +
+  geom_boxplot(aes(group = cut_width(carat, 0.1))) +
+  xlim(NA, 2.05)
+```
+
+```
+## Warning: Removed 997 rows containing missing values (stat_boxplot).
+```
+
+![](xaringan_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
+
+---
+
+class: center, inverse
+
+# Scatter Plot Examples
+
+##### In this example we can see how ggplot auto picks colors based on the different factors. 
+
+
+```r
+ggplot(mpg, aes(displ, hwy, colour = factor(cyl))) +
+  geom_point()
+```
+
+![](xaringan_files/figure-html/unnamed-chunk-8-1.png)&lt;!-- --&gt;
+---
+
+class: center, inverse
+
+References
+
+Wickham, H. (2016) ggplot2. Elegant graphics for data analysis. Houston, Texas: Springer Nature. 
 
 ---
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-"highlightstyle": "github",
-"highlightlines": true,
-"countincrementalslides": false
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
