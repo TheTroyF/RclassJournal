@@ -86,11 +86,14 @@ ggplot(faithfuld, aes(eruptions, waiting)) +
 class: center, inverse
 # Position Adjustments on Bar Graphs
 
-#####position_stack() stacks overlapping bars on top of eachother
-#####position_fill() stack bars so that the top is always number 1
-#####position_dodge() place bars/boxes side by side
+###position_stack() stacks overlapping bars on top of eachother
+###position_fill() stack bars so that the top is always number 1
+###position_dodge() place bars/boxes side by side
 
--
+---
+
+class: center, inverse
+# Position Adjustments on Bar Graphs
 ```{r, echo=TRUE, fig.width=6, fig.height=4}
 
 dplot <- ggplot(diamonds, aes(color, fill = cut)) +

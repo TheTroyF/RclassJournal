@@ -15,7 +15,7 @@ class: center, middle, inverse, title-slide
 # GGplot2
 ## Visuals With GGplot2
 ### Troy Funderburk
-### 2019/13/05 (updated: 2019-05-13)
+### 2019/13/05 (updated: 2019-05-14)
 
 ---
 
@@ -38,7 +38,7 @@ class: inverse, center
 
 ---
 
-class: inverse, middle, center
+class: inverse, center
 # Different Options in GGplot2
 
 #####Violin Plot
@@ -95,11 +95,14 @@ ggplot(faithfuld, aes(eruptions, waiting)) +
 class: center, inverse
 # Position Adjustments on Bar Graphs
 
-#####position_stack() stacks overlapping bars on top of eachother
-#####position_fill() stack bars so that the top is always number 1
-#####position_dodge() place bars/boxes side by side
+###position_stack() stacks overlapping bars on top of eachother
+###position_fill() stack bars so that the top is always number 1
+###position_dodge() place bars/boxes side by side
 
--
+---
+
+class: center, inverse
+# Position Adjustments on Bar Graphs
 
 ```r
 dplot &lt;- ggplot(diamonds, aes(color, fill = cut)) +
