@@ -231,6 +231,25 @@ base + coord_cartesian(xlim = c(5, 7))
 
 ```
 ---
+class: center, inverse
+
+# Facet Wrapping
+
+### Facettting is a mechanism for laying out multiple plots into subsets. These subsets are in individual panels. 
+
+```{r, echo=TRUE, fig.width=6, fig.height=4}
+mpg2 <- subset(mpg, cyl != 5 & drv %in% c("4", "f") & class != "2seater")
+base <- ggplot(mpg2, aes(displ, hwy)) +
+  geom_blank() +
+  xlab(NULL) +
+  ylab(NULL)
+
+base + facet_wrap(~class, ncol = 3)
+base + facet_wrap(~class, ncol = 3, as.table = FALSE)
+
+```
+
+---
 class:inverse
 References
 
