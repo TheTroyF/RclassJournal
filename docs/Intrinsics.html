@@ -410,6 +410,9 @@ div.tocify {
   <a href="CodeOP.html">CodeOP</a>
 </li>
 <li>
+  <a href="xaringan.html">xaringan</a>
+</li>
+<li>
   <a href="Links.html">Links</a>
 </li>
       </ul>
@@ -431,12 +434,9 @@ div.tocify {
 
 <div id="list-of-functions" class="section level2">
 <h2>List of Functions</h2>
-<div id="helptopic---documentation-on-topic" class="section level3">
-<h3>help(topic) - documentation on topic</h3>
+<p>###help(topic) - documentation on topic</p>
 <pre class="r"><code>help(runif)</code></pre>
-</div>
-<div id="topic---id" class="section level3">
-<h3>?topic - id</h3>
+<p>###?topic - id</p>
 <p>is() - show objects in the search path; specify pat=“pat” to search on a pattern</p>
 <pre class="r"><code>a &lt;- &quot;troy&quot;
 is(a)? #not sure if this is right</code></pre>
@@ -458,10 +458,8 @@ is(a)? #not sure if this is right</code></pre>
 ## [23] &quot;Rprof.out&quot;                &quot;Shiny_R_Class&quot;           
 ## [25] &quot;site_libs&quot;                &quot;Statistics.Rmd&quot;          
 ## [27] &quot;TroysRBasics_cache&quot;       &quot;TroysRBasics_files&quot;      
-## [29] &quot;TroysRBasics.Rmd&quot;</code></pre>
-</div>
-<div id="list.files---shows-files-in-the-directory" class="section level3">
-<h3>list.files() - shows files in the directory</h3>
+## [29] &quot;TroysRBasics.Rmd&quot;         &quot;xaringan&quot;</code></pre>
+<p>###list.files() - shows files in the directory</p>
 <pre class="r"><code>list.files()</code></pre>
 <pre><code>##  [1] &quot;_site.yml&quot;                &quot;CodeOp.html&quot;             
 ##  [3] &quot;CodeOp.Rmd&quot;               &quot;Data Wrangling.Rmd&quot;      
@@ -477,40 +475,25 @@ is(a)? #not sure if this is right</code></pre>
 ## [23] &quot;Rprof.out&quot;                &quot;Shiny_R_Class&quot;           
 ## [25] &quot;site_libs&quot;                &quot;Statistics.Rmd&quot;          
 ## [27] &quot;TroysRBasics_cache&quot;       &quot;TroysRBasics_files&quot;      
-## [29] &quot;TroysRBasics.Rmd&quot;</code></pre>
-</div>
+## [29] &quot;TroysRBasics.Rmd&quot;         &quot;xaringan&quot;</code></pre>
 </div>
 <div id="input-and-output" class="section level2">
 <h2>INPUT AND OUTPUT</h2>
-<div id="save---saves-the-specified-objects-in-the-xdr-platform-independent-binary-format" class="section level3">
-<h3>save() - saves the specified objects (…) in the XDR platform independent binary format</h3>
+<p>###save() - saves the specified objects (…) in the XDR platform independent binary format</p>
 <pre class="r"><code>save() #i picked files form list but it is saying they arent found </code></pre>
-</div>
-<div id="load---load-the-datasets-written-with-save" class="section level3">
-<h3>load() - load the datasets written with save</h3>
+<p>###load() - load the datasets written with save</p>
 <pre class="r"><code>load(index.rmd) #says not found</code></pre>
-</div>
-<div id="data---loads-specified-data-sets" class="section level3">
-<h3>data() - loads specified data sets</h3>
-</div>
-<div id="library---load-add-on-packages-from-library" class="section level3">
-<h3>library() - load add on packages from library</h3>
+<p>###data() - loads specified data sets</p>
+<p>###library() - load add on packages from library</p>
 <pre class="r"><code>library(bitops) #loading according, box became checked in system library</code></pre>
-</div>
-<div id="read.table---reads-a-file-in-table-format-and-creates-a-data" class="section level3">
-<h3>read.table() - reads a file in table format and creates a data</h3>
-<p>frame from it; the default separator sep=“” is any whitespace; use header=TRUE to read the first line as a header of column names; use as.is=TRUE to prevent character vectors from being converted to factors; use comment.char=“” to prevent “#” from being interpreted as a comment; use skip=n to skip n lines before reading data; see the help for options on row naming, NA treatment, and others</p>
+<p>###read.table() - reads a file in table format and creates a data frame from it; the default separator sep=&quot;&quot; is any whitespace; use header=TRUE to read the first line as a header of column names; use as.is=TRUE to prevent character vectors from being converted to factors; use comment.char=&quot;&quot; to prevent “#” from being interpreted as a comment; use skip=n to skip n lines before reading data; see the help for options on row naming, NA treatment, and others</p>
 <pre class="r"><code>#???</code></pre>
-</div>
-<div id="read.csv---filenameheadertrue-id.-but-with-defaults-set-for-reading-comma-delimited-files" class="section level3">
-<h3>read.csv() - (“filename”,header=TRUE) id. but with defaults set for reading comma-delimited files</h3>
+<p>###read.csv() - (“filename”,header=TRUE) id. but with defaults set for reading comma-delimited files</p>
 <pre class="r"><code>myfile &lt;- &quot;troysdata.csv&quot; #the data file i want to read
 thedata &lt;- read.csv(myfile, row.names=5)#only read row 5
 
 print(thedata)</code></pre>
-</div>
-<div id="scan---function-read-data-from-screen-or-file.-large-data-can-be-scanned-in-by-just-copy-and-paste-for-example-paste-from-excel.-then-use-ctrlv-to-paste-the-data-the-data-type-will-be-automatically-determined." class="section level3">
-<h3>scan() - function read data from screen or file. Large data can be scanned in by just copy and paste, for example paste from EXCEL. Then use “ctrl+v” to paste the data, the data type will be automatically determined.</h3>
+<p>###scan() - function read data from screen or file. Large data can be scanned in by just copy and paste, for example paste from EXCEL. Then use “ctrl+v” to paste the data, the data type will be automatically determined.</p>
 <pre class="r"><code>dir()</code></pre>
 <pre><code>##  [1] &quot;_site.yml&quot;                &quot;CodeOp.html&quot;             
 ##  [3] &quot;CodeOp.Rmd&quot;               &quot;Data Wrangling.Rmd&quot;      
@@ -526,35 +509,25 @@ print(thedata)</code></pre>
 ## [23] &quot;Rprof.out&quot;                &quot;Shiny_R_Class&quot;           
 ## [25] &quot;site_libs&quot;                &quot;Statistics.Rmd&quot;          
 ## [27] &quot;TroysRBasics_cache&quot;       &quot;TroysRBasics_files&quot;      
-## [29] &quot;TroysRBasics.Rmd&quot;</code></pre>
+## [29] &quot;TroysRBasics.Rmd&quot;         &quot;xaringan&quot;</code></pre>
 <pre class="r"><code>scan() #i dont see how this isnt found its clearly in the directory</code></pre>
 <pre><code>## numeric(0)</code></pre>
-</div>
-<div id="print---prints-its-arguments-generic-meaning-it-can-have-different-methods-for-different-objects" class="section level3">
-<h3>print() - prints its arguments; generic, meaning it can have different methods for different objects</h3>
+<p>###print() - prints its arguments; generic, meaning it can have different methods for different objects</p>
 <pre class="r"><code>a &lt;- &quot;hello&quot;
 print(a)</code></pre>
 <pre><code>## [1] &quot;hello&quot;</code></pre>
-</div>
-<div id="cat---file-sep-prints-the-arguments-after-coercing-to-character-sep-is-the-character-separator-between-arguments" class="section level3">
-<h3>cat() - (…, file=“”, sep=&quot; “) prints the arguments after coercing to character; sep is the character separator between arguments</h3>
+<p>###cat() - (…, file=&quot;“, sep=” &quot;) prints the arguments after coercing to character; sep is the character separator between arguments</p>
 <pre class="r"><code>b &lt;- c(1,2,3)
 cat(b) #simply shows me whats in variabke (b)</code></pre>
 <pre><code>## 1 2 3</code></pre>
-</div>
-<div id="write.table---prints-x-after-converting-to-a-data-frame-if-quote-is-truecharacter-or-factor-columns-are-surrounded-by-quotes-sep-is-the-field-separator-eol-is-the-end-of-line-separator-na-is-the-string-for-missing-values-use-col.namesna-to-add-a-blank-column-header-to-get-the-column-headers-aligned-correctly-for-spreadsheet-input" class="section level3">
-<h3>write.table() - prints x after converting to a data frame; if quote is TRUE,character or factor columns are surrounded by quotes (“); sep is the field separator; eol is the end-of-line separator; na is the string for missing values; use col.names=NA to add a blank column header to get the column headers aligned correctly for spreadsheet input</h3>
+<p>###write.table() - prints x after converting to a data frame; if quote is TRUE,character or factor columns are surrounded by quotes (&quot;); sep is the field separator; eol is the end-of-line separator; na is the string for missing values; use col.names=NA to add a blank column header to get the column headers aligned correctly for spreadsheet input</p>
 <pre class="r"><code>a &lt;- data.frame(a=c(1,2,3),b=c(3,4,5)) #created a table
 
 write.table(a,file=&quot;mytable.txt&quot;) #gave the file a name
 
 #example list was saved in the notes document but i recently added it to the envirnment as a saved variable</code></pre>
-</div>
-</div>
-<div id="data-creation" class="section level2">
-<h2>DATA CREATION</h2>
-<div id="c---combine-arguements-by-forming-a-vector-if-recursivetrue-is-used-it-will-descend-through-lists-combining-all-elements-in-one-vector" class="section level3">
-<h3>c() - combine arguements by forming a vector, if recursive=TRUE is used it will descend through lists combining all elements in one vector</h3>
+<p>##DATA CREATION</p>
+<p>###c() - combine arguements by forming a vector, if recursive=TRUE is used it will descend through lists combining all elements in one vector</p>
 <pre class="r"><code>first_names &lt;- c(&quot;asdasas&quot;, &quot;fwefef&quot;, &quot;sfweg&quot;)
 
 write.table(first_names)</code></pre>
@@ -562,29 +535,19 @@ write.table(first_names)</code></pre>
 ## &quot;1&quot; &quot;asdasas&quot;
 ## &quot;2&quot; &quot;fwefef&quot;
 ## &quot;3&quot; &quot;sfweg&quot;</code></pre>
-</div>
-<div id="fromto-where-from-and-to-are-replaced-with-numbers-e.g.110" class="section level3">
-<h3>from:to (where from and to are replaced with numbers, e.g. 1:10)</h3>
+<p>###from:to (where from and to are replaced with numbers, e.g. 1:10)</p>
 <pre class="r"><code>a &lt;- (1:5)
 a</code></pre>
 <pre><code>## [1] 1 2 3 4 5</code></pre>
-</div>
-<div id="seq---generates-a-sequence-by-specifies-increment-length-specifies-how-long" class="section level3">
-<h3>seq() - generates a sequence by= specifies increment, length= specifies how long</h3>
+<p>###seq() - generates a sequence by= specifies increment, length= specifies how long</p>
 <pre class="r"><code>seq(2:10, by = 2) # i esentially want to show only even numbers the by= isnt doing what i think it should 
 
 seq(2:10, by = (1))</code></pre>
-</div>
-<div id="rep---used-to-replicate.-replicate-x-times-use-each-to-repeat-each-element-of-x-each-times-repc1232-is-1-2-3-1-2-3-repc123each2-is-1-1-2-2-3-3" class="section level3">
-<h3>rep() - used to replicate. replicate x times; use each= to repeat “each” element of x each times; rep(c(1,2,3),2) is 1 2 3 1 2 3; rep(c(1,2,3),each=2) is 1 1 2 2 3 3</h3>
+<p>###rep() - used to replicate. replicate x times; use each= to repeat “each” element of x each times; rep(c(1,2,3),2) is 1 2 3 1 2 3; rep(c(1,2,3),each=2) is 1 1 2 2 3 3</p>
 <pre class="r"><code>rep(c(1,2,3),each=2)</code></pre>
 <pre><code>## [1] 1 1 2 2 3 3</code></pre>
-</div>
-<div id="data.frame---create-a-data-frame-of-the-named-or-unnamed-arguments-data.framev14chcabcdn10shorter-vectors-are-recycled-to-the-length-of-the-longest" class="section level3">
-<h3>data.frame - create a data frame of the named or unnamed arguments; data.frame(v=1:4,ch=c(“a”,“B”,“c”,“d”),n=10);shorter vectors are recycled to the length of the longest</h3>
-</div>
-<div id="list---create-a-list-of-the-named-or-unnamed-arguments" class="section level3">
-<h3>list() - create a list of the named or unnamed arguments</h3>
+<p>###data.frame - create a data frame of the named or unnamed arguments; data.frame(v=1:4,ch=c(“a”,“B”,“c”,“d”),n=10);shorter vectors are recycled to the length of the longest</p>
+<p>###list() - create a list of the named or unnamed arguments</p>
 <pre class="r"><code>a &lt;- list(a=1,2,3,b=&quot;hello&quot;,d=2,3,4)
 b &lt;- list(a=2, b=&quot;hi&quot;, d=3)
 print(a)</code></pre>
@@ -617,17 +580,11 @@ print(a)</code></pre>
 ## 
 ## $d
 ## [1] 3</code></pre>
-</div>
-<div id="matrix---build-a-matrix" class="section level3">
-<h3>matrix() - build a matrix</h3>
+<p>###matrix() - build a matrix</p>
 <pre class="r"><code>h &lt;- matrix(1:20, nrow=5, ncol=5)
 
 View(h)</code></pre>
-<pre><code>## Warning in View(h): unable to open display</code></pre>
-<pre><code>## Error in .External2(C_dataviewer, x, title): unable to start data viewer</code></pre>
-</div>
-<div id="factor---encodes-a-vector-x-as-a-factor" class="section level3">
-<h3>factor() - encodes a vector x as a factor</h3>
+<p>###factor() - encodes a vector x as a factor</p>
 <pre class="r"><code>sodium &lt;- factor(c(&quot;low&quot;, &quot;med&quot;, &quot;high&quot;))
 levels(sodium)</code></pre>
 <pre><code>## [1] &quot;high&quot; &quot;low&quot;  &quot;med&quot;</code></pre>
@@ -637,18 +594,9 @@ levels(sodium)</code></pre>
 <pre class="r"><code>min(sodium)</code></pre>
 <pre><code>## [1] low
 ## Levels: low &lt; med &lt; high</code></pre>
-</div>
-<div id="rbind---combine-datainfo-by-rows-for-matrices-data-frames-etc.-must-have-equivalent-amount-of-rows-if-not-equate-them-by-adding-na-to-either-until-same-qty-is-reached" class="section level3">
-<h3>rbind() - combine data/info by rows for matrices, data frames, etc. must have equivalent amount of rows, if not equate them by adding NA to either until same qty is reached</h3>
-</div>
-<div id="cbind---combine-data-by-columns-same-rules-apply-as-rbind" class="section level3">
-<h3>cbind() - combine data by columns same rules apply as rbind</h3>
-</div>
-</div>
-<div id="slicing-and-extracting-data---indexing-vectors" class="section level2">
-<h2>Slicing and Extracting Data - indexing Vectors</h2>
-<div id="xn---whatremove-is-in-this-position-in-the-matrix" class="section level3">
-<h3>x[n] - what/remove is in this position in the matrix</h3>
+<p>###rbind() - combine data/info by rows for matrices, data frames, etc. must have equivalent amount of rows, if not equate them by adding NA to either until same qty is reached</p>
+<p>###cbind() - combine data by columns same rules apply as rbind</p>
+<p>##Slicing and Extracting Data - indexing Vectors ### x[n] - what/remove is in this position in the matrix</p>
 <pre class="r"><code>a = matrix( 
   c(2, 4, 3, 1, 5, 7), # the data elements 
    nrow=2,              # number of rows 
@@ -661,9 +609,7 @@ a                      # print the matrix </code></pre>
 ## [2,]    1    5    7</code></pre>
 <pre class="r"><code>a[2 , 1]   # first thing in second row</code></pre>
 <pre><code>## [1] 1</code></pre>
-</div>
-<div id="x-n---everything-but-what-is-in-the-position" class="section level3">
-<h3>x[-n] - everything but what is in the [] position</h3>
+<p>###x[-n] - everything but what is in the [] position</p>
 <pre class="r"><code>a = matrix( 
   c(2, 4, 3, 1, 5, 7), # the data elements 
    nrow=2,              # number of rows 
@@ -676,7 +622,6 @@ a                      # print the matrix </code></pre>
 ## [2,]    1    5    7</code></pre>
 <pre class="r"><code>a[-2, ] # everything but the first thing in the second row</code></pre>
 <pre><code>## [1] 2 4 3</code></pre>
-</div>
 <div id="x1n-what-is-in-positions-1-n" class="section level3">
 <h3>x[1:n] what is in positions 1-n</h3>
 <pre class="r"><code>a = matrix( 
@@ -726,27 +671,17 @@ k      #print A
 
  
  # element at 2nd row, 3rd column </code></pre>
-</div>
-<div id="xx3-all-elements-greater-than-3--" class="section level3">
-<h3>x[x&gt;3] all elements greater than 3 -</h3>
+<p>###x[x&gt;3] all elements greater than 3 -</p>
 <pre class="r"><code>x &lt;- c(1,3,4,5,6,7)
 x[x &gt; 3] </code></pre>
 <pre><code>## [1] 4 5 6 7</code></pre>
-</div>
-<div id="xx-3-x-5-all-elements-between-3-and-5" class="section level3">
-<h3>x[x &gt; 3 &amp; x &lt; 5] all elements between 3 and 5</h3>
+<p>###x[x &gt; 3 &amp; x &lt; 5] all elements between 3 and 5</p>
 <pre class="r"><code>x &lt;- c(1,3,4,5,6,7)
 x[x &gt; 3 &amp; x &lt; 5] </code></pre>
 <pre><code>## [1] 4</code></pre>
-</div>
-<div id="xx-in-caandthe-all-elements-in-given-set" class="section level3">
-<h3>x[x %in% c(“a”,“and”,“the”)] all elements in given set</h3>
-</div>
-</div>
-<div id="indexing-lists" class="section level2">
-<h2>Indexing lists</h2>
-<div id="xn-list-with-elements-n" class="section level3">
-<h3>x[n] list with elements n</h3>
+<p>###x[x %in% c(“a”,“and”,“the”)] all elements in given set</p>
+<p>##Indexing lists</p>
+<p>###x[n] list with elements n</p>
 <pre class="r"><code>n &lt;- c(2, 3, 5) 
 s &lt;- c(&quot;aa&quot;, &quot;bb&quot;, &quot;cc&quot;, &quot;dd&quot;, &quot;ee&quot;)
 b &lt;- c(TRUE, FALSE, TRUE, FALSE, FALSE) 
@@ -755,9 +690,7 @@ x &lt;- list(n, s, b, 3)   # x contains copies of n, s, b
 x[4]</code></pre>
 <pre><code>## [[1]]
 ## [1] 3</code></pre>
-</div>
-<div id="xn-nt-h-element-of-the-list--" class="section level3">
-<h3>x[[n]] nt h element of the list -</h3>
+<p>###x[[n]] nt h element of the list -</p>
 <pre class="r"><code>n &lt;- c(2, 3, 5) 
 s &lt;- c(&quot;aa&quot;, &quot;bb&quot;, &quot;cc&quot;, &quot;dd&quot;, &quot;ee&quot;)
 b &lt;- c(TRUE, FALSE, TRUE, FALSE, FALSE) 
@@ -765,14 +698,10 @@ x &lt;- list(n, s, b, 3)   # x contains copies of n, s, b
 
 x[[1]][2]</code></pre>
 <pre><code>## [1] 3</code></pre>
-</div>
-<div id="xname-element-of-the-list-named-name" class="section level3">
-<h3>x[[“name”]] element of the list named “name”</h3>
+<p>###x[[“name”]] element of the list named “name”</p>
 <pre class="r"><code>b[[TRUE]]</code></pre>
 <pre><code>## [1] TRUE</code></pre>
-</div>
-<div id="xname-id." class="section level3">
-<h3>x$name id.</h3>
+<p>###x$name id.</p>
 <pre class="r"><code>bob &lt;- c(2, 3, 5)
 john &lt;- c(&quot;aa&quot;, &quot;bb&quot;)
 v &lt;- list(bob &lt;- c(2, 3, 5), john &lt;- c(&quot;aa&quot;, &quot;bb&quot;)) 
@@ -788,12 +717,8 @@ v$bob #i expect this to return 2,3,5</code></pre>
 ## 
 ## [[3]]
 ## NULL</code></pre>
-</div>
-</div>
-<div id="indexing-matrices" class="section level2">
-<h2>Indexing matrices</h2>
-<div id="xyb-element-at-row-y-column-b" class="section level3">
-<h3>x[y,b] element at row y, column b</h3>
+<p>##Indexing matrices</p>
+<p>###x[y,b] element at row y, column b</p>
 <pre class="r"><code>x &lt;- matrix(1:9, nrow = 3, dimnames = list(c(&quot;X&quot;,&quot;Y&quot;,&quot;Z&quot;), c(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;)))
 x</code></pre>
 <pre><code>##   A B C
@@ -802,223 +727,130 @@ x</code></pre>
 ## Z 3 6 9</code></pre>
 <pre class="r"><code>x[&quot;Y&quot;,&quot;B&quot;]</code></pre>
 <pre><code>## [1] 5</code></pre>
-</div>
-<div id="xz-row-z" class="section level3">
-<h3>x[“Z”,] row Z</h3>
+<p>###x[“Z”,] row Z</p>
 <pre class="r"><code>x[&quot;Z&quot;,]</code></pre>
 <pre><code>## A B C 
 ## 3 6 9</code></pre>
-</div>
-<div id="xc-column" class="section level3">
-<h3>x[,c] column</h3>
+<p>###x[,c] column</p>
 <pre class="r"><code>x[,&quot;C&quot;]</code></pre>
 <pre><code>## X Y Z 
 ## 7 8 9</code></pre>
-</div>
-<div id="xcac-columns-a-and-c" class="section level3">
-<h3>x[,c(“A”,“C”)] columns A and C</h3>
+<p>###x[,c(“A”,“C”)] columns A and C</p>
 <pre class="r"><code>x[,c(&quot;A&quot;,&quot;C&quot;)]</code></pre>
 <pre><code>##   A C
 ## X 1 7
 ## Y 2 8
 ## Z 3 9</code></pre>
-</div>
-<div id="xname-row-named-name" class="section level3">
-<h3>x[“name”,] row named “name”</h3>
+<p>###x[“name”,] row named “name”</p>
 <pre class="r"><code>x[&quot;Y&quot;,]</code></pre>
 <pre><code>## A B C 
 ## 2 5 8</code></pre>
-</div>
-</div>
-<div id="indexing-data-frames-matrix-indexing-plus-the-following" class="section level2">
-<h2>Indexing data frames (matrix indexing plus the following)</h2>
-<div id="xname-column-named-name" class="section level3">
-<h3>x[[“name”]] column named “name”</h3>
+<p>##Indexing data frames (matrix indexing plus the following)</p>
+<p>###x[[“name”]] column named “name”</p>
 <pre class="r"><code>x &lt;- matrix(1:9, nrow = 3, dimnames = list(c(&quot;X&quot;,&quot;Y&quot;,&quot;Z&quot;), c(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;)))
 x[[&quot;B&quot;]]</code></pre>
-</div>
-<div id="xnamed" class="section level3">
-<h3>x$named</h3>
-</div>
-</div>
-<div id="variable-conversion" class="section level2">
-<h2>Variable conversion</h2>
-<div id="as.data.framex--" class="section level3">
-<h3>as.data.frame(x) -</h3>
+<p>###x$named</p>
+<p>##Variable conversion ###as.data.frame(x) -</p>
 <pre class="r"><code>as.data.frame(x, row.names=NULL, optional=FALSE, xy=FALSE, 
               na.rm=FALSE, long=FALSE, ...)#not sure exactly what i am attempting to do here</code></pre>
-</div>
-<div id="as.numericx--" class="section level3">
-<h3>as.numeric(x) -</h3>
+<p>###as.numeric(x) -</p>
 <pre class="r"><code>x &lt;- c(1,2,4,5,53,2)
 as.numeric(x)# i believe this is should be coding responses as numeric, which i dont quite undetstand in this context.for instance a likert scale </code></pre>
 <pre><code>## [1]  1  2  4  5 53  2</code></pre>
-</div>
-<div id="as.logicalx" class="section level3">
-<h3>as.logical(x)</h3>
-</div>
-<div id="as.characterx" class="section level3">
-<h3>as.character(x)</h3>
-</div>
-</div>
-<div id="variable-information" class="section level2">
-<h2>Variable information</h2>
-<div id="is.nax" class="section level3">
-<h3>is.na(x)</h3>
-</div>
-<div id="is.nullx" class="section level3">
-<h3>is.null(x)</h3>
-</div>
-<div id="is.data.framex" class="section level3">
-<h3>is.data.frame(x)</h3>
-</div>
-<div id="is.numericx" class="section level3">
-<h3>is.numeric(x)</h3>
-</div>
-<div id="is.characterx" class="section level3">
-<h3>is.character(x)</h3>
-</div>
-<div id="lengthx" class="section level3">
-<h3>length(x)</h3>
+<p>###as.logical(x)</p>
+<p>###as.character(x)</p>
+<p>##Variable information</p>
+<p>###is.na(x)</p>
+<p>###is.null(x)</p>
+<p>###is.data.frame(x)</p>
+<p>###is.numeric(x)</p>
+<p>###is.character(x)</p>
+<p>###length(x)</p>
 <pre class="r"><code>x &lt;- c(1,2,5,6,3,6,64,4,3,7,8,9)
 length(x)</code></pre>
 <pre><code>## [1] 12</code></pre>
-</div>
-<div id="dimx" class="section level3">
-<h3>dim(x)</h3>
+<p>###dim(x)</p>
 <pre class="r"><code>x &lt;- c(1,2,5,6,3,6,64,4,3,7,8,9)
 dim(x)#? not sure here</code></pre>
 <pre><code>## NULL</code></pre>
-</div>
-<div id="dimnamesx" class="section level3">
-<h3>dimnames(x)</h3>
-</div>
-<div id="nrowxncolx---amount-of-colrows-also-to-use-name" class="section level3">
-<h3>nrow(x)ncol(x) - amount of col/rows, also to use name</h3>
+<p>###dimnames(x)</p>
+<p>###nrow(x)ncol(x) - amount of col/rows, also to use name</p>
 <pre class="r"><code>matrix(a, nrow = 2, ncol = 3)</code></pre>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    2    4    3
 ## [2,]    1    5    7</code></pre>
-</div>
-<div id="class" class="section level3">
-<h3>class()</h3>
-</div>
-<div id="attributes" class="section level3">
-<h3>attributes()</h3>
-</div>
-</div>
-<div id="data-selection-and-manipulation" class="section level2">
-<h2>Data selection and manipulation</h2>
-<div id="which.max---returns-the-largest-number" class="section level3">
-<h3>which.max() - returns the largest number</h3>
+<p>###class()</p>
+<p>###attributes()</p>
+<p>##Data selection and manipulation</p>
+<p>###which.max() - returns the largest number</p>
 <pre class="r"><code>x &lt;- c(1,4,57,54754,6576,3456346,4)
 
 which.max(x) #not sure why its not diagnosing thr enetire number and just the last digit, </code></pre>
 <pre><code>## [1] 6</code></pre>
-</div>
-<div id="which.min---smallest-element-of" class="section level3">
-<h3>which.min() - smallest element of</h3>
+<p>###which.min() - smallest element of</p>
 <pre class="r"><code>x &lt;- c(1211,124,57,54754,6576,3456346,4)
 which.min(x) #why is this not 4?</code></pre>
 <pre><code>## [1] 7</code></pre>
-</div>
-<div id="which---what-postion-something-is-in" class="section level3">
-<h3>which() - what postion something is in</h3>
+<p>###which() - what postion something is in</p>
 <pre class="r"><code>y &lt;- c(3,5,7,8,4,3,3,2)
 which(y == 4)</code></pre>
 <pre><code>## [1] 5</code></pre>
-</div>
-<div id="sort---puts-things-in-order" class="section level3">
-<h3>sort() - puts things in order</h3>
+<p>###sort() - puts things in order</p>
 <pre class="r"><code>m &lt;- c(5,2,6,7,8,3,3,3,3)
 sort(m)</code></pre>
 <pre><code>## [1] 2 3 3 3 3 5 6 7 8</code></pre>
-</div>
-<div id="unique" class="section level3">
-<h3>unique()</h3>
-</div>
-<div id="table---can-be-used-for-frequency-tables" class="section level3">
-<h3>table() - can be used for frequency tables</h3>
+<p>###unique()</p>
+<p>###table() - can be used for frequency tables</p>
 <pre class="r"><code>d &lt;- c(2,4,5,8,5,3,6,5,8,6,5,3,3,4,6,6,8,8,5,4,3,2,3)
 table(d)#, or categorization, assuming i can use strsplit but im not positive</code></pre>
 <pre><code>## d
 ## 2 3 4 5 6 8 
 ## 2 5 3 5 4 4</code></pre>
-</div>
-<div id="sample---simply-put-to-sample-numbers-but-you-can-modify-to-sample-greater-or-less-then-and-incorporate-sort-to-clean-it-up" class="section level3">
-<h3>sample - simply put to sample numbers, but you can modify to sample greater or less then and incorporate sort to clean it up</h3>
+<p>###sample - simply put to sample numbers, but you can modify to sample greater or less then and incorporate sort to clean it up</p>
 <pre class="r"><code>d &lt;- 1:20
 sort(sample(d[d &gt; 7]))#sorted all numbers greater than 7 from variable d</code></pre>
 <pre><code>##  [1]  8  9 10 11 12 13 14 15 16 17 18 19 20</code></pre>
-</div>
-</div>
-<div id="math" class="section level2">
-<h2>MATH</h2>
-<div id="max---largest-number-in-variable" class="section level3">
-<h3>max() - largest number in variable</h3>
+<p>##MATH</p>
+<p>###max() - largest number in variable</p>
 <pre class="r"><code>max(d)</code></pre>
 <pre><code>## [1] 20</code></pre>
-</div>
-<div id="min---smallest-number-in-variable" class="section level3">
-<h3>min() - smallest number in variable</h3>
+<p>###min() - smallest number in variable</p>
 <pre class="r"><code>min(d)</code></pre>
 <pre><code>## [1] 1</code></pre>
-</div>
-<div id="range---from-smallest-to-largest-number" class="section level3">
-<h3>range() - from smallest to largest number</h3>
+<p>###range() - from smallest to largest number</p>
 <pre class="r"><code>range(d)</code></pre>
 <pre><code>## [1]  1 20</code></pre>
-</div>
-<div id="sum---sum-of-all-integers-of-a-given-variable" class="section level3">
-<h3>sum - sum of all integers of a given variable</h3>
+<p>###sum - sum of all integers of a given variable</p>
 <pre class="r"><code>sum(d)</code></pre>
 <pre><code>## [1] 210</code></pre>
-</div>
-<div id="mean" class="section level3">
-<h3>mean</h3>
+<p>###mean</p>
 <pre class="r"><code>mean(d)</code></pre>
 <pre><code>## [1] 10.5</code></pre>
-</div>
-<div id="median" class="section level3">
-<h3>median</h3>
+<p>###median</p>
 <pre class="r"><code>median(d)</code></pre>
 <pre><code>## [1] 10.5</code></pre>
-</div>
-<div id="var---the-average-of-the-squared-differences-from-the-mean" class="section level3">
-<h3>var - The average of the squared differences from the Mean</h3>
+<p>###var - The average of the squared differences from the Mean</p>
 <pre class="r"><code>var(d)</code></pre>
 <pre><code>## [1] 35</code></pre>
-</div>
-<div id="sd---standard-deviation-is-just-the-square-root-of-variance" class="section level3">
-<h3>sd - Standard Deviation is just the square root of Variance</h3>
+<p>###sd - Standard Deviation is just the square root of Variance</p>
 <pre class="r"><code>sd(d)</code></pre>
 <pre><code>## [1] 5.91608</code></pre>
-</div>
-<div id="cor--" class="section level3">
-<h3>cor -</h3>
+<p>###cor -</p>
 <pre class="r"><code>n &lt;- c(2,2,4,4,6,6,6,3,3,3,3)
 cor(d,n)#just not sure here abount what to do</code></pre>
-</div>
-<div id="round---specify-whole-or-decimal-numbers-in-a-sequence-or-within-a-variable" class="section level3">
-<h3>round() - specify whole or decimal numbers in a sequence or within a variable</h3>
+<p>###round() - specify whole or decimal numbers in a sequence or within a variable</p>
 <pre class="r"><code>round(.5 + -2:4)</code></pre>
 <pre><code>## [1] -2  0  0  2  2  4  4</code></pre>
 <pre class="r"><code>( x1 &lt;- seq(-2, 4, by = .5) )#sequence of numbers by the .5 in each sequence </code></pre>
 <pre><code>##  [1] -2.0 -1.5 -1.0 -0.5  0.0  0.5  1.0  1.5  2.0  2.5  3.0  3.5  4.0</code></pre>
-</div>
-<div id="abs--" class="section level3">
-<h3>abs() -</h3>
+<p>###abs() -</p>
 <pre class="r"><code>abs(d)</code></pre>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20</code></pre>
 <pre class="r"><code>x &lt;- matrix(c(-3,5,-7,1,-9,4),nrow=3,ncol=2,byrow=TRUE)
 abs(x[1,])#absolute value of row one</code></pre>
 <pre><code>## [1] 3 5</code></pre>
-</div>
-</div>
-<div id="matrices" class="section level2">
-<h2>Matrices</h2>
-<div id="t" class="section level3">
-<h3>t()</h3>
+<p>##Matrices</p>
+<p>###t()</p>
 <pre class="r"><code>h &lt;- matrix(1:20, nrow=5, ncol=4)
 t(h)</code></pre>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5]
@@ -1026,9 +858,7 @@ t(h)</code></pre>
 ## [2,]    6    7    8    9   10
 ## [3,]   11   12   13   14   15
 ## [4,]   16   17   18   19   20</code></pre>
-</div>
-<div id="diag---not-sure-what-this-is" class="section level3">
-<h3>diag() - not sure what this is</h3>
+<p>###diag() - not sure what this is</p>
 <pre class="r"><code># NOT RUN {
 dim(diag(3))</code></pre>
 <pre><code>## [1] 3 3</code></pre>
@@ -1039,9 +869,7 @@ dim(diag(3))</code></pre>
 ## [3,]    0    0   10    0</code></pre>
 <pre class="r"><code>all(diag(1:3) == {m &lt;- matrix(0,3,3); diag(m) &lt;- 1:3; m})</code></pre>
 <pre><code>## [1] TRUE</code></pre>
-</div>
-<div id="rowsums-colsums---sum-of-rows-and-columns.-rowmeans-colmeans" class="section level3">
-<h3>rowsums() / colsums() - sum of rows and columns. rowmeans() / Colmeans()</h3>
+<p>###rowsums() / colsums() - sum of rows and columns. rowmeans() / Colmeans()</p>
 <pre class="r"><code>h &lt;- matrix(1:20, nrow=5, ncol=4)
 rowSums(h)</code></pre>
 <pre><code>## [1] 34 38 42 46 50</code></pre>
@@ -1051,32 +879,19 @@ rowSums(h)</code></pre>
 <pre><code>## [1]  8.5  9.5 10.5 11.5 12.5</code></pre>
 <pre class="r"><code>colMeans(h)</code></pre>
 <pre><code>## [1]  3  8 13 18</code></pre>
-</div>
-</div>
-<div id="advanced-data-processing" class="section level2">
-<h2>Advanced data processing</h2>
-<div id="apply" class="section level3">
-<h3>apply</h3>
+<p>##Advanced data processing ###apply</p>
 <pre class="r"><code>apply</code></pre>
-</div>
-<div id="aggregate" class="section level3">
-<h3>aggregate()</h3>
+<p>###aggregate()</p>
 <pre class="r"><code>#not sure why or what this is going to do for me </code></pre>
-</div>
-</div>
-<div id="strings" class="section level2">
-<h2>Strings</h2>
-<div id="paste" class="section level3">
-<h3>paste()</h3>
+<p>##Strings</p>
+<p>###paste()</p>
 <pre class="r"><code>paste0(1:12) #need an elementary explanation</code></pre>
 <pre><code>##  [1] &quot;1&quot;  &quot;2&quot;  &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;6&quot;  &quot;7&quot;  &quot;8&quot;  &quot;9&quot;  &quot;10&quot; &quot;11&quot; &quot;12&quot;</code></pre>
 <pre class="r"><code>paste(1:12)      </code></pre>
 <pre><code>##  [1] &quot;1&quot;  &quot;2&quot;  &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;6&quot;  &quot;7&quot;  &quot;8&quot;  &quot;9&quot;  &quot;10&quot; &quot;11&quot; &quot;12&quot;</code></pre>
 <pre class="r"><code>as.character(1:12)</code></pre>
 <pre><code>##  [1] &quot;1&quot;  &quot;2&quot;  &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;6&quot;  &quot;7&quot;  &quot;8&quot;  &quot;9&quot;  &quot;10&quot; &quot;11&quot; &quot;12&quot;</code></pre>
-</div>
-<div id="strsplit---strsplit-helps-find-letters-in-string" class="section level3">
-<h3>strsplit - strsplit helps find letters in string</h3>
+<p>###strsplit - strsplit helps find letters in string</p>
 <pre class="r"><code>q &lt;- &quot;dogs cats&quot; #strsplit helps find letters in string
 strsplit(q,split=&quot;&quot;) #to split a character vector</code></pre>
 <pre><code>## [[1]]
@@ -1095,9 +910,7 @@ t[[1]]</code></pre>
 <pre><code>## t
 ##   a c d g o s t 
 ## 1 1 1 1 1 1 2 1</code></pre>
-</div>
-<div id="tolower--" class="section level3">
-<h3>tolower() -</h3>
+<p>###tolower() -</p>
 <pre class="r"><code>test1 &lt;- c(text1 = &quot;England and France are members of NATO and UNESCO&quot;, 
 text2 = &quot;NASA sent a rocket into space.&quot;)
 tolower(test1)</code></pre>
@@ -1105,9 +918,7 @@ tolower(test1)</code></pre>
 ## &quot;england and france are members of nato and unesco&quot; 
 ##                                               text2 
 ##                    &quot;nasa sent a rocket into space.&quot;</code></pre>
-</div>
-<div id="toupper--" class="section level3">
-<h3>toupper() -</h3>
+<p>###toupper() -</p>
 <pre class="r"><code>test1 &lt;- c(text1 = &quot;England and France are members of NATO and UNESCO&quot;, 
 text2 = &quot;NASA sent a rocket into space.&quot;)
 toupper(test1)</code></pre>
@@ -1115,12 +926,8 @@ toupper(test1)</code></pre>
 ## &quot;ENGLAND AND FRANCE ARE MEMBERS OF NATO AND UNESCO&quot; 
 ##                                               text2 
 ##                    &quot;NASA SENT A ROCKET INTO SPACE.&quot;</code></pre>
-</div>
-</div>
-<div id="plotting" class="section level2">
-<h2>Plotting</h2>
-<div id="hist" class="section level3">
-<h3>hist()</h3>
+<p>##Plotting</p>
+<p>###hist()</p>
 <pre class="r"><code>v &lt;- c(3, 4, 7, 6, 5, 1, 4, 3, 4, 4, 5, 4, 0, 3, 5, 4, 4, 4)
 
 # Give the chart file a name.
@@ -1129,9 +936,7 @@ png(file = &quot;histogram_lim_breaks.png&quot;)
 # Create the histogram.
 hist(v,xlab = &quot;Weight&quot;,col = &quot;green&quot;,border = &quot;red&quot;, xlim = c(0,8), ylim = c(0,10),
    breaks = 5)</code></pre>
-</div>
-<div id="plot" class="section level3">
-<h3>plot()</h3>
+<p>###plot()</p>
 <pre class="r"><code>v &lt;- c(3, 4, 7, 6, 5, 1, 4, 3, 4, 4, 5, 4, 0, 3, 5, 4, 4, 4)
 
 # Give the chart file a name.
@@ -1139,27 +944,17 @@ png(file = &quot;histogram_lim_breaks.png&quot;)
 
 # Create the histogram.
 plot(v,xlab = &quot;Weight&quot;,col = &quot;green&quot;, xlim = c(0,8), ylim = c(0,10))</code></pre>
-</div>
-</div>
-<div id="distributions" class="section level2">
-<h2>Distributions</h2>
-<div id="rnorm---generates-random-deviates." class="section level3">
-<h3>rnorm - generates random deviates.</h3>
+<p>##Distributions</p>
+<p>###rnorm - generates random deviates.</p>
 <pre class="r"><code>rnorm(n, mean = 10, sd = 1.5)</code></pre>
-<pre><code>## [1] 11.923526  7.233196  9.532941</code></pre>
-</div>
-<div id="runif---random-numbers" class="section level3">
-<h3>runif - random numbers</h3>
+<pre><code>## [1]  8.362204 10.362231 10.791349</code></pre>
+<p>###runif - random numbers</p>
 <pre class="r"><code>n &lt;- c(1,2,5,7,8,4,3,2,5,6,8,8,5)
 runif(n, min = 0, max = 10)</code></pre>
-<pre><code>##  [1] 2.9226412 0.5828698 9.5951004 7.6656450 9.3883855 4.7869427 7.1242667
-##  [8] 6.6660036 2.1751660 6.8299040 1.0449135 5.8546574 8.2897891</code></pre>
-</div>
-</div>
-<div id="programming" class="section level2">
-<h2>Programming</h2>
-<div id="show-that-you-can-define-a-function" class="section level3">
-<h3>show that you can define a function</h3>
+<pre><code>##  [1] 7.9500897 7.7035722 1.7104128 3.6754172 8.4077175 2.1502674 9.7253958
+##  [8] 4.9133036 6.4306951 9.0552003 3.1155667 0.5711381 0.2166323</code></pre>
+<p>##Programming</p>
+<p>###show that you can define a function</p>
 <pre class="r"><code>addtwo &lt;- function(x) {
   b &lt;- x + 2
   return(b)
@@ -1171,12 +966,8 @@ addtwo(2) </code></pre>
 }
 sumsq(2,3)#i think i need to insert a table to truly make this work </code></pre>
 <pre><code>## [1] 13</code></pre>
-</div>
-<div id="show-that-you-can-write-a-for-loop" class="section level3">
-<h3>show that you can write a for loop</h3>
-</div>
-<div id="show-that-you-can-write-a-while-loop" class="section level3">
-<h3>show that you can write a while loop</h3>
+<p>###show that you can write a for loop</p>
+<p>###show that you can write a while loop</p>
 <pre class="r"><code>x &lt;- 4
 while(x &lt; 100) {
   x &lt;- x + 8
@@ -1195,18 +986,14 @@ print(x)
 ## [1] 84
 ## [1] 92
 ## [1] 100</code></pre>
-</div>
-<div id="show-that-you-can-write-an-if-else-statement" class="section level3">
-<h3>show that you can write an if else statement</h3>
+<p>###show that you can write an if else statement</p>
 <pre class="r"><code>j = c(1:30)
 ifelse(j %% 3 == 0, &quot;three&quot;, &quot;not&quot;)</code></pre>
 <pre><code>##  [1] &quot;not&quot;   &quot;not&quot;   &quot;three&quot; &quot;not&quot;   &quot;not&quot;   &quot;three&quot; &quot;not&quot;   &quot;not&quot;  
 ##  [9] &quot;three&quot; &quot;not&quot;   &quot;not&quot;   &quot;three&quot; &quot;not&quot;   &quot;not&quot;   &quot;three&quot; &quot;not&quot;  
 ## [17] &quot;not&quot;   &quot;three&quot; &quot;not&quot;   &quot;not&quot;   &quot;three&quot; &quot;not&quot;   &quot;not&quot;   &quot;three&quot;
 ## [25] &quot;not&quot;   &quot;not&quot;   &quot;three&quot; &quot;not&quot;   &quot;not&quot;   &quot;three&quot;</code></pre>
-</div>
-<div id="explain-what-return-does-inside-a-function-show-you-can-use-it" class="section level3">
-<h3>Explain what return() does inside a function, show you can use it</h3>
+<p>###Explain what return() does inside a function, show you can use it</p>
 <pre class="r"><code>check &lt;- function(x) {
 if (x &gt; 0) {
 result &lt;- &quot;Positive&quot;
@@ -1225,9 +1012,7 @@ check(1)</code></pre>
 <pre><code>## [1] &quot;Negative&quot;</code></pre>
 <pre class="r"><code>check(0)</code></pre>
 <pre><code>## [1] &quot;Zero&quot;</code></pre>
-</div>
-<div id="explain-what-break-does-show-you-can-use-it" class="section level3">
-<h3>Explain what break() does, show you can use it</h3>
+<p>###Explain what break() does, show you can use it</p>
 </div>
 </div>
 

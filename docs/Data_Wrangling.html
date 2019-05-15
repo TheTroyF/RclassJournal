@@ -11,7 +11,7 @@
 
 
 
-<title></title>
+<title>Data_Wrangling.utf8.md</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -332,11 +332,8 @@ $(document).ready(function () {
 </div>
 
 
-<div id="data-wrangling" class="section level2">
-<h2>Data Wrangling</h2>
-<div id="notes-df-is-the-name-of-the-data-we-are-analyzing" class="section level3">
-<h3>notes: df is the name of the data we are analyzing</h3>
-<p>df[1,] #row 1 (leaving blank means everything in the column) df[,1] # column 1 df[1:4,] #rows 1 through 4 and all columns df[,4:5] #columns 4 to 5 and all the rows df[1:3,6:7] #rows 1 to 3 and columns 6 to 7</p>
+<p>##Data Wrangling</p>
+<p>###notes: df is the name of the data we are analyzing df[1,] #row 1 (leaving blank means everything in the column) df[,1] # column 1 df[1:4,] #rows 1 through 4 and all columns df[,4:5] #columns 4 to 5 and all the rows df[1:3,6:7] #rows 1 to 3 and columns 6 to 7</p>
 <p>df[df$name==“luke skywalker”,] #return all columns with row equl to luke sky df[df$height &gt; 180,] #find all the rows with height greater than 180 df[1,2] &lt;- 173 #goes to that particular cell and edit what is in it dim(df) #returns rows and columns df &lt;- cbind(df,random_number=runif(dim(df)[1],0,1)) #dim df gives me the first thing and generates 87numbers between 0:1</p>
 <p>new_df &lt;- rbind(df[1:2,],df[5:6,]) #takes the first two rows and adds row 5-6 combing the four rows</p>
 <p>df<span class="math inline">\(species &lt;- as.factor(df\)</span>species) levels(df$species) # treat the column species as a factor and put it back into itself so it becomes that</p>
@@ -358,14 +355,10 @@ $(document).ready(function () {
 <p>new_df &lt;- df %&gt;% filter(height &gt; 120, # filters out any columns with height greater than 120 height &lt; 180) # filters out any columns with height less than 180</p>
 <p>new_df &lt; df%&gt;% filter (gender != “male”) #not equal to male</p>
 <p>new_df &lt;- df %&gt;% group_by(hair_color,eye_color) %&gt;% summarise(counts=length(name)) #how many of each eye and hair color</p>
-</div>
-<div id="mutate" class="section level3">
-<h3>mutate</h3>
+<p>###mutate</p>
 <p>use mutate to change or add a column</p>
-<p>new_df &lt;- <df %>% mutate(hm_ratio = height/mass) #gives a new column of height divided by mass new_df &lt;- df %&gt;% select(name,height,mass) #a new df that only has name height mass</p>
+<p>new_df &lt;- &lt;df %&gt;% mutate(hm_ratio = height/mass) #gives a new column of height divided by mass new_df &lt;- df %&gt;% select(name,height,mass) #a new df that only has name height mass</p>
 <p>new_def &lt; df %&gt;% select(name,films) %&gt;% group_by (name) %&gt;%</p>
-</div>
-</div>
 <div id="data-input-assigment" class="section level2">
 <h2>DATA INPUT ASSIGMENT</h2>
 </div>
@@ -534,7 +527,7 @@ for (i in stimulus){
 <div id="get-reaction-time-on-each-trial" class="section level3">
 <h3>Get Reaction time on each trial</h3>
 <p>The stimulus_onset column gives a computer timestamp in milliseconds indicating when the stimulus was presented. The response_time column is a timestamp in milliseconds for the response. The difference between the two (response_time - stimulus_onset) is the reaction time in milliseconds. Add a column that calculates the reaction time on each trial.</p>
-<p>**<a href="tip:**" class="uri">tip:**</a> notice that the numbers in response_time and stimulus_onset have the class integer64. Unfortunately, ggplot does not play nice with integers in this format. you will need to make sure your RT column is in the class integer or numeric.</p>
+<p><strong>tip:</strong> notice that the numbers in response_time and stimulus_onset have the class integer64. Unfortunately, ggplot does not play nice with integers in this format. you will need to make sure your RT column is in the class integer or numeric.</p>
 <pre class="r"><code>all_data &lt;- all_data %&gt;% 
   mutate(RT = as.integer(response_time - stimulus_onset))</code></pre>
 </div>
@@ -580,7 +573,7 @@ sd(mean_RT)/sqrt(length(mean_RT))</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Compute the flanker effect for each subject, taking the difference between their mean incongruent and congruent RT. Then plot the mean flanker effect, along with the SEM of the mean flanker effect</li>
 </ol>
-<p>**<a href="tip:**" class="uri">tip:**</a> Not all problems have an easy solution in dplyr, this is one them. You may have an easier time using logical indexing of the dataframe to solve this part.</p>
+<p><strong>tip:</strong> Not all problems have an easy solution in dplyr, this is one them. You may have an easier time using logical indexing of the dataframe to solve this part.</p>
 <p>-index means to take</p>
 <pre class="r"><code>C &lt;- subject_meanRTs[ subject_meanRTs$congruency == &quot;C&quot;, ]$mean_RT 
 I &lt;- subject_meanRTs[ subject_meanRTs$congruency == &quot;I&quot;, ]$mean_RT 
@@ -617,7 +610,33 @@ ggplot(x=flanker_effect, y=congruent_mean,
 <li>trial n congruent : trial n-1 incongruent</li>
 <li>trial n incongruent : trial n-1 incongruent</li>
 </ol>
-<p>**<a href="tip:**" class="uri">tip:**</a> be careful, note that the first trial in each experiment can not be included, because it had no preceding trial</p>
+<p><strong>tip:</strong> be careful, note that the first trial in each experiment can not be included, because it had no preceding trial</p>
+<pre><code>
+prev_congruency &lt;- 0
+
+for (i in 2:length(included_data$subject)) {
+  if (included_data$subject[i]==included_data$subject[i-1]) {
+    prev_congruency[i] &lt;- included_data$congruency[i-1]
+  }
+  else {
+    prev_congruency[i] &lt;- 0
+  }
+}
+
+prev_analysis &lt;- included_data %&gt;%
+  mutate(prev_congruency = prev_congruency) %&gt;%
+  filter(prev_congruency != 0, accuracy == TRUE) %&gt;%
+  group_by(subject,congruency,prev_congruency) %&gt;%
+  dplyr::summarise(mean_reaction = mean(reaction_time))
+
+prev_analysis &lt;- prev_analysis %&gt;%
+  group_by(congruency,prev_congruency) %&gt;%
+  dplyr::summarise(mean_react = mean(mean_reaction),
+                   standard_error = sd(mean_reaction)/(sqrt(length(mean_reaction))))
+
+knitr::kable(prev_analysis)
+
+</code></pre>
 </div>
 </div>
 

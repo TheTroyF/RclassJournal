@@ -410,6 +410,9 @@ div.tocify {
   <a href="CodeOP.html">CodeOP</a>
 </li>
 <li>
+  <a href="xaringan.html">xaringan</a>
+</li>
+<li>
   <a href="Links.html">Links</a>
 </li>
       </ul>
@@ -431,9 +434,7 @@ div.tocify {
 
 <div id="ggplot-stuff" class="section level4">
 <h4>GGPlot Stuff</h4>
-</div>
-<div id="data-frame" class="section level2">
-<h2>data frame</h2>
+<p>##data frame</p>
 <pre class="r"><code>#long data format table, has a row per variable/measurement
 #columns code different IV for the study
 
@@ -447,15 +448,12 @@ my_df &lt;- data.frame(names,
                     age,
                     sex)
 
-View(my_df)#makes a table </code></pre>
-<pre><code>## Warning in View(my_df): unable to open display</code></pre>
-<pre><code>## Error in .External2(C_dataviewer, x, title): unable to start data viewer</code></pre>
-<pre class="r"><code>my_df$names #tells you column names </code></pre>
+View(my_df)#makes a table 
+my_df$names #tells you column names </code></pre>
 <pre><code>## [1] peter paul  mary 
 ## Levels: mary paul peter</code></pre>
 <pre class="r"><code>my_df$names &lt;- as.character(my_df$names)#converst to charactor </code></pre>
-<div id="some-more-data-frameplot-stuff" class="section level3">
-<h3>some more data frame/plot stuff</h3>
+<p>###some more data frame/plot stuff</p>
 <pre class="r"><code># Create dataframe
 t &lt;- c(1,2,3,2,3,4,5,4)
 u &lt;- c(4,3,4,3,2,1,2,3)
@@ -475,10 +473,7 @@ ggplot(plot_df, aes(x=t,y=u))+ #identify what x/y axis are, groups, etc connect 
   theme_classic(base_size=12)+ #change background look of plot/font size, auto keeps font size i select when resized
   theme(plot.title = element_text(hjust = 0.5)) #centers title by using .5</code></pre>
 <p><img src="GGPlot_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-</div>
-</div>
-<div id="bar-graph" class="section level2">
-<h2>bar graph</h2>
+<p>##bar graph</p>
 <pre class="r"><code>#Create a dataframe
 factor_one &lt;- as.factor(c(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;))
 dv_means &lt;- c(20,30,40)
@@ -496,9 +491,7 @@ ggplot(plot_df, aes(x=factor_one,y=dv_means))+
 <pre><code>## geom_point: na.rm = FALSE
 ## stat_identity: na.rm = FALSE
 ## position_identity</code></pre>
-</div>
-<div id="bar-graph-with-error-bar" class="section level2">
-<h2>bar graph with error bar</h2>
+<p>##bar graph with error bar</p>
 <pre class="r"><code>ggplot(plot_df, aes(x=factor_one,y=dv_means))+
   geom_bar(stat=&quot;identity&quot;)+
   geom_errorbar(aes(ymin=dv_means-dv_SEs, 
@@ -511,9 +504,7 @@ ggplot(plot_df, aes(x=factor_one,y=dv_means))+
   theme_classic(base_size=12)+
   theme(plot.title = element_text(hjust = 0.5))</code></pre>
 <p><img src="GGPlot_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-</div>
-<div id="factor-bar-graph" class="section level2">
-<h2>2 factor bar graph</h2>
+<p>##2 factor bar graph</p>
 <pre class="r"><code>#this is data with 2 level in each condition
 factor_one &lt;- rep(as.factor(c(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;)),2)#by putting 2 at the end it repeats the factor 
 factor_two &lt;- rep(as.factor(c(&quot;IIA&quot;,&quot;IIB&quot;)),3)#by putting 3 at the end it repeats the factor 3 times
@@ -533,9 +524,7 @@ ggplot(plot_df, aes(x=factor_one,y=dv_means,
   geom_bar(stat=&quot;identity&quot;, 
            position=&quot;dodge&quot;)#dodge means side by side bars</code></pre>
 <p><img src="GGPlot_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-</div>
-<div id="top-to-base-ratio-figure-5" class="section level2">
-<h2>2 top to base ratio figure 5</h2>
+<p>##2 top to base ratio figure 5</p>
 <pre class="r"><code>#this is data with 2 level in each condition
 
 top_base_ratio &lt;- rep(as.factor(c(&quot;4:6&quot;,&quot;6:9&quot;,&quot;4:9&quot;)),2)#by putting 2 at the end it repeats the factor 
@@ -556,9 +545,7 @@ ggplot(plot_df, aes(x=top_base_ratio,y=dv_means,
   geom_bar(stat=&quot;identity&quot;, 
            position=&quot;dodge&quot;)#dodge means side by side bars</code></pre>
 <p><img src="GGPlot_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
-</div>
-<div id="top-to-base-ratio-figure-5-1" class="section level2">
-<h2>2 top to base ratio figure 5</h2>
+<p>##2 top to base ratio figure 5</p>
 <pre class="r"><code>#this is data with 2 level in each condition
 
 fill_empty &lt;- as.factor(rep(c(&quot;fill&quot;,&quot;empty&quot;),each=2))#by putting 2 at the end it repeats the factor 
@@ -578,9 +565,7 @@ ggplot(plot_df, aes(x=fill_empty,y=dv_means,
   coord_cartesian(ylim=c(17,20))+  #need plus sign to add each row to the plot
   geom_bar(stat=&quot;identity&quot;, position=&quot;dodge&quot;) #dodge means side by side bars</code></pre>
 <p><img src="GGPlot_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
-</div>
-<div id="adding-error-bars-customizing-2x3-factor-bar-graph" class="section level2">
-<h2>adding error bars, customizing 2x3 factor bar graph</h2>
+<p>##adding error bars, customizing 2x3 factor bar graph</p>
 <pre class="r"><code>ggplot(plot_df, aes(x=factor_one,y=dv_means,
                     group=factor_two,
                     color=factor_two,
@@ -599,9 +584,7 @@ ggplot(plot_df, aes(x=fill_empty,y=dv_means,
   theme(plot.title = element_text(hjust = 0.5))</code></pre>
 <pre><code>## Error: Aesthetics must be either length 1 or the same as the data (4): x, group, colour, fill</code></pre>
 <p><img src="GGPlot_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
-</div>
-<div id="bar-graph-faceted" class="section level2">
-<h2>bar graph faceted</h2>
+<p>##bar graph faceted</p>
 <pre class="r"><code>factor_one &lt;- rep(rep(as.factor(c(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;)),2),2)
 factor_two &lt;- rep(rep(as.factor(c(&quot;IIA&quot;,&quot;IIB&quot;)),3),2)
 factor_three &lt;- rep(as.factor(c(&quot;IIIA&quot;,&quot;IIIB&quot;)),each=6)
@@ -658,9 +641,7 @@ ggplot(plot_df, aes(x=condition,
   theme(plot.title = element_text(hjust = 0.5))</code></pre>
 <pre><code>## Error: Aesthetics must be either length 1 or the same as the data (16): x, y</code></pre>
 <p><img src="GGPlot_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
-</div>
-<div id="factor-bar-graph---i-tried-to-adjust-my-bars-within-the-bars-and-now-it-wont-work" class="section level2">
-<h2>2 factor bar graph - i tried to adjust my bars within the bars, and now it wont work</h2>
+<p>##2 factor bar graph - i tried to adjust my bars within the bars, and now it wont work</p>
 <pre class="r"><code>#this is data with 2 level in each condition
 
 factor_one &lt;- rep(as.factor(c(&quot;doctor&quot;,
@@ -685,9 +666,7 @@ ggplot(plot_df, aes(x=factor_one,y=dv_means,
                     color=factor_two,
                     fill=factor_two))+#fills inside the bar
   geom_bar(stat = &quot;identity&quot;,position =  &quot;dodge&quot;)#dodge means side by side bars</code></pre>
-</div>
-<div id="figure-three---men-and-women-perform-surgery" class="section level2">
-<h2>figure three - men and women perform surgery</h2>
+<p>##figure three - men and women perform surgery</p>
 <pre class="r"><code>men_perform &lt;- rep(as.factor(c(&quot;prior&quot;,
                               &quot;model posterior&quot;,
                               &quot;reported posterior&quot;)))
@@ -726,8 +705,7 @@ plot_df &lt;- data.frame(social,autism)
 ggplot(plot_df, aes(x=social,y=autism))+ #identify what x/y axis are, groups, etc connect data to different prts of graph
   geom_point()#adds a layer of dots...</code></pre>
 <p><img src="GGPlot_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
-<div id="violin-plot---money-transferred-to-peron" class="section level3">
-<h3>violin plot - “money transferred to peron”</h3>
+<p>###violin plot - “money transferred to peron”</p>
 <pre class="r"><code># Create dataframe
 
 person_x_answer &lt;- c(&quot;equally likely&quot;,&quot;man more likely&quot;)
@@ -753,10 +731,7 @@ ggplot(plot_df, aes(x=person_x_answer,y=moneytransferred))+
    coord_cartesian()+#identify what x/y axis are, groups, etc connect data to different prts of graph
   geom_violin()#adds violin as representation of dots</code></pre>
 <p><img src="GGPlot_files/figure-html/unnamed-chunk-16-2.png" width="672" /></p>
-</div>
-</div>
-<div id="visual-group" class="section level2">
-<h2>visual group</h2>
+<p>##visual group</p>
 <pre class="r"><code>transornot &lt;- rep(as.factor(c(&quot;non_transient&quot;,
                               &quot;transient&quot;)),2)
 
@@ -783,8 +758,7 @@ ggplot(plot_df, aes(x=transornot, y=Mean_Median_RT,
 geom_bar(stat=&quot;identity&quot;, 
          position=&quot;dodge&quot;)#dodge means side by side bars</code></pre>
 <p><img src="GGPlot_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
-<div id="men-and-women-perform-sugery-histogram" class="section level3">
-<h3>men and women perform sugery histogram</h3>
+<p>###men and women perform sugery histogram</p>
 <pre class="r"><code># Create data for the graph.
 Men_performed &lt;-c(-2,-2,-1,-1,-1,-.5,-1,-1,-1,-.5,-.5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,05,.05,.05,.05,.05,.05,.05,.05,.05,.05,.75,.75,.75,.75,.75,.75,1,1,1,1,1,1.5,1.5,1.5,1.75,1.75,1.75,2,2,2,2,2.25,2.25,2.25,2.5,2.5,2.75,2.75)
 
@@ -793,7 +767,6 @@ Men_performed &lt;-c(-2,-2,-1,-1,-1,-.5,-1,-1,-1,-.5,-.5,0,0,0,0,0,0,0,0,0,0,0,0
 hist(Men_performed,xlab = &quot;Log Likelihood Ratio&quot;,col = &quot;green&quot;,border = &quot;black&quot;, xlim = c(-2,4), ylim = c(0,40),
    breaks = 5)</code></pre>
 <p><img src="GGPlot_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
-</div>
 </div>
 
 

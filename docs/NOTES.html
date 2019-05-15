@@ -410,6 +410,9 @@ div.tocify {
   <a href="CodeOP.html">CodeOP</a>
 </li>
 <li>
+  <a href="xaringan.html">xaringan</a>
+</li>
+<li>
   <a href="Links.html">Links</a>
 </li>
       </ul>
@@ -491,10 +494,10 @@ b[5]</code></pre>
 example_list[[1]] #[[1]]return whats in list one, used to pull whats from different lists</code></pre>
 <pre><code>## [1] 1</code></pre>
 <pre class="r"><code>g &lt;- matrix(0,nrow=5, ncol=3)
-View(g)</code></pre>
-<pre><code>## Warning in View(g): unable to open display</code></pre>
-<pre><code>## Error in .External2(C_dataviewer, x, title): unable to start data viewer</code></pre>
-<pre class="r"><code>data.frame() #essentially an excel spreadsheet, if i can get my data into this format all of r will run. </code></pre>
+View(g)
+
+
+data.frame() #essentially an excel spreadsheet, if i can get my data into this format all of r will run. </code></pre>
 <pre><code>## data frame with 0 columns and 0 rows</code></pre>
 <pre class="r"><code>first_names &lt;- c(&quot;asdasas&quot;, &quot;fwefef&quot;, &quot;sfweg&quot;)
 ages &lt;- c(2,7,9)
@@ -504,10 +507,8 @@ grades &lt;- c(89, 56, 99)
 everybody &lt;- data.frame(first_names, 
                         ages, 
                         grades)
-View(everybody)</code></pre>
-<pre><code>## Warning in View(everybody): unable to open display</code></pre>
-<pre><code>## Error in .External2(C_dataviewer, x, title): unable to start data viewer</code></pre>
-<pre class="r"><code>everybody$ages[2] #gets the second thing in the column</code></pre>
+View(everybody)
+everybody$ages[2] #gets the second thing in the column</code></pre>
 <pre><code>## [1] 7</code></pre>
 <pre class="r"><code>a&lt;-&quot;couting the letters in cats and dogs&quot;
 table(unlist(strsplit(a,split=&quot;&quot;)))</code></pre>
@@ -534,9 +535,7 @@ print(new_df)</code></pre>
 ## Levels: a b c d e</code></pre>
 <pre class="r"><code>names(new_df) #get names of data.frame</code></pre>
 <pre><code>## [1] &quot;numbers&quot; &quot;letters&quot;</code></pre>
-</div>
-<div id="writing-function" class="section level2">
-<h2>writing function</h2>
+<p>##writing function</p>
 <pre class="r"><code>my_function &lt;- function(x){ 
   return(x+1)
 } #create fnx to return something #(x)is the input
@@ -549,19 +548,16 @@ my_function(2)#(output)</code></pre>
 <pre class="r"><code>add_one &lt;- function(x) return(x+1)
 add_one</code></pre>
 <pre><code>## function(x) return(x+1)</code></pre>
-</div>
-<div id="roll-dice-function" class="section level2">
-<h2>roll dice function</h2>
+<p>##roll dice function</p>
 <pre class="r"><code>sample(1:6,1) #use to get a single random number between 1:6 and 1 number increments</code></pre>
-<pre><code>## [1] 4</code></pre>
+<pre><code>## [1] 1</code></pre>
 <pre class="r"><code>roll_dice &lt;- function(){
   return(sample(1:6,1))
 }
 
 roll_dice()#run the fxn with no input</code></pre>
-<pre><code>## [1] 2</code></pre>
-<div id="write-function-to-find-sum-of-numbers" class="section level3">
-<h3>write function to find sum of numbers</h3>
+<pre><code>## [1] 4</code></pre>
+<p>###write function to find sum of numbers</p>
 <pre class="r"><code>#decalre a fxn
 my_numbers &lt;- c(1,4,3,4,5,6) #input will become x variable
 
@@ -599,15 +595,12 @@ hist(v,xlab = &quot;Weight&quot;,col = &quot;green&quot;,border = &quot;red&quot
 dev.off()</code></pre>
 <pre><code>## quartz_off_screen 
 ##                 2</code></pre>
-</div>
-<div id="loop-examlpe" class="section level3">
-<h3>loop examlpe</h3>
+<p>###loop examlpe</p>
 <pre class="r"><code>for(this_word in words) {
   n_letters &lt;- nchar(this_word)
   block_word &lt;- toupper(this_word)
   cat(block_word, &quot;has&quot;, n_letters, &quot;letters\n&quot;)
 }</code></pre>
-</div>
 </div>
 
 
