@@ -230,7 +230,7 @@ base + coord_cartesian(xlim = c(5, 7))
 
 ```
 ---
-class: center, inverse
+class:inverse
 References
 
 Wickham, H. (2016) ggplot2. Elegant graphics for data analysis. Houston, Texas: Springer Nature. 
