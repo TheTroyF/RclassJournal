@@ -31,18 +31,27 @@ ggplot(diamonds, aes(carat, depth)) +
   ggplot(mpg, aes(displ, hwy, colour = factor(cyl))) +
   geom_point()
 ```
+  Surface Plots - geom_contour()
+```{r, echo=TRUE} 
+gplot(faithfuld, aes(eruptions, waiting)) +
+ geom_contour(aes(z = density, colour = ..level..))
+```
   Bar Graphs - geom_bar()
 ```{r, echo=TRUE} 
 dplot <- ggplot(diamonds, aes(color, fill = cut)) +
   xlab(NULL) + ylab(NULL) + theme(legend.position = "none")
 dplot + geom_bar(position = "dodge")
 ```
-  Surface Plots - geom_contour()
-```{r, echo=TRUE} 
-gplot(faithfuld, aes(eruptions, waiting)) +
- geom_contour(aes(z = density, colour = ..level..))
-```
-
+  Bar Graphs can be laid out in a couple differnt ways, geom_bar(position = "fill") represents the data stacked with #1 always being on top. geom_bar(position = "dodge") places the bars side by side in a more traditional visual. 
+  
+  Knowing the fundamental grammar that goes into ggplot2 can expand the working knowledge and confidence of the user. Wilkinson (2005) provides multiple enhancements to better understand expressions that fit into the R enviornment. Grammar allows you to change many high level properties within a graph, this means changing independent aspects to effect the overall visualization and easier interpretation by the reader (Wickham, 2016). 
+  
+  Layers create the objects within the plot that make it visually pleasing. Five parts compose a layer: data, aesthetic mappings, statistical transformation, geometric object, and a position adjustment. NEED MORE CHAPTER 5
+  
+  Scales are the controlliung entity for attributes and data mapping. An example of a scale would be the color gradient mapping a segment of the real line to a path through a color space (Wickham, 2016). The function defines whether the pth in linear or curved, what color is used, and the spectrum from start to end.
+  
+  The coordinate system places the objects into different planes on the plot. Coordinates affect all positions on the plot, both simultaneously and differntly depending on scales used. It is worth noting that scaling must be performed before a statistical transformation while a coordniate transformation must occur afterword (Wickham, 2016). 
+  
   GGplot2 can simply be implemented into Rstudio by library(ggplot2). The rest of the data visualization that occurs is included in the package. GG can be used tolayer the information by displaying data, creating a statistical summary, and showing metadata. 
   
   Displaying data can help show a detection of a pattern, the summary can assist in model predictions from the context of the data revealing subtlties, and metadata helps give meaning to the raw data itself in either the background or foreground. Such code as: geom_area(), geombar(), geom_line(), and geom_point() are basic variaitons of plots/graphs used to repesent data. 
@@ -81,5 +90,12 @@ gplot(faithfuld, aes(eruptions, waiting)) +
   base + facet_wrap(~class, ncol = 3)
 ```
 
-  Knowing the fundamental grammar that goes into ggplot2 can expand the working knowledge and confidence of the user. Terms such as:
+  
+  
+  
+References:
+
+hadley wickham
+
+wilkinson 2005
   
