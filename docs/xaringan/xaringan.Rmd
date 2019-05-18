@@ -244,6 +244,7 @@ base + facet_wrap(~class, ncol = 3, as.table = FALSE)
 ---
 class: center, inverse
 # Theme Elements
+
 ### 40 unique elements control appearance, grouped into 5 categories: plot, axis, legend, panel, and facet. 
 
 ---
