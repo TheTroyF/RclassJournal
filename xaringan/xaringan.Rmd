@@ -225,13 +225,6 @@ base + scale_x_continuous(limits = c(5, 7))
 ---
 
 class: center, inverse
-```{r, echo=TRUE, fig.width=6, fig.height=4}
-
-base + coord_cartesian(xlim = c(5, 7))
-
-```
----
-class: center, inverse
 
 # Facet Wrapping
 

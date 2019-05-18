@@ -21,7 +21,9 @@ navbar:
     - text: "CodeOP"
       href: CodeOP.html 
     - text: "xaringan"
-      href: xaringan.html
+      href: xaringan/xaringan.html#1
+    - text: "Final Tutorial"
+      href: Final_Tutorial.html   
     - text: "Links"
       href: Links.html
 output_dir: "docs"
