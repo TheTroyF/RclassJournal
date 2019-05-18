@@ -15,3 +15,11 @@ output:
 knitr::opts_chunk$set(echo = TRUE, message=TRUE, error=TRUE)
 ```
 
+  The use of analytical statisical data can prove to be one of the most relevant parts of research. Using an option such as GGplot2 can enhance data to the extent an individual without a strong scientific background can easily comprehend it. Data visualtization within GGplot2 can consist of such elements as: violin plots, box plots, scatter plots, bar graphs, and 3D representions. 
+
+  GGplot2 can simply be implemented into Rstudio by library(ggplot2). The rest of the data visualization that occurs is included in the package. GG can be used to display data, create a statistical summary, and show metadata. 
+  
+  
+  
+  Knowing the fundamental grammar that goes into ggplot2 can expand the working knowledge and confidence of the user. Terms such as:
+  
