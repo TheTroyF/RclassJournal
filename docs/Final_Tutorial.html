@@ -440,33 +440,29 @@ div.tocify {
 <p>Displaying data can help show a detection of a pattern, the summary can assist in model predictions from the context of the data revealing subtlties, and metadata helps give meaning to the raw data itself in either the background or foreground. Such code as: geom_area(), geombar(), geom_line(), and geom_point() are basic variaitons of plots/graphs used to repesent data.</p>
 <p>Creating custom ranges for the data represented in the plots is adjusted by settign the x and y values. Code shown below sets the limits in ranges, specific parameters can be controlled by the code shown below. X/Y Ranges</p>
 <pre class="r"><code>  df &lt;- data.frame(x = 1:3, y = 1:3)
-  base &lt;- ggplot(df, aes(x, y)) + geom_point()</code></pre>
-<pre><code>## Error in ggplot(df, aes(x, y)): could not find function &quot;ggplot&quot;</code></pre>
-<pre class="r"><code>  print(base)</code></pre>
-<pre><code>## Error in print(base): object &#39;base&#39; not found</code></pre>
-<p>X/Y Parameters</p>
+  base &lt;- ggplot(df, aes(x, y)) + geom_point()
+  print(base)</code></pre>
+<p><img src="Final_Tutorial_files/figure-html/unnamed-chunk-1-1.png" width="672" /> X/Y Parameters</p>
 <pre class="r"><code>  base + scale_x_continuous(limits = c(1.5, 2.5))</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;base&#39; not found</code></pre>
-<p>Aside from setting ranges on a plot you can also zoom into a plot to show a more specific data point relevant to the research. coord_cartesian adjusts the visualized X/Y limits of the data. For base mpg on the highway based on engine displacement can be respresented for all engine sizes or for the sake of independet research one may be interested in a smaller range of visualized data without altering the entire plot, simply by resettign the parameters of x. Each time “+” is utilized we are adding a layer or element to the plot. This can be shown with the code:</p>
+<pre><code>## Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
+<p><img src="Final_Tutorial_files/figure-html/unnamed-chunk-2-1.png" width="672" /> Aside from setting ranges on a plot you can also zoom into a plot to show a more specific data point relevant to the research. coord_cartesian adjusts the visualized X/Y limits of the data. For base mpg on the highway based on engine displacement can be respresented for all engine sizes or for the sake of independet research one may be interested in a smaller range of visualized data without altering the entire plot, simply by resettign the parameters of x. Each time “+” is utilized we are adding a layer or element to the plot. This can be shown with the code:</p>
 <p>Entire Plot:</p>
 <pre class="r"><code>  base &lt;- ggplot(mpg, aes(displ, hwy)) +
   geom_point() +
   geom_smooth()</code></pre>
-<pre><code>## Error in ggplot(mpg, aes(displ, hwy)): could not find function &quot;ggplot&quot;</code></pre>
 <p>Zoomed In Plot:</p>
 <pre class="r"><code>  base + scale_x_continuous(limits = c(5, 7))</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;base&#39; not found</code></pre>
-<p>Facet wrapping gives us the ability to present mutiple different variables or factors within an experiment. Laying out multiple plots into subsets visualizing data in individual panels. To represent the previos mpg data seperated by vehicle type and engine displacement we can use code such as:</p>
-<pre class="r"><code>  mpg2 &lt;- subset(mpg, cyl != 5 &amp; drv %in% c(&quot;4&quot;, &quot;f&quot;) &amp; class != &quot;2seater&quot;)</code></pre>
-<pre><code>## Error in subset(mpg, cyl != 5 &amp; drv %in% c(&quot;4&quot;, &quot;f&quot;) &amp; class != &quot;2seater&quot;): object &#39;mpg&#39; not found</code></pre>
-<pre class="r"><code>  base &lt;- ggplot(mpg2, aes(displ, hwy)) +
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<pre><code>## Warning: Removed 196 rows containing non-finite values (stat_smooth).</code></pre>
+<pre><code>## Warning: Removed 196 rows containing missing values (geom_point).</code></pre>
+<p><img src="Final_Tutorial_files/figure-html/unnamed-chunk-4-1.png" width="672" /> Facet wrapping gives us the ability to present mutiple different variables or factors within an experiment. Laying out multiple plots into subsets visualizing data in individual panels. To represent the previos mpg data seperated by vehicle type and engine displacement we can use code such as:</p>
+<pre class="r"><code>  mpg2 &lt;- subset(mpg, cyl != 5 &amp; drv %in% c(&quot;4&quot;, &quot;f&quot;) &amp; class != &quot;2seater&quot;)
+  base &lt;- ggplot(mpg2, aes(displ, hwy)) +
   geom_blank() +
   xlab(NULL) +
-  ylab(NULL)</code></pre>
-<pre><code>## Error in ggplot(mpg2, aes(displ, hwy)): could not find function &quot;ggplot&quot;</code></pre>
-<pre class="r"><code>  base + facet_wrap(~class, ncol = 3)</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;base&#39; not found</code></pre>
-<p>Knowing the fundamental grammar that goes into ggplot2 can expand the working knowledge and confidence of the user. Terms such as:</p>
+  ylab(NULL)
+  base + facet_wrap(~class, ncol = 3)</code></pre>
+<p><img src="Final_Tutorial_files/figure-html/unnamed-chunk-5-1.png" width="672" /> Knowing the fundamental grammar that goes into ggplot2 can expand the working knowledge and confidence of the user. Terms such as:</p>
 
 
 
