@@ -48,7 +48,7 @@ dplot + geom_bar(position = "dodge")
   
   Layers create the objects within the plot that make it visually pleasing. Five parts compose a layer: data, aesthetic mappings, statistical transformation, geometric object, and a position adjustment. NEED MORE CHAPTER 5
   
-  Scales are the controlliung entity for attributes and data mapping. An example of a scale would be the color gradient mapping a segment of the real line to a path through a color space (Wickham, 2016). The function defines whether the pth in linear or curved, what color is used, and the spectrum from start to end.
+  Scales are the controlliung entity for attributions and data mapping. An example of a scale would be the color gradient mapping a segment of the real line to a path through a color space (Wickham, 2016). The function defines whether the pth in linear or curved, what color is used, and the spectrum from start to end.
   
   The coordinate system places the objects into different planes on the plot. Coordinates affect all positions on the plot, both simultaneously and differntly depending on scales used. It is worth noting that scaling must be performed before a statistical transformation while a coordniate transformation must occur afterword (Wickham, 2016). 
   
