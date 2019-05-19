@@ -148,7 +148,6 @@ ggplot(diamonds, aes(carat, depth)) +
 ```
 
 ---
-
 class: center, inverse
 
 # Scatter Plot Examples
@@ -220,13 +219,11 @@ class: center, inverse
 base + scale_x_continuous(limits = c(5, 7))
 ```
 ---
-
 class: center, inverse
-
 # Facet Wrapping
 
 ### Facettting is a mechanism for laying out multiple plots into subsets. These subsets are in individual panels. 
-
+--
 ```{r, echo=TRUE, fig.width=6, fig.height=4}
 mpg2 <- subset(mpg, cyl != 5 & drv %in% c("4", "f") & class != "2seater")
 base <- ggplot(mpg2, aes(displ, hwy)) +
@@ -263,7 +260,6 @@ labelled <- base +
   scale_color_brewer(type = "seq", palette="Spectral")
 labelled
 ```
-
 ---
 class: center, inverse
 # A detailed version of the same plot:
@@ -278,6 +274,18 @@ styled <- labelled +
     panel.grid.major = element_line(colour = "grey70", size = 0.2),
     panel.grid.minor = element_blank())
 styled
+```
+---
+class: center, inverse
+# Functional Programming 
+##### Rstudio treats all GGplot objects the same as regular r objects. You can add multiple geoms to the same base plot, giving you the user, a quick reference to multiple visuals. 
+```{r, echo=TRUE, fig.width=4, fig.height=2.5}
+geoms <- list(
+  geom_point(),
+  geom_boxplot(aes(group = cut_width(displ, 1))),
+  list(geom_point(), geom_smooth()))
+p <- ggplot(mpg, aes(displ, hwy))
+lapply(geoms, function(g) p + g)
 ```
 ---
 class:inverse

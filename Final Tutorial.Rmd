@@ -34,7 +34,7 @@ ggplot(diamonds, aes(carat, depth)) +
 ```
   Surface Plots - geom_contour()
 ```{r, echo=TRUE} 
-gplot(faithfuld, aes(eruptions, waiting)) +
+ggplot(faithfuld, aes(eruptions, waiting)) +
  geom_contour(aes(z = density, colour = ..level..))
 ```
   Bar Graphs - geom_bar()
@@ -47,9 +47,15 @@ dplot + geom_bar(position = "dodge")
   
   Knowing the fundamental grammar that goes into ggplot2 can expand the working knowledge and confidence of the user. Wilkinson (2005) provides multiple enhancements to better understand expressions that fit into the R enviornment. Grammar allows you to change many high level properties within a graph, this means changing independent aspects to effect the overall visualization and easier interpretation by the reader (Wickham, 2016). 
   
-  Layers create the objects within the plot that make it visually pleasing. Five parts compose a layer: data, aesthetic mappings, statistical transformation, geometric object, and a position adjustment. NEED MORE CHAPTER 5
+  Layers create the objects within the plot that make it visually pleasing. Five parts compose a layer: data, aesthetic mappings, statistical transformation, geometric object, and a position adjustment. 
   
-  Scales are the controlliung entity for attributions and data mapping. An example of a scale would be the color gradient mapping a segment of the real line to a path through a color space (Wickham, 2016). The function defines whether the pth in linear or curved, what color is used, and the spectrum from start to end.
+  Mapping - aes() function will open a set of default mappings
+  Data - This overides the default plot dataset
+  Geom - Geoms can make multiple arguments using aesthics as parameters such as color.
+  Stat - A statistical transformation can create a summary from a geom.
+  Position - The adjustment of overlapping objects such as stacking or dodging. 
+  
+  Scales are the controlliung entity for attributions and data mapping. An example of a scale would be the color gradient mapping a segment of the real line to a path through a color space (Wickham, 2016). The function defines whether the path is linear or curved, what color is used, and the spectrum from start to end.
   
   The coordinate system places the objects into different planes on the plot. Coordinates affect all positions on the plot, both simultaneously and differntly depending on scales used. It is worth noting that scaling must be performed before a statistical transformation while a coordniate transformation must occur afterword (Wickham, 2016). 
   
@@ -134,7 +140,18 @@ styled <- labelled +
      )
 styled
 ```
-  
+
+  Functional Programming in Rstudio treats all GGplot objects the same as regular r objects. You can add multiple geoms to the same base plot, giving you the user, a quick reference to multiple visuals. 
+```{r, echo=TRUE}
+geoms <- list(
+  geom_point(),
+  geom_boxplot(aes(group = cut_width(displ, 1))),
+  list(geom_point(), geom_smooth())
+)
+p <- ggplot(mpg, aes(displ, hwy))
+lapply(geoms, function(g) p + g)
+```
+
   
 References:
 
