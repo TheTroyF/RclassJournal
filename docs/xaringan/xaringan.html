@@ -52,7 +52,7 @@ class: inverse, center
 
 class: center, inverse
 
-# How to Design and Alter a Violin Plot
+# The Violin Plot
 
 #####geom_violin()
 
@@ -164,7 +164,6 @@ ggplot(diamonds, aes(carat, depth)) +
 ![](xaringan_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
 
 ---
-
 class: center, inverse
 
 # Scatter Plot Examples
@@ -268,13 +267,11 @@ base + scale_x_continuous(limits = c(5, 7))
 
 ![](xaringan_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
 ---
-
 class: center, inverse
-
 # Facet Wrapping
 
 ### Facettting is a mechanism for laying out multiple plots into subsets. These subsets are in individual panels. 
-
+--
 
 ```r
 mpg2 &lt;- subset(mpg, cyl != 5 &amp; drv %in% c("4", "f") &amp; class != "2seater")
@@ -325,7 +322,6 @@ labelled
 ```
 
 ![](xaringan_files/figure-html/unnamed-chunk-16-1.png)&lt;!-- --&gt;
-
 ---
 class: center, inverse
 # A detailed version of the same plot:
@@ -344,6 +340,43 @@ styled
 ```
 
 ![](xaringan_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
+---
+class: center, inverse
+# Functional Programming 
+##### Rstudio treats all GGplot objects the same as regular r objects. You can add multiple geoms to the same base plot, giving you the user, a quick reference to multiple different visuals. 
+
+```r
+geoms &lt;- list(
+  geom_point(),
+  geom_boxplot(aes(group = cut_width(displ, 1))),
+  list(geom_point(), geom_smooth()))
+p &lt;- ggplot(mpg, aes(displ, hwy))
+lapply(geoms, function(g) p + g)
+```
+
+```
+## [[1]]
+```
+
+![](xaringan_files/figure-html/unnamed-chunk-18-1.png)&lt;!-- --&gt;
+
+```
+## 
+## [[2]]
+```
+
+![](xaringan_files/figure-html/unnamed-chunk-18-2.png)&lt;!-- --&gt;
+
+```
+## 
+## [[3]]
+```
+
+```
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+```
+
+![](xaringan_files/figure-html/unnamed-chunk-18-3.png)&lt;!-- --&gt;
 ---
 class:inverse
 References
