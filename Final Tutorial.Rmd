@@ -115,7 +115,7 @@ labelled <- base +
     colour = "cylinders",
     title = "Highway and city mileage are highly correlated"
   ) +
-  scale_color_brewer(type = "seq", palette = "spectral")
+  scale_color_brewer(type = "seq", palette="Spectral")
 labelled
 ```
 

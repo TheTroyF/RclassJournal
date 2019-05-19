@@ -265,7 +265,7 @@ class: center, inverse
 labelled <- base +
   labs(x = "city mileage/gallon",y = "highway mileage/gallon",
     colour = "cylinders", title = "Highway and city mileage are highly correlated") +
-  scale_color_brewer(type = "seq", palette = "spectral")
+  scale_color_brewer(type = "seq", palette="Spectral")
 labelled
 ```
 
