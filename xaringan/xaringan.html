@@ -238,7 +238,6 @@ class: center, inverse
 base &lt;- ggplot(mpg, aes(displ, hwy)) +
   geom_point() +
   geom_smooth()
-
 base
 ```
 
@@ -283,7 +282,6 @@ base &lt;- ggplot(mpg2, aes(displ, hwy)) +
   geom_blank() +
   xlab(NULL) +
   ylab(NULL)
-
 base + facet_wrap(~class, ncol = 3)
 ```
 

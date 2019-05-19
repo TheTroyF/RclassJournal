@@ -47,7 +47,7 @@ class: inverse, center
 
 class: center, inverse
 
-# How to Design and Alter a Violin Plot
+# The Violin Plot
 
 #####geom_violin()
 
@@ -211,7 +211,6 @@ class: center, inverse
 base <- ggplot(mpg, aes(displ, hwy)) +
   geom_point() +
   geom_smooth()
-
 base
 ```
 ---
@@ -219,8 +218,6 @@ class: center, inverse
 
 ```{r, echo=TRUE, fig.width=6, fig.height=4}
 base + scale_x_continuous(limits = c(5, 7))
-
-
 ```
 ---
 
@@ -236,10 +233,8 @@ base <- ggplot(mpg2, aes(displ, hwy)) +
   geom_blank() +
   xlab(NULL) +
   ylab(NULL)
-
 base + facet_wrap(~class, ncol = 3)
 base + facet_wrap(~class, ncol = 3, as.table = FALSE)
-
 ```
 ---
 class: center, inverse
@@ -249,16 +244,45 @@ class: center, inverse
 
 ---
 class: center, inverse
-# Plot Elements
+# Adjusting Themes in The Plot
 
-### plot.background - element_rect()  - Plot Background
-### plot.title      -  element_text() - Plot Title
-### plot.margin     -  margin()       - Margins Around Plot
+```{r, echo=TRUE, fig.width=6, fig.height=4}
+base <- ggplot(mpg, aes(cty, hwy, color = factor(cyl)))+
+  geom_jitter() +
+  geom_abline(colour = "grey50", size = 2)
+base
+```
 
+---
+class: center, inverse
+# Building on the simple version:
+```{r, echo=TRUE, fig.width=6, fig.height=4}
+labelled <- base +
+  labs(x = "city mileage/gallon",y = "highway mileage/gallon",
+    colour = "cylinders", title = "Highway and city mileage are highly correlated") +
+  scale_color_brewer(type = "seq", palette="Spectral")
+labelled
+```
+
+---
+class: center, inverse
+# A detailed version of the same plot:
+```{r, echo=TRUE, fig.width=6, fig.height=4}
+styled <- labelled +
+  theme_bw() +
+  theme(
+    plot.title = element_text(face = "bold", size = 12),
+    legend.background = element_rect(fill = "white", size = 4, colour = "white"),
+    legend.justification = c(0, 1),legend.position = c(0, 1),
+    axis.ticks = element_line(colour = "grey70", size = 0.2),
+    panel.grid.major = element_line(colour = "grey70", size = 0.2),
+    panel.grid.minor = element_blank())
+styled
+```
 ---
 class:inverse
 References
 
 Wickham, H. (2016) ggplot2. Elegant graphics for data analysis. Houston, Texas: Springer Nature. 
 
----
+Wilkinson, L. (2005). The grammar of graphics. Statistics and computing, 2nd edn. Springer, New York

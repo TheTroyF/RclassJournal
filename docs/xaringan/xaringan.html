@@ -15,7 +15,7 @@ class: center, middle, inverse, title-slide
 # GGplot2
 ## Visuals With GGplot2
 ### Troy Funderburk
-### 2019/13/05 (updated: 2019-05-18)
+### 2019/13/05 (updated: 2019-05-19)
 
 ---
 
@@ -238,7 +238,6 @@ class: center, inverse
 base &lt;- ggplot(mpg, aes(displ, hwy)) +
   geom_point() +
   geom_smooth()
-
 base
 ```
 
@@ -283,7 +282,6 @@ base &lt;- ggplot(mpg2, aes(displ, hwy)) +
   geom_blank() +
   xlab(NULL) +
   ylab(NULL)
-
 base + facet_wrap(~class, ncol = 3)
 ```
 
@@ -297,23 +295,62 @@ base + facet_wrap(~class, ncol = 3, as.table = FALSE)
 ---
 class: center, inverse
 # Theme Elements
+
 ### 40 unique elements control appearance, grouped into 5 categories: plot, axis, legend, panel, and facet. 
 
 ---
 class: center, inverse
-# Plot Elements
+# Adjusting Themes in The Plot
 
-### plot.background - element_rect()  - Plot Background
-### plot.title      -  element_text() - Plot Title
-### plot.margin     -  margin()       - Margins Around Plot
 
+```r
+base &lt;- ggplot(mpg, aes(cty, hwy, color = factor(cyl)))+
+  geom_jitter() +
+  geom_abline(colour = "grey50", size = 2)
+base
+```
+
+![](xaringan_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
+
+---
+class: center, inverse
+# Building on the simple version:
+
+```r
+labelled &lt;- base +
+  labs(x = "city mileage/gallon",y = "highway mileage/gallon",
+    colour = "cylinders", title = "Highway and city mileage are highly correlated") +
+  scale_color_brewer(type = "seq", palette="Spectral")
+labelled
+```
+
+![](xaringan_files/figure-html/unnamed-chunk-16-1.png)&lt;!-- --&gt;
+
+---
+class: center, inverse
+# A detailed version of the same plot:
+
+```r
+styled &lt;- labelled +
+  theme_bw() +
+  theme(
+    plot.title = element_text(face = "bold", size = 12),
+    legend.background = element_rect(fill = "white", size = 4, colour = "white"),
+    legend.justification = c(0, 1),legend.position = c(0, 1),
+    axis.ticks = element_line(colour = "grey70", size = 0.2),
+    panel.grid.major = element_line(colour = "grey70", size = 0.2),
+    panel.grid.minor = element_blank())
+styled
+```
+
+![](xaringan_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
 ---
 class:inverse
 References
 
 Wickham, H. (2016) ggplot2. Elegant graphics for data analysis. Houston, Texas: Springer Nature. 
 
----
+Wilkinson, L. (2005). The grammar of graphics. Statistics and computing, 2nd edn. Springer, New York
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
