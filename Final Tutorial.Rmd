@@ -15,7 +15,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE, message=TRUE, error=TRUE)
 ```
 
-  The use of analytical statisical data can prove to be one of the most relevant parts of research. Using an option such as GGplot2 can enhance data to the extent an individual without a strong scientific background can easily comprehend it. Data visualtization within GGplot2 can consist of such elements as: 
+  The use of analytical statistical data can prove to be one of the most relevant parts of research. Using an option such as GGplot2 can enhance data to the extent an individual without a strong scientific background can easily comprehend it. Data visualization within GGplot2 can consist of such elements as: 
   Violin Plots - geom_violin()
 ```{r, echo=TRUE} 
 library(ggplot2)
@@ -91,15 +91,53 @@ dplot + geom_bar(position = "dodge")
   base + facet_wrap(~class, ncol = 3)
 ```
 
-  The above code creates a facet wrap, a facet grid lays out a plot in 2D. An example of a facet grid is:
+  The above code creates a facet wrap, a facet grid lays out a plot in 2D. Using (. ~) spreads the values across the columns. An example of a facet grid is:
 ```{r, echo=TRUE}
 base + facet_grid(. ~ cyl)
+```
+  A grid can have multiple variables in the rows and columns by adding them together, a+b ~ c+d. When these variables appear on the rows and columns they become nested, meaning that only combonations that appear in the data will appear in the plot (Wickham, 2016). 
+  
+  Once you have established the type of plot ggplot offers multiple themed options to facilitate the aesthetics of your visualization. The themes do not effect the geoms but rather the non data elements. Theme elements seperate the data from non data for your control. A simple element to change is the title, legend, and x-axis description. plot.title, axis.ticks, and legend.key.height govern these options respectively. GGplot is intuitive when adjusting theme colors, theme(plot.title = element_text(colour = "grey")) will harmoniously adjust all colors appropriately. The following code will show just how intricate you can be with a scatter plot. 
+  
+  A simple version:
+```{r, echo=TRUE}
+base <- ggplot(mpg, aes(cty, hwy, color = factor(cyl)))+
+  geom_jitter() +
+  geom_abline(colour = "grey50", size = 2)
+base
+```
+Building on the simple version:
+```{r,echo=TRUE}
+labelled <- base +
+  labs(
+    x = "city mileage/gallon",
+    y = "highway mileage/gallon",
+    colour = "cylinders",
+    title = "Highway and city mileage are highly correlated"
+  ) +
+  scale_color_brewer(type = "seq", palette = "spectral")
+labelled
+```
+
+  A detailed version of the same plot:
+```{r, echo=TRUE}
+styled <- labelled +
+  theme_bw() +
+  theme(
+    plot.title = element_text(face = "bold", size = 12),
+    legend.background = element_rect(fill = "white", size = 4, colour = "white"),
+    legend.justification = c(0, 1),
+    legend.position = c(0, 1),
+    axis.ticks = element_line(colour = "grey70", size = 0.2),
+    panel.grid.major = element_line(colour = "grey70", size = 0.2),
+    panel.grid.minor = element_blank()
+     )
+styled
 ```
   
   
 References:
 
-hadley wickham
+Wickham, H. (2016) ggplot2. Elegant graphics for data analysis. Houston, Texas: Springer Nature. 
 
-wilkinson 2005
-  
+Wilkinson, L. (2005). The grammar of graphics. Statistics and computing, 2nd edn. Springer, New York
