@@ -183,14 +183,6 @@ print(base)
 ```
 ---
 class: center, inverse
-
-```{r, echo=TRUE, fig.width=6, fig.height=4}
-
-base + scale_x_continuous(limits = c(1.5, 2.5))
-
-```
----
-class: center, inverse
 ```{r, echo=TRUE, fig.width=6, fig.height=4}
 base + scale_x_continuous(limits = c(0, 4))
 ```
