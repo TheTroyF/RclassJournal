@@ -436,7 +436,8 @@ div.tocify {
 
 
 <p>The use of analytical statisical data can prove to be one of the most relevant parts of research. Using an option such as GGplot2 can enhance data to the extent an individual without a strong scientific background can easily comprehend it. Data visualtization within GGplot2 can consist of such elements as: Violin Plots - geom_violin()</p>
-<pre class="r"><code>ggplot(mpg, aes(drv, hwy)) + geom_violin()</code></pre>
+<pre class="r"><code>library(ggplot2)
+ggplot(mpg, aes(drv, hwy)) + geom_violin()</code></pre>
 <p><img src="Final_Tutorial_files/figure-html/unnamed-chunk-1-1.png" width="672" /> Box Plots - geom_boxplot()</p>
 <pre class="r"><code>ggplot(diamonds, aes(carat, depth)) +
   geom_boxplot(aes(group = cut_width(carat, 0.1))) +
@@ -456,7 +457,7 @@ dplot + geom_bar(position = &quot;dodge&quot;)</code></pre>
 <p><img src="Final_Tutorial_files/figure-html/unnamed-chunk-5-1.png" width="672" /> Bar Graphs can be laid out in a couple differnt ways, geom_bar(position = “fill”) represents the data stacked with #1 always being on top. geom_bar(position = “dodge”) places the bars side by side in a more traditional visual.</p>
 <p>Knowing the fundamental grammar that goes into ggplot2 can expand the working knowledge and confidence of the user. Wilkinson (2005) provides multiple enhancements to better understand expressions that fit into the R enviornment. Grammar allows you to change many high level properties within a graph, this means changing independent aspects to effect the overall visualization and easier interpretation by the reader (Wickham, 2016).</p>
 <p>Layers create the objects within the plot that make it visually pleasing. Five parts compose a layer: data, aesthetic mappings, statistical transformation, geometric object, and a position adjustment. NEED MORE CHAPTER 5</p>
-<p>Scales are the controlliung entity for attributes and data mapping. An example of a scale would be the color gradient mapping a segment of the real line to a path through a color space (Wickham, 2016). The function defines whether the pth in linear or curved, what color is used, and the spectrum from start to end.</p>
+<p>Scales are the controlliung entity for attributions and data mapping. An example of a scale would be the color gradient mapping a segment of the real line to a path through a color space (Wickham, 2016). The function defines whether the pth in linear or curved, what color is used, and the spectrum from start to end.</p>
 <p>The coordinate system places the objects into different planes on the plot. Coordinates affect all positions on the plot, both simultaneously and differntly depending on scales used. It is worth noting that scaling must be performed before a statistical transformation while a coordniate transformation must occur afterword (Wickham, 2016).</p>
 <p>GGplot2 can simply be implemented into Rstudio by library(ggplot2). The rest of the data visualization that occurs is included in the package. GG can be used tolayer the information by displaying data, creating a statistical summary, and showing metadata.</p>
 <p>Displaying data can help show a detection of a pattern, the summary can assist in model predictions from the context of the data revealing subtlties, and metadata helps give meaning to the raw data itself in either the background or foreground. Such code as: geom_area(), geombar(), geom_line(), and geom_point() are basic variaitons of plots/graphs used to repesent data.</p>
@@ -485,6 +486,9 @@ dplot + geom_bar(position = &quot;dodge&quot;)</code></pre>
   ylab(NULL)
   base + facet_wrap(~class, ncol = 3)</code></pre>
 <p><img src="Final_Tutorial_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>The above code creates a facet wrap, a facet grid lays out a plot in 2D. An example of a facet grid is:</p>
+<pre class="r"><code>base + facet_grid(. ~ cyl)</code></pre>
+<p><img src="Final_Tutorial_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <p>References:</p>
 <p>hadley wickham</p>
 <p>wilkinson 2005</p>

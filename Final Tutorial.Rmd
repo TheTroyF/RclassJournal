@@ -18,6 +18,7 @@ knitr::opts_chunk$set(echo = TRUE, message=TRUE, error=TRUE)
   The use of analytical statisical data can prove to be one of the most relevant parts of research. Using an option such as GGplot2 can enhance data to the extent an individual without a strong scientific background can easily comprehend it. Data visualtization within GGplot2 can consist of such elements as: 
   Violin Plots - geom_violin()
 ```{r, echo=TRUE} 
+library(ggplot2)
 ggplot(mpg, aes(drv, hwy)) + geom_violin()
 ```
   Box Plots - geom_boxplot()
@@ -90,7 +91,10 @@ dplot + geom_bar(position = "dodge")
   base + facet_wrap(~class, ncol = 3)
 ```
 
-  
+  The above code creates a facet wrap, a facet grid lays out a plot in 2D. An example of a facet grid is:
+```{r, echo=TRUE}
+base + facet_grid(. ~ cyl)
+```
   
   
 References:
