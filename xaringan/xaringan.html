@@ -15,7 +15,7 @@ class: center, middle, inverse, title-slide
 # GGplot2
 ## Visuals With GGplot2
 ### Troy Funderburk
-### 2019/13/05 (updated: 2019-05-19)
+### 2019/13/05 (updated: 2019-05-20)
 
 ---
 
@@ -203,24 +203,11 @@ print(base)
 ---
 class: center, inverse
 
-
-```r
-base + scale_x_continuous(limits = c(1.5, 2.5))
-```
-
-```
-## Warning: Removed 2 rows containing missing values (geom_point).
-```
-
-![](xaringan_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;
----
-class: center, inverse
-
 ```r
 base + scale_x_continuous(limits = c(0, 4))
 ```
 
-![](xaringan_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
+![](xaringan_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;
 ---
 class: center, inverse
 
@@ -244,7 +231,7 @@ base
 ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
-![](xaringan_files/figure-html/unnamed-chunk-12-1.png)&lt;!-- --&gt;
+![](xaringan_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
 ---
 class: center, inverse
 
@@ -265,7 +252,7 @@ base + scale_x_continuous(limits = c(5, 7))
 ## Warning: Removed 196 rows containing missing values (geom_point).
 ```
 
-![](xaringan_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
+![](xaringan_files/figure-html/unnamed-chunk-12-1.png)&lt;!-- --&gt;
 ---
 class: center, inverse
 # Facet Wrapping
@@ -282,13 +269,13 @@ base &lt;- ggplot(mpg2, aes(displ, hwy)) +
 base + facet_wrap(~class, ncol = 3)
 ```
 
-![](xaringan_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
+![](xaringan_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
 
 ```r
 base + facet_wrap(~class, ncol = 3, as.table = FALSE)
 ```
 
-![](xaringan_files/figure-html/unnamed-chunk-14-2.png)&lt;!-- --&gt;
+![](xaringan_files/figure-html/unnamed-chunk-13-2.png)&lt;!-- --&gt;
 ---
 class: center, inverse
 # Theme Elements
@@ -307,7 +294,7 @@ base &lt;- ggplot(mpg, aes(cty, hwy, color = factor(cyl)))+
 base
 ```
 
-![](xaringan_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
+![](xaringan_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
 
 ---
 class: center, inverse
@@ -321,7 +308,7 @@ labelled &lt;- base +
 labelled
 ```
 
-![](xaringan_files/figure-html/unnamed-chunk-16-1.png)&lt;!-- --&gt;
+![](xaringan_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
 ---
 class: center, inverse
 # A detailed version of the same plot:
@@ -339,7 +326,7 @@ styled &lt;- labelled +
 styled
 ```
 
-![](xaringan_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
+![](xaringan_files/figure-html/unnamed-chunk-16-1.png)&lt;!-- --&gt;
 ---
 class: center, inverse
 # Functional Programming 
@@ -358,14 +345,14 @@ lapply(geoms, function(g) p + g)
 ## [[1]]
 ```
 
-![](xaringan_files/figure-html/unnamed-chunk-18-1.png)&lt;!-- --&gt;
+![](xaringan_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
 
 ```
 ## 
 ## [[2]]
 ```
 
-![](xaringan_files/figure-html/unnamed-chunk-18-2.png)&lt;!-- --&gt;
+![](xaringan_files/figure-html/unnamed-chunk-17-2.png)&lt;!-- --&gt;
 
 ```
 ## 
@@ -376,7 +363,7 @@ lapply(geoms, function(g) p + g)
 ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
-![](xaringan_files/figure-html/unnamed-chunk-18-3.png)&lt;!-- --&gt;
+![](xaringan_files/figure-html/unnamed-chunk-17-3.png)&lt;!-- --&gt;
 ---
 class:inverse
 References
