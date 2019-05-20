@@ -334,8 +334,7 @@ class: center, inverse
 
 ```r
 geoms &lt;- list(
-  geom_point(),
-  geom_boxplot(aes(group = cut_width(displ, 1))),
+  geom_point(), geom_boxplot(aes(group = cut_width(displ, 1))),
   list(geom_point(), geom_smooth()))
 p &lt;- ggplot(mpg, aes(displ, hwy))
 lapply(geoms, function(g) p + g)
